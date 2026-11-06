@@ -7,6 +7,8 @@
     python scripts/run_phase.py --phase 4            # Notebook 04: Granger selection (G10, H2) -> configs/selected_features.yaml
     python scripts/run_phase.py --phase 5 [--stage S] [--tag]   # Notebook 05 (laptop): G11-G17, G19
     PASIG_PROFILE=rehearsal python scripts/run_phase.py --phase 5   # tiny CPU dry run, outputs under runs/rehearsal/
+    python scripts/run_phase.py --phase 6 [--stage S] [--rerun-reason "..."]   # Notebook 06: G18, opens 2024 ONCE
+    PASIG_PROFILE=rehearsal python scripts/run_phase.py --phase 6   # dry run on the 2023 stand-in (2024 never read)
 """
 from __future__ import annotations
 
@@ -28,8 +30,9 @@ def main() -> int:
     ap.add_argument("--phase", type=int, required=True)
     ap.add_argument("--no-tests", action="store_true", help="skip the phase tests (G6 will not pass)")
     ap.add_argument("--tag", action="store_true", help="create the phase git tag when its freeze gate passes")
-    ap.add_argument("--stage", help="phase 5 only: run one stage (compute, variants, grid, finals, baselines, "
-                                    "thresholds, checks, freeze)")
+    ap.add_argument("--stage", help="phase 5: compute, variants, grid, finals, baselines, thresholds, checks, freeze; "
+                                    "phase 6: unseal, predict, evaluate")
+    ap.add_argument("--rerun-reason", help="phase 6 only: required to open the test season a second time (logged)")
     a = ap.parse_args()
     if not (a.phase == 5 and a.stage):
         require_gates(*REQUIRED_BEFORE.get(a.phase, []))
@@ -70,6 +73,18 @@ def main() -> int:
         code = phase5.run(tag=a.tag)
         print(phase5.summary())
         return code
+    if a.phase == 6:
+        import os
+
+        from pasig import phase6
+        os.environ.setdefault("CUDA_VISIBLE_DEVICES", "-1")      # inference only; CPU keeps the scores reproducible
+        out = phase6.run([a.stage] if a.stage else None, rerun_reason=a.rerun_reason)
+        if "evaluate" in out:
+            print("H3:", out["evaluate"]["H3"]["verdict"], "| H4:", out["evaluate"]["H4"]["verdict"],
+                  "| strongest simple baseline:", out["evaluate"]["strongest_simple_baseline"])
+        tests = ["tests/test_metrics.py", "tests/test_events.py", "tests/test_dm.py", "tests/test_unseal.py",
+                 "tests/test_same_hours.py"]
+        return subprocess.call([sys.executable, "-m", "pytest", "-q", *tests], cwd=root())
     raise SystemExit(f"phase {a.phase} is not implemented yet")
 
 

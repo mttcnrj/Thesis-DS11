@@ -1,6 +1,6 @@
 PY ?= python
 
-.PHONY: test test-data lint nb01 nb02 nb03 nb04 nb05 phase1 phase2 phase3 phase4 phase5 rehearsal5 recover smoke
+.PHONY: test test-data lint nb01 nb02 nb03 nb04 nb05 phase1 phase2 phase3 phase4 phase5 rehearsal5 phase6 rehearsal6 nb06 recover smoke
 
 test:            ## synthetic tests only (< 1 min)
 	$(PY) -m pytest -m fast -q
@@ -28,6 +28,15 @@ phase5:          ## Notebook 05 on the chosen laptop (long; resumable per stage)
 
 rehearsal5:      ## Notebook 05 dry run with tiny settings, outputs under runs/rehearsal/ (never the real gates)
 	PASIG_PROFILE=rehearsal $(PY) scripts/run_phase.py --phase 5
+
+phase6:          ## Notebook 06: G18 opens the 2024 test season ONCE (after G17 + tag settings-frozen)
+	$(PY) scripts/run_phase.py --phase 6
+
+rehearsal6:      ## Notebook 06 dry run on the 2023 stand-in (2024 never read), outputs under runs/rehearsal/
+	PASIG_PROFILE=rehearsal $(PY) scripts/run_phase.py --phase 6
+
+nb06:
+	$(PY) -m jupyter nbconvert --to notebook --execute --inplace notebooks/06_evaluate.ipynb
 
 nb05:
 	$(PY) -m jupyter nbconvert --to notebook --execute --inplace notebooks/05_train.ipynb

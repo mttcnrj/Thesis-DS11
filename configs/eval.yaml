@@ -1,7 +1,28 @@
+# Notebook 06 (Section 10.1; D19). Fixed before the test season is opened (6 Nov 2026).
 bootstrap_reps: 2000
-block_h: 24
+block_h: 24                        # moving-block bootstrap on the hourly test series (time order)
 seed: 20261106
-recall_point: 0.90
-recall_sensitivity: [0.80, 0.95]
-event_merge_gap_h: 6
-event_detect_window_h: 2
+recall_point: 0.90                 # H4 verdict (D19)
+recall_sensitivity: [0.80, 0.95]   # descriptive only
+recall_rule: "first threshold (from the top) whose Recall >= target; the achieved Recall is reported"
+event_merge_gap_h: 6               # events: runs >= level, gaps < 6 h merged
+event_detect_window_h: 2           # detected if an alert's target hour falls from 2 h before to 2 h after the first exceedance
+warning_time: "first exceedance hour - issue hour (t) of the earliest qualifying alert"
+rainy_rain24_mm: 5.0               # rainy hour: >= 5 mm SG rain in the previous 24 h, from reports available at t
+neural_seed_for_tests: "seed with the median validation RMSE (DM, H4); all seeds reported as mean +- SD"
+dm:
+  loss: squared_error
+  holm_family: "hybrid vs {persistence, tide_only, tide_resid, ridge, knn, lstm} x 6 leads x {all hours, rainy hours}"
+  alpha: 0.05
+strongest_simple_baseline: "lowest mean VALIDATION RMSE among persistence, tide_only, tide_resid (chosen before the test)"
+h3_rule: >-
+  supported if, on all hours, the hybrid's squared error is significantly lower (DM-HLN, Holm-adjusted p < 0.05,
+  negative mean loss difference) than every baseline (persistence, tide-only, tide + persisted residual, ridge,
+  KNN regressor, standalone LSTM) at every lead; partly supported if at least one (baseline, lead) pair is;
+  not supported if none. Rainy-hour tests are reported beside it.
+h4_rule: >-
+  high-water level only. At a lead, the hybrid wins against a classifier family (LR, KNN; input set = the one with the
+  higher mean 2023 F1 at high water, chosen before the test) if its false alarms at Recall >= 0.90 are fewer with the
+  moving-block 95% CI of the FP difference below 0 AND its PR-AUC is higher with the CI of the difference above 0.
+  Supported if the hybrid wins against both families at every lead; partly supported if at some (family, lead)
+  pair; not supported if none. Recall 0.80 and 0.95 do not change the verdict (D19). Flood-risk results are descriptive.

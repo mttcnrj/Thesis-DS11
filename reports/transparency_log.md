@@ -148,6 +148,17 @@ warning in the F1 threshold search).
 
 **F27. smoke_pipeline.py passes 7/7 on the cloud CPU** (TensorFlow 2.21, 19 s), confirming the environment.
 
+## Notebook 06 (built; dry run only, 2024 not opened)
+
+**F28. Notebook 06 is implemented and passes a CPU dry run in which the 2023 validation windows stand in for the
+test season** (`PASIG_PROFILE=rehearsal`; the 2024 rows are dropped before any window is built, as in Phase 3, so
+**2024 has not been read**). G18, predictions of every model, level metrics, skill, hourly alerts, equal-recall
+false alarms, PR-AUC, events, DM + Holm and the H3/H4 verdicts run end to end. The rehearsal checks two things
+that matter for the real run: (1) the 2023 windows rebuilt through the NB06 code path equal Phase 3's saved arrays
+bit for bit; (2) the reloaded checkpoints, frozen baselines and refitted KNN models reproduce NB05's saved 2023
+predictions and probabilities exactly (`tests/test_same_hours.py`). **The rehearsal verdicts are not results**:
+2-epoch models, and offsets/thresholds tuned on the same hours.
+
 ## Thesis text to add beyond Plan Section 13
 * Ch III §7.8 / Figure III-3: coverage counted after QC and **before** gap fill (Pandacan 77–95%).
 * Table III-6: replace with `reports/tables/table_III-6_recomputed.csv`.
@@ -156,6 +167,8 @@ warning in the F1 threshold search).
 * Ch III Ph3 (row 14): add the floor rule (1st percentile) and that G9 added P1, K2, Q1 with residual peaks remaining.
 * Ch III Table III-2 / D8: constituent-pair variant has 120 columns (10 constituents), not 84.
 * Ch III §D (row 24): chosen laptop = Ryzen 7 7735HS, 16 GB, RTX 4060 Laptop GPU, WSL2.
+* Ch III Ph6 / §10.1: the H3 and H4 decision rules, the DM/Holm family (72 tests), the rainy-hour definition and
+  the seed used for tests, exactly as in `configs/eval.yaml` and P6-a…j.
 * Ch III Ph3 (Granger): time steps (mean over the 6 h report period; daily max over 09:00–08:00), the
   common-sample BIC, and that pressure (not RH/temperature) was selected.
 

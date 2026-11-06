@@ -85,6 +85,23 @@ Chapter rows it changes (Plan Section 13). "Outcome" records what the gate decid
 | P5-l | frozen files | Keras checkpoints and fitted baselines in `artifacts/frozen/` (git-ignored, produced on the laptop) with SHA-256 in `configs/frozen_manifest.json` (committed); KNN models are refitted in NB06 from the frozen hyperparameters (deterministic; avoids storing the training set 30 times) | G17, G18 |
 | P5-m | Keras 3 | the D9 add-back uses a registered `LevelAtT` layer instead of a Python `Lambda`, and the losses are registered, so checkpoints reload safely in NB06 | serialisation only; same computation |
 
+## Notebook 06: implementation choices (built and dry-run, 6 Nov 2026; the real test is opened once on the laptop)
+
+Fixed in `configs/eval.yaml` before the test season is opened.
+
+| ID | Topic | Choice | Why |
+|---|---|---|---|
+| P6-a | G18 | blocking: tag `settings-frozen` is an ancestor of HEAD; every file in `frozen_manifest.json` has its SHA-256; `gates/TEST_UNSEALED.json` absent. Opening writes the marker (time, commit). A second opening needs `--rerun-reason`, which is appended to the marker and must go in the transparency log | Section 0.3: the test is read once |
+| P6-b | test windows | built only in NB06 with the Phase 3 `build_windows`, the frozen tide coefficients, training medians and scalers; the layout must equal `feature_names.json`. The rehearsal rebuilds the 2023 windows through the same path and asserts they equal Phase 3's saved arrays bit for bit | the 2024 inputs are made exactly as the training inputs were |
+| P6-c | inference device | CPU (`CUDA_VISIBLE_DEVICES=-1`) | scoring is cheap and CPU results are reproducible on any machine |
+| P6-d | neural seeds | level metrics and alerts: mean ± SD over the 5 seeds; DM tests and H4: the seed with the median 2023 RMSE; events: every seed reported | `eval.yaml` (neural_seed_for_tests) |
+| P6-e | rainy hours | ≥ 5 mm Science Garden rain in the previous 24 h from reports available at t (`sg_rain_24h_in`); dry = the rest | uses only information available at issue time |
+| P6-f | Diebold–Mariano | squared error, Newey–West lags max(h − 1, ⌊4(n/100)^(2/9)⌋), HLN correction, t(n − 1); each pair on the hours both models score; Holm over 72 tests (6 baselines × 6 leads × all/rainy); "hybrid better" = Holm p < 0.05 and negative mean loss difference | Section 10.1; H3 rule in `eval.yaml` |
+| P6-g | equal recall (D19) | hybrid score = forecast level (the offset does not change the ranking); classifiers = probability; same hours; ties admitted together; first threshold with Recall ≥ target, achieved Recall reported; CIs: 24 h moving-block bootstrap, 2,000 reps, percentile (rehearsal: 200) | D19 |
+| P6-h | classifier input set for H4 | per family, the set with the higher mean 2023 F1 at high water (read from `thresholds.yaml`) | fixed before the test |
+| P6-i | strongest simple baseline | lowest mean 2023 RMSE among persistence, tide-only, tide + persisted residual | fixed before the test |
+| P6-j | events | observed levels = targets of the valid (hour, lead) pairs; runs ≥ level with gaps < 6 h merged; detected if an alert targets first exceedance ± 2 h; warning time from the earliest such alert's issue hour; event-bootstrap 95% CI | `eval.yaml` |
+
 ## Implementation choices made in Phase 1 (recorded for the thesis text)
 
 | Ref | Choice | Why |

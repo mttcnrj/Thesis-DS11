@@ -37,3 +37,17 @@ def test_master_is_wet_season_and_ordered():
     assert tr.max() < va.min() and va.max() < te.min()
     ev = pd.read_parquet(root() / "data" / "processed" / "eval_hours.parquet")
     assert ev.index.equals(m.index)
+
+
+@pytest.mark.fast
+def test_only_notebook06_builds_test_windows():
+    """Section 0.3: the 2024 windows are built in one place, after G18."""
+    import re
+
+    from pasig.config import root
+    hits = [p.relative_to(root()).as_posix() for p in (root() / "pasig").rglob("*.py")
+            if re.search(r"build_frozen_windows\(\s*\"test\"|build_windows\([^)]*\"test\"", p.read_text())]
+    assert hits == ["pasig/phase6.py"]
+    src = (root() / "pasig" / "phase6.py").read_text()
+    body = src[src.index("def test_windows"):src.index("def rainy_flag")]
+    assert body.index('require_gates("G18")') < body.index('build_frozen_windows("test")')

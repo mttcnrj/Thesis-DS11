@@ -67,6 +67,21 @@ If G16 reports "beats persistence: no" for the hybrid or LSTM, work through Sect
 Commit afterwards: `gates/`, `configs/` (compute, model_inputs, thresholds, frozen_manifest.json),
 `reports/compute/<laptop>/`, `reports/tables/`. `artifacts/frozen/` stays on the laptop (hashed in the manifest).
 
-## 4. Notebooks 06 and 07
+## 4. Notebook 06 (opens the 2024 test season ONCE; G18)
 
-Notebook 06 opens the 2024 test season once (G18). Start it deliberately, after G17.
+Only after G16 has been reviewed, G17 passed and `settings-frozen` is tagged and pushed. Do not edit anything listed
+in `configs/frozen_manifest.json` after the tag: G18 refuses to open the test if a hash differs.
+
+```bash
+git status                                                  # clean; HEAD contains settings-frozen
+python scripts/run_phase.py --phase 6                       # unseal (G18) -> predict -> evaluate (~10 min, CPU)
+```
+
+If a stage crashes after `unseal`, fix the code and re-run from that stage (`--stage predict` or `--stage evaluate`);
+this does not re-open the test. Re-running `unseal` needs `--rerun-reason "..."`, and that reason goes in
+`reports/transparency_log.md`. Commit `gates/G18_*.json`, `gates/TEST_UNSEALED.json`, `reports/tables/test_*`,
+`reports/figures/test_*` (the prediction parquets are a few MB; commit them too).
+
+## 5. Notebook 07
+
+Walk-forward, ablations and the case study run after Notebook 06 (G18).

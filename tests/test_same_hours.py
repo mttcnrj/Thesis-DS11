@@ -27,3 +27,33 @@ def test_validation_predictions_share_hours(base):
     pv = pv[pv["valid"]]
     keys = pv.groupby(["model", "seed"]).apply(lambda g: frozenset(zip(g["t"], g["lead"], strict=True)))
     assert keys.nunique() == 1
+
+
+@pytest.mark.data
+@pytest.mark.parametrize("base", ["reports/tables", "runs/rehearsal/reports/tables"])
+def test_test_predictions_share_hours(base):
+    f = root() / base / "preds_test.parquet"
+    if not f.exists():
+        pytest.skip(f"no Notebook 06 predictions under {base}")
+    pt = pd.read_parquet(f)
+    pt = pt[pt["valid"]]
+    keys = pt.groupby(["model", "seed"]).apply(lambda g: frozenset(zip(g["t"], g["lead"], strict=True)))
+    assert keys.nunique() == 1
+
+
+@pytest.mark.data
+def test_rehearsal_reloaded_models_reproduce_notebook05():
+    """On the 2023 stand-in, NB06's reloaded checkpoints, frozen baselines and refitted KNNs must reproduce the
+    validation predictions NB05 saved, exactly (proves the test season is scored with the frozen models)."""
+    T = root() / "runs/rehearsal/reports/tables"
+    if not (T / "preds_test.parquet").exists():
+        pytest.skip("no Notebook 06 rehearsal")
+    pt = pd.read_parquet(T / "preds_test.parquet")
+    pv = pd.concat([pd.read_parquet(T / f) for f in ("preds_val_neural.parquet", "preds_val_baselines.parquet")])
+    m = pt.merge(pv, on=["t", "lead", "model", "seed"], suffixes=("_te", "_va"))
+    assert len(m) == len(pt) == len(pv)
+    assert np.allclose(m["y_pred_te"], m["y_pred_va"], atol=1e-6, equal_nan=True)
+    pr = pd.read_parquet(T / "probs_test.parquet")
+    pc = pd.read_parquet(T / "probs_val_classifiers.parquet")
+    j = pr.merge(pc, on=["t", "lead", "model", "level"], suffixes=("_te", "_va"))
+    assert len(j) == len(pr) == len(pc) and np.allclose(j["prob_te"], j["prob_va"], atol=1e-9)
