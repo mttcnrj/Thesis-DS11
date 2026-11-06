@@ -1,0 +1,92 @@
+{
+  "gate": "G20",
+  "name": "quiapo_2021_identity",
+  "passed": true,
+  "decision": "include 2021 in the Quiapo check (with/without reported)",
+  "rule": "(a) layout/units match confirmed Quiapo files; (b) sheets dated 2021; (c) corr(outside, Pandacan) >= lowest confirmed-year corr - 0.05; (d) not a copy of Aviles or the Taguig files over the same hours (corr < 0.99 and not equal); overlapping copies must agree (identical -> one series)",
+  "evidence": {
+    "copies": [
+      "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/QUIAPO 2022.xlsx",
+      "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/QUIAPO 2023.xlsx"
+    ],
+    "copies_identical": true,
+    "a": {
+      "in_9_14_m_share": 0.9990860276476636,
+      "status_OC_or_nP_share": 0.9996574560401918,
+      "confirmed_years_status_OC_or_nP_share": 0.9986208481783703,
+      "outside_row_present_share": 0.9981735159817352
+    },
+    "b": {
+      "block_years": [
+        2021
+      ],
+      "n_blocks": 48,
+      "date_source": [
+        "header"
+      ]
+    },
+    "c": {
+      "corr_confirmed": {
+        "2018": {
+          "r": 0.8847491714530658,
+          "n": 4150
+        },
+        "2019": {
+          "r": 0.8935121971399156,
+          "n": 3860
+        },
+        "2022": {
+          "r": 0.9166137657567872,
+          "n": 3849
+        }
+      },
+      "corr_2021": {
+        "r": 0.91461908984161,
+        "n": 3380
+      },
+      "threshold": 0.8347491714530657
+    },
+    "d": {
+      "vs_aviles_outside": {
+        "n_overlap": 8683,
+        "corr": 0.9548197067941334,
+        "equal_share": 0.011977427156512725,
+        "copy": false
+      },
+      "vs_aviles_inside": {
+        "n_overlap": 8653,
+        "corr": 0.8716826549260217,
+        "equal_share": 0.04738241072460418,
+        "copy": false
+      },
+      "vs_taguig_land": {
+        "n_overlap": 7630,
+        "corr": 0.1006405617546649,
+        "equal_share": 0.00799475753604194,
+        "copy": false
+      },
+      "vs_taguig_lake": {
+        "n_overlap": 7629,
+        "corr": 0.1470820853056591,
+        "equal_share": 0.006029623803906148,
+        "copy": false
+      },
+      "vs_taguig_land_inside": {
+        "n_overlap": 7632,
+        "corr": 0.18484426291293865,
+        "equal_share": 0.0034067085953878406,
+        "copy": false
+      }
+    },
+    "conditions": {
+      "a": true,
+      "b": true,
+      "c": true,
+      "d": true,
+      "copies_agree": true
+    },
+    "passed": true
+  },
+  "timestamp": "2026-11-06T21:40:40+08:00",
+  "git_sha": "5f141f5"
+}

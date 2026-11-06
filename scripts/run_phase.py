@@ -2,6 +2,7 @@
 
     python scripts/run_phase.py --phase 1            # Notebook 01: parse, QC, coverage, eval hours (G1 G2 G3 G5 G6)
     python scripts/run_phase.py --phase 1 --tag      # also tag `phase1-frozen` when G6 passes
+    python scripts/run_phase.py --phase 2            # Notebook 02: legend G4, G20, link analysis, H1 (G7), alert levels (G8)
 """
 from __future__ import annotations
 
@@ -34,6 +35,12 @@ def main() -> int:
             subprocess.check_call(["git", "tag", "-f", "phase1-frozen"], cwd=root())
             print("tagged phase1-frozen")
         return 0 if out.get("g6", a.no_tests) else 1
+    if a.phase == 2:
+        from pasig import phase2
+        out = phase2.run()
+        print("H1:", out["h1"]["verdict"], "| alert levels:", out["alert"]["high_water_m"], out["alert"]["flood_risk_m"])
+        code = 0 if a.no_tests else subprocess.call([sys.executable, "-m", "pytest", "-q", "tests/test_link.py"], cwd=root())
+        return code
     raise SystemExit(f"phase {a.phase} is not implemented yet")
 
 

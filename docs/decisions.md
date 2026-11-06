@@ -5,9 +5,9 @@ Chapter rows it changes (Plan Section 13). "Outcome" records what the gate decid
 
 | ID | Date | Choice | Reason (short) | Gate file | Chapter rows | Outcome |
 |---|---|---|---|---|---|---|
-| D1 | 2026-11-06 | One copy of the identical QUIAPO 2023/2024 files; dated by sheet headers | identical SHA-256; file names unreliable | `gates/G01_raw_files.json` | 5, 8, 9, 11, 25 | G1 passed. Kept `QUIAPO 2023.xlsx`; its sheets are headed **2021, 2023 and 2024** (see transparency log F1) |
+| D1 | 2026-11-06 | One copy of the identical QUIAPO 2023/2024 files; dated by sheet headers | identical SHA-256; file names unreliable | `gates/G01_raw_files.json` | 5, 8, 9, 11, 25 | G1 passed. Kept `QUIAPO 2023.xlsx`; its sheets are headed **2021, 2023 and 2024** (F1). 2023 sheet: descriptive only; 2024 sheet: sealed until after NB06 (decision P2-b) |
 | D2 | 2026-11-06 | Keep the 80% every-season rule; failing stations tested descriptively only; no missing-indicator variant | Fort Santiago 0–2% in 2018–19; tiny ablation effect | `gates/G05_eligibility.json` | 27 | G5: **no eligible upstream input** (Sto. Niño min 78.1% in 2024; Fort Santiago 0% in 2018) |
-| D3 | 2026-11-06 | Assumed status-code legend, validated on 2018–2022 | no MMDA legend | G4 (NB02) | 3, 10 | parser stores `pumps_running`, `gate_open`, `sky`, `raw_status`; G4 pending (Phase 2) |
+| D3 | 2026-11-06 | Assumed status-code legend, validated on 2018–2022 | no MMDA legend | `gates/G04_status_legend.json` | 3, 10 | G4: gate and pump fields **used** after the post-hoc amendment P2-a (literal checks failed for physical reasons, reported); **sky field dropped** (F/C dry check fails 21.1% > 20%); `S` reads as shower at Aviles |
 | D4 | 2026-11-06 | Trace rainfall = 0.05 mm | half the 0.1 mm limit | parser + `tests/test_time_alignment.py` | 7 | implemented (6-hourly `T`, daily `-1`) |
 | D5 | 2026-11-06 | 6-hourly total usable 1 h after its period ends | no look-ahead | `gates/G03_rain_timing.json` | 6, 12, 23 | G3: stamps mark the **period end** (99.7% of 1,172 rain days match vs 53.7%) |
 | D6 | 2026-11-06 | Port Area excluded | no 2024 data, gaps | `gates/G01_raw_files.json` | — | Port Area file excluded; Port Area columns dropped from the 6-hourly file |
@@ -22,9 +22,26 @@ Chapter rows it changes (Plan Section 13). "Outcome" records what the gate decid
 | D15 | 2026-11-06 | Determinism on for final runs; CPU fallback | | G14 | — | pending |
 | D16 | 2026-11-06 | Local VS Code on the Windows laptop with the stronger NVIDIA GPU (else more cores) | | G0 (`scripts/record_g0.py`) | 24 | **G0 not yet recorded** (needs both laptops' PowerShell output). Phase 1 here ran in a cloud container; it is deterministic and must be re-run on the chosen laptop with `make phase1` |
 | D17 | 2026-11-06 | GPU only if visible, G14 passes, projection faster | | G13 | 24 | pending |
-| D18 | 2026-11-06 | Quiapo 2021 used conditionally (G20) in the secondary check; with/without reported | only route to 2021 | G20 (NB02) | 11 | G1 marks both 2021 copies `pending_G20`; the two copies are value-identical (one series) |
+| D18 | 2026-11-06 | Quiapo 2021 used conditionally (G20) in the secondary check; with/without reported | only route to 2021 | `gates/G20_quiapo_2021_identity.json` | 11 | G20 **passed** (a–d all hold; copies identical → one series): 2021 included; Quiapo check reported with and without it |
 | D19 | 2026-11-06 | Recall 0.90 for the H4 verdict; 0.80/0.95 sensitivity | | eval code | 28 | pending |
 | D20 | 2026-11-06 | Weighted-loss ablation (w ∈ {2,5,10}) | | ablation code | 29, 30, 31 | pending |
+
+## Gate outcomes recorded in Phase 2
+
+| Gate | Outcome |
+|---|---|
+| G4 | all gate/pump fields used (amended checks P2-a); sky dropped |
+| G20 | passed: Quiapo 2021 is Quiapo (r with Pandacan 0.915 vs confirmed 0.885–0.917; not a copy of Aviles r = 0.955 or Taguig r ≤ 0.19) |
+| G7 | **H1 partly supported**: OR per 0.1 m (M1, day-clustered) 1.207 (1.143–1.275) excludes 1; 2023 ROC-AUC gain 0.004 (−0.022 to +0.028) does not exclude 0 |
+| G8 | high water **11.69 m** (P95), flood risk **12.00 m** (first 0.05 m level ≥ 11.69 with ≥ 50% stress hours: 55%, n = 80) → `configs/alert_levels.yaml` (frozen) |
+
+## Decisions taken during Phase 2 (6 Nov 2026)
+
+| Ref | Decision | Why | Chapter text |
+|---|---|---|---|
+| P2-a | **Post-hoc amendment of two G4 checks**, approved by the group after the literal checks failed. Gate `O` fails if the river side is *above* the sump (was: river ≥ sump); `nP` fails if the river side is *not above* the sump (was: neither sump nor Pandacan above its no-pump median). Literal results stay in the G4 evidence | An open gate equalises both sides (99% of `O` hours read exactly equal, so the literal check failed 100%); pumping draws the sump down (median 10.20 vs 10.60 m), so a "high sump" test fails by design (42%). Amended checks fail 1.1% and 0.3%. Independent support: pump count rises with rain (median R24 1.8 → 6 → 28 → 76 mm for 0–3 pumps) and with Pandacan level (11.15 → 11.68 m) | Ch III Ph2 (row 10): describe the checks as amended and why, with both results; Ch I §G (row 3) unchanged |
+| P2-b | **Quiapo 2023/2024 sheets (F1): option (a)**. Outside the H1 verdict; the 2023 sheet is reported as a descriptive 2023 check of the alert levels; the 2024 sheet stays sealed until after NB06 | keeps the pre-registered design; uses the found data openly | Ch III Ph2 (row 11) and Table III-1 note (row 5) |
+| P2-c | Operational definitions fixed in `configs/link.yaml` before the statistics: dry hour = SG 24 h rain < 5 mm; events = runs ≥ L with gaps < 6 h merged; event-level stress = event contains ≥ 1 stress hour; L and ln(1+R24) centred at training means (M2 main effects at mean rain); grid = multiples of 0.05 m from 10.80 to 12.60 m; flood-risk scan starts at the high-water level | the plan leaves these open | Ch III Ph2 |
 
 ## Implementation choices made in Phase 1 (recorded for the thesis text)
 

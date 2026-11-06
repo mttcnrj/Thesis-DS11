@@ -20,7 +20,8 @@ from the run recorded in `gates/` (git SHA in each gate file).
 
 ## Data-vs-plan findings (Plan 0.1: data are ground truth — reported, not hidden)
 
-**F1. Real-looking Quiapo 2023 and 2024 sheets exist.** The single QUIAPO 2023/2024 copy has three sheets, headed
+**F1. Real-looking Quiapo 2023 and 2024 sheets exist.** *Resolved 6 Nov 2026 by option (a) (decision P2-b):
+outside the H1 verdict; 2023 reported descriptively; 2024 sealed until after NB06.* The single QUIAPO 2023/2024 copy has three sheets, headed
 2021, 2023 and 2024. The 2023 and 2024 sheets are not copies of 2021 or 2022 (outside-elevation correlation
 r = 0.007–0.031 and ≤ 5% equal values against both). The plan (C5, Section 8.4) expected no real Quiapo 2023
 data. Per Section 8.4 the Quiapo check covers training years only, so these blocks are `exclude` in G1 (reason
@@ -58,6 +59,50 @@ gauge shows; real peaks (multi-hour) survive. P95 of training Pandacan stays **1
 
 **F9. A blank-cell bug was caught by tests before any results were used:** blank 6-hourly rain cells were
 being read as trace; fixed (blanks are missing, `T` is trace).
+
+## Phase 2 findings (Notebook 02)
+
+**F10. The literal G4 checks for gate `O` and pump `nP` failed for physical, not legend, reasons** and were
+amended with the group's approval (decision P2-a). Literal: gate `O` 100% fail at both stations (river = sump in
+99% of `O` hours); pumps 42.3% (Aviles) / 35.4% (Quiapo) fail. Amended: 1.1% / 1.0% and 0.3% / 0.3%.
+`gate_C` 1.0% / 0.2% fail; `nP` with no O/C → gate closed 0.2% / 0.1% fail; pump digits ≤ 4 at both stations.
+
+**F11. Sky codes dropped (G4):** fair/cloudy hours had ≥ 1 mm Science Garden rain in the matching 6 h in 21.1%
+of hours (limit 20%); rain codes failed 4.2%. Not used in any model. `S` behaves like rain at Aviles (95.8%
+rainy vs 95.8% for rain codes): read as "shower".
+
+**F12. G20 passed.** Quiapo 2021 (one series; the two copies are identical): metres (99.9% in 9–14 m), O/C/nP
+codes (99.97%), outside row present (99.8%); r(outside, Pandacan) = 0.915 vs 0.885 / 0.894 / 0.917 in 2018 /
+2019 / 2022; not a copy of Aviles (r = 0.955, 1.2% equal values) or Taguig 2021 (r ≤ 0.19).
+
+**F13. First assumption:** Pandacan vs Aviles river side, training hours: Pearson 0.934, Spearman 0.940,
+hourly changes 0.706; Aviles reads 0.218 m higher on average (SD 0.119 m), so the two gauges may not share a
+datum. At Pandacan ≥ 11.69 m: Pearson 0.598, changes 0.672.
+
+**F14. H1 partly supported (G7).** Training: 17,132 hours, 840 days, 448 stress hours. OR per 0.1 m after
+rain (M1) 1.207 (95% CI 1.143–1.275, day-clustered); LR M0 vs M1 = 162.6 (p < 1e-36). The level × rain
+interaction is significant (M2 interaction OR 1.53, 1.07–2.21; LR 15.4, p = 8.7e-5): the level matters more
+when it has rained. 2023: AUC M0 0.824, M1 0.829, gain 0.004 (−0.022 to +0.028; 2,000 day-block reps, 182
+days, 227 stress hours). Reference: OR 1.19 (1.13–1.26), gain 0.006 (−0.019 to +0.030) → same verdict.
+
+**F15. Alert levels (G8) reproduce the preliminary ones: 11.69 m and 12.00 m.** Stress share at/above:
+11.90 m 34.9%, 11.95 m 42.3%, 12.00 m 55.0% (n = 80). Sensitivity: with ≥ 1 pump the rule gives 11.85 m
+(cut-off 50%); with ≥ 3 pumps 12.20 m; with ≥ 2 pumps and cut-offs 40/60% 11.95/12.05 m. 2023 check (recorded,
+not used): 4.2% of hours ≥ 11.69 m (29% of them dry), 0.31% ≥ 12.0 m (13 h, none dry); stress share at/above
+23.8% and 46.2%.
+
+**F16. Quiapo secondary check:** OR per 0.1 m (≥ 2 Quiapo pumps, after rain) 1.067 (1.046–1.088) without 2021
+and 1.066 (1.046–1.086) with 2021; same direction as Aviles, weaker. Quiapo 2023 (descriptive): stress share
+25.6% at/above 11.69 m and 53.8% at/above 12.0 m (13 h).
+
+**F17. A parser regression was caught before Phase 2:** an empty-sheet case (`zip(strict=True)`) introduced
+by a lint fix after the Phase 1 run; fixed with a test, and Phase 1 re-run (identical results).
+
+## Thesis text to add beyond Plan Section 13
+* Ch III §7.8 / Figure III-3: coverage counted after QC and **before** gap fill (Pandacan 77–95%).
+* Table III-6: replace with `reports/tables/table_III-6_recomputed.csv`.
+* Ch III Ph2: legend checks as amended (P2-a) with both results; sky codes dropped; Quiapo 2023 descriptive.
+* Table III-1 / Ph1: Quiapo workbook also holds 2023 and 2024 sheets (F1).
 
 ## Notes on the environment of this run
 Phase 1 outputs in this commit were produced in a Claude Code cloud container (Python 3.13, pandas 3.0)

@@ -126,9 +126,11 @@ def build_manifest(raw_root: Path | None = None) -> tuple[pd.DataFrame, pd.DataF
     bl.loc[live & ~bl.year.isin(list(STUDY_YEARS)), ["status", "reason"]] = ["exclude", "outside the 2018-2024 study period"]
     bl.loc[live & is_q & bl.year.eq(QUIAPO_PENDING_YEAR), ["status", "reason"]] = [
         "pending_G20", "Quiapo 2021 block (D18): used in the secondary Quiapo check only if it passes G20"]
-    bl.loc[live & is_q & bl.year.isin([2023, 2024]), ["status", "reason"]] = [
-        "exclude", "Quiapo check covers training years only (Section 8.4); found although the plan expected "
-                   "no Quiapo 2023/2024 data (logged as a data-vs-plan finding)"]
+    bl.loc[live & is_q & bl.year.eq(2023), ["status", "reason"]] = [
+        "descriptive_only", "Quiapo 2023 (unexpected, transparency log F1): decision (a), 6 Nov 2026 - outside the "
+                            "H1 verdict; reported only as a descriptive 2023 check of the alert levels"]
+    bl.loc[live & is_q & bl.year.eq(2024), ["status", "reason"]] = [
+        "exclude", "Quiapo 2024 (unexpected, F1): test year, sealed until after Notebook 06 (decision (a))"]
     bl.loc[live & is_a & bl.year.eq(2024), ["status", "reason"]] = [
         "post_eval_only", "2024 Aviles: only for the descriptive check after Notebook 06 (Section 10.2)"]
     # duplicate dating inside a file (e.g. AVILES 2024 sheets whose headers repeat another half-month)

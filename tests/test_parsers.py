@@ -114,3 +114,7 @@ def test_status_codes(code, pumps, gate, sky):
                                         ("12:00:00 AM", 0), ("1:00:00 PM", 13), ("2AM  ", 2)])
 def test_hour_labels(label, hour):
     assert mp.parse_hour(label) == hour
+
+
+def test_sheet_without_blocks_is_skipped():
+    assert mp.blocks_with_bounds(pd.DataFrame([[None] * 3] * 5), "Sheet20") == []

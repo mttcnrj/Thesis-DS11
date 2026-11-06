@@ -1,0 +1,41 @@
+# Phase 2 (Notebook 02, Section 8). Operational definitions fixed BEFORE the Phase 2 statistics were computed
+# (6 Nov 2026). Training = wet seasons 2018-2022; 2023 for checking; 2024 pumping data sealed until after NB06.
+stress_min_pumps: 2                 # drainage stress = >= 2 Aviles pumps running (Section 1, SOP 1)
+dry_rain24_mm: 5.0                  # "dry" hour = Science Garden 24 h rain < 5 mm (available at t)
+grid_step_m: 0.05                   # levels on multiples of 0.05 m
+grid_range_m: [10.80, 12.60]
+event_merge_gap_h: 6                # events: runs >= L, gaps < 6 h merged
+bootstrap_reps: 2000
+bootstrap_seed: 20261106
+legend:                             # G4 (D3): a code part is used iff its check fails on <= 20% of applicable training hours
+  max_fail_share: 0.20
+  gate_open_fail: "outside >= inside"            # 'O' hours (gate open): river side should be below the sump
+  gate_closed_fail: "outside < inside"           # 'C' hours
+  pumps_no_gate_fail: "outside < inside"         # 'nP' with no O/C: assumed gate closed while pumping
+  # 'nP' = n pumps: a pump hour fails if NEITHER the sump NOR Pandacan is above its median over no-pump hours
+  # (same station, training wet seasons); digit check: n <= largest n seen on >= 3 distinct days at the station
+  pumps_digit_min_days: 3
+  sky_dry_codes: [F, C]                          # fair, cloudy: fail if the matching SG 6 h total >= 1.0 mm
+  sky_dry_fail_mm: 1.0
+  sky_rain_codes: [R, LR, LRS, RS, HRS, LRF]     # rain codes: fail if the matching SG 6 h total is exactly 0 mm
+  sky_ambiguous: S                               # shower if its rainy share is closer to the rain codes', else sunny
+  # AMENDMENT P2-a (6 Nov 2026, approved by the group after the literal checks failed for physical reasons):
+  #   gate 'O' fails if outside > inside (an open gate equalises the two sides: 99% equal readings);
+  #   'nP' fails if outside <= inside (pumps run against a closed gate and a higher river; pumping lowers the sump).
+  # The literal checks above are still computed and reported; field decisions use the amended ones.
+  amended_checks: [gate_O_amended, pumps_river_above_sump_amended]
+quiapo_g20:                         # G20 (D18)
+  confirmed_years: [2018, 2019, 2022]
+  corr_margin: 0.05
+  copy_corr_max: 0.99
+  units_in_range_min_share: 0.95    # metres: >= 95% of readings within 9-14 m
+logit:
+  center: true                      # L and ln(1+R24) centred at their training means (interpretation of M2 main effects)
+  or_per_m: 0.1                     # odds ratio reported per 0.1 m of Pandacan level
+alert:
+  high_water_quantile: 0.95         # G8: P95 of training Pandacan (observed, unfilled, unflagged), rounded 0.01 m
+  flood_risk_cutoff: 0.50           # lowest grid level >= high-water level where >= 50% of training hours at/above are stress hours
+  sensitivity:
+    min_pumps: [1, 2, 3]
+    cutoffs: [0.40, 0.50, 0.60]
+    levels_m: [11.90, 11.95, 12.00, 12.05, 12.10]

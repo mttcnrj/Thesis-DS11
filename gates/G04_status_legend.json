@@ -1,0 +1,145 @@
+{
+  "gate": "G4",
+  "name": "status_legend",
+  "passed": true,
+  "decision": "dropped: aviles.sky",
+  "rule": "For each code part of the assumed legend (Section 8.1) the check fails on <= 20% of applicable 2018-2022 hours -> field used; else the field is dropped from Phase 2 and logged (configs/link.yaml). Gate 'O' and pump 'nP' checks amended post hoc (decision P2-a); literal results kept in the evidence",
+  "evidence": {
+    "aviles": {
+      "gate_O": {
+        "n": 1065,
+        "fail_share": 1.0,
+        "passed": false,
+        "superseded_by_amendment": true
+      },
+      "gate_C": {
+        "n": 13589,
+        "fail_share": 0.010376039443667672,
+        "passed": true
+      },
+      "pumps_no_gate_closed": {
+        "n": 5637,
+        "fail_share": 0.0021287919105907396,
+        "passed": true
+      },
+      "pumps_high_sump_or_river": {
+        "n": 4886,
+        "fail_share": 0.423454768726975,
+        "passed": false,
+        "superseded_by_amendment": true
+      },
+      "pumps_digit": {
+        "n": 5671,
+        "fail_share": 0.0,
+        "passed": true
+      },
+      "sky_dry": {
+        "n": 18752,
+        "fail_share": 0.21139078498293515,
+        "passed": false
+      },
+      "sky_rain": {
+        "n": 915,
+        "fail_share": 0.041530054644808745,
+        "passed": true
+      },
+      "gate_O_amended": {
+        "n": 1065,
+        "fail_share": 0.011267605633802818,
+        "passed": true
+      },
+      "pumps_river_above_sump_amended": {
+        "n": 5637,
+        "fail_share": 0.0033705871917686712,
+        "passed": true
+      },
+      "S_meaning": {
+        "rainy_share_S": 0.9580536912751678,
+        "rainy_share_rain_codes": 0.9584699453551913,
+        "rainy_share_dry_codes": 0.41456911262798635,
+        "verdict": "shower",
+        "n": 596
+      },
+      "reference_no_pump_medians": {
+        "sump": 10.6,
+        "pandacan": 11.15,
+        "max_valid_pumps": 4
+      },
+      "fields": {
+        "gate_open": true,
+        "gate_closed_while_pumping": true,
+        "pumps_running": true,
+        "sky": false
+      }
+    },
+    "quiapo": {
+      "gate_O": {
+        "n": 1034,
+        "fail_share": 1.0,
+        "passed": false,
+        "superseded_by_amendment": true
+      },
+      "gate_C": {
+        "n": 10047,
+        "fail_share": 0.0022892405693241765,
+        "passed": true
+      },
+      "pumps_no_gate_closed": {
+        "n": 1856,
+        "fail_share": 0.0010775862068965517,
+        "passed": true
+      },
+      "pumps_high_sump_or_river": {
+        "n": 1725,
+        "fail_share": 0.3542028985507246,
+        "passed": false,
+        "superseded_by_amendment": true
+      },
+      "pumps_digit": {
+        "n": 1865,
+        "fail_share": 0.0,
+        "passed": true
+      },
+      "sky_dry": {
+        "n": 23,
+        "fail_share": 0.08695652173913043,
+        "passed": true
+      },
+      "sky_rain": {
+        "n": 0,
+        "fail_share": null,
+        "passed": false
+      },
+      "gate_O_amended": {
+        "n": 1034,
+        "fail_share": 0.009671179883945842,
+        "passed": true
+      },
+      "pumps_river_above_sump_amended": {
+        "n": 1857,
+        "fail_share": 0.0032310177705977385,
+        "passed": true
+      },
+      "S_meaning": {
+        "rainy_share_S": 0.632688927943761,
+        "rainy_share_rain_codes": null,
+        "rainy_share_dry_codes": 0.08695652173913043,
+        "verdict": "sunny",
+        "n": 569
+      },
+      "reference_no_pump_medians": {
+        "sump": 10.45,
+        "pandacan": 11.14,
+        "max_valid_pumps": 4
+      },
+      "fields": {
+        "gate_open": true,
+        "gate_closed_while_pumping": true,
+        "pumps_running": true,
+        "sky": false
+      }
+    }
+  },
+  "timestamp": "2026-11-06T21:40:40+08:00",
+  "git_sha": "5f141f5"
+}

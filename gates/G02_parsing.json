@@ -53,8 +53,8 @@
     "duplicate_timestamps": 0,
     "aviles_in_range_share_after_cm_to_m": 0.99775,
     "aviles_values_out_of_9_14_m": 227,
-    "quiapo_values_out_of_9_14_m": 71
+    "quiapo_values_out_of_9_14_m": 82
   },
-  "timestamp": "2026-11-06T20:33:37+08:00",
-  "git_sha": "49ae946"
+  "timestamp": "2026-11-06T21:39:59+08:00",
+  "git_sha": "5f141f5"
 }

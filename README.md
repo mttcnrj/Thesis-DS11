@@ -9,12 +9,12 @@ decision IDs (D1–D20) and gate IDs (G0–G20) are used throughout the code, co
 | Phase | Notebook | State |
 |---|---|---|
 | 1 Load + QC | `notebooks/01_load_qc.ipynb` / `make phase1` | **done** — G1, G2, G3, G5, G6 passed (`gates/`) |
-| 2 Link analysis, alert levels | 02 | not started |
+| 2 Link analysis, alert levels | `notebooks/02_link_analysis.ipynb` / `make phase2` | **done**: G4, G20, G7 (H1 partly supported), G8 (11.69 m / 12.00 m) |
 | 3–7 | 03–07 | not started |
 
 G0 (machine choice) still has to be recorded on the laptops: see `scripts/record_g0.py`.
 Phase 1 findings that differ from the plan's reference numbers are in `reports/transparency_log.md` (F1–F9);
-F1 (real Quiapo 2023/2024 sheets) needs a team decision before Notebook 02.
+Phase 2 findings: F10–F17; decisions P2-a (amended G4 checks) and P2-b (Quiapo 2023/2024, option a) in `docs/decisions.md`.
 
 ## Setup (chosen laptop, Section 2.2)
 
@@ -30,6 +30,7 @@ pip freeze > requirements.txt                                    # then commit; 
 ```bash
 make test                         # pytest -m fast (synthetic, < 1 min)
 python scripts/run_phase.py --phase 1 --tag   # Notebook 01 as a script; tags phase1-frozen when G6 passes
+python scripts/run_phase.py --phase 2         # Notebook 02: G4, G20, G7, G8 -> configs/alert_levels.yaml
 make test-data                    # tests on the real processed files
 ```
 
@@ -41,6 +42,7 @@ gates/     G##_<name>.json written by pasig.gates.record_gate
 pasig/     config.py gates.py phase1.py
   io/      manifest.py (G1) mmda_waterlevel.py (EFCOS, G2) mmda_pumping.py (Aviles/Quiapo, D3) pagasa.py (D4, D5, G3)
   qc/      rules.py (range, spike, flat runs) gaps.py (<= 3 h fill) coverage.py (G5)
+  link/    stats.py (Wilson, events, bootstraps, clustered logit) legend.py (G4) quiapo.py (G20); phase2.py
 scripts/   run_phase.py sync_drive.py record_g0.py drive/ (cloud-container fallback for data/raw)
 tests/     test_parsers test_time_alignment test_qc test_splits test_gapfill test_gates
 reports/   tables/ (coverage, Table III-6, QC summary, hand check) logs/ figures/ transparency_log.md

@@ -1,0 +1,7 @@
+bootstrap_reps: 2000
+block_h: 24
+seed: 20261106
+recall_point: 0.90
+recall_sensitivity: [0.80, 0.95]
+event_merge_gap_h: 6
+event_detect_window_h: 2

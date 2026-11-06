@@ -225,13 +225,15 @@ def _valid_date(y, m, d) -> bool:
 
 def blocks_with_bounds(df: pd.DataFrame, sheet: str) -> list[tuple[Block, int]]:
     bl = find_blocks(df, sheet)
+    if not bl:
+        return []
     bounds = [b.header_row for b in bl[1:]] + [len(df)]
     return list(zip(bl, bounds, strict=True))
 
 
 # ----------------------------------------------------------------------------- whole files
 
-LIVE_BLOCK_STATUS = ("use", "pending_G20")
+LIVE_BLOCK_STATUS = ("use", "pending_G20", "descriptive_only")
 
 
 def parse_from_blocks(raw_root: Path, blocks: pd.DataFrame, statuses=LIVE_BLOCK_STATUS,
@@ -279,3 +281,37 @@ def parse_from_blocks(raw_root: Path, blocks: pd.DataFrame, statuses=LIVE_BLOCK_
     long.loc[dup[dup].index, "flag_duplicate_time"] = True
     return {"long": long, "log": pd.DataFrame(log),
             "out_of_range": pd.concat(rng, ignore_index=True) if rng else pd.DataFrame()}
+
+
+# ----------------------------------------------------------------------------- Taguig (G20 condition d only)
+
+def parse_taguig(path: Path) -> pd.DataFrame:
+    """Taguig Pumping Station workbooks filed as QUIAPO 2020/2021: half-months side by side, each day with a
+    LAND and a LAKE column, hours 12MN..11PM down the rows; year from the 'YYYY WATER ELEVATION' title.
+    Used only to check that the Quiapo 2021 block is not a copy of these readings (G20 d)."""
+    df = read_book(path)
+    out = []
+    for _, sh in df.items():
+        title = " ".join(str(v) for v in sh.iloc[:3, :3].to_numpy().ravel() if isinstance(v, str))
+        m = re.search(r"(20\d\d)\s*WATER", title.upper())
+        if not m:
+            continue
+        year = int(m.group(1))
+        hdr_row = next(i for i in range(len(sh)) if any(isinstance(v, str) and HEADER_RE.search(v.upper()) for v in sh.iloc[i]))
+        heads = [(c, parse_header(v)) for c, v in enumerate(sh.iloc[hdr_row]) if isinstance(v, str) and parse_header(v)]
+        day_row = next(i for i in range(hdr_row + 1, hdr_row + 6)
+                       if sum(isinstance(v, (int, float)) and not pd.isna(v) for v in sh.iloc[i]) >= 3)
+        hours = [(r, parse_hour(sh.iat[r, 0])) for r in range(day_row + 2, len(sh)) if parse_hour(sh.iat[r, 0]) is not None]
+        bounds = [c for c, _ in heads[1:]] + [sh.shape[1]]
+        for (c0, (month, _d0, _d1, _)), c1 in zip(heads, bounds, strict=True):
+            for c in range(c0, c1):
+                d = sh.iat[day_row, c]
+                if not isinstance(d, (int, float)) or pd.isna(d):
+                    continue
+                for r, h in hours:
+                    if not _valid_date(year, month, int(d)):
+                        continue
+                    land, _ = to_number(sh.iat[r, c])
+                    lake, _ = to_number(sh.iat[r, c + 1]) if c + 1 < sh.shape[1] else (np.nan, None)
+                    out.append((pd.Timestamp(year, month, int(d), h), land, lake))
+    return pd.DataFrame(out, columns=["time_pht", "land_m", "lake_m"]).drop_duplicates("time_pht")

@@ -1,0 +1,130 @@
+{
+  "gate": "G8",
+  "name": "alert_levels",
+  "passed": true,
+  "decision": "high water 11.69 m; flood risk 12.00 m",
+  "rule": "High water = P95 of training Pandacan (observed, unfilled, unflagged), rounded 0.01 m; flood risk = lowest 0.05 m grid level (>= high water) where >= 50% of training hours at/above are stress hours (>= 2 Aviles pumps)",
+  "evidence": {
+    "levels": {
+      "high_water": 11.69,
+      "flood_risk": 12.0
+    },
+    "scan": [
+      [
+        11.7,
+        895,
+        0.11508379888268157
+      ],
+      [
+        11.75,
+        627,
+        0.14035087719298245
+      ],
+      [
+        11.8,
+        426,
+        0.176056338028169
+      ],
+      [
+        11.85,
+        279,
+        0.23655913978494625
+      ],
+      [
+        11.9,
+        172,
+        0.3488372093023256
+      ],
+      [
+        11.95,
+        123,
+        0.42276422764227645
+      ],
+      [
+        12.0,
+        80,
+        0.55
+      ],
+      [
+        12.05,
+        54,
+        0.6666666666666666
+      ],
+      [
+        12.1,
+        47,
+        0.6808510638297872
+      ],
+      [
+        12.15,
+        36,
+        0.75
+      ],
+      [
+        12.2,
+        29,
+        0.7931034482758621
+      ],
+      [
+        12.25,
+        21,
+        0.9523809523809523
+      ],
+      [
+        12.3,
+        19,
+        0.9473684210526315
+      ],
+      [
+        12.35,
+        18,
+        0.9444444444444444
+      ],
+      [
+        12.4,
+        15,
+        0.9333333333333333
+      ],
+      [
+        12.45,
+        14,
+        0.9285714285714286
+      ],
+      [
+        12.5,
+        13,
+        1.0
+      ],
+      [
+        12.55,
+        11,
+        1.0
+      ],
+      [
+        12.6,
+        8,
+        1.0
+      ]
+    ],
+    "check_2023_recorded_not_used": {
+      "high_water": {
+        "level_m": 11.69,
+        "exceedance_rate": 0.04156597390043499,
+        "hours": 172,
+        "dry_alert_share": 0.29069767441860467,
+        "stress_share_at_or_above": 0.23837209302325582,
+        "hours_with_status": 172
+      },
+      "flood_risk": {
+        "level_m": 12.0,
+        "exceedance_rate": 0.003141614306428226,
+        "hours": 13,
+        "dry_alert_share": 0.0,
+        "stress_share_at_or_above": 0.46153846153846156,
+        "hours_with_status": 13
+      }
+    }
+  },
+  "timestamp": "2026-11-06T21:40:50+08:00",
+  "git_sha": "5f141f5"
+}
