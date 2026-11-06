@@ -1,0 +1,45 @@
+# Notebook 05 (Section 9.3; D9, D10, D12, D14, D15). Ranges are the Chapter III ranges exactly (D14):
+# never widened after seeing results; a winner on a range edge is reported (G19).
+max_epochs: 150
+patience: 10                       # EarlyStopping(val_loss, restore_best_weights=True), validation = 2023
+head_units: 32                     # dense head before the 6-output change layer (fixed; scripts/smoke default)
+selection_metric: "mean 2023 RMSE over the six leads, valid targets only (D10)"
+reference:                         # G11 / G12 reference configuration (Section 5)
+  {lstm_layers: 1, lstm_units: 64, gru_units: 32, dense_layers: 1, dense_units: 16, dropout: 0.2, lr: 0.001, batch: 128}
+gate_seeds: [0, 1, 2]              # G11 and G12: 3 seeds per variant
+gate_switch_rule: "switch only if mean RMSE of the alternative < mean RMSE of the default - 1 SD (ddof=1) of the default's seeds"
+stage1:                            # 24 configs, 1 seed each (seed 0)
+  lstm_layers: [1, 2]
+  lstm_units: [64, 128]
+  gru_units: [32, 64]
+  batch: [32, 64, 128]
+  fixed: {dropout: 0.2, lr: 0.001, dense_layers: 1, dense_units: 16}
+stage2:                            # 36 configs on the stage-1 winner, 1 seed each
+  dropout: [0.2, 0.35, 0.5]
+  lr: [0.001, 0.0005, 0.0001]
+  dense: [[1, 16], [1, 32], [2, 16], [2, 32]]
+grid_seed: 0
+final_seeds: [0, 1, 2, 3, 4]
+lstm:                              # standalone LSTM (tabular repeated at every step, same add-back)
+  units: [64, 128]
+  dropout: [0.2, 0.35, 0.5]
+  lr: [0.001, 0.0005, 0.0001]
+  batch: "stage-1 winner's batch"
+ranges:                            # D14 edges for G19
+  lstm_layers: [1, 2]
+  lstm_units: [64, 128]
+  gru_units: [32, 64]
+  dense_layers: [1, 2]
+  dense_units: [16, 32]
+  dropout: [0.2, 0.5]
+  lr: [0.0001, 0.001]
+  batch: [32, 128]
+rehearsal:                         # PASIG_PROFILE=rehearsal: tiny settings, outputs under runs/rehearsal/
+  max_epochs: 2
+  patience: 1
+  train_cases: 1500
+  stage1_limit: 2
+  stage2_limit: 2
+  lstm_limit: 2
+  gate_seeds: [0, 1]
+  final_seeds: [0, 1]

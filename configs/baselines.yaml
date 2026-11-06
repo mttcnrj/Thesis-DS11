@@ -1,0 +1,24 @@
+# Table III-4 baselines, tuned on 2023 (Section 9.3). Classifier thresholds and trigger offsets by F1 on 2023.
+ridge_alphas: [0.01, 0.1, 1.0, 10.0, 100.0]
+knn_k: [5, 11, 21, 41, 81, 161]
+knn_k_extend_factor: 2             # if the best k is the largest, keep doubling until it is interior
+knn_weights: [uniform, distance]
+logistic:
+  C: [0.01, 0.1, 1.0, 10.0, 100.0]
+  class_weight: [null, balanced]   # LR only (C4); KNN classifier: threshold only
+  max_iter: 2000
+knn_classifier:
+  k: [5, 11, 21, 41, 81, 161]
+  weights: [uniform, distance]
+classifier_input_sets:
+  a_current_hour: "last time step of the sequence inputs + tabular"
+  b_window: "flattened 24 h window + tabular"
+classifier_choice: "per lead x level x input set: hyperparameters and threshold maximising F1 on 2023"
+tide_only:
+  seasonal_harmonics: 2            # level ~ a + b * predicted tide + 2 annual harmonics, OLS on training wet-season observed hours
+trigger_offsets:                   # D11: alert iff forecast >= level - offset; one offset per model per level, shared by all leads
+  min_m: -0.30
+  max_m: 0.30
+  step_m: 0.01
+  objective: "F1 over all (hour, lead) pairs with a valid target on 2023; ties -> offset closest to 0"
+  neural_seeds: "maximise the mean F1 over the final seeds"

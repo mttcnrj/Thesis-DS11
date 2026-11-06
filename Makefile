@@ -1,6 +1,6 @@
 PY ?= python
 
-.PHONY: test test-data lint nb01 nb02 nb03 nb04 phase1 phase2 phase3 phase4 recover smoke
+.PHONY: test test-data lint nb01 nb02 nb03 nb04 nb05 phase1 phase2 phase3 phase4 phase5 rehearsal5 recover smoke
 
 test:            ## synthetic tests only (< 1 min)
 	$(PY) -m pytest -m fast -q
@@ -22,6 +22,15 @@ phase3:          ## Notebook 03 as a script: tide (G9), features, train/val wind
 
 phase4:          ## Notebook 04 as a script: Granger selection (G10, H2)
 	$(PY) scripts/run_phase.py --phase 4
+
+phase5:          ## Notebook 05 on the chosen laptop (long; resumable per stage): G11-G17, G19; tags settings-frozen
+	$(PY) scripts/run_phase.py --phase 5 --tag
+
+rehearsal5:      ## Notebook 05 dry run with tiny settings, outputs under runs/rehearsal/ (never the real gates)
+	PASIG_PROFILE=rehearsal $(PY) scripts/run_phase.py --phase 5
+
+nb05:
+	$(PY) -m jupyter nbconvert --to notebook --execute --inplace notebooks/05_train.ipynb
 
 nb04:
 	$(PY) -m jupyter nbconvert --to notebook --execute --inplace notebooks/04_granger.ipynb

@@ -11,3 +11,7 @@ __pycache__/
 .pytest_cache/
 .ruff_cache/
 *.egg-info/
+
+# Notebook 05 frozen checkpoints and fitted baselines: produced on the chosen laptop, hashed in
+# configs/frozen_manifest.json (G17), verified by G18 before Notebook 06 reads them
+artifacts/frozen/

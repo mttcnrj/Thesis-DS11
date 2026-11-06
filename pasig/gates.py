@@ -12,16 +12,23 @@ from pathlib import Path
 
 import numpy as np
 
-from pasig.config import path
+from pasig.config import out_dir, path, profile
 from pasig.utils.gitinfo import git_sha
 
 PHT = timezone(timedelta(hours=8))
 
 
 def _gate_dir() -> Path:
-    d = path("gates")
-    d.mkdir(parents=True, exist_ok=True)
-    return d
+    """Where gates are WRITTEN (runs/rehearsal/gates in the rehearsal profile)."""
+    return out_dir("gates")
+
+
+def _read_dirs() -> list[Path]:
+    dirs = [_gate_dir()]
+    real = path("gates")
+    if profile() == "rehearsal" and real not in dirs:
+        dirs.append(real)          # Phases 1-4 gates are read from gates/
+    return dirs
 
 
 def _norm(gate_id: str) -> str:
@@ -30,8 +37,11 @@ def _norm(gate_id: str) -> str:
 
 
 def gate_file(gate_id: str) -> Path | None:
-    hits = sorted(_gate_dir().glob(f"{_norm(gate_id)}_*.json"))
-    return hits[0] if hits else None
+    for d in _read_dirs():
+        hits = sorted(d.glob(f"{_norm(gate_id)}_*.json"))
+        if hits:
+            return hits[0]
+    return None
 
 
 def _jsonable(o):
@@ -66,6 +76,7 @@ def record_gate(gate_id: str, name: str, passed: bool, rule: str, evidence: dict
         "evidence": _jsonable(evidence),
         "timestamp": datetime.now(PHT).isoformat(timespec="seconds"),
         "git_sha": git_sha(),
+        "profile": profile(),
     }
     out = _gate_dir() / f"{gid}_{name}.json"
     out.write_text(json.dumps(rec, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

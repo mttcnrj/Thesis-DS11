@@ -137,6 +137,17 @@ them out (D2); the reference run's no-upstream ablation reached the same conclus
 **F25. Correlation screen ranks rain and RH first,** so the correlation-selection ablation swaps pressure for
 RH; all cross-correlations are small (≤ 0.036) after differencing.
 
+## Notebook 05 (built; dry run only)
+
+**F26. Notebook 05 is implemented and passes a full CPU dry run** (`PASIG_PROFILE=rehearsal`: 2 epochs, 1,500
+training cases, 2 configs per grid stage, 2 seeds). All eight stages and gates G11–G17 and G19 run end to end;
+the G16 bug checklist passes. **No Notebook 05 number in `runs/rehearsal/` is a result**: the real run happens on
+the chosen laptop (D16) with the full settings. The dry run found and fixed three bugs before any real run
+(a lead-label mismatch in G16, the freeze looking in the wrong folder for generated configs, a divide-by-zero
+warning in the F1 threshold search).
+
+**F27. smoke_pipeline.py passes 7/7 on the cloud CPU** (TensorFlow 2.21, 19 s), confirming the environment.
+
 ## Thesis text to add beyond Plan Section 13
 * Ch III §7.8 / Figure III-3: coverage counted after QC and **before** gap fill (Pandacan 77–95%).
 * Table III-6: replace with `reports/tables/table_III-6_recomputed.csv`.

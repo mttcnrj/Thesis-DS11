@@ -5,6 +5,8 @@
     python scripts/run_phase.py --phase 2            # Notebook 02: legend G4, G20, link analysis, H1 (G7), alert levels (G8)
     python scripts/run_phase.py --phase 3            # Notebook 03: tide (G9), features, train/val windows, scalers
     python scripts/run_phase.py --phase 4            # Notebook 04: Granger selection (G10, H2) -> configs/selected_features.yaml
+    python scripts/run_phase.py --phase 5 [--stage S] [--tag]   # Notebook 05 (laptop): G11-G17, G19
+    PASIG_PROFILE=rehearsal python scripts/run_phase.py --phase 5   # tiny CPU dry run, outputs under runs/rehearsal/
 """
 from __future__ import annotations
 
@@ -26,8 +28,11 @@ def main() -> int:
     ap.add_argument("--phase", type=int, required=True)
     ap.add_argument("--no-tests", action="store_true", help="skip the phase tests (G6 will not pass)")
     ap.add_argument("--tag", action="store_true", help="create the phase git tag when its freeze gate passes")
+    ap.add_argument("--stage", help="phase 5 only: run one stage (compute, variants, grid, finals, baselines, "
+                                    "thresholds, checks, freeze)")
     a = ap.parse_args()
-    require_gates(*REQUIRED_BEFORE.get(a.phase, []))
+    if not (a.phase == 5 and a.stage):
+        require_gates(*REQUIRED_BEFORE.get(a.phase, []))
     if a.phase == 1:
         from pasig import phase1
         out = phase1.run(run_tests=not a.no_tests)
@@ -57,6 +62,14 @@ def main() -> int:
         print("G10:", out["outcome"], "| selected:", out["selected"], "| H2:", out["h2"])
         tests = ["tests/test_granger.py", "tests/test_leakage.py"]
         return 0 if a.no_tests else subprocess.call([sys.executable, "-m", "pytest", "-q", *tests], cwd=root())
+    if a.phase == 5:
+        from pasig import phase5
+        if a.stage:
+            phase5.run_stage(a.stage, tag=a.tag)
+            return 0
+        code = phase5.run(tag=a.tag)
+        print(phase5.summary())
+        return code
     raise SystemExit(f"phase {a.phase} is not implemented yet")
 
 

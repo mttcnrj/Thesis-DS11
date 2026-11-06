@@ -67,6 +67,24 @@ Chapter rows it changes (Plan Section 13). "Outcome" records what the gate decid
 | P4-e | correlation screen | max \|lagged cross-correlation\| (1–24 h) of each candidate as available at t, transformed like its Granger series, with de-tided Pandacan (differenced): rain 0.036, RH 0.019, pressure 0.018, tmean 0.004 → the correlation-selection ablation uses **rain + RH** (same count as Granger: 2) |
 | P4-f | descriptive stations (D2) | Sto. Niño (all 5 seasons; lag 23 h, p = 1.6e-166) and Fort Santiago (2020–2022 only; 2018–2019 skipped for < 50% coverage; lag 23 h, p = 4.1e-43) would pass any threshold, but adding either 24 h window **worsens** the ridge validation RMSE (−0.27 mm and −2.0 mm on the cases where their windows are complete); never inputs, not in m |
 
+## Notebook 05: implementation choices (built and dry-run, 6 Nov 2026; real run pending on the laptop)
+
+| Ref | Item | Choice | Why |
+|---|---|---|---|
+| P5-a | stages | eight resumable stages (compute → variants → grid → finals → baselines → thresholds → checks → freeze), each in its own process | the TensorFlow device must be fixed before TF starts (G13/G14 may put the grid and the finals on different devices, D15); a crash or reboot loses at most one config |
+| P5-b | rehearsal profile | `PASIG_PROFILE=rehearsal` runs everything with 2 epochs, 1,500 training cases and 2 configs per grid; gates, generated configs, checkpoints and tables go to `runs/rehearsal/` (git-ignored) | full dry run without touching the real gates; real Phase 1–4 outputs are still read |
+| P5-c | G11 / G12 switch rule | switch only if mean RMSE of the alternative < mean of the default − 1 SD (ddof = 1) of the default's 3 seeds; G12 is evaluated after G11 with G11's choice; the shared default runs are reused | Section 5 says "1 SD of the seed spread"; the default's spread is the reference |
+| P5-d | G15 projection | `bench_compute` recommended plan + 6th ablation variant + D20 weight choice (3 runs) + G11/G12 (12 runs) at the median run cost | Section 12 asks to include D20; the bench predates the 6th variant and the G11/G12 runs |
+| P5-e | grid device | finals always with determinism on the G13 device; the grid may run on a GPU without determinism if G14 fails there but the GPU is faster (D15) | as D15 |
+| P5-f | early stopping | validation loss on 2023 (masked MSE), patience 10, max 150 epochs, best weights restored | Section 9.3 |
+| P5-g | LSTM grid batch | the stage-1 winner's batch size | the plan fixes units × dropout × lr only |
+| P5-h | baselines | tide-only = OLS of observed training wet-season Pandacan on the predicted tide + 2 annual harmonics; ridge and KNN one model per lead (valid targets), single alpha / (k, weights) chosen by mean 2023 RMSE over leads; KNN k extended (×2) while the best k is the largest | Table III-4 |
+| P5-i | classifiers | per lead × level × input set: (a) last time step of the sequence inputs + tabular, (b) flattened 24 h window + tabular; hyperparameters and threshold by the best 2023 F1 (LR: C × class weight; KNN: k × weighting, threshold only, C4) | Section 9.3 |
+| P5-j | trigger offsets | one offset per model per level shared by all leads (D11); for neural models the offset maximises the mean F1 over the final seeds; ties → offset closest to 0 | D11 |
+| P5-k | G16 checklist | automated: target alignment, target scaler = Pandacan channel, invalid targets = −1, rain availability lag = 1 h, training loss falls, identical scored hours across models | Section 9.7 items 1–6 |
+| P5-l | frozen files | Keras checkpoints and fitted baselines in `artifacts/frozen/` (git-ignored, produced on the laptop) with SHA-256 in `configs/frozen_manifest.json` (committed); KNN models are refitted in NB06 from the frozen hyperparameters (deterministic; avoids storing the training set 30 times) | G17, G18 |
+| P5-m | Keras 3 | the D9 add-back uses a registered `LevelAtT` layer instead of a Python `Lambda`, and the losses are registered, so checkpoints reload safely in NB06 | serialisation only; same computation |
+
 ## Implementation choices made in Phase 1 (recorded for the thesis text)
 
 | Ref | Choice | Why |
