@@ -1,0 +1,28 @@
+# Section 7.5. Rules are SET on 2018-2022 only (see reports/tables/qc_survey_training.csv), then applied
+# unchanged to 2023-2024. Flagged values become NaN downstream; nothing is edited by hand.
+valid_range_m:                 # outside -> NaN + flag 'range'
+  pandacan: [9.0, 15.0]
+  fort_santiago: [9.0, 15.0]
+  rosario_js: [9.0, 16.0]
+  rosario_ls: [9.0, 16.0]
+  sto_nino: [10.5, 22.0]       # upstream Marikina gauge: real flood peaks reach ~21 m (2018)
+  montalban: [19.0, 30.0]      # different datum (~21 m); sub-15 m readings are typos/bursts (e.g. Oct 2019)
+spike_m:                       # |x_t-x_{t-1}| > s and |x_t-x_{t+1}| > s, opposite-sign jumps (one-hour spike)
+  default: 0.5
+flat_run:                      # >= min_len identical consecutive hourly readings -> flag 'flat'
+  pandacan:
+    generic_min_len: null      # Pandacan's only flat rule is the 11.89 m rule (3 Nov finding)
+    stuck_value_m: 11.89
+    stuck_min_len: 5           # runs found in 2018-2022: 72 h (Nov 2020), 8 h + 7 h (25-26 Jul 2021), 6 h + 5 h (Paeng); 2-3 h runs kept
+  fort_santiago:
+    generic_min_len: 6
+    exempt_band_m: [10.60, 10.70]   # low-tide floor plateau
+  rosario_js: {generic_min_len: 12}
+  rosario_ls: {generic_min_len: 12}
+  sto_nino:
+    generic_min_len: 12
+    exempt_band_m: [11.8, 12.5]     # pool level; exempt unless the Montalban condition below holds
+    montalban_rise_m: 0.5           # Montalban 3-h median rises >= 0.5 m over 12 h ...
+    montalban_lag_h: 12             # ... while Sto. Niño is still flat 12 h later -> run flagged
+  montalban: {generic_min_len: null}   # non-tidal helper gauge whose dry-season readings hold for days
+gap_fill_max_h: 3              # Section 7.6

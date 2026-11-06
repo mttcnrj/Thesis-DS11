@@ -1,0 +1,7 @@
+station,min_season_coverage,seasons_below,eligible
+fort_santiago,0.0,"[2018, 2019, 2022, 2023]",False
+montalban,0.7937158469945356,[2021],False
+pandacan,0.7704918032786885,[2021],False
+rosario_js,0.0,[2024],False
+rosario_ls,0.0,"[2020, 2021, 2022, 2023, 2024]",False
+sto_nino,0.7811930783242259,[2024],False

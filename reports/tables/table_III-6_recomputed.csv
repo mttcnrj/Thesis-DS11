@@ -1,0 +1,4 @@
+split,seasons,hours_in_season,observed_unflagged_hours,observed_or_filled_hours,cases_lead1,cases_lead6,high_water_hours_ge_11.69,high_water_share,high_water_events,flood_risk_hours_ge_12.0,flood_risk_share,flood_risk_events
+train,"2018,2019,2020,2021,2022",21960,18995,20876,16937,16699,964,0.0508,255,80,0.0042,22
+val,2023,4392,4138,4336,4091,4081,172,0.0416,50,13,0.0031,5
+test,2024,4392,4009,4292,3729,3692,438,0.1093,103,54,0.0135,12

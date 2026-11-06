@@ -1,0 +1,17 @@
+{
+  "gate": "G3",
+  "name": "rain_timing",
+  "passed": true,
+  "decision": "period_end",
+  "rule": "For rain days compare the daily total with (a) the sum of the 00/06/12/18 UTC reports of that date and (b) 06/12/18 UTC + 00 UTC of the next date; convention = option matching >= 95% of rain days (+-0.2 mm); usable time = period end + 1 h",
+  "evidence": {
+    "option_a_n": 1155,
+    "option_a_match_share": 0.535064935064935,
+    "option_b_n": 1157,
+    "option_b_match_share": 1.0,
+    "rain_days": 1172,
+    "convention": "period_end"
+  },
+  "timestamp": "2026-11-06T20:33:38+08:00",
+  "git_sha": "49ae946"
+}

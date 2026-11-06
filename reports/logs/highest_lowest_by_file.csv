@@ -1,0 +1,397 @@
+file,days,mismatches,rate,explained_by_formula,rate_unexplained
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2018/12. December.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/10. October.xlsx,19,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/11. November.xlsx.xlsx,24,2,0.08333333333333333,2,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/12. December.xlsx,2,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/6. June.xlsx,4,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/7. July.xlsx,24,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/8. August.xlsx,25,2,0.08,2,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/9. September.xlsx,25,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/1. January.xlsx,21,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/10. October.xlsx,17,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/11. November.xlsx,20,2,0.1,2,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/12. December.xlsx,25,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/2. February.xlsx,19,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/3. March.xlsx,25,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/4. April.xlsx,26,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/5. May.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/6. June.xlsx,21,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/7. July.xlsx,23,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/8. August.xlsx,22,2,0.09090909090909091,2,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/9. September.xlsx,16,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/1. January.xlsx,23,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/2. February.xlsx,17,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/3. March.xlsx,18,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/4. April.xlsx,8,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/5. May.xlsx,6,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/6. June.xlsx,9,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/7. July.xlsx,18,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/8. August.xlsx,20,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/9. September.xlsx,21,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/1. January.xlsx,6,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/11. November.xlsx,17,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/12. December.xlsx,22,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/2. February.xlsx,8,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/3. March.xlsx,10,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/4. April.xlsx,14,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/5. May.xlsx,11,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/6. June.xlsx,6,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/1. January.xlsx,23,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/10. October.xlsx,12,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/11. November.xlsx,1,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/12. December.xlsx,11,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/2. February.xlsx,20,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/3. March.xlsx,21,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/4. April.xlsx,21,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/5. May.xlsx,14,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/6. June.xlsx,13,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/7. July.xlsx,17,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/8. August.xlsx,9,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/9. September.xlsx,2,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/1. January.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/10. October.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/11. November.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/12. December.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/2. February.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/3. March.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/4. April.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/5. May.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/6. June.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/7. July.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/8. August.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/9. September.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/1. January.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/10. October.xlsx,11,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/11. November.xlsx,12,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/12. December.xlsx,5,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/2. February.xlsx,26,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/3. March.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/4. April.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/5. May.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/6. June.xlsx,8,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/7. July.xlsx,17,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/8. August.xlsx,9,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/1. January.xlsx,5,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/10. October.xlsx,2,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/11. November.xlsx,13,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/12. December.xlsx,1,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/2. February.xlsx,9,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/3. March.xlsx,12,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/5. May.xlsx,1,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/6. June.xlsx,7,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/7. July.xlsx,17,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/8. August.xlsx,22,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/9. September.xlsx,19,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/1. January.xlsx,19,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/10. October.xlsx,18,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/11. November.xlsx,14,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/12. December.xlsx,6,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/2. February.xlsx,13,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/3. March.xlsx,21,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/4. April.xlsx,8,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/5. May.xlsx,6,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/6. June.xlsx,5,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/7. July.xlsx,3,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/8. August.xlsx,3,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/9. September.xlsx,8,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/1. January.xlsx,20,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/10. October.xlsx,8,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/11. November.xlsx,19,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/12. December.xlsx,15,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/2. February.xlsx,9,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/3. March.xlsx,1,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/4. April.xlsx,20,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/5. May.xlsx,6,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/6. June.xlsx,4,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/7. July.xlsx,7,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/8. August.xlsx,8,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/9. September.xlsx,18,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/1. January.xlsx,24,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/10. October.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/11. November.xlsx,24,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/12. December.xlsx,26,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/2. February.xlsx,25,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/3. March.xlsx,24,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/4. April.xlsx,25,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/5. May.xlsx,23,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/6. June.xlsx,24,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/7. July.xlsx,21,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/8. August.xlsx,20,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/9. September.xlsx,12,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/1. January.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/10. October.xlsx,20,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/11. November.xlsx,26,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/12. December.xlsx,23,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/2. February.xlsx,22,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/4. April.xlsx,7,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/5. May.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/6. June.xlsx,26,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/7. July.xlsx,24,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/8. August.xlsx,7,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/9. September.xlsx,6,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/1. JANUARY.xlsx,19,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/10. OCTOBER.xlsx,10,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/11. NOVEMBER.xlsx,9,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/12. DECEMBER.xlsx,13,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/2. FEBRUARY.xlsx,16,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/3. MARCH.xlsx,17,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/4. APRIL.xlsx,16,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/5. MAY.xlsx,16,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/6. JUNE.xlsx,13,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/7. JULY.xlsx,10,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/8. AUGUST.xlsx,13,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/9. SEPTEMBER.xlsx,5,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/1. January.xlsx,10,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/10. October.xlsx,2,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/11. November.xlsx,4,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/12. December.xlsx,3,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/2. February.xlsx,10,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/3. March.xlsx,22,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/4. April.xlsx,14,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/5. May.xlsx,4,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/6. June.xlsx,4,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/7. July.xlsx,7,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/8. August.xlsx,6,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/9. September.xlsx,5,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/1. January.xlsx,8,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/10. October.xlsx,9,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/11. November.xlsx,18,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/12. Dcember.xlsx,2,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/2. February.xlsx,10,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/3. March.xlsx,5,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/5. May.xlsx,3,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/6. June.xlsx,6,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/7. July.xlsx,5,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/8. August.xlsx,3,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/9. September.xlsx,4,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/1. January.xlsx,16,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/11. November.xlsx,3,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/12. December.xlsx,5,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/2. February.xlsx,8,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/3. March.xlsx,14,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/4. April.xlsx,10,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/5. May.xlsx,17,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/6. June.xlsx,5,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/8. August.xlsx,4,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/9. September.xlsx,1,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/1. January.xlsx,1,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/10. October.xlsx,6,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/11. November.xlsx,3,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/12. December.xlsx,5,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/2. February.xlsx,2,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/3. March.xlsx,11,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/4. April.xlsx,17,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/5. May.xlsx,9,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/6. June.xlsx,11,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/7. July.xlsx,2,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/8. August.xlsx,9,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/9. September.xlsx,17,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/1. January.xlsx,2,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/10. October.xlsx,10,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/11. November.xlsx,9,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/12. December.xlsx,12,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/2. February.xlsx,13,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/3. March.xlsx,13,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/4. April.xlsx,10,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/5. May.xlsx,11,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/6. June.xlsx,13,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/7. July.xlsx,12,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/8. August.xlsx,13,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/9. September.xlsx,7,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/1. January.xlsx,10,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/10. October.xlsx,14,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/11. November.xlsx,11,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/12. December.xlsx,12,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/2. February.xlsx,8,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/3. March.xlsx,11,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/4. April.xlsx,12,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/5. May.xlsx,10,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/6. June.xlsx,11,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/7. July.xlsx,7,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/8. August.xlsx,3,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/9. September.xlsx,8,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/1. January.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/10. October.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/11. November.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/12. December.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/2. February.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/3. March.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/4. April.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/5. May.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/6. June.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/7. July.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/8. August.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/9. September.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/1. January.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/10. October.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/11. November.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/12. December.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/2. February.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/3. March.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/4. April.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/5. May.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/6. June.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/7. July.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/8. August.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/9. September.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/1. January.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/10. October.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/11. November.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/12. December.xlsx,2,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/2. February.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/3. March.xlsx,21,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/5. May.xlsx,3,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/6. June.xlsx,25,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/7. July.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/8. August.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/9. September.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/1. January.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/10. October.xlsx,22,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/11. November.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/12. December.xlsx,23,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/2. February.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/3. March.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/4. April.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/5. May.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/6. June.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/7. July.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/8. August.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/9. September.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/1. January.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/10. October.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/11. November.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/12. December.xlsx,20,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/2. February.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/3. March.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/4. April.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/5. May.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/6. June.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/7. July.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/8. August.xlsx,25,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/9. September.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/1. January.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/10. October.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/11. November.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/12. December.xlsx,23,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/2. Febuary.xlsx,20,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/3. March.xlsx,19,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/4. April.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/5. May.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/6. June.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/7. July.xlsx,26,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/8. August.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/9. September.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - APRIL 2018.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - AUGUST 2018.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - DECEMBER 2018.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - FEBRUARY 2018.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - JANUARY 2018.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - JULY 2018.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - JUNE 2018.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - MARCH 2018.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - MAY 2018.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - NOVEMBER 2018.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - OCTOBER 2018.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - SEPTEMBER 2018.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/1. January.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/10. October.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/11. November.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/12. December.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/2. February.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/3. March.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/4. April.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/5. May.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/6. June.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/7. July.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/8. August.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/9. September.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2020/1. January.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2020/2. February.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2020/3. March.xlsx,21,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2020/5. May.xlsx,2,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2020/6. June.xlsx,23,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2020/7. July.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2020/8. August.xlsx,14,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO -  JUNE 2018.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - APRIL 2018.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - AUGUST 2018.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - DECEMBER 2018.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - FEBRUARY 2018.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - JANUARY 2018.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - JULY 2018.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - MARCH 2018.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - MAY 2018.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - NOVEMBER 2018.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - OCTOBER 2018.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - SEPTEMBER 2018.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/1. January.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/10. October.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/11. November.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/12. December.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/2. February.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/3. March.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/4. April.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/5. May.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/6. June.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/7. July.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/8. August.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/9. September.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/1. January.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/10. October.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/11. November.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/12. December.xlsx,2,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/2. February.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/3. March.xlsx,21,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/5. May.xlsx,4,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/6. June.xlsx,25,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/7. July.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/8. August.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/9. September.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/1. January.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/10. October.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/11. November.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/12. December.xlsx,25,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/2. February.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/3. March.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/4. April.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/5. May.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/6. June.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/7. July.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/8. August.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/9. September.xlsx,26,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/1. January.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/10. October.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/11. November.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/12. December.xlsx,20,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/2. February.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/3. March.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/4. April.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/5. May.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/6. June.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/7. July.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/8. August.xlsx,21,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/9. September.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/1. January.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/10. October.xlsx,26,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/11. November.xlsx,20,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/12. December.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/2. February.xlsx,27,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/3. March.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/4. April.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/5. May.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/6. June.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/7. July.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/8. August.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/9. September.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/1. January.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/10. October.xlsx,23,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/11. November.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/12. December.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/2. February.xlsx,28,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/3. March.xlsx,22,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/4. April.xlsx,29,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/5. May.xlsx,31,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/6. June.xlsx,25,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/7. July.xlsx,21,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/8. August.xlsx,30,0,0.0,0,0.0
+MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/9. September.xlsx,25,0,0.0,0,0.0

@@ -1,0 +1,2327 @@
+[
+{
+"id": "1Y_MhWAm8cf-WQkRb3aPLqAS32PFysIbB",
+"path": "Kaggle Dataset/Flood_Prediction_NCR_Philippines.csv",
+"bytes": 271946
+},
+{
+"id": "18rmxTrK6O3vWHjcxUsKBOOM0UZLCZw0Z",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/AVILES 2018.xlsx",
+"bytes": 533115
+},
+{
+"id": "1-1PUCCPKvAh4MP4BjKBZDg1DprisKjqr",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/AVILES 2019.xlsx",
+"bytes": 264833
+},
+{
+"id": "1c1uye4iQVUrSDga0M7ZhkhAWCeW7GyUo",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/AVILES 2020.xlsx",
+"bytes": 270261
+},
+{
+"id": "1uzaW_HTnR2JfB6mmtV2XqGK96tPPhiwC",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/AVILES 2021.xlsx",
+"bytes": 268372
+},
+{
+"id": "1SIDDRyYa094_Ho6sxIcp6rLQ8Vfs_Pg_",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/AVILES 2022.xlsx",
+"bytes": 280785
+},
+{
+"id": "1fP6w80fB9hed_-lhztu__e7LTCOZ6gUG",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/AVILES 2023.xlsx",
+"bytes": 267273
+},
+{
+"id": "13bPW7AmJM0lfuPCNUTOZxIDXEvztGlaC",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/AVILES 2024.xlsx",
+"bytes": 207930
+},
+{
+"id": "14gaKNOY4t54zzQO_yi7jnbK2gyKzQhTb",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/QUIAPO 2018.ods",
+"bytes": 259154
+},
+{
+"id": "1606jQVMG194vsFxfKBbnO-Jwo_wn3SlB",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/QUIAPO 2019.xlsx",
+"bytes": 174914
+},
+{
+"id": "1KYtGyh1S06pLPjD2SpgPNopJc0UNwtrU",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/QUIAPO 2020.xlsx",
+"bytes": 260123
+},
+{
+"id": "1Wwd3Gehm9gr_x92-4YnMw0Yds4ytHgX8",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/QUIAPO 2021.xlsx",
+"bytes": 263510
+},
+{
+"id": "14lGwY9V9j9yznn-DFXiRnmThwrcdE_I0",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/QUIAPO 2022.xlsx",
+"bytes": 468353
+},
+{
+"id": "1ITVgA0jYHci3y_q3j0sOMSg-1h6nroB7",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/QUIAPO 2023.xlsx",
+"bytes": 677095
+},
+{
+"id": "1p5aBbaBSge6v2T3HrJ3XSnbsMWhWGuGA",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/QUIAPO 2024.xlsx",
+"bytes": 677095
+},
+{
+"id": "18QT3Ra4x0VO6ZWgfgD_i32Zk9sdUFAtm",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/WOCR PS - 2019.pdf",
+"bytes": 75614
+},
+{
+"id": "1aduruZAbeGjozQANC31rI3kGHUVGdEvW",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/WOCR PS - 2021.pdf",
+"bytes": 71990
+},
+{
+"id": "1EW-kr3hVnk1pRCq8B_w6OR6s6QpXMgVi",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/WOCR PS - 2022 (1).pdf",
+"bytes": 102237
+},
+{
+"id": "1reRKYAJ3VcAb3mHO-aWsB8yPnazNEnIa",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/WOCR PS - 2022.pdf",
+"bytes": 102237
+},
+{
+"id": "1gPiYOumyNIuk8aHqzbQY1jA-FdEovl2u",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/WOCR PS - 2023.pdf",
+"bytes": 138039
+},
+{
+"id": "10wjD6evdgh7875qU0dvScrLNOBQj6HkY",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/WOCR PS - 2024.pdf",
+"bytes": 98650
+},
+{
+"id": "1SoRYjgozyRPasuUP16vXyhhtQwZXHMoe",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/WOCR PS -2018.pdf",
+"bytes": 75497
+},
+{
+"id": "1P-Vfgg6apmtApBPFvN4cFHjF8B774TLk",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/WOCR PS -2020 (1).pdf",
+"bytes": 74993
+},
+{
+"id": "15c_IAnhr5cfp1z7fggTe7-bhbDMKUfBe",
+"path": "MMDA Dataset/WOCR and Water elevation reading of Aviles and Quiapo Pumping Station/WOCR PS -2020.pdf",
+"bytes": 74993
+},
+{
+"id": "1x4HYsiQ9QBLbW-EP6iwCkD7q7a1y_9Wr",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2018/1. January.xlsx",
+"bytes": 61081
+},
+{
+"id": "14Tje8Y63IZPytZfwBUZR6TowZY0G5azv",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2018/10. October.xlsx",
+"bytes": 65535
+},
+{
+"id": "1vnlCPhRiDEYlWbJZT72wIupCpwBUz0Wa",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2018/11. November.xlsx",
+"bytes": 63297
+},
+{
+"id": "12IsX1Ycb7oxmIYqIi9CosZBKHjAAj0QX",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2018/12. December.xlsx",
+"bytes": 67210
+},
+{
+"id": "1yy5qitKRdrbqbjTI_eNP3EiNUVdJmvxn",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2018/2. February.xlsx",
+"bytes": 56687
+},
+{
+"id": "11ORjuvMp4rGUPO_TtQFTTx2VtCco2i_u",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2018/3. March.xlsx",
+"bytes": 59148
+},
+{
+"id": "1mMhQkSin5A_m2O71hPkQP5eghCOvNf9i",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2018/4. April.xlsx",
+"bytes": 57556
+},
+{
+"id": "1YOOdpuUCE-7XII-ApJ-08czTECuMFelv",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2018/5. May.xlsx",
+"bytes": 58861
+},
+{
+"id": "1VV4x0Iv5TczR_ct-gOLEZdGCyfQ4PJv4",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2018/6. June.xlsx",
+"bytes": 67310
+},
+{
+"id": "1C9Nt52JqF70ZlIeITyNN_4GRmLRwIaQ-",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2018/7. July.xlsx",
+"bytes": 69829
+},
+{
+"id": "1N78gwtwnTE4wzbt7MiUO5lp4XqTshI6q",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2018/8. August.xlsx",
+"bytes": 70779
+},
+{
+"id": "1UquSy5d9pl_yqLK0eRLSICyql1O9Jud8",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2018/9. Septamber.xlsx",
+"bytes": 66195
+},
+{
+"id": "1C7dsqWTv-wNn4aKmcpE8Aa6eyflQ48qA",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2019/1. January.xlsx",
+"bytes": 62252
+},
+{
+"id": "1nHr6pzlKt9saxg1SPC0umYmo9vzJc3ze",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2019/10. October.xlsx",
+"bytes": 54227
+},
+{
+"id": "1chSv7WKo_raryXSn9a5pdIed3MrHpYHq",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2019/11. November.xlsx",
+"bytes": 56588
+},
+{
+"id": "1FayeKzCNiMKLXF5TDAhleomP_6ge1yrQ",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2019/12. December.xlsx",
+"bytes": 59540
+},
+{
+"id": "14eJKPUy1-zhYe4EJElONlg36y3g_FtQc",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2019/2. February.xlsx",
+"bytes": 56509
+},
+{
+"id": "1pLrvZZamJn1eFbK3_OHLiNV0ZCcOM9KW",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2019/3. March.xlsx",
+"bytes": 57166
+},
+{
+"id": "1mLhFMdOjENH62E_bqUS1j_6Ign1M651K",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2019/4. April.xlsx",
+"bytes": 56849
+},
+{
+"id": "1WoJ4Gjer_zAIFP5FTtn9koMj9hEiS6h7",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2019/5. May.xlsx",
+"bytes": 62033
+},
+{
+"id": "1P3RP-WmSCrwaNH42kUB-Zlbnv02AwpK8",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2019/6. June.xlsx",
+"bytes": 60655
+},
+{
+"id": "1TmXNCg4xyjZ-DdYTg81RZdQVCT_YMgJA",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2019/7. July.xlsx",
+"bytes": 61677
+},
+{
+"id": "183ith_lvQ3UAQLdxv3AoYBnjdrZJhxjT",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2019/8. August.xlsx",
+"bytes": 67070
+},
+{
+"id": "1HvgOoeqtoEpmR-NGL_TOpSv6sq7CYmmW",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2019/9. September.xlsx",
+"bytes": 63897
+},
+{
+"id": "1UOtaazr1khSq0q3TFMxgnwVcrm4aOVkS",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/1. January.xlsx",
+"bytes": 55948
+},
+{
+"id": "1sT4JdgcWwL_4j6Wvn8HvrRjK68C2R1M0",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/10. October.xlsx",
+"bytes": 70616
+},
+{
+"id": "1r036LEE8mWn0D_LHDjspJrMcnImu5Xr_",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/11. November.xlsx.xlsx",
+"bytes": 67000
+},
+{
+"id": "1UMcSQT2G9tG_s__JOoKTnGDqQM6wJbmh",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/12. December.xlsx",
+"bytes": 34870
+},
+{
+"id": "1U4utCakonm9raKwZfgFgZOim-rrykQVE",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/2. February.xlsx",
+"bytes": 54139
+},
+{
+"id": "1w4AqwBFCXZA7UExq5sbfWMKWS7jYHhIo",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/3. March.xlsx",
+"bytes": 49049
+},
+{
+"id": "1adrfe94Dw5czyD8CbgvSeSdnq3kG7ZOC",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/4. April.xlsx",
+"bytes": 33045
+},
+{
+"id": "1IozMU9WapksyKVHjeA-GwzD6GKNoLaOH",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/5. May.xlsx",
+"bytes": 42630
+},
+{
+"id": "1Thol8pmAXWO0NGVjYJJmXN3zOaIXayto",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/6. June.xlsx",
+"bytes": 54401
+},
+{
+"id": "1VCA-9Umron1BYQmVjyNB7CfHRQWOgaag",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/7. July.xlsx",
+"bytes": 62217
+},
+{
+"id": "1dTFo3kEix7KJn8fmd6Ac_VIJTk-70xFo",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/8. August.xlsx",
+"bytes": 66585
+},
+{
+"id": "1twOa2hB9WVBLT3cmJpuDj5Aehmk5IDgY",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/9. September.xlsx",
+"bytes": 64080
+},
+{
+"id": "1kqZaAapABkCv9y5EcfaXDgQCi1aaRksu",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/1. January.xlsx",
+"bytes": 34806
+},
+{
+"id": "1PE66urtFfDMjJv2EvQ46leftokhxJ5At",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/10. October.xlsx",
+"bytes": 61725
+},
+{
+"id": "1yldmiqDLiHxDgwmitfIM0pic7f2KRRWs",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/11. November.xlsx",
+"bytes": 61165
+},
+{
+"id": "1u_FQ7PycUAPM1_q-MGYfB8n-m_BfQgL-",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/12. December.xlsx",
+"bytes": 63191
+},
+{
+"id": "1mR_hQoNOUHe_awDat0OQ94m6tMy65a2V",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/2. February.xlsx",
+"bytes": 60169
+},
+{
+"id": "1aoWJxqeBVFYbkYubjcWWfJ0pGfTNICkB",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/3. March.xlsx",
+"bytes": 61899
+},
+{
+"id": "11DCehy84CZ9wTYItLrxfKFi8qjuEwaDM",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/4. April.xlsx",
+"bytes": 60774
+},
+{
+"id": "142btd2NZ8NilFwOo3f0rLPhfU1y3JzPT",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/5. May.xlsx",
+"bytes": 62009
+},
+{
+"id": "1r5CdZGlyd_0s_psbhRQd5PVauPzztt3x",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/6. June.xlsx",
+"bytes": 64287
+},
+{
+"id": "1trpt2NwtJzezSE19GOEPpSPTzcokw5qB",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/7. July.xlsx",
+"bytes": 68462
+},
+{
+"id": "13YwcIZpKJ9JQATOkNQQEFD6PL81MDabh",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/8. August.xlsx",
+"bytes": 70730
+},
+{
+"id": "15hQynWPL5BIvTpmqUt_7bu8K_x0CbfCP",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/9. September.xlsx",
+"bytes": 67279
+},
+{
+"id": "15Ikkpfc3MJGVaXclu9-c2ENy9ymWUB4D",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/1. January.xlsx",
+"bytes": 34266
+},
+{
+"id": "1OA6xUYUA5WLTpiegNIV3BvLicd6W9jbj",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/2. February.xlsx",
+"bytes": 33476
+},
+{
+"id": "1MgT4S0-Sd9WtcGnn-noQhH-JTpZQUQCP",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/3. March.xlsx",
+"bytes": 62324
+},
+{
+"id": "1llMHCM4VtTUZayBaeRr-gSXYbnsfoQ8Q",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/4. April.xlsx",
+"bytes": 34144
+},
+{
+"id": "1GpD3f4q264zlnQ5rR9MCEoRfq9BIFvdh",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/5. May.xlsx",
+"bytes": 63272
+},
+{
+"id": "14WRPTlNjFEu_y6csKh9kUbj22tNNxtIn",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/6. June.xlsx",
+"bytes": 64841
+},
+{
+"id": "12-zBTuOc_8Ob7-xOPMPvSXQ5GV186W55",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/7. July.xlsx",
+"bytes": 66826
+},
+{
+"id": "1SNOczWokpf61BsIAUMZDauxeQwyhqbV6",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/8. August.xlsx",
+"bytes": 67233
+},
+{
+"id": "1THcxHYFmeXYzR73P0Mr78XNL3o2p1k7U",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2022/9. September.xlsx",
+"bytes": 138351
+},
+{
+"id": "1c7qZ9buLEn3OuKD5qlFVUabU7_c7EvY6",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/1. January.xlsx",
+"bytes": 34433
+},
+{
+"id": "1x49spAAoDn-U0_H8UiZc4wZ7D9DyX8vm",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/10. October.xlsx",
+"bytes": 33593
+},
+{
+"id": "17HkdXChXP1XIJlzeVOnneFd0k5cXVkdj",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/11. November.xlsx",
+"bytes": 34014
+},
+{
+"id": "18yrMg6YxcsVHyuqiLDQLUaL56aSdgDVo",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/12. December.xlsx",
+"bytes": 34136
+},
+{
+"id": "1fE3Kkh5RNi6ym5tNxsgmot2eQKwUph2A",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/2. February.xlsx",
+"bytes": 33638
+},
+{
+"id": "1ukro3EMyce8M1TIZi8EXBlSh7ETE6R0Z",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/3. March.xlsx",
+"bytes": 34431
+},
+{
+"id": "17pSXsYF6jo62AbVPVxv_4FyLRASi9daO",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/4. April.xlsx",
+"bytes": 34259
+},
+{
+"id": "1xezD_z-D9kJtyqNqeDp0taANecBucNda",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/5. May.xlsx",
+"bytes": 34924
+},
+{
+"id": "1ftc-bC4Bgt1pva0a5ZjKsraO-DRdppz8",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/6. June.xlsx",
+"bytes": 33994
+},
+{
+"id": "1cXNHze9H0zPetAcN8JXZ8QyOuhivD4ax",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/7. July.xlsx",
+"bytes": 33709
+},
+{
+"id": "1a4Z3OiiC0t_vSVdV3AvCegFJ3zje3x9n",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/8. August.xlsx",
+"bytes": 34195
+},
+{
+"id": "1sN1INVSpdPL9_JEDqsVBAzpL2g_4M73-",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2023/9. September.xlsx",
+"bytes": 33260
+},
+{
+"id": "1OxwglQ9RL8EH-Uwy_oJAG9WajSLvL_Xs",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/1. January.xlsx",
+"bytes": 34213
+},
+{
+"id": "1ht7Brp6VHanah5olVOGU0JzlC-oIqOoy",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/10. October.xlsx",
+"bytes": 35210
+},
+{
+"id": "1lMb2Me_9VtucQFSe_jTzvb0GV59s9bZb",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/11. November.xlsx",
+"bytes": 34958
+},
+{
+"id": "10iSiHIGu7Z85l7nWn0-IusOYNX2ChbSa",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/12. December.xlsx",
+"bytes": 34621
+},
+{
+"id": "16-YCNt7sFxiIPZ_TRlBgQtKg3fhIea0E",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/2. February.xlsx",
+"bytes": 33012
+},
+{
+"id": "1hOxF_aVUNIpRThbU7g4_2XGCLcVxY31F",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/3. March.xlsx",
+"bytes": 34355
+},
+{
+"id": "1D7R2d8ou4PqLPLOxnyZ1OJ1mE3mH4TXr",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/4. April.xlsx",
+"bytes": 138292
+},
+{
+"id": "1hcIK8ZMl4pn4MbwnoPYEdNGS3ynUtRMa",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/5. May.xlsx",
+"bytes": 34726
+},
+{
+"id": "1C0RvIQkg5Rtedt197jOzEXt_fJaixRpy",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/6. June.xlsx",
+"bytes": 34341
+},
+{
+"id": "1BcHiQruhrtBtoCwNGWja24rmrRgGlXUZ",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/7. July.xlsx",
+"bytes": 34919
+},
+{
+"id": "1PMjg2Otz2AKX2WtAcIfzQpEsaJ7nt6FH",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/8. August.xlsx",
+"bytes": 35123
+},
+{
+"id": "1VTGJyBTAjKNpfMmITYO5liL1B1PXFMR9",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2024/9. September.xlsx",
+"bytes": 34574
+},
+{
+"id": "1de8LbRyn45ofQPeaBhEzRkAjUUaS_Eag",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/1. January.xlsx",
+"bytes": 60451
+},
+{
+"id": "1pZV0BMMon1bmcWvwp0JyyqQt416_UxSM",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/10. October.xlsx",
+"bytes": 65751
+},
+{
+"id": "1MhQpY5ookHOFP5Huc4kRckcLwob9X3ac",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/11. November.xlsx",
+"bytes": 64385
+},
+{
+"id": "1CMat3hosM-99i61euDbTMYMrIHZR8Ncr",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/12. December.xlsx",
+"bytes": 67295
+},
+{
+"id": "1xe6flCkeg3CZdipSFXBLtfs-rJR1ydYn",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/2. February.xlsx",
+"bytes": 56428
+},
+{
+"id": "1YeCGDE7iwK8HGmx4Tti4tMvAnhocfy9z",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/3. March.xlsx",
+"bytes": 60105
+},
+{
+"id": "1ZinzR7lM29byTMUyQn0n81xrQmjXVv2j",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/4. April.xlsx",
+"bytes": 58350
+},
+{
+"id": "1OBFAjJGnWFXHjH-Sv5xGM2y560yCywTg",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/5. May.xlsx",
+"bytes": 58237
+},
+{
+"id": "1BQcTOateTwpFpNTKTd_9mNt1bVS_EPAl",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/6. June.xlsx",
+"bytes": 68371
+},
+{
+"id": "1VqWF6PmO5dJKZXmJSnNr2nNILyv7grWN",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/7. July.xlsx",
+"bytes": 73529
+},
+{
+"id": "1J661NQZ7ug0PgOmsZWuiq0GN3DqmexNy",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/8. August.xlsx",
+"bytes": 73029
+},
+{
+"id": "1pONBtqaxPqTsJAU-tQIp1zKn01jRFxwN",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2018/9. September.xlsx",
+"bytes": 67603
+},
+{
+"id": "1OfDq2Bk_Bs7urbhecjOjVhYvGUeyHBdZ",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/1. January.xlsx",
+"bytes": 63830
+},
+{
+"id": "1ftKwhAs3RvbHXxtyk5MU9gGoyLSqtv6e",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/10. October.xlsx",
+"bytes": 55125
+},
+{
+"id": "1AXFTgh2y1LZfqbZl6DjGmKHZlDsWJazh",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/11. November.xlsx",
+"bytes": 56933
+},
+{
+"id": "1oeCV3u2WO8UfQvRfoe6BeQUXHKPmPItU",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/12. December.xlsx",
+"bytes": 61410
+},
+{
+"id": "1EIMEh1ckq6pZmaB3bhnceo5YTqBHenaX",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/2. February.xlsx",
+"bytes": 56651
+},
+{
+"id": "1Kkidzen0iUVnVpJATUReFzzzGgsE3uTi",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/3. March.xlsx",
+"bytes": 56757
+},
+{
+"id": "12O6gjoFfRSTqeXicldTXccfsVNsqAVzN",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/4. April.xlsx",
+"bytes": 55845
+},
+{
+"id": "12B5shubbUTwlAEiVNpgHXbXEXbgBoZLp",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/5. May.xlsx",
+"bytes": 62250
+},
+{
+"id": "1kqmqb-iA3HhT9WW5VLpi0Um16_502hT5",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/6. June.xlsx",
+"bytes": 61578
+},
+{
+"id": "1sgnad0cDzy1OoB6yvE7oRBVcfHrEGDZg",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/7. July.xlsx",
+"bytes": 63974
+},
+{
+"id": "1c2jopyo89ON1Zjfv6wBccfqvW2AJGSO1",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/8. August.xlsx",
+"bytes": 69710
+},
+{
+"id": "1Gr9bodrzDsLJTQ4r8hHoNKEbvPaM55Ps",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2019/9. September.xlsx",
+"bytes": 66320
+},
+{
+"id": "1S1nNbstqjGblB0UYsiOrdXBa8csT6lyH",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/1. January.xlsx",
+"bytes": 56338
+},
+{
+"id": "1mQ_0btip9EWxwTVmeEZBcl6HZlzmHTVg",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/10. October.xlsx",
+"bytes": 70646
+},
+{
+"id": "1KHf1_jA-tza_xHowFRB2AGzaNYFuCkUl",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/11. November.xlsx",
+"bytes": 66513
+},
+{
+"id": "15ni334V9FEfh0bekx5ykaDOdsAGoVVKB",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/12. December.xlsx",
+"bytes": 29660
+},
+{
+"id": "1c5KsFrIsqqgZvkSH1lc8eQKz0nwJ-nzG",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/2. February.xlsx",
+"bytes": 53602
+},
+{
+"id": "1wCtT8tizFws906UhT8uQc21qyZT4ay-t",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/3. March.xlsx",
+"bytes": 47936
+},
+{
+"id": "1aUgleibv1YzYSQRDT3NtSngRCiQmQ9Th",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/4. April.xlsx",
+"bytes": 28156
+},
+{
+"id": "1jNeIYGSKfV22IySu_Lw1-sAxIBVjYlCG",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/5. May.xlsx",
+"bytes": 38911
+},
+{
+"id": "1jcKIsKowsEbsEKFEJVqZvmDRja47lzZf",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/6. June.xlsx",
+"bytes": 54297
+},
+{
+"id": "19ZX9NTjfrZ931o7pLScIw5m_0UP-I9rK",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/7. July.xlsx",
+"bytes": 60334
+},
+{
+"id": "1uA7tVvi1wrO1lr8mBUvKIJg3KiK7IsXV",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/8. August.xlsx",
+"bytes": 64691
+},
+{
+"id": "1Vdn-Yjpbu3tXfA8LKhaCewt-nmjpTIyR",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2020/9. September.xlsx",
+"bytes": 62604
+},
+{
+"id": "1C9LLo7RFJ06_RF6qIusqvIwHulQQHeTN",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/1. January.xlsx",
+"bytes": 63606
+},
+{
+"id": "1f3qE2UejqtLBhWUmrPuwsMdjWZnjQO3-",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/10. October.xlsx",
+"bytes": 59355
+},
+{
+"id": "15MHH4gS2ycuyPPZ1Tq-ONw8CjI-uSJmf",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/11. November.xlsx",
+"bytes": 60137
+},
+{
+"id": "1m8OQUkO9h2kzh7S5aUR5ps931YRp_Pid",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/12. December.xlsx",
+"bytes": 57724
+},
+{
+"id": "1uOiTQBnkqdWWDP1rUjtOCCT4fbqNicby",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/2. February.xlsx",
+"bytes": 57458
+},
+{
+"id": "1igBUrd6j4r67yPx_HpE-c9UXWc3PKAKr",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/3. March.xlsx",
+"bytes": 59209
+},
+{
+"id": "10uzPowGdfqyyNW0r0CHDIVrFk1jH4uMA",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/4. April.xlsx",
+"bytes": 58397
+},
+{
+"id": "10yvHkfkKRq_R-fsKXv3ui_2t3cRNR1-3",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/5. May.xlsx",
+"bytes": 59877
+},
+{
+"id": "1-CgoZ7uOhWCBr9r9rpcRdq6ccwWgK_cY",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/6. June.xlsx",
+"bytes": 63521
+},
+{
+"id": "1qBBkMi_0td2YeX9v6G3rsx5BTnXOTJmx",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/7. July.xlsx",
+"bytes": 67983
+},
+{
+"id": "1LjijyPihOe4LOObuEubjT6T9339jtQvn",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/8. August.xlsx",
+"bytes": 68761
+},
+{
+"id": "1vmTM0jfikH2sbvYqWQuYbJkBujEhfxq1",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2021/9. September.xlsx",
+"bytes": 66556
+},
+{
+"id": "165exznoSNNfXnm4WtVqFTMkcVZ_q0ANV",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/1. January.xlsx",
+"bytes": 31599
+},
+{
+"id": "1FOgvmP_ZJbVNvgFlVeBk2H3ajIarYD6y",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/10. October.xlsx",
+"bytes": 34600
+},
+{
+"id": "1pNnHoPxyLrW3wKnkw15cDz24TFs1MUIz",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/11. November.xlsx",
+"bytes": 32445
+},
+{
+"id": "1vFxYDcCrnoNeo_0SwBgWN6CzC6Sjm0Y4",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/12. December.xlsx",
+"bytes": 58037
+},
+{
+"id": "1oGoA1KHwK3s6oJxGsr3OoOHuV7NMq6B1",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/2. February.xlsx",
+"bytes": 55303
+},
+{
+"id": "1nLnKFKsTI46VQFIwwtbW1GtABiSW1342",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/3. March.xlsx",
+"bytes": 60085
+},
+{
+"id": "1TLug4SZ6SjlqUmKiT7qcM29cgOP_tPEV",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/4. April.xlsx",
+"bytes": 32257
+},
+{
+"id": "1AmcSRwm2Elztmf_PfCaATMecHdKjxZua",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/5. May.xlsx",
+"bytes": 61887
+},
+{
+"id": "1mdVWud675-V33eFR3WlYjZrkC6iEC7qB",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/6. June.xlsx",
+"bytes": 64438
+},
+{
+"id": "1upNN6q0L24a2DZwKp4u9L4RzLYCdtRe_",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/7. July.xlsx",
+"bytes": 67111
+},
+{
+"id": "1hHttMqnmFUI5aT7MYL0l5E7X9_Suj5Ye",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/8. August.xlsx",
+"bytes": 67306
+},
+{
+"id": "1di_3glIUBwNuBVToQCQFzD1grF2vd_CH",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2022/9. September.xlsx",
+"bytes": 170026
+},
+{
+"id": "1siS5T99-zJPgLETUep5xJ53bPE-XmJ3X",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/1. January.xlsx",
+"bytes": 31816
+},
+{
+"id": "1-kK9rXXsUL91oY7vVCY1uUDO3yHLMkHc",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/10. October.xlsx",
+"bytes": 31855
+},
+{
+"id": "1Onoaxwj7ldJxjuqiYrSwELOof1hh-3fm",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/11. November.xlsx",
+"bytes": 29491
+},
+{
+"id": "1vl81_zgQ44CmLxr1wrVKy8qQ9fletT38",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/12. December.xlsx",
+"bytes": 29030
+},
+{
+"id": "12oqKyF2Zb8qlb4cERL-wGIaeATNXaPzR",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/2. February.xlsx",
+"bytes": 28507
+},
+{
+"id": "19MOTYqEQfAPHLxjI6T2M6JBON07fKXn8",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/3. March.xlsx",
+"bytes": 29181
+},
+{
+"id": "1a-QjKjS4xpIbbiSxiHUg1KGaV9YdyGJh",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/4. April.xlsx",
+"bytes": 29544
+},
+{
+"id": "13g5gDzxZbERVUqlD9khAI5PHvMDqb6HC",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/5. May.xlsx",
+"bytes": 30056
+},
+{
+"id": "1Q3DCXcvIv-eEXZsEEFmTOGAF7uFv2lUW",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/6. June.xlsx",
+"bytes": 30684
+},
+{
+"id": "1v6g1TLdlz_BQMeHVNOM4Q2XGuq_kGUh9",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/7. July.xlsx",
+"bytes": 32810
+},
+{
+"id": "1EOsm0-1u62yiTTxEJdqpeRdkG9K4kS38",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/8. August.xlsx",
+"bytes": 34625
+},
+{
+"id": "1ijlfYeAWq2u2Tsj0JvQIU4Vg2X67JbC8",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2023/9. September.xlsx",
+"bytes": 34082
+},
+{
+"id": "1FLEQ21gCx7iLCwbzqwIeQfa3lh4P1HGG",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/1. January.xlsx",
+"bytes": 29321
+},
+{
+"id": "1U4Ektw3G18_G2AsP470JUJMWerzw2O2j",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/10. October.xlsx",
+"bytes": 31579
+},
+{
+"id": "1VF43GiLSA13YINPl2IjyBzDqD1Ow6iRK",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/11. November.xlsx",
+"bytes": 29595
+},
+{
+"id": "1YFPNPkqJ6UpVz8ndwHp_D1MkfDX536B2",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/12. December.xlsx",
+"bytes": 29149
+},
+{
+"id": "14-3Z3tIv_XQhR9PrgHzzmBrTnGHrTQV-",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/2. February.xlsx",
+"bytes": 29064
+},
+{
+"id": "19LWoamZZaQf7C1qQNPeCHhvg29EITDXW",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/3. March.xlsx",
+"bytes": 28863
+},
+{
+"id": "1RJBqzAvTm-yCFgDwwSbNeeMcUnCGDhR3",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/4. April.xlsx",
+"bytes": 132633
+},
+{
+"id": "1b_6_GvfU3_kKAFgu5dcAJ6ivB0bMImSL",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/5. May.xlsx",
+"bytes": 29653
+},
+{
+"id": "1bU55_a20rkxwBiPTHM-narEZqDFMLPQX",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/6. June.xlsx",
+"bytes": 30675
+},
+{
+"id": "1y-b6MACCDQu9MVzQcydZ56aM3fGlbmir",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/7. July.xlsx",
+"bytes": 31113
+},
+{
+"id": "16bhs3l8KKl5yjZXl6XZvdHTfM0Qf6nWH",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/8. August.xlsx",
+"bytes": 31781
+},
+{
+"id": "19C-ZhkG4pw7xatv_C6lCMeezjczcsvO-",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Montalban 2018-2024/2024/9. September.xlsx",
+"bytes": 32668
+},
+{
+"id": "1lbeIXYbP-WJCHgcAKWk2zLL1lUt9-Rjx",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/1. JANUARY.xlsx",
+"bytes": 63669
+},
+{
+"id": "1Lq8-nKPemkm75beY9lL8wg3B_Xtvd1mS",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/10. OCTOBER.xlsx",
+"bytes": 66858
+},
+{
+"id": "1IH2eCBzAsYYcnllhDToqoQlfOQfRQw92",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/11. NOVEMBER.xlsx",
+"bytes": 64848
+},
+{
+"id": "1MFpzcI-85kq0DWRK-VMyZmzhFqnep5tW",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/12. DECEMBER.xlsx",
+"bytes": 67334
+},
+{
+"id": "1Z9Fd1vuC_KnOJmQxUZNmPhQscteoJiQ9",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/2. FEBRUARY.xlsx",
+"bytes": 58947
+},
+{
+"id": "15b20OCJ6IN4fMxcpd7UKn5ta4w4-TjXB",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/3. MARCH.xlsx",
+"bytes": 62804
+},
+{
+"id": "1ciyNv3ApBnQC77Ck-a-DrWJikR17wnBt",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/4. APRIL.xlsx",
+"bytes": 60314
+},
+{
+"id": "1DiGiCQnhQfeOH8zpTBqOZ8SjB3wJv8L0",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/5. MAY.xlsx",
+"bytes": 60618
+},
+{
+"id": "1syDfVnM7M5k2pdaYVyPbcC4hHwNUN-6B",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/6. JUNE.xlsx",
+"bytes": 69392
+},
+{
+"id": "124M3gJ0yYOi6qzYq08DCC99Vxm7m6WH5",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/7. JULY.xlsx",
+"bytes": 73316
+},
+{
+"id": "1voZfkiLlL4zDXl_l0Qi_eK2Y3QDV1XYq",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/8. AUGUST.xlsx",
+"bytes": 73025
+},
+{
+"id": "1qWONEf7JjbRKSQ94NUMw1XLLAa2TEta-",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2018/9. SEPTEMBER.xlsx",
+"bytes": 67618
+},
+{
+"id": "1b64T5bmGdYeDSKaQDYvIlNuJ_YdfAuDA",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/1. January.xlsx",
+"bytes": 65087
+},
+{
+"id": "1ToOFzZU3P_QlQ_LebjiSMhKxkR_SuXpJ",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/10. October.xlsx",
+"bytes": 55792
+},
+{
+"id": "1ymI7LXuStv3s6g6Wf5t8FVwGqj-prpqi",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/11. November.xlsx",
+"bytes": 59082
+},
+{
+"id": "106GgvMTVW815NxgE38leSmHpQz4Ov1n0",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/12. December.xlsx",
+"bytes": 61839
+},
+{
+"id": "1fvYijibSX57dMRCx_0BxyuBiuJlcENF3",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/2. February.xlsx",
+"bytes": 58481
+},
+{
+"id": "1GUWsBv-qeXgJspUiP6rVjGXyPV-ECdgL",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/3. March.xlsx",
+"bytes": 59417
+},
+{
+"id": "1Ibs8ZBRBpJKvLxIrGSabF-sCqKEYOmi9",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/4. April.xlsx",
+"bytes": 58811
+},
+{
+"id": "1WOe7vFqSqDcTyF0Ip9vtdnsCK8XGo64h",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/5. May.xlsx",
+"bytes": 64349
+},
+{
+"id": "1Ezl3_5VjsMyIGDJUNCGmnCBWOAsu7Bgi",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/6. June.xlsx",
+"bytes": 62857
+},
+{
+"id": "1gkY3c4QMyf5LIqNG_4SiIuoHKMSwNbsU",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/7. July.xlsx",
+"bytes": 64670
+},
+{
+"id": "1H2vTIrHfJmjrUigxza5LZUvtu4Nq9KNr",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/8. August.xlsx",
+"bytes": 69797
+},
+{
+"id": "1NNP88-mkhwDbR3c2uoy5yL7tir_5EGnh",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2019/9. September.xlsx",
+"bytes": 66341
+},
+{
+"id": "1dwdhytTWe3bNO2XYp0vCSzscWo3QeXvh",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/1. January.xlsx",
+"bytes": 58223
+},
+{
+"id": "1VY9HtJbu-POus3dkoBY9jXyIq7mGSjUS",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/10. October.xlsx",
+"bytes": 70540
+},
+{
+"id": "1zCHtf6yBGQq3xS265HJVVmS0_ErP2qak",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/11. November.xlsx",
+"bytes": 66588
+},
+{
+"id": "1t7kHENAGX9LXTSRJt5ck0ll-vDAdMpb-",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/12. Dcember.xlsx",
+"bytes": 34666
+},
+{
+"id": "186TPjoUHIURzj6o6xr6Z8NV1gMwnbFQc",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/2. February.xlsx",
+"bytes": 56231
+},
+{
+"id": "17iQzmNo8f9SyMa9I1Uyp5AZophFnrpWA",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/3. March.xlsx",
+"bytes": 51320
+},
+{
+"id": "1DOBCHYQdbeVUCX32a7erh-PijKcrgFi8",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/4. April.xlsx",
+"bytes": 33221
+},
+{
+"id": "1OSyuv-GvCdyxoixYBaqsupuGUhLwYVmz",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/5. May.xlsx",
+"bytes": 43552
+},
+{
+"id": "1OeRxyP323HKXSnpo4KNUYd63o8upHk-M",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/6. June.xlsx",
+"bytes": 55896
+},
+{
+"id": "1bAwS-kZCmBnXeObo5Q-G5Cy0QOP2LRKo",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/7. July.xlsx",
+"bytes": 62193
+},
+{
+"id": "1DmttbJvfV5qXuv7lbf40Jnh2uSjty_O_",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/8. August.xlsx",
+"bytes": 66698
+},
+{
+"id": "1uAEzfwQ5rMm4eDqAJISRGCmFrP30oROy",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2020/9. September.xlsx",
+"bytes": 64167
+},
+{
+"id": "1wd5WtG1Ro5FdGm0EjGYXn7iN5wiC-hnu",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/1. January.xlsx",
+"bytes": 38769
+},
+{
+"id": "1VGAt6-p9axCjlRvBRKKP3wLH7HxaCQe_",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/10. October.xlsx",
+"bytes": 62140
+},
+{
+"id": "1KO29DTHjJFDO6lzOZp3fCbAdbPQQ4A_D",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/11. November.xlsx",
+"bytes": 61437
+},
+{
+"id": "1R26qxGtpESg2YbW6sRkwvVUsDEkq8cu3",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/12. December.xlsx",
+"bytes": 63029
+},
+{
+"id": "1Q7D71N_j9qy04gxNWnsaS5K1nsrvhs-4",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/2. February.xlsx",
+"bytes": 60107
+},
+{
+"id": "19g7j4Mc_IsHJ66bQHz-hZHgwqJpSKM9u",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/3. March.xlsx",
+"bytes": 61931
+},
+{
+"id": "13Rx6YtJXRAVgsW9eRQZ-xpOiCEluTs7l",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/4. April.xlsx",
+"bytes": 60567
+},
+{
+"id": "1nRKUH7w_uvsocXuOcLaJzjbtHyWcG9Ds",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/5. May.xlsx",
+"bytes": 62039
+},
+{
+"id": "1CervwbODuiBpyWy0t8HPwuzfSDkDqgoH",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/6. June.xlsx",
+"bytes": 64215
+},
+{
+"id": "1LhqyvIpF4IF-xHIgpj8qJqaqy_y0_qpV",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/7. July.xlsx",
+"bytes": 68796
+},
+{
+"id": "1kXiGwiFbGWSZSc1As1yszGOzUgM9Lz7B",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/8. August.xlsx",
+"bytes": 70584
+},
+{
+"id": "15fzJkUvcmq25DDND8qGe2CLXPlHOjO7i",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2021/9. September.xlsx",
+"bytes": 66622
+},
+{
+"id": "1l-4U8TvyOG6OZkBQwutqn6mxGCtvqh9E",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/1. January.xlsx",
+"bytes": 34397
+},
+{
+"id": "1XgisC_vyaiBgF_SIUt3Drajp1wWmQHQX",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/10. October.xlsx",
+"bytes": 35038
+},
+{
+"id": "1kW7DsJ060zy-_YDsBf-heQvS4MCjuk6u",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/11. November.xlsx",
+"bytes": 34009
+},
+{
+"id": "1ZIB9qacQFwxaCPZAsTdWtRJEf53tibLh",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/12. December.xlsx",
+"bytes": 61155
+},
+{
+"id": "1t3N5DS2O_QOtak-DGZ6jA85TScK_sGDH",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/2. February.xlsx",
+"bytes": 33149
+},
+{
+"id": "1kdu17X1WeuW6XXmUfBwpNFOD-SuZnJPF",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/3. March.xlsx",
+"bytes": 62392
+},
+{
+"id": "1yQJftBseTDV1Q41gYaMHvlFn45qm_F8q",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/4. April.xlsx",
+"bytes": 60972
+},
+{
+"id": "1k5WlMcKRLDEwFfdYaF_-ccsRypBOrsqu",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/5. May.xlsx",
+"bytes": 62174
+},
+{
+"id": "11PJrYOhHk1SS80xbFd-2-P9NDMIZ77fQ",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/6. June.xlsx",
+"bytes": 64830
+},
+{
+"id": "1g7SKjS1T97M-nDrVFBAJJPBGFGEItlii",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/7. July.xlsx",
+"bytes": 67133
+},
+{
+"id": "1X1qtlTtYIbVkVd6SaIbbXEMPUhLwxvtq",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/8. August.xlsx",
+"bytes": 67402
+},
+{
+"id": "1Gaj8_6fFisCoBv3Vl7yfT6BIew6VvTlK",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2022/9. September.xlsx",
+"bytes": 168274
+},
+{
+"id": "17h4lnNgrKAOVPbTcWDkElfzCDaa-8wLw",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/1. January.xlsx",
+"bytes": 34687
+},
+{
+"id": "1gEAfSuM24958FwVBtuDcg9CZeSmaXVNK",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/10. October.xlsx",
+"bytes": 34493
+},
+{
+"id": "1gQyoC-vNRbHNMEB7l4TD1qQeX3d1DDRS",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/11. November.xlsx",
+"bytes": 34249
+},
+{
+"id": "17IauVni8j3tNGLrwB9xalChfy-acX7Mu",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/12. December.xlsx",
+"bytes": 34131
+},
+{
+"id": "100-5PniDK1Qq_p1Dwt5ti43RFBxkwTyp",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/2. February.xlsx",
+"bytes": 33590
+},
+{
+"id": "1R4XV8fxqalYRvzAjksSVvxFxsj0GNpgu",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/3. March.xlsx",
+"bytes": 34093
+},
+{
+"id": "1MsQ6YKaYqTqAF3w1NQ1DcjRG2YlJTxZs",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/4. April.xlsx",
+"bytes": 34131
+},
+{
+"id": "1GLzOcKYG1vuFpZYNbVkIOc01U8f4LZ8D",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/5. May.xlsx",
+"bytes": 34689
+},
+{
+"id": "1wpEUVGW2KoPNBbXUgKZTyhzacma5jo_C",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/6. June.xlsx",
+"bytes": 34272
+},
+{
+"id": "1RINgnUYaFJziJDTJWaU-aN5Ydv6Gx-gm",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/7. July.xlsx",
+"bytes": 34936
+},
+{
+"id": "1HNp_49GDLaHbwhN2wqKXAlVF_BmMcbBJ",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/8. August.xlsx",
+"bytes": 34999
+},
+{
+"id": "1Nac9XFDDjmgeO_myrrNDdmIdBrzvEfpZ",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2023/9. September.xlsx",
+"bytes": 34455
+},
+{
+"id": "16w2OYIlq-m8ZWlPAdtootq7ZFX7nJyoS",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/1. January.xlsx",
+"bytes": 33937
+},
+{
+"id": "1QDQGCmkJolNuanLH0OHWjQ7WeAyKtbV7",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/10. October.xlsx",
+"bytes": 34900
+},
+{
+"id": "101etwnF6ns1fYxiNSzAF-Ayv3aHWguaC",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/11. November.xlsx",
+"bytes": 34454
+},
+{
+"id": "1o_EdGza2_p57vgHnB2jyI4EnTv-twJhf",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/12. December.xlsx",
+"bytes": 34651
+},
+{
+"id": "1nutu61Y6Jwq20YMdHNBo2alCb9rtWG7m",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/2. February.xlsx",
+"bytes": 33282
+},
+{
+"id": "1OZMm1tEm40Lh6QXtmEn9C7XoJ4_KL0I2",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/3. March.xlsx",
+"bytes": 33891
+},
+{
+"id": "1Er0MOJOItMc_cGAWE844FQDlT-Zc-KvI",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/4. April.xlsx",
+"bytes": 137563
+},
+{
+"id": "1Xxrog7MHPAxoMD5gD_SIqo1Tt_stO2fO",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/5. May.xlsx",
+"bytes": 34496
+},
+{
+"id": "1-Dk1zcb6k6xbR4JMqVW8xp3mGRoqvANY",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/6. June.xlsx",
+"bytes": 34360
+},
+{
+"id": "1hKSxS3iwemJ5dTmZghtCBWLq4IcErK0_",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/7. July.xlsx",
+"bytes": 35029
+},
+{
+"id": "1xbEjpnWc1oy-XBCedm51gKMoXALnzVbT",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/8. August.xlsx",
+"bytes": 35131
+},
+{
+"id": "1FhqRfvrpBdd9vXU1X-XorBVvwNH3rh6K",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Pandacan 2018-2024/2024/9. September.xlsx",
+"bytes": 34471
+},
+{
+"id": "1yfX-xuLpsfsSNQexahw7hybWB0Iw-yjM",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/1. January.xlsx",
+"bytes": 63012
+},
+{
+"id": "1S-lUsVM8--bV9t-ZRc8E4GKWAaJzWH8f",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/10. October.xlsx",
+"bytes": 67028
+},
+{
+"id": "1OulSDFOcJo1XmOaETtvQbSMZykODpa3g",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/11. November.xlsx",
+"bytes": 64961
+},
+{
+"id": "1l_2NPdos6PAZBjUEvJP1ps3WWCR1fZG_",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/12. December.xlsx",
+"bytes": 67666
+},
+{
+"id": "1dlaj9yQAlvQR0DqRhuBI6XahhaMXdkkY",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/2. February.xlsx",
+"bytes": 58416
+},
+{
+"id": "17ZhBefRGfhdbFhMdJL1Gw_Cqk86KDFkM",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/3. March.xlsx",
+"bytes": 62245
+},
+{
+"id": "19dXpbEbPh3Df1GEvja242Y6i3LavPjpy",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/4. April.xlsx",
+"bytes": 58900
+},
+{
+"id": "1UFwX4BuXnNdXmneF6OeyGAyq2IKTeSz_",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/5. May.xlsx",
+"bytes": 60169
+},
+{
+"id": "1l0sGBQRcujH8DYgyfYq9f5CS-rMIuDPX",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/6. June.xlsx",
+"bytes": 69847
+},
+{
+"id": "1Pn65-SP_n87c3MffuZjwSmEt0tfBvd8I",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/7. July.xlsx",
+"bytes": 72598
+},
+{
+"id": "14dbParyjXksI_AUI4Ek1LlBQnJptI-ag",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/8. August.xlsx",
+"bytes": 72784
+},
+{
+"id": "1VCWPTwqS-wzrisLPyQgF_CnMpe4Bwk52",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2018/ROSARIO JS 2018/9. September.xlsx",
+"bytes": 68054
+},
+{
+"id": "1i_tGsq5W6H2qTkB9csUf1NR2FY89vbV3",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/1. January.xlsx",
+"bytes": 64523
+},
+{
+"id": "1F9KqbzfHL76bv5ezWN6PyTDt-WHqBQ0v",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/10. October.xlsx",
+"bytes": 55114
+},
+{
+"id": "1kqrwuBhxZpMw2bOkRgq6Zk8jLePsh8cc",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/11. November.xlsx",
+"bytes": 58309
+},
+{
+"id": "1LogfVGl1lzAaICbRux9BCTXBtaGPHTms",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/12. December.xlsx",
+"bytes": 61333
+},
+{
+"id": "1FK_-MAnQp1NgdjcvI0Af0jSiRi5m7nbT",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/2. February.xlsx",
+"bytes": 58893
+},
+{
+"id": "1pmdViPo1uzH6wI59xDs_3badq_YMR7sy",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/3. March.xlsx",
+"bytes": 59011
+},
+{
+"id": "1Kcn6P2Kw9M0qst9T5m2SRk7RHfVYFtP0",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/4. April.xlsx",
+"bytes": 58142
+},
+{
+"id": "1FZqNar2iBlG_4nogwNNTVFSiTZPtO_KR",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/5. May.xlsx",
+"bytes": 64478
+},
+{
+"id": "1Av-Ei9IL6p-u_g_4nCgjA9mwJhdt42aE",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/6. June.xlsx",
+"bytes": 63009
+},
+{
+"id": "14I7JDh4UYgrSZgHJaSLLTPYQ9orHXrVN",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/7. July.xlsx",
+"bytes": 64399
+},
+{
+"id": "19xVGlPOrNfJ109gwjmLXrBEfpxwPdwTq",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/8. August.xlsx",
+"bytes": 69604
+},
+{
+"id": "1KbPk6I4iLWFNZEWUXjKTIRx7C32jx2Q2",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2019/Rosario JS 2019/9. September.xlsx",
+"bytes": 65911
+},
+{
+"id": "1mRUcgXFm1QSOqhGxe8a252OMpzRYm8X0",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/1. January.xlsx",
+"bytes": 57890
+},
+{
+"id": "1k6FIpGizQPn0Y5pgvLcgMz3EwMLaFaU7",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/10. October.xlsx",
+"bytes": 70408
+},
+{
+"id": "1pIjmD75rHL3BXdOrUBKpRfRAtcsDG_Pj",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/11. November.xlsx",
+"bytes": 66859
+},
+{
+"id": "1_minvRSBU-pslDYmEfGIMLMyPKl33h61",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/12. December.xlsx",
+"bytes": 34713
+},
+{
+"id": "1KZiqs0uWG1ECovzEUfL1fn7U6gUmPIg5",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/2. February.xlsx",
+"bytes": 56041
+},
+{
+"id": "1wO9drSkINkr-S0J4g8IbDXqtz6C6_TjN",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/3. March.xlsx",
+"bytes": 51344
+},
+{
+"id": "11_VTYLf7i5rVKzLNfJUiyig3hKAWGmlM",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/4. April.xlsx",
+"bytes": 33502
+},
+{
+"id": "1_EXf7CdPbzxW_XMi2p6JjNRdjFcuSBUW",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/5. May.xlsx",
+"bytes": 43468
+},
+{
+"id": "18FjEu-1F8u3Lwj4O7bCbC9CQE5CzNW-f",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/6. June.xlsx",
+"bytes": 56044
+},
+{
+"id": "1oP2AzzQMf3M9g20qBQhAAptu-V_om4h0",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/7. July.xlsx",
+"bytes": 61987
+},
+{
+"id": "1VRP9PFVMCu9v3jrrxn0RnLH07i4K_GPq",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/8. August.xlsx",
+"bytes": 65007
+},
+{
+"id": "1T_IxQwNZfnVi6eiiUQj_Esf5DomBuf5W",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2020/Rosario JS 2020/9. September.xlsx",
+"bytes": 63955
+},
+{
+"id": "1oNO-8bjkn60DzekRUoA5u0TVCg33_N1g",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/1. January.xlsx",
+"bytes": 64884
+},
+{
+"id": "1y53NHWO0bG5Ym0ueB0Gp2NWwEtuBrxhJ",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/10. October.xlsx",
+"bytes": 61145
+},
+{
+"id": "1ek4KzbKQqbNdv_Nugpcd6w0VdvDHo6uZ",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/11. November.xlsx",
+"bytes": 60966
+},
+{
+"id": "16rRMCORhPgwmJJPgMfz_y7rE8kssJyiX",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/12. December.xlsx",
+"bytes": 59570
+},
+{
+"id": "1iOIPm7fVRn4N64QlzaJgxx6gtNK0ni6R",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/2. February.xlsx",
+"bytes": 59644
+},
+{
+"id": "17kEkPeVCOMnamRcAf8wjEIvzBzB4Yztg",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/3. March.xlsx",
+"bytes": 61298
+},
+{
+"id": "1DahQ5-9P8F0gwdXayPrFz5eHHpkxM0cc",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/4. April.xlsx",
+"bytes": 60515
+},
+{
+"id": "1QZ3VWACUx7ihA8q-6EnW0rpQ_CRzaM5z",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/5. May.xlsx",
+"bytes": 61371
+},
+{
+"id": "1E_JyEV0dr2NFRaHdyB0eMbFNG9P1PAWg",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/6. June.xlsx",
+"bytes": 63613
+},
+{
+"id": "1XPopN92ITm7DxU9L3HJsf3QxAqr3x4oQ",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/7. July.xlsx",
+"bytes": 68252
+},
+{
+"id": "146KeNOlKjEaffGZRaE6CisZTffkxFyH1",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/8. August.xlsx",
+"bytes": 68844
+},
+{
+"id": "1_MKesZ-IpMQrc7UVk0I8ZWt2y-cjTjXA",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2021/Rosario JS 2021 VERIFIED/9. September.xlsx",
+"bytes": 66953
+},
+{
+"id": "1d8sJ6E7bTF1aJ7fbTxLXzFfYpi7Mf4aO",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/1. January.xlsx",
+"bytes": 33866
+},
+{
+"id": "1EEr9iVjgFyGJ9U--ZeEsIjp98RPsEPf7",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/10. October.xlsx",
+"bytes": 67082
+},
+{
+"id": "1PKWJAYI5aOMaRY5A4py2QOiNOT8miDZ1",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/11. November.xlsx",
+"bytes": 63662
+},
+{
+"id": "1SZuXjjxfQho-M3dlNiqYLWqX3U-05QuH",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/12. December.xlsx",
+"bytes": 59933
+},
+{
+"id": "1S9o-IaJrTDK9UYha7h6GHFPlgVKZuWyW",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/2. February.xlsx",
+"bytes": 58700
+},
+{
+"id": "1qz318HgF6zrvj46OXINwjOD1iqTKt1Xz",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/3. March.xlsx",
+"bytes": 62229
+},
+{
+"id": "1BMu-4l5c5S_VN10_8uJAuj7J6zbUMtIC",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/4. April.xlsx",
+"bytes": 61172
+},
+{
+"id": "1O9o5VSAIT1Ws5eycv-BDg9ns6eCvxNNT",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/5. May.xlsx",
+"bytes": 63007
+},
+{
+"id": "1vHF1zxRaNV_22PUFtygXIeu_ail273-y",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/6. June.xlsx",
+"bytes": 64206
+},
+{
+"id": "11ud-J8OaxxaA4bMSQ1GcQcx_UDffstkl",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/7. July.xlsx",
+"bytes": 66642
+},
+{
+"id": "1dtjvP1oX2ISRkHwLwF9ZIE97jXAbx5bu",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/8. August.xlsx",
+"bytes": 67093
+},
+{
+"id": "1oi2sZ6Myi9zcJbQ0B2AKkaWkMJaeQILf",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2022/Rosario JS 2022/9. September.xlsx",
+"bytes": 169908
+},
+{
+"id": "1pypwOXVxXEtTjaolzfyFco13YuTf4k_B",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/1. January.xlsx",
+"bytes": 33983
+},
+{
+"id": "1Q6kCgZ_JyK1rr-18luu-iQie3ckIOW37",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/10. October.xlsx",
+"bytes": 32953
+},
+{
+"id": "1yutZVj2t4HEsTg9HaLEmrqT3s-UAwXD3",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/11. November.xlsx",
+"bytes": 32890
+},
+{
+"id": "18_oRizmf2TMdtjiRI4ZRrgfTrG6nuuza",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/12. December.xlsx",
+"bytes": 32812
+},
+{
+"id": "1XvztNnf4BBD4QUytO6SqlmTPtTTiPBW-",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/2. Febuary.xlsx",
+"bytes": 33176
+},
+{
+"id": "1GOH8CYc5Jb4TQOW6JqccfVCEIAMEk4Q4",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/3. March.xlsx",
+"bytes": 34133
+},
+{
+"id": "1sa7bxEK97KffQuAAtxWOlhMBI4OwRQtK",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/4. April.xlsx",
+"bytes": 33735
+},
+{
+"id": "1xyLZ2BJQcsu96yR6QIzy5dIaj1nqQoBP",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/5. May.xlsx",
+"bytes": 34295
+},
+{
+"id": "1m5J6CBymS0h-778KhRxlDVx39eEc4Kqf",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/6. June.xlsx",
+"bytes": 34099
+},
+{
+"id": "1ogBhqLwhYx-uxxMJ2w5ogooyHMuAdua8",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/7. July.xlsx",
+"bytes": 34648
+},
+{
+"id": "1BXdH03W9uJEuxE5P0NsxWIPWD7LfI1oC",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/8. August.xlsx",
+"bytes": 34158
+},
+{
+"id": "1YCgkxVzLi6tZRokL1PkGCgjBSg8u4He4",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2023/Rosario JS/9. September.xlsx",
+"bytes": 33722
+},
+{
+"id": "1qJBPAsWM-P4not5h9nwHw681qHM5L_My",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2024/Rosario JS 2024/1. January 2024.xlsx",
+"bytes": 489144
+},
+{
+"id": "1-DfxoLNSbPntHTxDcPdA845eWudWbOjE",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - APRIL 2018.xlsx",
+"bytes": 58512
+},
+{
+"id": "14btIGR-houIqLDQq0bj2YGQ2jEitJMBx",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - AUGUST 2018.xlsx",
+"bytes": 72768
+},
+{
+"id": "1H4C3UALMmIVCBbmeTTLNBZ1Jzw_i-mjW",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - DECEMBER 2018.xlsx",
+"bytes": 67626
+},
+{
+"id": "1lw84dtzNEadmi9VMe6ls9WnvBFfLdfCt",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - FEBRUARY 2018.xlsx",
+"bytes": 58078
+},
+{
+"id": "1G0kDhdY4yeDczNy9VpyEGSYL6nmIpYj0",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - JANUARY 2018.xlsx",
+"bytes": 62957
+},
+{
+"id": "1Kyoe1fLKZ5fmdIVHYcMFxqd4e_uDhqRi",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - JULY 2018.xlsx",
+"bytes": 72564
+},
+{
+"id": "1SCzPXMJ23SZ1kpAGI3TJiGeDnpYuHC5F",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - JUNE 2018.xlsx",
+"bytes": 69506
+},
+{
+"id": "1du3z7xHzeq4KMAHAnE8FXYrRIBd7T1xr",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - MARCH 2018.xlsx",
+"bytes": 61510
+},
+{
+"id": "1lP5cYx0kIR1X0578K3LMcDhZRpGv61Jf",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - MAY 2018.xlsx",
+"bytes": 59710
+},
+{
+"id": "1SmB6l29QBT8TVstW9Uo-aFQ1GKV7cg80",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - NOVEMBER 2018.xlsx",
+"bytes": 65371
+},
+{
+"id": "1w-cA62yzYBP1Y6KHJlz4MQXe8BP6IrZD",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - OCTOBER 2018.xlsx",
+"bytes": 67164
+},
+{
+"id": "1lF-nO87NJk8GKc05CP0BobZXnoLH7XTh",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2018/ROSARIO LS - SEPTEMBER 2018.xlsx",
+"bytes": 67839
+},
+{
+"id": "1W21-2fTiLbyy0WuGwD0fJ6mzV8A7agGY",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/1. January.xlsx",
+"bytes": 64664
+},
+{
+"id": "1MqL_CiqPXop7Nd4iHfApWIQTf70dOaue",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/10. October.xlsx",
+"bytes": 55134
+},
+{
+"id": "1ByCACwTpj6AaVZeXdlMchTjitVrOvdMe",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/11. November.xlsx",
+"bytes": 58137
+},
+{
+"id": "17DUXUI0HvAzACE98_GsGgvEjuBrc-I0h",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/12. December.xlsx",
+"bytes": 61127
+},
+{
+"id": "1jH_cL1x3gjnCXuivqu_lUIJrdkoM4Zn4",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/2. February.xlsx",
+"bytes": 58907
+},
+{
+"id": "1_MQPE0WowpSni2u9kdwpDqdRGPnzvc8P",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/3. March.xlsx",
+"bytes": 58588
+},
+{
+"id": "1hveT0oXj1IUiYFo0TcuTsOc_IzMN9ga8",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/4. April.xlsx",
+"bytes": 57656
+},
+{
+"id": "1TNqwc7bxTyYGbhEdgjA8csoRTJ_TWLVF",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/5. May.xlsx",
+"bytes": 64021
+},
+{
+"id": "1sZDQuiOg_YmLXP6m8jEP9fs3PdRRiHAM",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/6. June.xlsx",
+"bytes": 62715
+},
+{
+"id": "1yOs_fHL9toH2ZKQntm8yZs7ABtBA3WVS",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/7. July.xlsx",
+"bytes": 64266
+},
+{
+"id": "1iXwQpM5xBmcyA-uf4yEMYwHFcmXlIoHw",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/8. August.xlsx",
+"bytes": 69390
+},
+{
+"id": "1KFX_r4m6QetuHOU8cZhxvUaxdhiyr37i",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2019/9. September.xlsx",
+"bytes": 66077
+},
+{
+"id": "1E7tP23-nJoexTz6SoSXY9NY8i7sLK7_9",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2020/1. January.xlsx",
+"bytes": 57744
+},
+{
+"id": "1X7NJ_1mqw_HFiyvAAnD_a6sCvQnQ_zE1",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2020/2. February.xlsx",
+"bytes": 55714
+},
+{
+"id": "1n9q301SrF1wUK0p0-Rjpy8blbNu2TfCQ",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2020/3. March.xlsx",
+"bytes": 50926
+},
+{
+"id": "1zdXxPXtUwZ-w6CDdj62fz5w3hM1cQvNO",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2020/5. May.xlsx",
+"bytes": 43028
+},
+{
+"id": "1lvl3HE6bAMwtVQoJltb1U2xvAgZ86dpB",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2020/6. June.xlsx",
+"bytes": 56197
+},
+{
+"id": "1D2xEljdJLA7ih3YQv_TY-nCuUoPYGMQR",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2020/7. July.xlsx",
+"bytes": 62097
+},
+{
+"id": "19DKkiRWKV5gV7ehazYsWfOLllD1LiuuZ",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Rosario LS 2018-2020/Rosario Lake Side 2020/8. August.xlsx",
+"bytes": 64685
+},
+{
+"id": "1sZ9XSxdqZ8UndPthmc50pyf5snX81F3T",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO -  JUNE 2018.xlsx",
+"bytes": 69970
+},
+{
+"id": "1mqLecgGxojrvblvsfd8mw_48xmy4MNPS",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - APRIL 2018.xlsx",
+"bytes": 58341
+},
+{
+"id": "1zkrzFh99jvwQBOLSN4Vwl6-AVqR1DiAN",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - AUGUST 2018.xlsx",
+"bytes": 73520
+},
+{
+"id": "12OK1kzFTbJn6i688RyHNlUCkyndPLOad",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - DECEMBER 2018.xlsx",
+"bytes": 67896
+},
+{
+"id": "16k7fUqfkwYvwBQWaVcTEcGy_rRoZdbNf",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - FEBRUARY 2018.xlsx",
+"bytes": 56988
+},
+{
+"id": "19CtbEa9Dr-iWzoiT_unYqT2wbNJpHC5s",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - JANUARY 2018.xlsx",
+"bytes": 61801
+},
+{
+"id": "1JwlRbPP2_Xq6Q4DeDZxG3KwcMpq9XTyY",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - JULY 2018.xlsx",
+"bytes": 73326
+},
+{
+"id": "1En0JpZwoU5Zmy6Un4pYLmK5u7IqZ0yBz",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - MARCH 2018.xlsx",
+"bytes": 60668
+},
+{
+"id": "1mWef1g-efpyNgoDoDDHb5FaBmPHSozEd",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - MAY 2018.xlsx",
+"bytes": 59219
+},
+{
+"id": "1hlqJKKoxrcdCB3TdmmqG5hzCLJA8b6Un",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - NOVEMBER 2018.xlsx",
+"bytes": 65174
+},
+{
+"id": "1jOazFk7ouyUU51k7gOKGqKwyxJ1sSK0H",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - OCTOBER 2018.xlsx",
+"bytes": 67481
+},
+{
+"id": "18n8K8cnfw3SAxVvvqiWmIWrMAvA68nhe",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2018/STO NINO - SEPTEMBER 2018.xlsx",
+"bytes": 67906
+},
+{
+"id": "1xkIHtRXjuHzjXeKVEquXJIBkZH6ILB5Q",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/1. January.xlsx",
+"bytes": 64468
+},
+{
+"id": "17ER6BDnmbgzXsCSO_lDVT2VhqgdqkHNq",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/10. October.xlsx",
+"bytes": 55040
+},
+{
+"id": "151MoZLmrUIaDqWvti1qlJfcPDzhmN2cr",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/11. November.xlsx",
+"bytes": 57071
+},
+{
+"id": "1WpHat7crw45W0c0EKPGC4m9MQUNvjAm3",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/12. December.xlsx",
+"bytes": 60197
+},
+{
+"id": "1sRzWluhlXe5nCSPutJmGQDWgMwLc7oRe",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/2. February.xlsx",
+"bytes": 57139
+},
+{
+"id": "1sNyaJne7dKRMYOCHjGXPE_ne1-O9acMq",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/3. March.xlsx",
+"bytes": 57239
+},
+{
+"id": "1t9s-1y5SKunTwF9U6aNyunxdpA6XXKQ4",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/4. April.xlsx",
+"bytes": 56567
+},
+{
+"id": "14lOVrEIvPEPyouIlMFASgmn3F1wz8Rm4",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/5. May.xlsx",
+"bytes": 62923
+},
+{
+"id": "1XV9FaRjiWqr205u3J3xZn1O5yqHxwoX1",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/6. June.xlsx",
+"bytes": 61539
+},
+{
+"id": "1rCQxccvsYnOnifPZ6Vxlgt8YMEwkTyHo",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/7. July.xlsx",
+"bytes": 63672
+},
+{
+"id": "1Vr_NhJwfsLlGKmtFyHwGEju-SPrl0x6J",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/8. August.xlsx",
+"bytes": 70188
+},
+{
+"id": "1wvRoNk3GFCa3L4vkedl3oN8qJBZD1ZYi",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2019/9. September.xlsx",
+"bytes": 66453
+},
+{
+"id": "16rHw2bruaaH5Vh8M6rhTEJ4L6ELYMgDc",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/1. January.xlsx",
+"bytes": 56052
+},
+{
+"id": "1xxpE4XjU_sSbyHSzJqwZEiFCLhYFKhB6",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/10. October.xlsx",
+"bytes": 70965
+},
+{
+"id": "18lKXhsykfUQ3godqNOqmjfDqhF_6dV54",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/11. November.xlsx",
+"bytes": 66280
+},
+{
+"id": "1BxDQI6s3w2jpHkAwv6x0tfZatLrWxmr3",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/12. December.xlsx",
+"bytes": 35124
+},
+{
+"id": "1cTaJYl9ac7jq0kV0bUAaVBVKibNYd5mY",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/2. February.xlsx",
+"bytes": 54073
+},
+{
+"id": "1vKNs-9vlsrA6rsDrrKfI76VO5EM9W-db",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/3. March.xlsx",
+"bytes": 49630
+},
+{
+"id": "1Lz9IIgSeachFoRVbFO67YL3cbHypORu3",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/4. April.xlsx",
+"bytes": 33820
+},
+{
+"id": "16rKZPuO_TOEsU-cS5g8HnRODlozepIT4",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/5. May.xlsx",
+"bytes": 43264
+},
+{
+"id": "1Hmau7f_3leMov_oEZHIqukEOKZd4xAO0",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/6. June.xlsx",
+"bytes": 53677
+},
+{
+"id": "1EmwzH5QOyWcHJcSO43FEVrDMnYiVhY0P",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/7. July.xlsx",
+"bytes": 59743
+},
+{
+"id": "12Iui6-FoZMw6KWpHg3BU4hFEq23sDFrm",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/8. August.xlsx",
+"bytes": 64099
+},
+{
+"id": "1sAV8dxH9PBB1QEJH5tXiRRE0iCBHYq_G",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2020/9. September.xlsx",
+"bytes": 63091
+},
+{
+"id": "1lwwyBfVo3I93TyTNyAiUKCF2zDq8X9MQ",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/1. January.xlsx",
+"bytes": 65276
+},
+{
+"id": "1F35O04BD-JkFNjgMOjxee_2vMkJ7bPJK",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/10. October.xlsx",
+"bytes": 61015
+},
+{
+"id": "1Yp6iE4svHKvRhEe2RnNTt4lOTpKgzFVv",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/11. November.xlsx",
+"bytes": 60429
+},
+{
+"id": "1SNa-v_u49pHzOpiAnTeTU2JWdC6Cw1g9",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/12. December.xlsx",
+"bytes": 58773
+},
+{
+"id": "1MUKRri23K322-2v1IpiwNVNGmnYVrV3W",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/2. February.xlsx",
+"bytes": 59492
+},
+{
+"id": "1z3WhHJZv2_cZ4r50xNQf2-AhEtF3xRJl",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/3. March.xlsx",
+"bytes": 57259
+},
+{
+"id": "1-d3tIWsiwD5UNbCeG4nKiLiCuXn5CwHu",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/4. April.xlsx",
+"bytes": 59286
+},
+{
+"id": "1x_Bs32X2j58Tfyy6g59XKKSVRhI3XV9L",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/5. May.xlsx",
+"bytes": 59762
+},
+{
+"id": "1GI_ImYkfxTMe8mw7uhLE3niTFTMAmpNm",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/6. June.xlsx",
+"bytes": 63209
+},
+{
+"id": "1mpmYcjnlBXokpdJv82mGi0R9t0pNEqFp",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/7. July.xlsx",
+"bytes": 67666
+},
+{
+"id": "1HUB2rldPoIu9t2AMGr2BgLQHnSbyBtNF",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/8. August.xlsx",
+"bytes": 68477
+},
+{
+"id": "18jOHu2HZdv2y1aJFRxnSh0sphqjgFQls",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2021/9. September.xlsx",
+"bytes": 67327
+},
+{
+"id": "1_ETzDq8R7STf2OuGiqh-SPAB0E-SeOHG",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/1. January.xlsx",
+"bytes": 30925
+},
+{
+"id": "19GMllr1__-Dr46QgWeKgyvA-NOvQOd_0",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/10. October.xlsx",
+"bytes": 34940
+},
+{
+"id": "1HMeubQ_fV8pggAFo1K8J1WFCiR60RJNF",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/11. November.xlsx",
+"bytes": 33919
+},
+{
+"id": "1q0AIKgnbC8iI8QZpmC0tb-5wwt9O7sxQ",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/12. December.xlsx",
+"bytes": 60445
+},
+{
+"id": "1HPyvRmjKSX45n9fdzsNIEaLmKFTvohSw",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/2. February.xlsx",
+"bytes": 55957
+},
+{
+"id": "1yiFRVtdP6icwV1rdK01mv2wdVBe9tLeq",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/3. March.xlsx",
+"bytes": 31712
+},
+{
+"id": "1Gz_tCAaC4KGQNOSYM1HLZBxfvTfx__Cb",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/4. April.xlsx",
+"bytes": 31671
+},
+{
+"id": "1p-cqhHvdJYz4FvCpGwbsqGwCBC-WiR6Q",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/5. May.xlsx",
+"bytes": 62003
+},
+{
+"id": "1Sz3w-JbyY0KrmrquXSHiUIa5ARV27-s8",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/6. June.xlsx",
+"bytes": 64693
+},
+{
+"id": "18Fe88J4l8tkMdt3IDyqtjBaVW25ppt-2",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/7. July.xlsx",
+"bytes": 67398
+},
+{
+"id": "1HiAShw_nQ3hIAbncXeEGV4SlvRouGaYE",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/8. August.xlsx",
+"bytes": 67965
+},
+{
+"id": "1sZ8AHf--DFlTyXUqH1pDtjgMsv5drNNm",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2022/9. September.xlsx",
+"bytes": 170837
+},
+{
+"id": "1dj_o1w8ySkcxHEfrTF5F4sirgXJ_I6Lc",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/1. January.xlsx",
+"bytes": 33214
+},
+{
+"id": "1OuqeHmuOCP9a4oTP8KV5gufve_c2oe5f",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/10. October.xlsx",
+"bytes": 33608
+},
+{
+"id": "1pAET3I0A4EnGwrAwzeLWlYrbRz-PUNEl",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/11. November.xlsx",
+"bytes": 30144
+},
+{
+"id": "12LbV9p13CKU-JPK9Ta6sgn6Bn6diirgt",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/12. December.xlsx",
+"bytes": 29615
+},
+{
+"id": "1a_0EtJpMK0j2bEA4Es6TjCAVZ2eW5lWs",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/2. February.xlsx",
+"bytes": 29511
+},
+{
+"id": "1IJcjVnUDIWXtVp3r2Jk99B9IubHk_17O",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/3. March.xlsx",
+"bytes": 30490
+},
+{
+"id": "1r7qULbtm4CqzEuYDojmz7iXy-4nL2Qdn",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/4. April.xlsx",
+"bytes": 30771
+},
+{
+"id": "1UybIYxUEM_St0kYxfalyEfrGc9FguLuX",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/5. May.xlsx",
+"bytes": 31393
+},
+{
+"id": "12H9tXG5CJlcqVxZ77r_hzCbxumyi6rOa",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/6. June.xlsx",
+"bytes": 31335
+},
+{
+"id": "10S4yQ7LatWtkT4H52JVJRJCrti1w4dNU",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/7. July.xlsx",
+"bytes": 33932
+},
+{
+"id": "1C-SkZU9fzqVLeQBOrrNGC1LF-wMMrkA4",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/8. August.xlsx",
+"bytes": 35397
+},
+{
+"id": "1J2O89IHb5kyWsqtXRdCZRppDA9pm7PKJ",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2023/9. September.xlsx",
+"bytes": 35209
+},
+{
+"id": "1S4Lx1JF-hK7xLaXUSgZHkbocdRI2J7XS",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/1. January.xlsx",
+"bytes": 29263
+},
+{
+"id": "1tNzLXIwLTkQ3bVUMnNw64QBrWOW8voLE",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/10. October.xlsx",
+"bytes": 34595
+},
+{
+"id": "1ATe-1Cqv1GTy4TxeZ0n97_lPXh43AQBi",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/11. November.xlsx",
+"bytes": 34299
+},
+{
+"id": "1cglt34m8x9QBpHWkefMlzXxO4Z1AJu_e",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/12. December.xlsx",
+"bytes": 33860
+},
+{
+"id": "1q04dibtiZtjDXEX4j5E_J8C1oRplgG5G",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/2. February.xlsx",
+"bytes": 29823
+},
+{
+"id": "1Md6AbJXCZeWz93-vzMqXz36OJCToVv-v",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/3. March.xlsx",
+"bytes": 29716
+},
+{
+"id": "1iO9kAaU2EPZTQcWz04e8C5BcH3kK4tAZ",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/4. April.xlsx",
+"bytes": 132431
+},
+{
+"id": "13DFo2iG3ooRKkrq8YW7aIOZEsn-JpmNr",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/5. May.xlsx",
+"bytes": 31118
+},
+{
+"id": "1OAYRSrcAY1lQlixDUtmoL9fKKlbQar2j",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/6. June.xlsx",
+"bytes": 31558
+},
+{
+"id": "1hhe7BlWz9U--MPjQnQiS0DZTLa4_KFCR",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/7. July.xlsx",
+"bytes": 33421
+},
+{
+"id": "1MUj9WNM7AcRH6tn_AyfCuVTHKT6RDP9M",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/8. August.xlsx",
+"bytes": 35091
+},
+{
+"id": "11WPbjE3J7yLm5aNWUTnMbr6jIfM1Mw29",
+"path": "MMDA Dataset/Waterlevel Data 2018-2024/Sto. Niño 2018-2024/2024/9. September.xlsx",
+"bytes": 35113
+},
+{
+"id": "1D0trez0iO6pKzxEyIGdkDS75Wd-xHmuk",
+"path": "PAGASA Dataset/6-Hourly Data.csv",
+"bytes": 388911
+},
+{
+"id": "1hDChzRMubDFpJXSHuzjo7rug0W6saD43",
+"path": "PAGASA Dataset/A.ReadMe.txt",
+"bytes": 825
+},
+{
+"id": "1I_PDNpG_3eic1G3uBZUQMX7m3yC2iX3K",
+"path": "PAGASA Dataset/Port Area Daily Data.csv",
+"bytes": 95791
+},
+{
+"id": "1gDhBYNLkKRO5RC8SYR0uRQXPCsgXAuDJ",
+"path": "PAGASA Dataset/Science Garden Daily Data.csv",
+"bytes": 112294
+}
+]

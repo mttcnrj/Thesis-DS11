@@ -1,0 +1,4 @@
+window_h: 24
+leads_h: [1, 2, 3, 4, 5, 6]
+rain_windows_h: [24, 72]
+rainy_threshold_mm_24h: 5.0

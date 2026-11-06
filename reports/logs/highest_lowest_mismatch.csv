@@ -1,0 +1,9 @@
+station,file,date,complete,parsed_max,parsed_min,highest,lowest,comparable,mismatch,excel_row,highest_formula,formula_row,formula_day,explained_by_formula,jump_to_next_day_m
+fort_santiago,MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/11. November.xlsx.xlsx,2020-11-08,True,11.74,10.64,11.79,10.7,True,True,13,=MAX(B12:Y12),12,7,True,0.16000000000000014
+fort_santiago,MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/11. November.xlsx.xlsx,2020-11-09,True,11.72,10.73,11.74,10.64,True,True,14,=MAX(B13:Y13),13,8,True,0.06999999999999851
+fort_santiago,MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/8. August.xlsx,2020-08-08,True,11.67,10.81,11.71,10.72,True,True,13,=MAX(B12:Y12),12,7,True,0.06999999999999851
+fort_santiago,MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/8. August.xlsx,2020-08-09,True,11.66,10.98,11.67,10.81,True,True,14,=MAX(B13:Y13),13,8,True,0.040000000000000924
+fort_santiago,MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/11. November.xlsx,2021-11-08,True,12.01,10.64,11.99,10.64,True,True,13,=MAX(B12:Y12),12,7,True,0.009999999999999787
+fort_santiago,MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/11. November.xlsx,2021-11-09,True,12.0,10.64,12.01,10.64,True,True,14,=MAX(B13:Y13),13,8,True,0.009999999999999787
+fort_santiago,MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/8. August.xlsx,2021-08-08,True,12.03,10.65,12.03,10.72,True,True,13,=MAX(B12:Y12),12,7,True,0.08999999999999986
+fort_santiago,MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/8. August.xlsx,2021-08-09,True,12.0,10.66,12.03,10.65,True,True,14,=MAX(B13:Y13),13,8,True,0.14000000000000057

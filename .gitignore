@@ -1,0 +1,13 @@
+# data never committed (Section 6): only data/README.md and data/manifest/ are tracked
+data/raw/
+data/interim/
+data/processed/
+data/synthetic/
+runs/
+__pycache__/
+*.pyc
+.venv/
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/

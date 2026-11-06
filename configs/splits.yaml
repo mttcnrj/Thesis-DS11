@@ -1,0 +1,10 @@
+# Section 0.3: chronological splits, never shuffled; wet season only.
+wet_months: [6, 7, 8, 9, 10, 11]
+train_years: [2018, 2019, 2020, 2021, 2022]
+val_years: [2023]
+test_years: [2024]
+# Section 10.2 walk-forward folds (train years -> evaluation year)
+walk_forward:
+  - {train: [2018, 2019, 2020], eval: 2021}
+  - {train: [2018, 2019, 2020, 2021], eval: 2022}
+  - {train: [2018, 2019, 2020, 2021, 2022], eval: 2023}

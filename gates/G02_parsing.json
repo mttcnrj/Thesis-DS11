@@ -1,0 +1,60 @@
+{
+  "gate": "G2",
+  "name": "parsing",
+  "passed": true,
+  "decision": null,
+  "rule": "09:00 rollover test passes; impossible-date rows logged; HIGHEST/LOWEST mismatch <= 1% of complete days per file (after tracing misreferenced sheet formulas); Aviles values in 9-14 m after /100 (>= 99% of readings; out-of-range readings set to NaN and logged)",
+  "evidence": {
+    "rollover_selftest": {
+      "day30_col15_is_1jul_0000": true,
+      "day1_col0_is_1jun_0900": true,
+      "day31_set_aside": true,
+      "no_hl_mismatch": true,
+      "passed": true
+    },
+    "impossible_date_rows_logged": 110,
+    "impossible_dates_log": "reports/logs/impossible_dates.csv",
+    "hl_files_checked": 396,
+    "hl_days_checked": 8050,
+    "hl_files_raw_rate_above_1pct": [
+      [
+        "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/11. November.xlsx.xlsx",
+        24,
+        2,
+        2
+      ],
+      [
+        "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2020/8. August.xlsx",
+        25,
+        2,
+        2
+      ],
+      [
+        "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/11. November.xlsx",
+        20,
+        2,
+        2
+      ],
+      [
+        "MMDA Dataset/Waterlevel Data 2018-2024/Fort Santiago 2018-2024/2021/8. August.xlsx",
+        22,
+        2,
+        2
+      ]
+    ],
+    "hl_files_unexplained_rate_above_1pct": [],
+    "hl_note": "Mismatches above 1% were all traced to HIGHEST/LOWEST formulas that aggregate another day's row (source-sheet template error); the readings are in day order (continuity checked). A parser column shift would leave unexplained mismatches.",
+    "efcos_files_set_aside": [
+      [
+        "MMDA Dataset/Waterlevel Data 2018-2024/Rosario JS 2018-2024/2024/Rosario JS 2024/1. January 2024.xlsx",
+        "YEAR cell 2023 != folder year 2024"
+      ]
+    ],
+    "duplicate_timestamps": 0,
+    "aviles_in_range_share_after_cm_to_m": 0.99775,
+    "aviles_values_out_of_9_14_m": 227,
+    "quiapo_values_out_of_9_14_m": 71
+  },
+  "timestamp": "2026-11-06T20:33:37+08:00",
+  "git_sha": "49ae946"
+}

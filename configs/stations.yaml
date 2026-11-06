@@ -1,0 +1,23 @@
+# EFCOS water-level stations (Section 3.1). folder = name under "Waterlevel Data 2018-2024".
+# role: target | candidate | qc_helper | coverage_only
+efcos:
+  pandacan:      {folder: "Pandacan 2018-2024",      role: target,        label: "Pandacan"}
+  sto_nino:      {folder: "Sto. Niño 2018-2024",     role: candidate,     label: "Sto. Niño"}
+  fort_santiago: {folder: "Fort Santiago 2018-2024", role: candidate,     label: "Fort Santiago"}
+  montalban:     {folder: "Montalban 2018-2024",     role: qc_helper,     label: "Montalban"}
+  rosario_js:    {folder: "Rosario JS 2018-2024",    role: coverage_only, label: "Rosario JS"}
+  rosario_ls:    {folder: "Rosario LS 2018-2020",    role: coverage_only, label: "Rosario LS"}
+efcos_layout:
+  # FORM 2-1: day number in column 0, 24 hourly columns 09:00 -> 08:00, then AVE., DATE, HIGHEST, LOWEST
+  header_row: 4
+  day_col: 0
+  first_hour_col: 1
+  n_hours: 24
+  first_hour: 9
+  highest_col: 27
+  lowest_col: 28
+# MMDA pumping stations (Phase 2 only; never model inputs)
+pumping:
+  aviles: {glob: "AVILES *.xlsx", units: cm}
+  quiapo: {glob: "QUIAPO *", units: m}
+pumping_value_range_m: [9.0, 14.0]

@@ -1,0 +1,14 @@
+# All paths relative to the repository root unless absolute (C1: no Colab-only paths).
+# drive_root: the `Thesis II` folder as mounted by Google Drive for desktop on the chosen laptop
+#   (WSL example: /mnt/g/My Drive/Thesis II). Only scripts/sync_drive.py reads it.
+drive_root: null
+raw: data/raw
+interim: data/interim
+processed: data/processed
+manifest: data/manifest
+gates: gates
+artifacts: artifacts
+reports: reports
+logs: reports/logs
+tables: reports/tables
+figures: reports/figures

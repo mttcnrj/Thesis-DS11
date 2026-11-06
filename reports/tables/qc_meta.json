@@ -1,0 +1,42 @@
+{
+  "pandacan_train_wet_removed_by_rule": {
+    "flat_11.89": 98,
+    "spike": 18,
+    "range": 3
+  },
+  "pandacan_p95_train_observed": 11.69,
+  "pandacan_max_test_observed": 12.98,
+  "pandacan_max_test_time": "2024-07-24 15:00:00",
+  "pandacan_values_gt_11_69_flagged_2023_2024": [
+    [
+      "2023-07-17 02:00:00",
+      "11.8",
+      "spike"
+    ],
+    [
+      "2023-09-17 19:00:00",
+      "11.73",
+      "spike"
+    ],
+    [
+      "2024-06-10 04:00:00",
+      "11.88",
+      "spike"
+    ],
+    [
+      "2024-07-14 23:00:00",
+      "11.94",
+      "spike"
+    ],
+    [
+      "2024-09-27 00:00:00",
+      "12.45",
+      "spike"
+    ],
+    [
+      "2024-11-16 10:00:00",
+      "12.25",
+      "spike"
+    ]
+  ]
+}
