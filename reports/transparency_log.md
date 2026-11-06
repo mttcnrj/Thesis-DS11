@@ -98,11 +98,35 @@ and 1.066 (1.046–1.086) with 2021; same direction as Aviles, weaker. Quiapo 20
 **F17. A parser regression was caught before Phase 2:** an empty-sheet case (`zip(strict=True)`) introduced
 by a lint fix after the Phase 1 run; fixed with a test, and Phase 1 re-run (identical results).
 
+## Phase 3 findings (Notebook 03)
+
+**F18. G9 could not be satisfied within 3 additions** at any station (the rule allows at most 3). After
+P1, K2, Q1 the Pandacan peak/nearby-median power ratios are 42 (12.0 h), 399 (12.42 h), 203 (23.93 h), 201 (24.0 h)
+and 156 (25.82 h) against a limit of 3; P1 removed the 24.07 h peak (ratio 1,508 → 185) and K2 the 11.97 h peak
+(361 → 42). The remaining peaks sit next to M2, K1 and O1, i.e. tides whose amplitude changes with the season
+(river discharge) and spring–neap cycle, which a fixed-amplitude harmonic fit cannot represent. Reported as is;
+the tide coefficients are frozen with the 3 additions.
+
+**F19. Floor:** Pandacan's rule-based floor is 10.65 m (plan: ≈ 10.63 m); 33,111 training-year hours above
+10.70 m entered the fit.
+
+**F20. Missing Pandacan readings are not concentrated at low tide** (11.7% missing when the predicted tide is
+in its lowest quarter vs 14.4% in its highest quarter, training wet seasons), so the low-water floor is not
+an artefact of missingness. Slightly more readings are missing at high tide; worth one sentence in Ch IV.
+
+**F21. smoke_tests.zip** (found in the shared folder, 6 Nov) is now in `scripts/smoke/` unchanged, with the
+2-vCPU reference benchmark in `reports/compute/cloud-2vcpu/`. Its `HarmonicTide`, `MinMax` and `level_scaler`
+were moved into `pasig/features/` (same behaviour; standard errors and JSON save/load added). Its
+`--target-cases` default (16,158) should become the recomputed 16,937 when the benchmark is run on the laptop.
+
 ## Thesis text to add beyond Plan Section 13
 * Ch III §7.8 / Figure III-3: coverage counted after QC and **before** gap fill (Pandacan 77–95%).
 * Table III-6: replace with `reports/tables/table_III-6_recomputed.csv`.
 * Ch III Ph2: legend checks as amended (P2-a) with both results; sky codes dropped; Quiapo 2023 descriptive.
 * Table III-1 / Ph1: Quiapo workbook also holds 2023 and 2024 sheets (F1).
+* Ch III Ph3 (row 14): add the floor rule (1st percentile) and that G9 added P1, K2, Q1 with residual peaks remaining.
+* Ch III Table III-2 / D8: constituent-pair variant has 120 columns (10 constituents), not 84.
+* Ch III §D (row 24): chosen laptop = Ryzen 7 7735HS, 16 GB, RTX 4060 Laptop GPU, WSL2.
 
 ## Notes on the environment of this run
 Phase 1 outputs in this commit were produced in a Claude Code cloud container (Python 3.13, pandas 3.0)

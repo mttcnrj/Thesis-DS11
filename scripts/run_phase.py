@@ -3,6 +3,7 @@
     python scripts/run_phase.py --phase 1            # Notebook 01: parse, QC, coverage, eval hours (G1 G2 G3 G5 G6)
     python scripts/run_phase.py --phase 1 --tag      # also tag `phase1-frozen` when G6 passes
     python scripts/run_phase.py --phase 2            # Notebook 02: legend G4, G20, link analysis, H1 (G7), alert levels (G8)
+    python scripts/run_phase.py --phase 3            # Notebook 03: tide (G9), features, train/val windows, scalers
 """
 from __future__ import annotations
 
@@ -41,6 +42,13 @@ def main() -> int:
         print("H1:", out["h1"]["verdict"], "| alert levels:", out["alert"]["high_water_m"], out["alert"]["flood_risk_m"])
         code = 0 if a.no_tests else subprocess.call([sys.executable, "-m", "pytest", "-q", "tests/test_link.py"], cwd=root())
         return code
+    if a.phase == 3:
+        from pasig import phase3
+        out = phase3.run()
+        print(out["summary"].to_string(index=False))
+        print("G9:", {k: v["added"] for k, v in out["tide"]["evidence"].items()})
+        tests = ["tests/test_windows.py", "tests/test_leakage.py"]
+        return 0 if a.no_tests else subprocess.call([sys.executable, "-m", "pytest", "-q", *tests], cwd=root())
     raise SystemExit(f"phase {a.phase} is not implemented yet")
 
 

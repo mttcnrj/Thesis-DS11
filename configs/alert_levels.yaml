@@ -12,7 +12,7 @@ training_seasons:
 - 2020
 - 2021
 - 2022
-git_sha: 5f141f5
+git_sha: 2db720a
 date: '2026-11-06'
 check_2023:
   high_water:

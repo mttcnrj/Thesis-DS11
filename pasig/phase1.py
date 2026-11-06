@@ -221,6 +221,7 @@ def step_qc(long: pd.DataFrame, pump_long: pd.DataFrame, six: pd.DataFrame) -> d
     rem["wet"] = rem.time_pht.dt.month.isin(config.wet_months())
     rem["split"] = rem.season.map(config.split_of_year)
     rem.to_csv(logs / "qc_removals.csv", index=False)
+    H.to_parquet(_p("interim") / "waterlevel_qc.parquet", index=False)   # all months, QC flags + value_qc (tide fit, D7)
     runs.to_csv(logs / "qc_flat_runs.csv", index=False)
     summary = (rem[rem.wet].groupby(["station", "split", "qc_flag"]).size().rename("hours").reset_index())
     summary.to_csv(tables / "qc_summary_wet.csv", index=False)

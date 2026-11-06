@@ -1,0 +1,42 @@
+{
+  "device": "cpu",
+  "size": "tiny",
+  "epochs": 10,
+  "total_seconds": 27.9,
+  "hardware": {
+    "python": "3.13.18",
+    "platform": "Linux-6.18.44-fc-v242-x86_64-with-glibc2.39",
+    "cpu": "x86_64",
+    "cpu_count": 2,
+    "tensorflow": "2.21.0",
+    "gpus": [],
+    "cuda": null,
+    "cudnn": null
+  },
+  "cases": {
+    "train": 3000,
+    "val": 1000,
+    "test": 1000
+  },
+  "hybrid_params": 29590,
+  "epoch_seconds_hybrid": 1.22,
+  "alert_levels": {
+    "high_water": 11.77,
+    "flood_risk": 11.99
+  },
+  "granger_sto_nino": {
+    "lag": 24,
+    "F": 88.14611730488278,
+    "p_value": 0.0,
+    "n": 19108
+  },
+  "checks": {
+    "rain_not_visible_before_period_end": true,
+    "granger_finds_planted_lead": true,
+    "granger_rejects_noise": true,
+    "scaler_ignores_test": true,
+    "target_is_t_plus_1": true,
+    "hybrid_training_loss_falls": true,
+    "same_seed_same_predictions": true
+  }
+}

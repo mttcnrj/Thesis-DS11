@@ -1,0 +1,22 @@
+{
+  "device": "cpu",
+  "hardware": {
+    "python": "3.13.18",
+    "platform": "Linux-6.18.44-fc-v242-x86_64-with-glibc2.39",
+    "cpu": "x86_64",
+    "cpu_count": 2,
+    "tensorflow": "2.21.0",
+    "gpus": [],
+    "cuda": null,
+    "cudnn": null
+  },
+  "benchmark_cases": 4000,
+  "target_cases": 16158,
+  "expected_epochs": 60,
+  "seeds": 5,
+  "deterministic": true,
+  "fastest_epoch_s": 2.779,
+  "median_epoch_s": 8.2545,
+  "recommended_total_hours": 15.96,
+  "full_factorial_total_hours": 122.7
+}

@@ -1,6 +1,6 @@
 PY ?= python
 
-.PHONY: test test-data lint nb01 nb02 phase1 phase2 recover
+.PHONY: test test-data lint nb01 nb02 nb03 phase1 phase2 phase3 recover smoke
 
 test:            ## synthetic tests only (< 1 min)
 	$(PY) -m pytest -m fast -q
@@ -16,6 +16,15 @@ phase1:          ## Notebook 01 as a script: parse, QC, coverage, eval hours, ga
 
 phase2:          ## Notebook 02 as a script: G4, G20, link analysis, H1 (G7), alert levels (G8)
 	$(PY) scripts/run_phase.py --phase 2
+
+phase3:          ## Notebook 03 as a script: tide (G9), features, train/val windows, scalers
+	$(PY) scripts/run_phase.py --phase 3
+
+nb03:
+	$(PY) -m jupyter nbconvert --to notebook --execute --inplace notebooks/03_features_split.ipynb
+
+smoke:           ## Section 12 smoke test on synthetic data (needs TensorFlow)
+	$(PY) scripts/smoke/smoke_pipeline.py --device cpu
 
 nb02:
 	$(PY) -m jupyter nbconvert --to notebook --execute --inplace notebooks/02_link_analysis.ipynb

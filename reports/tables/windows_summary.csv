@@ -1,0 +1,3 @@
+split,cases,valid_lead1,valid_lead2,valid_lead3,valid_lead4,valid_lead5,valid_lead6,seq_channels,tab_features,cons_features,daily_values_imputed
+train,18386,16937,16881,16821,16772,16735,16699,3,46,120,0
+val,4288,4091,4089,4087,4085,4083,4081,3,46,120,0

@@ -1,0 +1,29 @@
+# Phase 3 tide model (D7, G9). Fixed before fitting (6 Nov 2026).
+# Least-squares harmonic fit per water-level series on ALL months of the training years 2018-2022
+# (QC'd readings, unfilled), using only hours above floor + 0.05 m. Floor = 1st percentile of the station's
+# QC'd training-year readings, rounded to 0.01 m (Pandacan ~ 10.63 m). Time origin 2018-01-01 00:00 PHT.
+fit_years: [2018, 2019, 2020, 2021, 2022]
+floor_quantile: 0.01
+floor_margin_m: 0.05
+t0: "2018-01-01 00:00"
+stations: [pandacan, sto_nino, fort_santiago]     # target + candidates (de-tided for Granger, D2/Section 9.2)
+constituents_h:                                   # base set (Chapter III)
+  M2: 12.4206012
+  S2: 12.0
+  N2: 12.65834751
+  K1: 23.93447213
+  O1: 25.81933871
+  M4: 6.210300601
+  MS4: 6.103339275
+additions_h:                                      # G9 adds these in this order, at most 3
+  P1: 24.06588766
+  K2: 11.96723606
+  Q1: 26.86835667
+  M3: 8.280400802
+  2N2: 12.90537297
+max_additions: 3
+g9:                                               # residual-spectrum check (Lomb-Scargle on the fitted hours)
+  target_periods_h: [12.0, 12.42, 23.93, 24.0, 25.82]
+  window_frac: 0.03                               # peak window: +-3% of the period
+  nearby_frac: 0.20                               # "nearby" band: 3%-20% either side of the period
+  max_ratio: 3.0                                  # peak power must not exceed 3x the nearby median power

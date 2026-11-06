@@ -1,0 +1,701 @@
+{
+  "gate": "G9",
+  "name": "tide_fit",
+  "passed": true,
+  "decision": "pandacan: +P1,K2,Q1 (residual peaks remain, logged); sto_nino: +P1,K2,Q1 (residual peaks remain, logged); fort_santiago: +P1,K2,Q1 (residual peaks remain, logged)",
+  "rule": "After fitting M2 S2 N2 K1 O1 M4 MS4 (all months of 2018-2022, hours > floor + 0.05 m), no residual periodogram peak within +-3% of 12.0, 12.42, 23.93, 24.0, 25.82 h exceeds 3x the median power nearby (3-20%); else add P1, K2, Q1, M3, 2N2 in order, refit and recheck (max 3 additions, each logged)",
+  "evidence": {
+    "pandacan": {
+      "floor_m": 10.65,
+      "n_fit_hours": 33111,
+      "iterations": [
+        {
+          "constituents": [
+            "M2",
+            "S2",
+            "N2",
+            "K1",
+            "O1",
+            "M4",
+            "MS4"
+          ],
+          "rmse_fit_m": 0.19693119266133094,
+          "check": {
+            "12": {
+              "peak_power": 3.0996924925517426,
+              "nearby_median_power": 0.00886483181741136,
+              "ratio": 349.6617371198917,
+              "peak_period_h": 11.966767095772848,
+              "passed": false
+            },
+            "12.42": {
+              "peak_power": 3.178670290034692,
+              "nearby_median_power": 0.009296782460896484,
+              "ratio": 341.91079584841384,
+              "peak_period_h": 12.438033782501423,
+              "passed": false
+            },
+            "23.93": {
+              "peak_power": 33.828221452549045,
+              "nearby_median_power": 0.02230863941586433,
+              "ratio": 1516.3731333831502,
+              "peak_period_h": 24.065363077205546,
+              "passed": false
+            },
+            "24": {
+              "peak_power": 33.828221452549045,
+              "nearby_median_power": 0.022435262431869697,
+              "ratio": 1507.8148319092288,
+              "peak_period_h": 24.065363077205546,
+              "passed": false
+            },
+            "25.82": {
+              "peak_power": 4.274904003939612,
+              "nearby_median_power": 0.028888213233012387,
+              "ratio": 147.98090728070397,
+              "peak_period_h": 25.83208513992905,
+              "passed": false
+            },
+            "passed": false
+          }
+        },
+        {
+          "constituents": [
+            "M2",
+            "S2",
+            "N2",
+            "K1",
+            "O1",
+            "M4",
+            "MS4",
+            "P1"
+          ],
+          "rmse_fit_m": 0.1915512433275121,
+          "check": {
+            "12": {
+              "peak_power": 3.1120374994258837,
+              "nearby_median_power": 0.008610747526287463,
+              "ratio": 361.413163018106,
+              "peak_period_h": 11.966767095772848,
+              "passed": false
+            },
+            "12.42": {
+              "peak_power": 3.4888296381457953,
+              "nearby_median_power": 0.008935400366852366,
+              "ratio": 390.4502870501806,
+              "peak_period_h": 12.438033782501423,
+              "passed": false
+            },
+            "23.93": {
+              "peak_power": 3.9710401537460878,
+              "nearby_median_power": 0.021278031529576562,
+              "ratio": 186.62629333105008,
+              "peak_period_h": 23.944464742418706,
+              "passed": false
+            },
+            "24": {
+              "peak_power": 3.9710401537460878,
+              "nearby_median_power": 0.021454923898286175,
+              "ratio": 185.08758980325703,
+              "peak_period_h": 23.944464742418706,
+              "passed": false
+            },
+            "25.82": {
+              "peak_power": 3.949109607512299,
+              "nearby_median_power": 0.027598466151140248,
+              "ratio": 143.09163363954337,
+              "peak_period_h": 25.83208513992905,
+              "passed": false
+            },
+            "passed": false
+          }
+        },
+        {
+          "constituents": [
+            "M2",
+            "S2",
+            "N2",
+            "K1",
+            "O1",
+            "M4",
+            "MS4",
+            "P1",
+            "K2"
+          ],
+          "rmse_fit_m": 0.19107973675311304,
+          "check": {
+            "12": {
+              "peak_power": 0.3634607963870803,
+              "nearby_median_power": 0.008658752836365892,
+              "ratio": 41.976114026558356,
+              "peak_period_h": 11.970592264486962,
+              "passed": false
+            },
+            "12.42": {
+              "peak_power": 3.5874095461257554,
+              "nearby_median_power": 0.009005341407304902,
+              "ratio": 398.3646353724847,
+              "peak_period_h": 12.438033782501423,
+              "passed": false
+            },
+            "23.93": {
+              "peak_power": 4.034064303442762,
+              "nearby_median_power": 0.02110889940474572,
+              "ratio": 191.1072778401616,
+              "peak_period_h": 23.86815988345625,
+              "passed": false
+            },
+            "24": {
+              "peak_power": 4.034064303442762,
+              "nearby_median_power": 0.021282041379557574,
+              "ratio": 189.55250727581404,
+              "peak_period_h": 23.86815988345625,
+              "passed": false
+            },
+            "25.82": {
+              "peak_power": 3.9681019390359773,
+              "nearby_median_power": 0.02726365851135399,
+              "ratio": 145.54546805900813,
+              "peak_period_h": 25.83208513992905,
+              "passed": false
+            },
+            "passed": false
+          }
+        },
+        {
+          "constituents": [
+            "M2",
+            "S2",
+            "N2",
+            "K1",
+            "O1",
+            "M4",
+            "MS4",
+            "P1",
+            "K2",
+            "Q1"
+          ],
+          "rmse_fit_m": 0.18981653485417208,
+          "check": {
+            "12": {
+              "peak_power": 0.36213699303107105,
+              "nearby_median_power": 0.00860673151098479,
+              "ratio": 42.07601835480459,
+              "peak_period_h": 11.970592264486962,
+              "passed": false
+            },
+            "12.42": {
+              "peak_power": 3.5732807170141117,
+              "nearby_median_power": 0.00896037388540696,
+              "ratio": 398.7870107556144,
+              "peak_period_h": 12.438033782501423,
+              "passed": false
+            },
+            "23.93": {
+              "peak_power": 4.079304201340503,
+              "nearby_median_power": 0.020112884579099276,
+              "ratio": 202.8204450384803,
+              "peak_period_h": 23.86815988345625,
+              "passed": false
+            },
+            "24": {
+              "peak_power": 4.079304201340503,
+              "nearby_median_power": 0.020270230780056877,
+              "ratio": 201.24606599713596,
+              "peak_period_h": 23.86815988345625,
+              "passed": false
+            },
+            "25.82": {
+              "peak_power": 3.904776213008492,
+              "nearby_median_power": 0.025078538082016502,
+              "ratio": 155.70190735354535,
+              "peak_period_h": 25.83208513992905,
+              "passed": false
+            },
+            "passed": false
+          }
+        }
+      ],
+      "final_constituents": [
+        "M2",
+        "S2",
+        "N2",
+        "K1",
+        "O1",
+        "M4",
+        "MS4",
+        "P1",
+        "K2",
+        "Q1"
+      ],
+      "added": [
+        "P1",
+        "K2",
+        "Q1"
+      ],
+      "spectrum_passed": false
+    },
+    "sto_nino": {
+      "floor_m": 11.32,
+      "n_fit_hours": 35959,
+      "iterations": [
+        {
+          "constituents": [
+            "M2",
+            "S2",
+            "N2",
+            "K1",
+            "O1",
+            "M4",
+            "MS4"
+          ],
+          "rmse_fit_m": 0.6374390576531915,
+          "check": {
+            "12": {
+              "peak_power": 0.4870054246566209,
+              "nearby_median_power": 0.032617252611514436,
+              "ratio": 14.930914950350534,
+              "peak_period_h": 11.982630159528272,
+              "passed": false
+            },
+            "12.42": {
+              "peak_power": 0.39491718112657853,
+              "nearby_median_power": 0.035183887913899106,
+              "ratio": 11.22437583057925,
+              "peak_period_h": 12.362950386719486,
+              "passed": false
+            },
+            "23.93": {
+              "peak_power": 6.661665732006889,
+              "nearby_median_power": 0.16576626063731387,
+              "ratio": 40.18710264920673,
+              "peak_period_h": 23.99926760047606,
+              "passed": false
+            },
+            "24": {
+              "peak_power": 6.661665732006889,
+              "nearby_median_power": 0.17212620821406585,
+              "ratio": 38.70221624659312,
+              "peak_period_h": 23.99926760047606,
+              "passed": false
+            },
+            "25.82": {
+              "peak_power": 1.8751215294954102,
+              "nearby_median_power": 0.2371727361083109,
+              "ratio": 7.906142840292945,
+              "peak_period_h": 25.799035527999212,
+              "passed": false
+            },
+            "passed": false
+          }
+        },
+        {
+          "constituents": [
+            "M2",
+            "S2",
+            "N2",
+            "K1",
+            "O1",
+            "M4",
+            "MS4",
+            "P1"
+          ],
+          "rmse_fit_m": 0.6373797160402618,
+          "check": {
+            "12": {
+              "peak_power": 0.4895023894942615,
+              "nearby_median_power": 0.03258549172180901,
+              "ratio": 15.022096142457302,
+              "peak_period_h": 11.982630159528272,
+              "passed": false
+            },
+            "12.42": {
+              "peak_power": 0.39232828146412957,
+              "nearby_median_power": 0.03529672563747888,
+              "ratio": 11.115146642598097,
+              "peak_period_h": 12.362950386719486,
+              "passed": false
+            },
+            "23.93": {
+              "peak_power": 6.541082152034297,
+              "nearby_median_power": 0.16646136298934558,
+              "ratio": 39.29489723361788,
+              "peak_period_h": 23.99926760047606,
+              "passed": false
+            },
+            "24": {
+              "peak_power": 6.541082152034297,
+              "nearby_median_power": 0.17168935872675148,
+              "ratio": 38.09835507886436,
+              "peak_period_h": 23.99926760047606,
+              "passed": false
+            },
+            "25.82": {
+              "peak_power": 1.8420870213901857,
+              "nearby_median_power": 0.2357011608274776,
+              "ratio": 7.815349805334682,
+              "peak_period_h": 25.799035527999212,
+              "passed": false
+            },
+            "passed": false
+          }
+        },
+        {
+          "constituents": [
+            "M2",
+            "S2",
+            "N2",
+            "K1",
+            "O1",
+            "M4",
+            "MS4",
+            "P1",
+            "K2"
+          ],
+          "rmse_fit_m": 0.6373790913783463,
+          "check": {
+            "12": {
+              "peak_power": 0.4880875959707762,
+              "nearby_median_power": 0.03261051329604143,
+              "ratio": 14.96718532271692,
+              "peak_period_h": 11.982630159528272,
+              "passed": false
+            },
+            "12.42": {
+              "peak_power": 0.392296007820704,
+              "nearby_median_power": 0.035317401493884966,
+              "ratio": 11.107725688387015,
+              "peak_period_h": 12.362950386719486,
+              "passed": false
+            },
+            "23.93": {
+              "peak_power": 6.541225787189419,
+              "nearby_median_power": 0.1666037816698137,
+              "ratio": 39.262168731279154,
+              "peak_period_h": 23.99926760047606,
+              "passed": false
+            },
+            "24": {
+              "peak_power": 6.541225787189419,
+              "nearby_median_power": 0.17158864327406292,
+              "ratio": 38.12155433120195,
+              "peak_period_h": 23.99926760047606,
+              "passed": false
+            },
+            "25.82": {
+              "peak_power": 1.8417907891353256,
+              "nearby_median_power": 0.23565554700257182,
+              "ratio": 7.815605499476001,
+              "peak_period_h": 25.799035527999212,
+              "passed": false
+            },
+            "passed": false
+          }
+        },
+        {
+          "constituents": [
+            "M2",
+            "S2",
+            "N2",
+            "K1",
+            "O1",
+            "M4",
+            "MS4",
+            "P1",
+            "K2",
+            "Q1"
+          ],
+          "rmse_fit_m": 0.6373627415675228,
+          "check": {
+            "12": {
+              "peak_power": 0.4884948293495317,
+              "nearby_median_power": 0.03263675679043218,
+              "ratio": 14.96762783404812,
+              "peak_period_h": 11.982630159528272,
+              "passed": false
+            },
+            "12.42": {
+              "peak_power": 0.390495235629275,
+              "nearby_median_power": 0.03532635919007359,
+              "ratio": 11.053933792843303,
+              "peak_period_h": 12.362950386719486,
+              "passed": false
+            },
+            "23.93": {
+              "peak_power": 6.520401759510968,
+              "nearby_median_power": 0.16414068133787146,
+              "ratio": 39.72447114490284,
+              "peak_period_h": 23.99926760047606,
+              "passed": false
+            },
+            "24": {
+              "peak_power": 6.520401759510968,
+              "nearby_median_power": 0.17016108954950088,
+              "ratio": 38.31899394140952,
+              "peak_period_h": 23.99926760047606,
+              "passed": false
+            },
+            "25.82": {
+              "peak_power": 1.8261638675415373,
+              "nearby_median_power": 0.23363563101470264,
+              "ratio": 7.816290090729428,
+              "peak_period_h": 25.799035527999212,
+              "passed": false
+            },
+            "passed": false
+          }
+        }
+      ],
+      "final_constituents": [
+        "M2",
+        "S2",
+        "N2",
+        "K1",
+        "O1",
+        "M4",
+        "MS4",
+        "P1",
+        "K2",
+        "Q1"
+      ],
+      "added": [
+        "P1",
+        "K2",
+        "Q1"
+      ],
+      "spectrum_passed": false
+    },
+    "fort_santiago": {
+      "floor_m": 10.59,
+      "n_fit_hours": 17748,
+      "iterations": [
+        {
+          "constituents": [
+            "M2",
+            "S2",
+            "N2",
+            "K1",
+            "O1",
+            "M4",
+            "MS4"
+          ],
+          "rmse_fit_m": 0.13352407532305913,
+          "check": {
+            "12": {
+              "peak_power": 3.0659645899327965,
+              "nearby_median_power": 0.006282878790460237,
+              "ratio": 487.9872256310402,
+              "peak_period_h": 11.967313398767404,
+              "passed": false
+            },
+            "12.42": {
+              "peak_power": 0.9545215846792947,
+              "nearby_median_power": 0.006400791320654781,
+              "ratio": 149.125559147529,
+              "peak_period_h": 12.456355428842956,
+              "passed": false
+            },
+            "23.93": {
+              "peak_power": 32.10651174774256,
+              "nearby_median_power": 0.015232922362746044,
+              "ratio": 2107.705336059673,
+              "peak_period_h": 24.065363077205546,
+              "passed": false
+            },
+            "24": {
+              "peak_power": 32.10651174774256,
+              "nearby_median_power": 0.015650230930607075,
+              "ratio": 2051.504025090903,
+              "peak_period_h": 24.065363077205546,
+              "passed": false
+            },
+            "25.82": {
+              "peak_power": 0.9253156510172103,
+              "nearby_median_power": 0.01865818081605187,
+              "ratio": 49.593026251581264,
+              "peak_period_h": 25.670191931061495,
+              "passed": false
+            },
+            "passed": false
+          }
+        },
+        {
+          "constituents": [
+            "M2",
+            "S2",
+            "N2",
+            "K1",
+            "O1",
+            "M4",
+            "MS4",
+            "P1"
+          ],
+          "rmse_fit_m": 0.11887794096787235,
+          "check": {
+            "12": {
+              "peak_power": 2.694208462826725,
+              "nearby_median_power": 0.006019968541433345,
+              "ratio": 447.5452727507507,
+              "peak_period_h": 11.967313398767404,
+              "passed": false
+            },
+            "12.42": {
+              "peak_power": 0.35645161110164314,
+              "nearby_median_power": 0.006163067152528436,
+              "ratio": 57.836723546879846,
+              "peak_period_h": 12.400378429517502,
+              "passed": false
+            },
+            "23.93": {
+              "peak_power": 0.6012135368640213,
+              "nearby_median_power": 0.013100208803345496,
+              "ratio": 45.89343161541708,
+              "peak_period_h": 24.01245763488138,
+              "passed": false
+            },
+            "24": {
+              "peak_power": 0.6012135368640213,
+              "nearby_median_power": 0.013200513373154076,
+              "ratio": 45.54470874494254,
+              "peak_period_h": 24.01245763488138,
+              "passed": false
+            },
+            "25.82": {
+              "peak_power": 0.8306598354887591,
+              "nearby_median_power": 0.01497368574837232,
+              "ratio": 55.474640609380636,
+              "peak_period_h": 25.74582596739344,
+              "passed": false
+            },
+            "passed": false
+          }
+        },
+        {
+          "constituents": [
+            "M2",
+            "S2",
+            "N2",
+            "K1",
+            "O1",
+            "M4",
+            "MS4",
+            "P1",
+            "K2"
+          ],
+          "rmse_fit_m": 0.11757495147465735,
+          "check": {
+            "12": {
+              "peak_power": 0.18017752104568033,
+              "nearby_median_power": 0.005989040187916262,
+              "ratio": 30.08454032571263,
+              "peak_period_h": 12.193878500325612,
+              "passed": false
+            },
+            "12.42": {
+              "peak_power": 0.366688904118668,
+              "nearby_median_power": 0.005966692139598167,
+              "ratio": 61.455978545486516,
+              "peak_period_h": 12.400378429517502,
+              "passed": false
+            },
+            "23.93": {
+              "peak_power": 0.6163569839910806,
+              "nearby_median_power": 0.013202213507164834,
+              "ratio": 46.68588215579032,
+              "peak_period_h": 24.01245763488138,
+              "passed": false
+            },
+            "24": {
+              "peak_power": 0.6163569839910806,
+              "nearby_median_power": 0.013418367139994518,
+              "ratio": 45.93382917314725,
+              "peak_period_h": 24.01245763488138,
+              "passed": false
+            },
+            "25.82": {
+              "peak_power": 0.8224389803324376,
+              "nearby_median_power": 0.015136854304830145,
+              "ratio": 54.333546704614754,
+              "peak_period_h": 25.74582596739344,
+              "passed": false
+            },
+            "passed": false
+          }
+        },
+        {
+          "constituents": [
+            "M2",
+            "S2",
+            "N2",
+            "K1",
+            "O1",
+            "M4",
+            "MS4",
+            "P1",
+            "K2",
+            "Q1"
+          ],
+          "rmse_fit_m": 0.11304450244091876,
+          "check": {
+            "12": {
+              "peak_power": 0.14718221690389174,
+              "nearby_median_power": 0.005861105542778421,
+              "ratio": 25.111681717664634,
+              "peak_period_h": 11.950401167031364,
+              "passed": false
+            },
+            "12.42": {
+              "peak_power": 0.34751964101401844,
+              "nearby_median_power": 0.005851528873798982,
+              "ratio": 59.38954562286875,
+              "peak_period_h": 12.45576356552314,
+              "passed": false
+            },
+            "23.93": {
+              "peak_power": 0.5797812418242396,
+              "nearby_median_power": 0.012411652671175949,
+              "ratio": 46.7126544050566,
+              "peak_period_h": 24.01245763488138,
+              "passed": false
+            },
+            "24": {
+              "peak_power": 0.5797812418242396,
+              "nearby_median_power": 0.012540165471437284,
+              "ratio": 46.233938710362835,
+              "peak_period_h": 24.01245763488138,
+              "passed": false
+            },
+            "25.82": {
+              "peak_power": 0.8369076668240463,
+              "nearby_median_power": 0.013769757228682594,
+              "ratio": 60.77867989427991,
+              "peak_period_h": 25.74582596739344,
+              "passed": false
+            },
+            "passed": false
+          }
+        }
+      ],
+      "final_constituents": [
+        "M2",
+        "S2",
+        "N2",
+        "K1",
+        "O1",
+        "M4",
+        "MS4",
+        "P1",
+        "K2",
+        "Q1"
+      ],
+      "added": [
+        "P1",
+        "K2",
+        "Q1"
+      ],
+      "spectrum_passed": false
+    }
+  },
+  "timestamp": "2026-11-06T22:08:31+08:00",
+  "git_sha": "2db720a"
+}

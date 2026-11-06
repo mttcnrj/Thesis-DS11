@@ -11,8 +11,8 @@ Chapter rows it changes (Plan Section 13). "Outcome" records what the gate decid
 | D4 | 2026-11-06 | Trace rainfall = 0.05 mm | half the 0.1 mm limit | parser + `tests/test_time_alignment.py` | 7 | implemented (6-hourly `T`, daily `-1`) |
 | D5 | 2026-11-06 | 6-hourly total usable 1 h after its period ends | no look-ahead | `gates/G03_rain_timing.json` | 6, 12, 23 | G3: stamps mark the **period end** (99.7% of 1,172 rain days match vs 53.7%) |
 | D6 | 2026-11-06 | Port Area excluded | no 2024 data, gaps | `gates/G01_raw_files.json` | — | Port Area file excluded; Port Area columns dropped from the 6-hourly file |
-| D7 | 2026-11-06 | Tide fit on all 12 months of 2018–2022, hours > floor + 0.05 m | more tidal cycles | G9 (NB03) | 14, 21 | `waterlevel_long.parquet` keeps all months; pending Phase 3 |
-| D8 | 2026-11-06 | Predicted tide t+1…t+6 and change (12 cols); constituent pairs tried once | | G11 (NB05) | 1, 2, 13, 16 | pending |
+| D7 | 2026-11-06 | Tide fit on all 12 months of 2018–2022, hours > floor + 0.05 m | more tidal cycles | `gates/G09_tide_fit.json` | 14, 21 | fitted for Pandacan (floor 10.65 m), Sto. Niño (11.32 m), Fort Santiago (10.59 m); `artifacts/tide_<station>.json` |
+| D8 | 2026-11-06 | Predicted tide t+1…t+6 and change (12 cols); constituent pairs tried once | | G11 (NB05) | 1, 2, 13, 16 | 12 tide columns in `X_tab`; constituent pairs prepared as `X_tab_cons` (**120** columns = 10 frozen constituents × sin/cos × 6 leads, not 84, because G9 added 3 constituents); G11 pending |
 | D9 | 2026-11-06 | Head predicts change; add-back of L_t | | G12 (NB05) | 15, 18 | pending |
 | D10 | 2026-11-06 | Selection by mean validation RMSE over six leads | | grid code | 20 | pending |
 | D11 | 2026-11-06 | One trigger offset per model per alert level, shared by leads | | offset code | 22 | pending |
@@ -20,7 +20,7 @@ Chapter rows it changes (Plan Section 13). "Outcome" records what the gate decid
 | D13 | 2026-11-06 | 5 seeds if projection ≤ 10 h else 3 for walk-forward/ablations | | G15 | 4, 26 | pending |
 | D14 | 2026-11-06 | Chapter III ranges exactly | | G19 | — | pending |
 | D15 | 2026-11-06 | Determinism on for final runs; CPU fallback | | G14 | — | pending |
-| D16 | 2026-11-06 | Local VS Code on the Windows laptop with the stronger NVIDIA GPU (else more cores) | | G0 (`scripts/record_g0.py`) | 24 | **G0 not yet recorded** (needs both laptops' PowerShell output). Phase 1 here ran in a cloud container; it is deterministic and must be re-run on the chosen laptop with `make phase1` |
+| D16 | 2026-11-06 | Local VS Code on the Windows laptop with the stronger NVIDIA GPU (else more cores) | | `gates/G00_machine.json` | 24 | **G0 recorded**: the group's chosen laptop (AMD Ryzen 7 7735HS, 8 cores/16 threads, 16 GB RAM, NVIDIA GeForce RTX 4060 Laptop GPU) → Python in WSL2 Ubuntu. Only this laptop's output was provided; VRAM to confirm with `nvidia-smi`. Phases 1–3 here ran in a cloud container (deterministic); re-run them on the laptop |
 | D17 | 2026-11-06 | GPU only if visible, G14 passes, projection faster | | G13 | 24 | pending |
 | D18 | 2026-11-06 | Quiapo 2021 used conditionally (G20) in the secondary check; with/without reported | only route to 2021 | `gates/G20_quiapo_2021_identity.json` | 11 | G20 **passed** (a–d all hold; copies identical → one series): 2021 included; Quiapo check reported with and without it |
 | D19 | 2026-11-06 | Recall 0.90 for the H4 verdict; 0.80/0.95 sensitivity | | eval code | 28 | pending |
@@ -42,6 +42,18 @@ Chapter rows it changes (Plan Section 13). "Outcome" records what the gate decid
 | P2-a | **Post-hoc amendment of two G4 checks**, approved by the group after the literal checks failed. Gate `O` fails if the river side is *above* the sump (was: river ≥ sump); `nP` fails if the river side is *not above* the sump (was: neither sump nor Pandacan above its no-pump median). Literal results stay in the G4 evidence | An open gate equalises both sides (99% of `O` hours read exactly equal, so the literal check failed 100%); pumping draws the sump down (median 10.20 vs 10.60 m), so a "high sump" test fails by design (42%). Amended checks fail 1.1% and 0.3%. Independent support: pump count rises with rain (median R24 1.8 → 6 → 28 → 76 mm for 0–3 pumps) and with Pandacan level (11.15 → 11.68 m) | Ch III Ph2 (row 10): describe the checks as amended and why, with both results; Ch I §G (row 3) unchanged |
 | P2-b | **Quiapo 2023/2024 sheets (F1): option (a)**. Outside the H1 verdict; the 2023 sheet is reported as a descriptive 2023 check of the alert levels; the 2024 sheet stays sealed until after NB06 | keeps the pre-registered design; uses the found data openly | Ch III Ph2 (row 11) and Table III-1 note (row 5) |
 | P2-c | Operational definitions fixed in `configs/link.yaml` before the statistics: dry hour = SG 24 h rain < 5 mm; events = runs ≥ L with gaps < 6 h merged; event-level stress = event contains ≥ 1 stress hour; L and ln(1+R24) centred at training means (M2 main effects at mean rain); grid = multiples of 0.05 m from 10.80 to 12.60 m; flood-risk scan starts at the high-water level | the plan leaves these open | Ch III Ph2 |
+
+## Gate outcomes and choices in Phase 3 (6 Nov 2026)
+
+| Ref | Item | Detail |
+|---|---|---|
+| G9 | tide fit | rule applied as written: base 7 constituents failed the spectrum check at every station, so P1, K2, Q1 were added (max 3). Residual peaks remain beside M2/K1/O1 (consistent with seasonally modulated tides that a constant-amplitude fit cannot remove); frozen with the 3 additions and logged. Pandacan fit RMSE 0.190 m; tide-only RMSE on 2023 wet hours 0.158 m (recorded, not used) |
+| P3-a | floor | floor = 1st percentile of the station's QC'd training-year readings, rounded 0.01 m (Pandacan 10.65 m; plan ≈ 10.63 m) — fixed in `configs/tide.yaml` before fitting |
+| P3-b | G9 implementation | periodogram = \|FFT\|² of the fit residuals on the hourly grid (mean removed, unfitted hours 0, 4× zero padding); peak window ±3%, nearby band 3–20% (a Lomb-Scargle version was too slow for the 5-year grid) |
+| P3-c | test windows | NB03 builds **train and validation windows only**; the 2024 windows are built by the same frozen function in NB06 after G18 (Section 0.3: 2024 read once, in NB06) |
+| P3-d | missing inputs | a missing 6 h rain report counts as 0 mm in rain inputs (38 blank reports 2018–2024; the report needed at t must still exist, Phase 1 rule); the first hour of a season has Δlevel = 0; missing previous-day weather → training median (0 cases needed it) |
+| P3-e | case set | a case is any hour scored at ≥ 1 lead in `eval_hours.parquet`; `valid` = its lead flags, so all models share the same scored hours (train 18,386 cases; 16,937 at lead 1, 16,699 at lead 6; val 4,288; 4,091 / 4,081) |
+| P3-f | branch | work branch renamed to `feat/pasig-forecast-pipeline` (the old `feat/affectionate-mccarthy-w2uqzk` could not be deleted from this session; delete it on GitHub) |
 
 ## Implementation choices made in Phase 1 (recorded for the thesis text)
 

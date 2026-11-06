@@ -1,0 +1,14 @@
+{
+ "pandacan": {
+  "rmse_tide_only_2023_wet_m": 0.1576869385298261,
+  "n_hours": 4138
+ },
+ "sto_nino": {
+  "rmse_tide_only_2023_wet_m": 0.7922479443904031,
+  "n_hours": 4278
+ },
+ "fort_santiago": {
+  "rmse_tide_only_2023_wet_m": 0.11104956450397917,
+  "n_hours": 2639
+ }
+}
