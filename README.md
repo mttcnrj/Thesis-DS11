@@ -47,7 +47,7 @@ pasig/     config.py gates.py phase1.py phase2.py phase3.py   (one orchestrator 
   link/    stats.py (Wilson, events, bootstraps, clustered logit) legend.py (G4) quiapo.py (G20)
   features/ tide.py (D7, G9) windows.py (Section 9.1, D8) scaling.py (D9)
 scripts/   run_phase.py sync_drive.py record_g0.py smoke/ (from smoke_tests.zip) drive/ (cloud-container fallback)
-tests/     test_parsers test_time_alignment test_qc test_splits test_gapfill test_gates
+tests/     test_parsers test_time_alignment test_qc test_splits test_gapfill test_gates test_link test_windows test_leakage
 reports/   tables/ (coverage, Table III-6, QC summary, hand check) logs/ figures/ transparency_log.md
 docs/      decisions.md data_dictionary.md
 ```
