@@ -12,7 +12,7 @@ wsl --install -d Ubuntu      # restart when asked
 
 ```bash
 # inside Ubuntu (VS Code: "WSL: Connect to WSL"); keep the repo in ~/, not /mnt/c
-nvidia-smi                                      # must list the RTX 4060; note the memory for G0
+nvidia-smi                                      # must list the RTX 4060 (8188 MiB, driver 595.97 in Windows; G0)
 sudo apt-get update && sudo apt-get install -y python3-venv tmux git
 git clone https://github.com/mttcnrj/Thesis-DS11.git ~/pasig-forecast && cd ~/pasig-forecast
 git checkout feat/pasig-forecast-pipeline
@@ -82,6 +82,16 @@ this does not re-open the test. Re-running `unseal` needs `--rerun-reason "..."`
 `reports/transparency_log.md`. Commit `gates/G18_*.json`, `gates/TEST_UNSEALED.json`, `reports/tables/test_*`,
 `reports/figures/test_*` (the prediction parquets are a few MB; commit them too).
 
-## 5. Notebook 07
+## 5. Notebook 07 (after G18; long — run inside tmux; resumable)
 
-Walk-forward, ablations and the case study run after Notebook 06 (G18).
+```bash
+tmux new -s nb07
+source .venv/bin/activate
+python scripts/run_phase.py --phase 7 --stage walkforward   # 3 folds x seeds (G15) + baselines
+python scripts/run_phase.py --phase 7 --stage ablations     # D20 weight search (3 runs) + 6 variants x seeds
+python scripts/run_phase.py --phase 7 --stage casestudy     # every 2024 flood-risk event, figures
+python scripts/run_phase.py --phase 7 --stage aviles        # Aviles June-15 Jul 2024, descriptive
+```
+
+(`python scripts/run_phase.py --phase 7` runs all four and then the tests.) Finished runs are skipped on a
+re-run (`runs/walkforward.csv`, `runs/ablations.csv`). Commit `reports/tables/` and `reports/figures/case_event_*`.

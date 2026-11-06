@@ -159,6 +159,20 @@ bit for bit; (2) the reloaded checkpoints, frozen baselines and refitted KNN mod
 predictions and probabilities exactly (`tests/test_same_hours.py`). **The rehearsal verdicts are not results**:
 2-epoch models, and offsets/thresholds tuned on the same hours.
 
+## Notebook 07 (built; dry run only)
+
+**F29. Notebook 07 is implemented and passes a CPU dry run** (walk-forward on the real 2018–2023 data with tiny
+training settings; ablations, case study and the Aviles check on the 2023 stand-in). The walk-forward never reads
+2024 in either profile (the master is cut before the test season), and a data test shows that +5 m on a fold's
+evaluation year leaves that fold's tide, alert levels, Granger result and scalers unchanged
+(`tests/test_walkforward.py`). Ablations are scored on exactly the Notebook 06 hours (`tests/test_same_hours.py`).
+**No dry-run number is a result.**
+
+**F30. Chosen laptop GPU confirmed** (`nvidia-smi` in Windows PowerShell, 6 Nov 2026 23:54): NVIDIA GeForce RTX
+4060 Laptop GPU, 8188 MiB, driver 595.97, CUDA 13.2 (driver-side). Recorded in G0 and `configs/compute.yaml`.
+TensorFlow's bundled CUDA 12 libraries run on this newer driver; `nvidia-smi` must also work inside WSL2
+(runbook step 0) before the benchmark.
+
 ## Thesis text to add beyond Plan Section 13
 * Ch III §7.8 / Figure III-3: coverage counted after QC and **before** gap fill (Pandacan 77–95%).
 * Table III-6: replace with `reports/tables/table_III-6_recomputed.csv`.
@@ -167,6 +181,8 @@ predictions and probabilities exactly (`tests/test_same_hours.py`). **The rehear
 * Ch III Ph3 (row 14): add the floor rule (1st percentile) and that G9 added P1, K2, Q1 with residual peaks remaining.
 * Ch III Table III-2 / D8: constituent-pair variant has 120 columns (10 constituents), not 84.
 * Ch III §D (row 24): chosen laptop = Ryzen 7 7735HS, 16 GB, RTX 4060 Laptop GPU, WSL2.
+* Ch III Ph7 / §10.2: walk-forward refits per fold (P7-a), the inner-validation year, and that the 2023 fold
+  is not independent; Table III-5 with the D20 row (rows 29–31 of Section 13).
 * Ch III Ph6 / §10.1: the H3 and H4 decision rules, the DM/Holm family (72 tests), the rainy-hour definition and
   the seed used for tests, exactly as in `configs/eval.yaml` and P6-a…j.
 * Ch III Ph3 (Granger): time steps (mean over the 6 h report period; daily max over 09:00–08:00), the

@@ -36,13 +36,16 @@ def _sub(s: MinMax, idx) -> MinMax:
 
 
 def load_split(split: str, inp: Inputs, windows: dict | None = None, max_cases: int | None = None,
-               seed: int = 0) -> dict:
+               seed: int = 0, scalers: dict | None = None) -> dict:
     """X = {'seq': (N,24,C), 'tab': (N,F)} scaled with the TRAINING scalers; Y encoded (-1 = invalid);
-    y_raw (m) and valid kept for scoring. `windows` lets Notebook 06 pass the 2024 arrays it builds itself."""
+    y_raw (m) and valid kept for scoring. `windows` lets Notebook 06 pass the 2024 arrays it builds itself;
+    `scalers` lets a walk-forward fold use the scalers fitted on its own training years (Notebook 07)."""
     w = windows if windows is not None else load_windows(split)
-    sc = load_scalers(path("artifacts") / "scalers.json")
+    sc = scalers if scalers is not None else load_scalers(path("artifacts") / "scalers.json")
     import json
     names = json.loads((path("artifacts") / "feature_names.json").read_text())
+    if "seq_names" in w:
+        names = {"seq": list(w["seq_names"]), "tab": list(w["tab_names"])}
     si = [names["seq"].index(n) for n in inp.seq]
     ti = [names["tab"].index(n) for n in inp.tab]
     if si[0] != names["seq"].index("pandacan"):

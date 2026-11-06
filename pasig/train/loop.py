@@ -52,7 +52,7 @@ def predict_levels(model, X, y_scaler, kind: str) -> np.ndarray:
 
 def build(kind: str, cfg: HybridConfig, inp: Inputs, data: dict, loss=masked_mse, **variant):
     n_seq = data["X"]["seq"].shape[2]
-    n_tab = data["X"]["tab"].shape[1]
+    n_tab = data["X"]["tab"].shape[1] if "tab" in data["X"] else 0      # no-tabular ablation passes seq only
     if kind == "hybrid":
         return build_hybrid(cfg, (data["X"]["seq"].shape[1], n_seq), n_tab, add_back=inp.add_back, loss=loss, **variant)
     if kind == "lstm":

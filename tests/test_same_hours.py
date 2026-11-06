@@ -57,3 +57,29 @@ def test_rehearsal_reloaded_models_reproduce_notebook05():
     pc = pd.read_parquet(T / "probs_val_classifiers.parquet")
     j = pr.merge(pc, on=["t", "lead", "model", "level"], suffixes=("_te", "_va"))
     assert len(j) == len(pr) == len(pc) and np.allclose(j["prob_te"], j["prob_va"], atol=1e-9)
+
+
+@pytest.mark.data
+@pytest.mark.parametrize("base", ["reports/tables", "runs/rehearsal/reports/tables"])
+def test_ablations_scored_on_the_test_hours(base):
+    """Required test 6 for Notebook 07: every ablation is scored on exactly the hours of Notebook 06."""
+    a, t = root() / base / "preds_ablation_test.parquet", root() / base / "preds_test.parquet"
+    if not (a.exists() and t.exists()):
+        pytest.skip(f"no Notebook 07 ablations under {base}")
+    pa, pt = pd.read_parquet(a), pd.read_parquet(t)
+    ref = frozenset(zip(*pt.loc[pt["valid"] & pt["model"].eq("persistence"), ["t", "lead"]].to_numpy().T, strict=True))
+    for _, g in pa[pa["valid"]].groupby(["model", "seed"]):
+        assert frozenset(zip(g["t"], g["lead"], strict=True)) == ref
+
+
+@pytest.mark.data
+@pytest.mark.parametrize("base", ["reports/tables", "runs/rehearsal/reports/tables"])
+def test_walkforward_models_share_hours_per_fold(base):
+    f = root() / base / "preds_walkforward.parquet"
+    if not f.exists():
+        pytest.skip(f"no walk-forward under {base}")
+    pw = pd.read_parquet(f)
+    pw = pw[pw["valid"]]
+    for _, g in pw.groupby("fold"):
+        keys = g.groupby(["model", "seed"]).apply(lambda x: frozenset(zip(x["t"], x["lead"], strict=True)))
+        assert keys.nunique() == 1

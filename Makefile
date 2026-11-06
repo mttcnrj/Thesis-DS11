@@ -1,6 +1,6 @@
 PY ?= python
 
-.PHONY: test test-data lint nb01 nb02 nb03 nb04 nb05 phase1 phase2 phase3 phase4 phase5 rehearsal5 phase6 rehearsal6 nb06 recover smoke
+.PHONY: test test-data lint nb01 nb02 nb03 nb04 nb05 phase1 phase2 phase3 phase4 phase5 rehearsal5 phase6 rehearsal6 nb06 phase7 rehearsal7 nb07 recover smoke
 
 test:            ## synthetic tests only (< 1 min)
 	$(PY) -m pytest -m fast -q
@@ -34,6 +34,15 @@ phase6:          ## Notebook 06: G18 opens the 2024 test season ONCE (after G17 
 
 rehearsal6:      ## Notebook 06 dry run on the 2023 stand-in (2024 never read), outputs under runs/rehearsal/
 	PASIG_PROFILE=rehearsal $(PY) scripts/run_phase.py --phase 6
+
+phase7:          ## Notebook 07 after G18: walk-forward, ablations (D20), case study, Aviles 2024 (resumable per stage)
+	$(PY) scripts/run_phase.py --phase 7
+
+rehearsal7:      ## Notebook 07 dry run (2023 stands in for 2024), outputs under runs/rehearsal/
+	PASIG_PROFILE=rehearsal $(PY) scripts/run_phase.py --phase 7
+
+nb07:
+	$(PY) -m jupyter nbconvert --to notebook --execute --inplace notebooks/07_ablations_walkforward.ipynb
 
 nb06:
 	$(PY) -m jupyter nbconvert --to notebook --execute --inplace notebooks/06_evaluate.ipynb

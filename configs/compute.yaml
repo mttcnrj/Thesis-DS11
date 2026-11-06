@@ -4,4 +4,6 @@ machine:
   gpu: NVIDIA GeForce RTX 4060 Laptop GPU
   physical_cores: 8
   ram_gb: 16.0
+  vram_gb: 8.0
+  driver: NVIDIA 595.97 (Windows, WDDM), CUDA 13.2
   python_in: WSL2 Ubuntu

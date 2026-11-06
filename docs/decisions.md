@@ -91,7 +91,7 @@ Fixed in `configs/eval.yaml` before the test season is opened.
 
 | ID | Topic | Choice | Why |
 |---|---|---|---|
-| P6-a | G18 | blocking: tag `settings-frozen` is an ancestor of HEAD; every file in `frozen_manifest.json` has its SHA-256; `gates/TEST_UNSEALED.json` absent. Opening writes the marker (time, commit). A second opening needs `--rerun-reason`, which is appended to the marker and must go in the transparency log | Section 0.3: the test is read once |
+| P6-a | G18 | blocking: tag `settings-frozen` is an ancestor of HEAD; every file in `frozen_manifest.json` (incl. `configs/eval.yaml`, so the H3/H4 rules are pre-registered) has its SHA-256; `gates/TEST_UNSEALED.json` absent. Opening writes the marker (time, commit). A second opening needs `--rerun-reason`, which is appended to the marker and must go in the transparency log | Section 0.3: the test is read once |
 | P6-b | test windows | built only in NB06 with the Phase 3 `build_windows`, the frozen tide coefficients, training medians and scalers; the layout must equal `feature_names.json`. The rehearsal rebuilds the 2023 windows through the same path and asserts they equal Phase 3's saved arrays bit for bit | the 2024 inputs are made exactly as the training inputs were |
 | P6-c | inference device | CPU (`CUDA_VISIBLE_DEVICES=-1`) | scoring is cheap and CPU results are reproducible on any machine |
 | P6-d | neural seeds | level metrics and alerts: mean ± SD over the 5 seeds; DM tests and H4: the seed with the median 2023 RMSE; events: every seed reported | `eval.yaml` (neural_seed_for_tests) |
@@ -101,6 +101,22 @@ Fixed in `configs/eval.yaml` before the test season is opened.
 | P6-h | classifier input set for H4 | per family, the set with the higher mean 2023 F1 at high water (read from `thresholds.yaml`) | fixed before the test |
 | P6-i | strongest simple baseline | lowest mean 2023 RMSE among persistence, tide-only, tide + persisted residual | fixed before the test |
 | P6-j | events | observed levels = targets of the valid (hour, lead) pairs; runs ≥ level with gaps < 6 h merged; detected if an alert targets first exceedance ± 2 h; warning time from the earliest such alert's issue hour; event-bootstrap 95% CI | `eval.yaml` |
+
+## Notebook 07: implementation choices (built and dry-run, 6 Nov 2026)
+
+Fixed in `configs/eval.yaml` (`nb07`) before the test season is opened.
+
+| ID | Topic | Choice | Why |
+|---|---|---|---|
+| P7-a | walk-forward fits | per fold, from the fold's training years only: tide (D7 + G9 rule), alert levels (G8 rule on Aviles stress), Granger selection (G10 rule, same m and Bonferroni), training medians, scalers. The network trains on all but the last training year; that last year is the inner validation (early stopping, ridge alpha, trigger offsets). QC rules, G5 eligibility, G11/G12 choices and the final hyperparameters stay frozen | Section 10.2 ("from that fold's training years"); the evaluation year is never touched. Same layout as the main run (train → validation → test) |
+| P7-b | walk-forward models | hybrid (seeds per G15) + persistence, tide-only, tide + persisted residual, ridge | the strongest simple baselines and the linear model; the standalone LSTM and KNN would double the run time without changing what the walk-forward tests (stability of the hybrid's advantage) |
+| P7-c | walk-forward statistics | RMSE / skill per fold and lead, alerts with the fold's own levels and offsets, DM (hybrid median-inner-validation seed vs each baseline), Holm over 3 folds × 4 baselines × 6 leads; descriptive. The 2023 fold is flagged `independent = False` | 2023 chose the hyperparameters |
+| P7-d | ablation training | final hybrid hyperparameters, frozen windows/scalers, 2018–22 training, early stopping on 2023, seeds 0…n−1 per G15, determinism on; each variant gets its own trigger offsets on 2023 (D11 rule) | Table III-5; one component changed at a time |
+| P7-e | ablation inputs | no Granger = all eligible candidates (`no_granger_ablation`); correlation selection = the same number of candidates ranked by lagged cross-correlation; no rainfall = the `sg_rain` group removed (sequence + tabular); no tabular = sequence path only; second LSTM = `LSTM(gru_units)` in place of the GRU | `selected_features.yaml`, `granger.yaml` |
+| P7-f | D20 weight | w ∈ {2, 5, 10}, seed 0, by high-water F1 on 2023 after the variant's own offset tuning; ties → smaller w; the seed-0 run is reused for the final seeds | D20 |
+| P7-g | ablation comparison | against the main hybrid on the same seeds (NB06 predictions): RMSE difference per lead, "beyond seed noise" if \|difference\| > SD (ddof 1) of the main hybrid; DM (each variant's median-validation seed vs the main hybrid's NB06 test seed), Holm over 36; descriptive | the G11/G12 seed-noise rule, applied the same way |
+| P7-h | case study | flood-risk events of the test season (NB06 definition), per model × lead: detected, warning time, first alert issue hour, forecast and error at the observed peak; one figure per event with the hybrid's leads 1, 3, 6; the Carina event = the one covering 24 Jul 2024 | Section 10.2 |
+| P7-i | Aviles 2024 | parsed only here, after G18, from the `post_eval_only` blocks; 1 Jun – 15 Jul 2024; per level: hours at/above, stress share at/above and below, gate-open share, dry share; beside the training-season values. Descriptive; levels unchanged | Section 10.2 deferred check |
 
 ## Implementation choices made in Phase 1 (recorded for the thesis text)
 

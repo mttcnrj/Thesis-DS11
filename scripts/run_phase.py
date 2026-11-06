@@ -9,6 +9,7 @@
     PASIG_PROFILE=rehearsal python scripts/run_phase.py --phase 5   # tiny CPU dry run, outputs under runs/rehearsal/
     python scripts/run_phase.py --phase 6 [--stage S] [--rerun-reason "..."]   # Notebook 06: G18, opens 2024 ONCE
     PASIG_PROFILE=rehearsal python scripts/run_phase.py --phase 6   # dry run on the 2023 stand-in (2024 never read)
+    python scripts/run_phase.py --phase 7 [--stage S]   # Notebook 07: walk-forward, ablations, case study, Aviles 2024
 """
 from __future__ import annotations
 
@@ -31,10 +32,10 @@ def main() -> int:
     ap.add_argument("--no-tests", action="store_true", help="skip the phase tests (G6 will not pass)")
     ap.add_argument("--tag", action="store_true", help="create the phase git tag when its freeze gate passes")
     ap.add_argument("--stage", help="phase 5: compute, variants, grid, finals, baselines, thresholds, checks, freeze; "
-                                    "phase 6: unseal, predict, evaluate")
+                                    "phase 6: unseal, predict, evaluate; phase 7: walkforward, ablations, casestudy, aviles")
     ap.add_argument("--rerun-reason", help="phase 6 only: required to open the test season a second time (logged)")
     a = ap.parse_args()
-    if not (a.phase == 5 and a.stage):
+    if not (a.phase in (5, 7) and a.stage):
         require_gates(*REQUIRED_BEFORE.get(a.phase, []))
     if a.phase == 1:
         from pasig import phase1
@@ -85,6 +86,16 @@ def main() -> int:
         tests = ["tests/test_metrics.py", "tests/test_events.py", "tests/test_dm.py", "tests/test_unseal.py",
                  "tests/test_same_hours.py"]
         return subprocess.call([sys.executable, "-m", "pytest", "-q", *tests], cwd=root())
+    if a.phase == 7:
+        from pasig import phase7
+        if a.stage:
+            phase7.run_stage(a.stage)
+            return 0
+        code = phase7.run()
+        if code == 0:
+            tests = ["tests/test_same_hours.py", "tests/test_walkforward.py"]
+            code = subprocess.call([sys.executable, "-m", "pytest", "-q", *tests], cwd=root())
+        return code
     raise SystemExit(f"phase {a.phase} is not implemented yet")
 
 

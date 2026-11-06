@@ -425,7 +425,8 @@ def sha256(p: Path) -> str:
 def frozen_files() -> list[Path]:
     gen = config._config_file          # Phase 5 GENERATED configs live in runs/rehearsal/configs in rehearsal
     files = [gen("alert_levels"), gen("selected_features"), gen("model_inputs"), gen("thresholds"), gen("compute"),
-             path("artifacts") / "scalers.json", path("artifacts") / "feature_names.json"]
+             path("artifacts") / "scalers.json", path("artifacts") / "feature_names.json",
+             root() / "configs" / "eval.yaml"]      # H3/H4 rules and NB06/NB07 settings: pre-registered before G18
     files += sorted(path("artifacts").glob("tide_*.json"))
     files += sorted(out_dir("frozen").glob("*"))
     return files

@@ -15,8 +15,8 @@
         "nvidia": [
           "NVIDIA GeForce RTX 4060 Laptop GPU"
         ],
-        "nvidia_smi": "",
-        "vram_gb": 0.0,
+        "nvidia_smi": "NVIDIA GeForce RTX 4060 Laptop GPU, 8188 MiB",
+        "vram_gb": 8.0,
         "gpu_model": "NVIDIA GeForce RTX 4060 Laptop GPU",
         "generation": 40,
         "tier": 60,
@@ -25,8 +25,10 @@
     ],
     "reason": "chosen by the group (--choose); see note",
     "ram_gb": 16.0,
-    "note": "Specs from the group's PowerShell output (6 Nov 2026): AMD Ryzen 7 7735HS (8 cores / 16 threads), 16 GB RAM, NVIDIA GeForce RTX 4060 Laptop GPU + AMD Radeon integrated (ignored). The group named this the chosen laptop; the second laptop's output was not provided. VRAM to be confirmed with nvidia-smi inside WSL2 (RTX 4060 Laptop GPU ships with 8 GB)."
+    "driver": "NVIDIA 595.97 (Windows, WDDM), CUDA 13.2",
+    "note": "Specs from the group's PowerShell output (6 Nov 2026): AMD Ryzen 7 7735HS (8 cores / 16 threads), 16 GB RAM, NVIDIA GeForce RTX 4060 Laptop GPU (8188 MiB, nvidia-smi 6 Nov 2026 23:54, driver 595.97, CUDA 13.2) + AMD Radeon integrated (ignored). The group named this the chosen laptop; the second laptop's output was not provided. nvidia-smi was run in Windows PowerShell; re-check inside WSL2 before installing TensorFlow (runbook step 0)."
   },
-  "timestamp": "2026-11-06T21:50:47+08:00",
-  "git_sha": "2db720a"
+  "timestamp": "2026-11-07T01:14:22+08:00",
+  "git_sha": "b64eacc",
+  "profile": "full"
 }

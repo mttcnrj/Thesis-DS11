@@ -42,16 +42,17 @@ def train_years() -> list[int]:
 
 # ----------------------------------------------------------------------------- series
 
-def detided_hourly(master: pd.DataFrame, station: str) -> pd.Series:
-    s = master.loc[master.split.eq("train"), station]
-    return s - load_tide(station).predict(s.index)
+def detided_hourly(master: pd.DataFrame, station: str, years: list[int] | None = None, tide=None) -> pd.Series:
+    """Training-season hours of a station minus its tide (frozen fit unless `tide` is given, e.g. a walk-forward fold)."""
+    s = master.loc[master["season"].isin(years or train_years()), station]
+    return s - (tide or load_tide(station)).predict(s.index)
 
 
-def six_hourly_pair(y_h: pd.Series, six: pd.DataFrame) -> tuple[pd.Series, pd.Series]:
+def six_hourly_pair(y_h: pd.Series, six: pd.DataFrame, years: list[int] | None = None) -> tuple[pd.Series, pd.Series]:
     """y: mean de-tided Pandacan over each 6 h report period (start, end]; x: the period's rain total."""
     k = load("granger")["min_hours_per_period"]["six_hourly"]
     s6 = six.dropna(subset=["period_end_pht"]).set_index("period_end_pht").sort_index()
-    s6 = s6[s6.index.year.isin(train_years()) & s6.index.month.isin(config.wet_months())]
+    s6 = s6[s6.index.year.isin(years or train_years()) & s6.index.month.isin(config.wet_months())]
     # assign each hour t to the period whose end is the first stamp >= t (hours start+1 .. end)
     ends = s6.index.to_numpy()
     pos = np.searchsorted(ends, y_h.index.to_numpy(), side="left")
@@ -63,14 +64,14 @@ def six_hourly_pair(y_h: pd.Series, six: pd.DataFrame) -> tuple[pd.Series, pd.Se
     return y, s6["rain_6h_mm"].astype(float)
 
 
-def daily_pair(y_h: pd.Series, daily: pd.DataFrame, col: str) -> tuple[pd.Series, pd.Series]:
+def daily_pair(y_h: pd.Series, daily: pd.DataFrame, col: str, years: list[int] | None = None) -> tuple[pd.Series, pd.Series]:
     """y: max de-tided Pandacan over the PAGASA day 09:00 D .. 08:00 D+1; x: the daily value labelled D."""
     k = load("granger")["min_hours_per_period"]["daily"]
     day = (y_h.index - pd.Timedelta(hours=9)).normalize()
     g = y_h.groupby(day)
     y = g.max().where(g.count() >= k)
     d = daily.set_index("date")
-    d = d[d.index.year.isin(train_years()) & d.index.month.isin(config.wet_months())]
+    d = d[d.index.year.isin(years or train_years()) & d.index.month.isin(config.wet_months())]
     return y.reindex(d.index), d[col].astype(float)
 
 
@@ -204,24 +205,8 @@ def run() -> dict:
     six = pd.read_parquet(interim / "pagasa_6h.parquet")
     daily = pd.read_parquet(interim / "pagasa_daily.parquet")
     elig = load("eligible_inputs")
-    y_h = detided_hourly(master, "pandacan")
-
-    # ---- eligible candidates (count toward m)
-    tests = {}
-    y6, x6 = six_hourly_pair(y_h, six)
-    tests["sg_rain"] = granger_test(y6, x6, cfg["max_lag"]["six_hourly"])
-    tests["sg_rain"]["step"] = "6-hourly: mean de-tided Pandacan over the report period vs the period's rain total"
-    for g, col in DAILY.items():
-        yd, xd = daily_pair(y_h, daily, col)
-        tests[g] = granger_test(yd, xd, cfg["max_lag"]["daily"])
-        tests[g]["step"] = f"daily: max de-tided Pandacan over 09:00 D..08:00 D+1 vs {col} labelled D"
-    for st in elig.get("eligible_stations") or []:
-        tests[st] = granger_test(y_h, detided_hourly(master, st), cfg["max_lag"]["hourly"])
-    m = len(tests)
-    thr = cfg["alpha"] / m
-    for r in tests.values():
-        r["bonferroni_threshold"] = thr
-        r["selected"] = bool(r["p_value"] < thr)
+    sel = select_candidates(master, six, daily, eligible=elig.get("eligible_stations") or [])
+    tests, m, thr, y_h = sel["tests"], sel["m"], sel["threshold"], sel["y_h"]
 
     # ---- ineligible stations: descriptive only (D2)
     desc = {}
@@ -244,19 +229,7 @@ def run() -> dict:
         desc[k]["ridge_val_rmse_gain_m"] = gains[k]["gain_m"]
 
     # ---- step 7: correlation screen (same count as Granger selects), eligible candidates
-    hourly_x = _hourly_candidates(master, six, daily)
-    ty = tests["sg_rain"]["transform_y"]
-    yt = apply_transform(y_h, "level")
-    xc = {}
-    for k, x in hourly_x.items():
-        how = tests[k]["transform_x"]
-        xt = x.groupby(x.index.year).transform(lambda s, h=how: apply_transform(s, h))
-        yy = yt.groupby(yt.index.year).transform(lambda s, h=ty: apply_transform(s, h))
-        r, lag = max_lagged_xcorr(yy, xt, range(cfg["correlation_screen"]["lags_h"][0], cfg["correlation_screen"]["lags_h"][1] + 1))
-        xc[k] = {"max_abs_xcorr": r, "lag_h": lag}
-    n_sel = sum(r["selected"] for r in tests.values())
-    ranked = sorted(xc, key=lambda k: xc[k]["max_abs_xcorr"], reverse=True)
-    corr_sel = ranked[:n_sel]
+    xc, corr_sel = sel["xcorr"], sel["corr_selected"]
 
     selected = [k for k, r in tests.items() if r["selected"]]
     h2 = "supported" if selected else "not supported"
@@ -296,9 +269,57 @@ def run() -> dict:
             "outcome": outcome, "table": table}
 
 
-def _hourly_candidates(master: pd.DataFrame, six: pd.DataFrame, daily: pd.DataFrame) -> dict:
+def select_candidates(master: pd.DataFrame, six: pd.DataFrame, daily: pd.DataFrame, years: list[int] | None = None,
+                      tides: dict | None = None, eligible: list[str] | None = None) -> dict:
+    """Steps 1-5 and 7 of Section 9.2 on the given training seasons: pooled Granger F-test per eligible candidate,
+    Bonferroni over m, and the correlation screen of the same size. Defaults = the frozen training years and tide
+    fits; a walk-forward fold passes its own years and tide fits."""
+    cfg = load("granger")
+    tides = tides or {}
+    y_h = detided_hourly(master, "pandacan", years, tides.get("pandacan"))
+    tests = {}
+    y6, x6 = six_hourly_pair(y_h, six, years)
+    tests["sg_rain"] = granger_test(y6, x6, cfg["max_lag"]["six_hourly"])
+    tests["sg_rain"]["step"] = "6-hourly: mean de-tided Pandacan over the report period vs the period's rain total"
+    for g, col in DAILY.items():
+        yd, xd = daily_pair(y_h, daily, col, years)
+        tests[g] = granger_test(yd, xd, cfg["max_lag"]["daily"])
+        tests[g]["step"] = f"daily: max de-tided Pandacan over 09:00 D..08:00 D+1 vs {col} labelled D"
+    for st in eligible or []:
+        tests[st] = granger_test(y_h, detided_hourly(master, st, years, tides.get(st)), cfg["max_lag"]["hourly"])
+    m = len(tests)
+    thr = cfg["alpha"] / m
+    for r in tests.values():
+        r["bonferroni_threshold"] = thr
+        r["selected"] = bool(r["p_value"] < thr)
+    hourly_x = _hourly_candidates(master, six, daily, years)
+    ty = tests["sg_rain"]["transform_y"]
+    yt = apply_transform(y_h, "level")
+    xc = {}
+    for k, x in hourly_x.items():
+        how = tests[k]["transform_x"]
+        xt = x.groupby(x.index.year).transform(lambda s, h=how: apply_transform(s, h))
+        yy = yt.groupby(yt.index.year).transform(lambda s, h=ty: apply_transform(s, h))
+        r, lag = max_lagged_xcorr(yy, xt, range(cfg["correlation_screen"]["lags_h"][0], cfg["correlation_screen"]["lags_h"][1] + 1))
+        xc[k] = {"max_abs_xcorr": r, "lag_h": lag}
+    n_sel = sum(r["selected"] for r in tests.values())
+    corr_sel = sorted(xc, key=lambda k: xc[k]["max_abs_xcorr"], reverse=True)[:n_sel]
+    return {"tests": tests, "m": m, "threshold": thr, "selected": [k for k, r in tests.items() if r["selected"]],
+            "xcorr": xc, "corr_selected": corr_sel, "y_h": y_h}
+
+
+def model_columns(groups_in: list[str], tab_names: list[str]) -> dict:
+    """Model inputs for a set of selected candidate groups (same rule as G10)."""
+    groups = load("granger")["feature_groups"]
+    tab_base = [n for n in tab_names if n.startswith(("hour_", "doy_", "tide_"))]
+    return {"seq": ["pandacan", "d_pandacan"] + [c for g in groups_in for c in groups.get(g, {}).get("seq", [])],
+            "tab": tab_base + [c for g in groups_in for c in groups.get(g, {}).get("tab", [])]}
+
+
+def _hourly_candidates(master: pd.DataFrame, six: pd.DataFrame, daily: pd.DataFrame,
+                       years: list[int] | None = None) -> dict:
     """Candidates as available at each training hour t (for the correlation screen)."""
-    idx = master.index[master.split.eq("train")]
+    idx = master.index[master["season"].isin(years or train_years())]
     s6 = six.dropna(subset=["available_from_pht"]).sort_values("available_from_pht")
     pos = np.searchsorted(s6["available_from_pht"].to_numpy(), idx.to_numpy(), side="right") - 1
     rain = pd.Series(np.where(pos >= 0, s6["rain_6h_mm"].to_numpy()[np.clip(pos, 0, None)], np.nan), index=idx)

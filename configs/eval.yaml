@@ -26,3 +26,17 @@ h4_rule: >-
   moving-block 95% CI of the FP difference below 0 AND its PR-AUC is higher with the CI of the difference above 0.
   Supported if the hybrid wins against both families at every lead; partly supported if at some (family, lead)
   pair; not supported if none. Recall 0.80 and 0.95 do not change the verdict (D19). Flood-risk results are descriptive.
+
+# Notebook 07 (Section 10.2; D13, D15, D20). Fixed before the test season is opened.
+nb07:
+  d20_weights: [2, 5, 10]          # chosen on 2023, final hybrid hyperparameters, 1 seed (seed 0), by high-water F1
+                                   # after the variant's own trigger-offset tuning (D11 rule); ties -> smaller w
+  ablation_dm_family: "each ablation vs the main hybrid x 6 leads, all hours (36 tests, Holm); descriptive"
+  seed_noise_rule: "an ablation changes RMSE beyond seed noise if |mean difference| > SD (ddof=1) of the main hybrid over the same seeds"
+  walk_forward_models: [hybrid, persistence, tide_only, tide_resid, ridge]
+  walk_forward_inner_validation: "last training year of the fold: early stopping, ridge alpha, trigger offsets"
+  walk_forward_dm_family: "hybrid vs each baseline x 6 leads x 3 folds (72 tests, Holm); descriptive"
+  case_study_leads: [1, 3, 6]
+  case_study_window_h: 36          # hours shown before the first exceedance and after the last
+  carina_date: "2024-07-24"
+  aviles_check_window: ["06-01", "07-15"]   # Aviles 2024 records used for the deferred descriptive check

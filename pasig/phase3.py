@@ -25,11 +25,12 @@ def _p(key: str) -> Path:
     return p
 
 
-def fit_station_tide(series: pd.Series):
+def fit_station_tide(series: pd.Series, years: list[int] | None = None):
     """D7 + G9 for one station: fit on the training years only (all months), add constituents while the
-    residual spectrum check fails (max 3). Returns (model, floor, last check, iteration log, constituents)."""
+    residual spectrum check fails (max 3). Returns (model, floor, last check, iteration log, constituents).
+    `years` overrides the frozen fit years (walk-forward folds, Notebook 07)."""
     cfg = load("tide")
-    s = series[series.index.year.isin(cfg["fit_years"])]
+    s = series[series.index.year.isin(years or cfg["fit_years"])]
     fl = floor_of(s)
     cons = dict(cfg["constituents_h"])
     adds = list(cfg["additions_h"].items())
