@@ -51,3 +51,17 @@ def test_real_alert_levels_unchanged_by_2024_shift():
     f2 = f.copy()
     f2.loc[f2.index.year == 2024, "L"] += 5.0
     assert phase2.alert_levels(f) == phase2.alert_levels(f2)
+
+
+@pytest.mark.data
+def test_real_granger_results_unchanged_by_2024_shift():
+    from pasig.config import load
+    from pasig.phase4 import detided_hourly, granger_test, six_hourly_pair
+    m = pd.read_parquet(root() / "data" / "processed" / "hourly_master.parquet")
+    six = pd.read_parquet(root() / "data" / "interim" / "pagasa_6h.parquet")
+    m2 = m.copy()
+    m2.loc[m2.split.eq("test"), "pandacan"] += 5.0
+    lag = load("granger")["max_lag"]["six_hourly"]
+    r1 = granger_test(*six_hourly_pair(detided_hourly(m, "pandacan"), six), lag)
+    r2 = granger_test(*six_hourly_pair(detided_hourly(m2, "pandacan"), six), lag)
+    assert r1["p_value"] == r2["p_value"] and r1["lag"] == r2["lag"]

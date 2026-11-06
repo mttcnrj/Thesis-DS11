@@ -6,7 +6,7 @@ Chapter rows it changes (Plan Section 13). "Outcome" records what the gate decid
 | ID | Date | Choice | Reason (short) | Gate file | Chapter rows | Outcome |
 |---|---|---|---|---|---|---|
 | D1 | 2026-11-06 | One copy of the identical QUIAPO 2023/2024 files; dated by sheet headers | identical SHA-256; file names unreliable | `gates/G01_raw_files.json` | 5, 8, 9, 11, 25 | G1 passed. Kept `QUIAPO 2023.xlsx`; its sheets are headed **2021, 2023 and 2024** (F1). 2023 sheet: descriptive only; 2024 sheet: sealed until after NB06 (decision P2-b) |
-| D2 | 2026-11-06 | Keep the 80% every-season rule; failing stations tested descriptively only; no missing-indicator variant | Fort Santiago 0–2% in 2018–19; tiny ablation effect | `gates/G05_eligibility.json` | 27 | G5: **no eligible upstream input** (Sto. Niño min 78.1% in 2024; Fort Santiago 0% in 2018) |
+| D2 | 2026-11-06 | Keep the 80% every-season rule; failing stations tested descriptively only; no missing-indicator variant | Fort Santiago 0–2% in 2018–19; tiny ablation effect | `gates/G05_eligibility.json`, `gates/G10_granger_outcome.json` | 27 | G5: **no eligible upstream input** (Sto. Niño min 78.1% in 2024; Fort Santiago 0% in 2018). Descriptive Granger in NB04: both significant, both worsen the ridge validation RMSE |
 | D3 | 2026-11-06 | Assumed status-code legend, validated on 2018–2022 | no MMDA legend | `gates/G04_status_legend.json` | 3, 10 | G4: gate and pump fields **used** after the post-hoc amendment P2-a (literal checks failed for physical reasons, reported); **sky field dropped** (F/C dry check fails 21.1% > 20%); `S` reads as shower at Aviles |
 | D4 | 2026-11-06 | Trace rainfall = 0.05 mm | half the 0.1 mm limit | parser + `tests/test_time_alignment.py` | 7 | implemented (6-hourly `T`, daily `-1`) |
 | D5 | 2026-11-06 | 6-hourly total usable 1 h after its period ends | no look-ahead | `gates/G03_rain_timing.json` | 6, 12, 23 | G3: stamps mark the **period end** (99.7% of 1,172 rain days match vs 53.7%) |
@@ -54,6 +54,18 @@ Chapter rows it changes (Plan Section 13). "Outcome" records what the gate decid
 | P3-d | missing inputs | a missing 6 h rain report counts as 0 mm in rain inputs (38 blank reports 2018–2024; the report needed at t must still exist, Phase 1 rule); the first hour of a season has Δlevel = 0; missing previous-day weather → training median (0 cases needed it) |
 | P3-e | case set | a case is any hour scored at ≥ 1 lead in `eval_hours.parquet`; `valid` = its lead flags, so all models share the same scored hours (train 18,386 cases; 16,937 at lead 1, 16,699 at lead 6; val 4,288; 4,091 / 4,081) |
 | P3-f | branch | work branch renamed to `feat/pasig-forecast-pipeline` (the old `feat/affectionate-mccarthy-w2uqzk` could not be deleted from this session; delete it on GitHub) |
+
+## Gate outcomes and choices in Phase 4 (6 Nov 2026)
+
+| Ref | Item | Detail |
+|---|---|---|
+| G10 | Granger outcome | **some pass**: Science Garden rainfall (p = 6.1e-48, lag 4 six-hour steps) and daily pressure (p = 2.2e-6, lag 3 days) selected at p < 0.05/4 = 0.0125; RH (p = 0.74) and mean temperature (p = 0.29) not selected. **H2 supported.** Model inputs → `configs/selected_features.yaml`: sequence = Pandacan level, Δlevel, latest SG 6 h rain; tabular = calendar (28), tide (12), SG rain 24 h / 72 h / hours since report, previous-day SG pressure |
+| P4-a | candidates and time steps | eligible candidates only (G5 left no river station): rain at its 6-hourly step against the **mean** de-tided Pandacan over each report period (≥ 4 of 6 h present); daily RH/pressure/tmean against the **max** de-tided Pandacan over the PAGASA day 09:00 D–08:00 D+1 (≥ 18 of 24 h), the window the daily value is usable for |
+| P4-b | stationarity | ADF (BIC) per training season; differenced once for all seasons if any season has p ≥ 0.05 (Pandacan series were differenced at both steps; rain and tmean kept in levels; RH and pressure differenced) |
+| P4-c | lag choice | BIC of the unrestricted OLS compared on the common sample valid at the maximum lag (the smoke version compared different samples); F-test on the rows valid at the chosen lag, restricted model on exactly those rows |
+| P4-d | ridge gain (step 6) | ridge per lead on the Phase 3 windows, alpha by leave-one-season-out CV on training (grid 0.01–100; 0.01 chosen, the grid edge, reported not widened), scored on 2023 valid targets (mean RMSE over leads). Gains are tiny: rain +0.21 mm, pressure +0.26 mm, RH −0.01 mm, tmean +0.005 mm |
+| P4-e | correlation screen | max \|lagged cross-correlation\| (1–24 h) of each candidate as available at t, transformed like its Granger series, with de-tided Pandacan (differenced): rain 0.036, RH 0.019, pressure 0.018, tmean 0.004 → the correlation-selection ablation uses **rain + RH** (same count as Granger: 2) |
+| P4-f | descriptive stations (D2) | Sto. Niño (all 5 seasons; lag 23 h, p = 1.6e-166) and Fort Santiago (2020–2022 only; 2018–2019 skipped for < 50% coverage; lag 23 h, p = 4.1e-43) would pass any threshold, but adding either 24 h window **worsens** the ridge validation RMSE (−0.27 mm and −2.0 mm on the cases where their windows are complete); never inputs, not in m |
 
 ## Implementation choices made in Phase 1 (recorded for the thesis text)
 

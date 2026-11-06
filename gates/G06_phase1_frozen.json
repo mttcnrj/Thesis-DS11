@@ -15,6 +15,6 @@
     "eval_hours": "data/processed/eval_hours.parquet",
     "hourly_master": "data/processed/hourly_master.parquet"
   },
-  "timestamp": "2026-11-06T22:08:13+08:00",
-  "git_sha": "2db720a"
+  "timestamp": "2026-11-06T22:40:58+08:00",
+  "git_sha": "aa84e97"
 }

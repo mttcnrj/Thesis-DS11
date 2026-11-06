@@ -1,0 +1,25 @@
+# Phase 4 (Notebook 04, Section 9.2). Operational choices fixed BEFORE any test was run (6 Nov 2026).
+# Training wet seasons 2018-2022 only; 2023 used only for the ridge RMSE gain beside each p-value.
+alpha: 0.05                        # Bonferroni: select if p < alpha / m, m = number of ELIGIBLE candidates tested
+adf_p_threshold: 0.05              # ADF (autolag=BIC) per training season; if p >= 0.05 in ANY season, difference once (all seasons)
+max_lag:
+  hourly: 24                       # river stations (descriptive only after G5)
+  six_hourly: 4                    # Science Garden rainfall
+  daily: 3                         # Science Garden RH, pressure, mean temperature
+lag_choice: "BIC of the unrestricted OLS on the common sample valid at the maximum lag"
+min_hours_per_period:              # aggregation of de-tided Pandacan to the candidate's time step
+  six_hourly: 4                    # mean over the 6 h report period (start, end], >= 4 of 6 hours present
+  daily: 18                        # max over the PAGASA day 09:00 D .. 08:00 D+1, >= 18 of 24 hours present
+min_season_coverage_descriptive: 0.50   # a season enters the descriptive station test only if the station has >= 50% of its hours
+series: "QC'd values with gaps <= 3 h filled (hourly_master), each de-tided with its own tide fit (artifacts/tide_*.json)"
+ridge_gain:                        # step 6: validation RMSE gain of a ridge model with vs without the candidate
+  alphas: [0.01, 0.1, 1.0, 10.0, 100.0]
+  alpha_choice: "leave-one-season-out CV on the training seasons (mean RMSE over the six leads)"
+  metric: "mean 2023 RMSE over the six leads, valid targets only (D10)"
+correlation_screen:
+  lags_h: [1, 24]                  # max |cross-correlation| of the candidate (as available at t, transformed like the Granger series) with de-tided Pandacan
+feature_groups:                    # columns that enter the model iff the candidate is selected
+  sg_rain: {seq: [sg_rain_6h_latest], tab: [sg_rain_24h_in, sg_rain_72h_in, sg_hours_since_report]}
+  sg_rh: {tab: [sg_daily_rh]}
+  sg_pressure: {tab: [sg_daily_atm_pressure]}
+  sg_tmean: {tab: [sg_daily_tmean]}

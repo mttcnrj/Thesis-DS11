@@ -4,6 +4,7 @@
     python scripts/run_phase.py --phase 1 --tag      # also tag `phase1-frozen` when G6 passes
     python scripts/run_phase.py --phase 2            # Notebook 02: legend G4, G20, link analysis, H1 (G7), alert levels (G8)
     python scripts/run_phase.py --phase 3            # Notebook 03: tide (G9), features, train/val windows, scalers
+    python scripts/run_phase.py --phase 4            # Notebook 04: Granger selection (G10, H2) -> configs/selected_features.yaml
 """
 from __future__ import annotations
 
@@ -17,7 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from pasig.config import root  # noqa: E402
 from pasig.gates import require_gates  # noqa: E402
 
-REQUIRED_BEFORE = {1: [], 2: ["G6"], 3: ["G6", "G7", "G8"], 4: ["G6", "G9"], 5: ["G6", "G10"], 6: ["G17"], 7: ["G18"]}
+REQUIRED_BEFORE = {1: [], 2: ["G6"], 3: ["G6", "G7", "G8"], 4: ["G6", "G9"], 5: ["G0", "G6", "G8", "G9", "G10"], 6: ["G17"], 7: ["G18"]}
 
 
 def main() -> int:
@@ -48,6 +49,13 @@ def main() -> int:
         print(out["summary"].to_string(index=False))
         print("G9:", {k: v["added"] for k, v in out["tide"]["evidence"].items()})
         tests = ["tests/test_windows.py", "tests/test_leakage.py"]
+        return 0 if a.no_tests else subprocess.call([sys.executable, "-m", "pytest", "-q", *tests], cwd=root())
+    if a.phase == 4:
+        from pasig import phase4
+        out = phase4.run()
+        print(out["table"].to_string(index=False))
+        print("G10:", out["outcome"], "| selected:", out["selected"], "| H2:", out["h2"])
+        tests = ["tests/test_granger.py", "tests/test_leakage.py"]
         return 0 if a.no_tests else subprocess.call([sys.executable, "-m", "pytest", "-q", *tests], cwd=root())
     raise SystemExit(f"phase {a.phase} is not implemented yet")
 

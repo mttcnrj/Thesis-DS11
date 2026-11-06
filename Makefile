@@ -1,6 +1,6 @@
 PY ?= python
 
-.PHONY: test test-data lint nb01 nb02 nb03 phase1 phase2 phase3 recover smoke
+.PHONY: test test-data lint nb01 nb02 nb03 nb04 phase1 phase2 phase3 phase4 recover smoke
 
 test:            ## synthetic tests only (< 1 min)
 	$(PY) -m pytest -m fast -q
@@ -19,6 +19,12 @@ phase2:          ## Notebook 02 as a script: G4, G20, link analysis, H1 (G7), al
 
 phase3:          ## Notebook 03 as a script: tide (G9), features, train/val windows, scalers
 	$(PY) scripts/run_phase.py --phase 3
+
+phase4:          ## Notebook 04 as a script: Granger selection (G10, H2)
+	$(PY) scripts/run_phase.py --phase 4
+
+nb04:
+	$(PY) -m jupyter nbconvert --to notebook --execute --inplace notebooks/04_granger.ipynb
 
 nb03:
 	$(PY) -m jupyter nbconvert --to notebook --execute --inplace notebooks/03_features_split.ipynb

@@ -119,6 +119,24 @@ an artefact of missingness. Slightly more readings are missing at high tide; wor
 were moved into `pasig/features/` (same behaviour; standard errors and JSON save/load added). Its
 `--target-cases` default (16,158) should become the recomputed 16,937 when the benchmark is run on the laptop.
 
+## Phase 4 findings (Notebook 04)
+
+**F22. H2 supported; rain and pressure selected (G10).** F-tests (pooled within seasons, season dummies, BIC lag):
+rain F = 59.0 (df 4, n = 2,941), p = 6.1e-48; pressure F = 9.9 (df 3, n = 703), p = 2.2e-6; RH p = 0.74; mean
+temperature p = 0.29; Bonferroni level 0.0125 (m = 4).
+
+**F23. Statistical significance does not translate into validation skill for a linear model.** The ridge
+validation RMSE gains are ≤ 0.3 mm for every eligible candidate (base ridge RMSE ≈ 0.071 m, mean over leads).
+The hybrid may use the inputs differently; the "no rainfall" and "no Granger" ablations (NB07) will show it.
+
+**F24. Upstream stations (descriptive, D2):** both Granger-cause de-tided Pandacan at a 23 h lag with tiny
+p-values, yet adding their 24 h windows makes the ridge validation RMSE worse (Sto. Niño −0.27 mm; Fort
+Santiago −2.0 mm, on the subset of cases with complete windows). With the coverage rule this supports leaving
+them out (D2); the reference run's no-upstream ablation reached the same conclusion.
+
+**F25. Correlation screen ranks rain and RH first,** so the correlation-selection ablation swaps pressure for
+RH; all cross-correlations are small (≤ 0.036) after differencing.
+
 ## Thesis text to add beyond Plan Section 13
 * Ch III §7.8 / Figure III-3: coverage counted after QC and **before** gap fill (Pandacan 77–95%).
 * Table III-6: replace with `reports/tables/table_III-6_recomputed.csv`.
@@ -127,6 +145,8 @@ were moved into `pasig/features/` (same behaviour; standard errors and JSON save
 * Ch III Ph3 (row 14): add the floor rule (1st percentile) and that G9 added P1, K2, Q1 with residual peaks remaining.
 * Ch III Table III-2 / D8: constituent-pair variant has 120 columns (10 constituents), not 84.
 * Ch III §D (row 24): chosen laptop = Ryzen 7 7735HS, 16 GB, RTX 4060 Laptop GPU, WSL2.
+* Ch III Ph3 (Granger): time steps (mean over the 6 h report period; daily max over 09:00–08:00), the
+  common-sample BIC, and that pressure (not RH/temperature) was selected.
 
 ## Notes on the environment of this run
 Phase 1 outputs in this commit were produced in a Claude Code cloud container (Python 3.13, pandas 3.0)
