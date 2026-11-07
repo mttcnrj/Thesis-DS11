@@ -62,7 +62,7 @@ pasig/     config.py gates.py phase1.py ... phase7.py   (one orchestrator per no
 scripts/   run_phase.py sync_drive.py record_g0.py smoke/ (from smoke_tests.zip) drive/ (cloud-container fallback)
 tests/     test_parsers test_time_alignment test_qc test_splits test_gapfill test_gates test_link test_windows test_leakage test_granger test_reproducibility test_offsets test_same_hours test_metrics test_events test_dm test_unseal test_walkforward
 reports/   tables/ (coverage, Table III-6, QC summary, hand check) logs/ figures/ transparency_log.md
-docs/      decisions.md data_dictionary.md
+docs/      decisions.md data_dictionary.md laptop_runbook.md session_context.md (handover summary)
 ```
 
 ## Phase 1 outputs
