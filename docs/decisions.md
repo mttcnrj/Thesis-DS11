@@ -1,7 +1,10 @@
-# Decision register (D1–D20)
+# Decision register (D1–D20) and implementation choices (P1–P7)
 
 Source: IMPLEMENTATION_PLAN.md Section 4 (decided 6 Nov 2026). Each entry: date, choice, reason, gate file,
-Chapter rows it changes (Plan Section 13). "Outcome" records what the gate decided when it has run.
+Chapter rows it changes (Plan Section 13). "Outcome" records what the gate decided when it has run;
+"decided on the laptop" = code done and dry-run, the real gate runs on the chosen laptop (D16).
+
+Status (7 Nov 2026): Phases 1–4 run on real data; Notebooks 05–07 built and dry-run; 2024 not opened.
 
 | ID | Date | Choice | Reason (short) | Gate file | Chapter rows | Outcome |
 |---|---|---|---|---|---|---|
@@ -12,19 +15,19 @@ Chapter rows it changes (Plan Section 13). "Outcome" records what the gate decid
 | D5 | 2026-11-06 | 6-hourly total usable 1 h after its period ends | no look-ahead | `gates/G03_rain_timing.json` | 6, 12, 23 | G3: stamps mark the **period end** (99.7% of 1,172 rain days match vs 53.7%) |
 | D6 | 2026-11-06 | Port Area excluded | no 2024 data, gaps | `gates/G01_raw_files.json` | — | Port Area file excluded; Port Area columns dropped from the 6-hourly file |
 | D7 | 2026-11-06 | Tide fit on all 12 months of 2018–2022, hours > floor + 0.05 m | more tidal cycles | `gates/G09_tide_fit.json` | 14, 21 | fitted for Pandacan (floor 10.65 m), Sto. Niño (11.32 m), Fort Santiago (10.59 m); `artifacts/tide_<station>.json` |
-| D8 | 2026-11-06 | Predicted tide t+1…t+6 and change (12 cols); constituent pairs tried once | | G11 (NB05) | 1, 2, 13, 16 | 12 tide columns in `X_tab`; constituent pairs prepared as `X_tab_cons` (**120** columns = 10 frozen constituents × sin/cos × 6 leads, not 84, because G9 added 3 constituents); G11 pending |
-| D9 | 2026-11-06 | Head predicts change; add-back of L_t | | G12 (NB05) | 15, 18 | pending |
-| D10 | 2026-11-06 | Selection by mean validation RMSE over six leads | | grid code | 20 | pending |
-| D11 | 2026-11-06 | One trigger offset per model per alert level, shared by leads | | offset code | 22 | pending |
-| D12 | 2026-11-06 | Two-stage grid, 60 configs | | grid code | 20 | pending |
-| D13 | 2026-11-06 | 5 seeds if projection ≤ 10 h else 3 for walk-forward/ablations | | G15 | 4, 26 | pending |
-| D14 | 2026-11-06 | Chapter III ranges exactly | | G19 | — | pending |
-| D15 | 2026-11-06 | Determinism on for final runs; CPU fallback | | G14 | — | pending |
-| D16 | 2026-11-06 | Local VS Code on the Windows laptop with the stronger NVIDIA GPU (else more cores) | | `gates/G00_machine.json` | 24 | **G0 recorded**: the group's chosen laptop (AMD Ryzen 7 7735HS, 8 cores/16 threads, 16 GB RAM, NVIDIA GeForce RTX 4060 Laptop GPU) → Python in WSL2 Ubuntu. Only this laptop's output was provided; VRAM to confirm with `nvidia-smi`. Phases 1–3 here ran in a cloud container (deterministic); re-run them on the laptop |
-| D17 | 2026-11-06 | GPU only if visible, G14 passes, projection faster | | G13 | 24 | pending |
+| D8 | 2026-11-06 | Predicted tide t+1…t+6 and change (12 cols); constituent pairs tried once | | G11 (NB05) | 1, 2, 13, 16 | 12 tide columns in `X_tab`; constituent pairs prepared as `X_tab_cons` (**120** columns = 10 frozen constituents × sin/cos × 6 leads, not 84, because G9 added 3 constituents); G11 implemented (NB05 `variants`; switch rule P5-c); decided on the laptop |
+| D9 | 2026-11-06 | Head predicts change; add-back of L_t | | G12 (NB05) | 15, 18 | implemented (registered `LevelAtT` layer, P5-m; target scaler = Pandacan channel); G12 decided on the laptop |
+| D10 | 2026-11-06 | Selection by mean validation RMSE over six leads | | grid code | 20 | implemented (`pasig/train/grid.py`) |
+| D11 | 2026-11-06 | One trigger offset per model per alert level, shared by leads | | offset code | 22 | implemented (`pasig/models/offsets.py`, P5-j; also per ablation and per walk-forward fold) |
+| D12 | 2026-11-06 | Two-stage grid, 60 configs | | grid code | 20 | implemented (24 + 36, resumable; + 18 standalone LSTM) |
+| D13 | 2026-11-06 | 5 seeds if projection ≤ 10 h else 3 for walk-forward/ablations | | G15 | 4, 26 | implemented (projection includes the D20 runs and G11/G12, P5-d); decided on the laptop |
+| D14 | 2026-11-06 | Chapter III ranges exactly | | G19 | — | implemented (`model_hybrid.yaml` ranges; G19 records edge winners); decided on the laptop |
+| D15 | 2026-11-06 | Determinism on for final runs; CPU fallback | | G14 | — | implemented (finals, ablations, walk-forward always deterministic; NB06 inference on CPU); G14 decided on the laptop |
+| D16 | 2026-11-06 | Local VS Code on the Windows laptop with the stronger NVIDIA GPU (else more cores) | | `gates/G00_machine.json` | 24 | **G0 recorded**: the group's chosen laptop (AMD Ryzen 7 7735HS, 8 cores/16 threads, 16 GB RAM, NVIDIA GeForce RTX 4060 Laptop GPU) → Python in WSL2 Ubuntu. Only this laptop's output was provided. `nvidia-smi` (6 Nov): **8188 MiB**, driver 595.97, CUDA 13.2 (F30). Phases 1–3 here ran in a cloud container (deterministic); re-run them on the laptop |
+| D17 | 2026-11-06 | GPU only if visible, G14 passes, projection faster | | G13 | 24 | implemented (NB05 `compute`, second of two benchmark runs); decided on the laptop |
 | D18 | 2026-11-06 | Quiapo 2021 used conditionally (G20) in the secondary check; with/without reported | only route to 2021 | `gates/G20_quiapo_2021_identity.json` | 11 | G20 **passed** (a–d all hold; copies identical → one series): 2021 included; Quiapo check reported with and without it |
-| D19 | 2026-11-06 | Recall 0.90 for the H4 verdict; 0.80/0.95 sensitivity | | eval code | 28 | pending |
-| D20 | 2026-11-06 | Weighted-loss ablation (w ∈ {2,5,10}) | | ablation code | 29, 30, 31 | pending |
+| D19 | 2026-11-06 | Recall 0.90 for the H4 verdict; 0.80/0.95 sensitivity | | eval code | 28 | implemented (`pasig/eval/alerts.py`, P6-g; rule in `configs/eval.yaml`, frozen by G17) |
+| D20 | 2026-11-06 | Weighted-loss ablation (w ∈ {2,5,10}) | | ablation code | 29, 30, 31 | implemented (`weighted_masked_mse`; weight search and report in NB07, P7-f); run on the laptop |
 
 ## Gate outcomes recorded in Phase 2
 

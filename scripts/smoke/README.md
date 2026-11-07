@@ -1,5 +1,14 @@
 # Smoke tests and compute benchmark
 
+> **In this repository** (note added 7 Nov 2026; the scripts below are unchanged from `smoke_tests.zip`):
+> the laptop is already chosen (G0: Ryzen 7 7735HS, 16 GB, RTX 4060 Laptop GPU 8 GB → WSL2), so skip step 1.
+> Install with the repository instead of the package list in step 2a:
+> `pip install -e . -r requirements-dev.txt "tensorflow[and-cuda]" joblib` (see `docs/laptop_runbook.md`).
+> Run the smoke test with `make smoke` (CPU) and `python scripts/smoke/smoke_pipeline.py --device gpu`.
+> You do not need to run `bench_compute.py` by hand: Notebook 05's `compute` stage runs it twice per device
+> with `--target-cases 16937` (recomputed Table III-6), records G13–G15 and copies `summary.json` and
+> `projection.csv` to `reports/compute/<laptop>/`. The 2-vCPU cloud reference is in `reports/compute/cloud-2vcpu/`.
+
 Run these on the chosen laptop before the full pipeline exists. They use
 synthetic data with the same shape and quirks as the MMDA/PAGASA records, so
 they need no Drive access.

@@ -1,7 +1,9 @@
 # Transparency log
 
-Every known file problem (Plan Section 3.3) and every data-vs-plan finding from Phase 1. Numbers are
-from the run recorded in `gates/` (git SHA in each gate file).
+Every known file problem (Plan Section 3.3) and every data-vs-plan finding (F1–F31), phase by phase. Numbers
+are from the runs recorded in `gates/` (git SHA in each gate file). Status (7 Nov 2026): Phases 1–4 run on the
+real data; Notebooks 05–07 built and dry-run only; the 2024 test season has not been opened. Findings from the
+laptop runs (G11–G19, H3, H4, ablations, walk-forward) are to be added here as they happen.
 
 ## Known file problems (Section 3.3) — handling as implemented
 
@@ -25,7 +27,7 @@ outside the H1 verdict; 2023 reported descriptively; 2024 sealed until after NB0
 2021, 2023 and 2024. The 2023 and 2024 sheets are not copies of 2021 or 2022 (outside-elevation correlation
 r = 0.007–0.031 and ≤ 5% equal values against both). The plan (C5, Section 8.4) expected no real Quiapo 2023
 data. Per Section 8.4 the Quiapo check covers training years only, so these blocks are `exclude` in G1 (reason
-recorded). **Team decision needed before NB02** if they should be used to check the alert levels on 2023.
+recorded). The group chose option (a) on 6 Nov (see above and P2-b).
 
 **F2. Pandacan coverage and "usable hours" in the reference were counted after the ≤ 3 h gap fill.** Rebuilt
 before-fill coverage (Section 7.8 definition, used for G5): 94.7, 88.3, 84.8, **77.0**, 87.7, 94.2, 91.3% (2018–2024).
@@ -173,6 +175,12 @@ evaluation year leaves that fold's tide, alert levels, Granger result and scaler
 TensorFlow's bundled CUDA 12 libraries run on this newer driver; `nvidia-smi` must also work inside WSL2
 (runbook step 0) before the benchmark.
 
+**F31. Phase 4 was refactored for the walk-forward and re-run: identical result.** `select_candidates` and
+`model_columns` were extracted so each walk-forward fold applies the same G10 rule to its own years; re-running
+Phase 4 reproduced `selected_features.yaml`, G10 and `granger_results.csv` exactly (only the git SHA, date and
+profile stamps changed, and those files were restored). A data test also shows that the 2018–22 → 2023 fold
+rebuilds the frozen alert levels, Granger selection, 2023 windows and scalers bit for bit.
+
 ## Thesis text to add beyond Plan Section 13
 * Ch III §7.8 / Figure III-3: coverage counted after QC and **before** gap fill (Pandacan 77–95%).
 * Table III-6: replace with `reports/tables/table_III-6_recomputed.csv`.
@@ -188,8 +196,10 @@ TensorFlow's bundled CUDA 12 libraries run on this newer driver; `nvidia-smi` mu
 * Ch III Ph3 (Granger): time steps (mean over the 6 h report period; daily max over 09:00–08:00), the
   common-sample BIC, and that pressure (not RH/temperature) was selected.
 
-## Notes on the environment of this run
-Phase 1 outputs in this commit were produced in a Claude Code cloud container (Python 3.13, pandas 3.0)
-from the Drive files listed in `data/manifest/raw_manifest.csv` (SHA-256 per file). The plan requires all
-final results to come from the chosen laptop (D16); Phase 1 is deterministic, so re-running `make phase1`
-there must reproduce the same manifest hashes, gates and tables.
+## Notes on the environment of these runs
+Phases 1–4 outputs in this branch were produced in a Claude Code cloud container (Python 3.13, pandas 3.0,
+TensorFlow 2.21 CPU for the dry runs) from the Drive files listed in `data/manifest/raw_manifest.csv`
+(SHA-256 per file; fetched through the Google Drive connector because direct Drive downloads were blocked).
+The plan requires all final results to come from the chosen laptop (D16); Phases 1–4 are deterministic, so
+re-running them there must reproduce the same manifest hashes, gates and tables (`docs/laptop_runbook.md`
+step 2). Dry-run (rehearsal) outputs live only under the git-ignored `runs/rehearsal/` and are not results.

@@ -1,6 +1,9 @@
-# Data dictionary (Phase 1 outputs)
+# Data dictionary
 
+Phase 1 outputs first, then the arrays, artifacts and prediction tables of later phases.
 All times are Philippine time (PHT, UTC+8), hourly, naive timestamps.
+
+# Phase 1
 
 ## data/interim/waterlevel_long.parquet (all months, all EFCOS stations)
 | column | meaning |
@@ -49,3 +52,54 @@ complete (no eligible inputs after G5).
 ## data/manifest/
 `raw_manifest.csv` (path, sha256, bytes, source, station, year, status, reason) and `pumping_blocks.csv` (one row
 per half-month block: file, sheet, header text, year, month, days, date_source, status, reason, dup_dating).
+
+---
+
+# Later phases
+
+## data/processed/windows_{train,val}.npz (Phase 3)
+| key | shape | meaning |
+|---|---|---|
+| X_seq | (N, 24, 3) | t−23…t: Pandacan level, Δlevel, latest SG 6 h rain (raw units; scaled at load) |
+| X_tab | (N, 46) | 28 calendar (hour/day-of-year sin/cos at t…t+6), 12 tide (predicted tide t+1…t+6 and change from t), SG rain 24 h / 72 h / hours since report, previous-day SG RH, pressure, mean temperature. Models use only the columns in `selected_features.yaml` |
+| X_tab_cons | (N, 120) | D8 variant: 10 tide constituents × sin/cos × 6 leads (used only if G11 switches) |
+| y | (N, 6) | Pandacan level at t+1…t+6 (NaN where not a valid target) |
+| valid | (N, 6) | lead flags from `eval_hours.parquet` (all models are scored on these) |
+| t_index | (N,) | issue hour t (int64 ns) |
+
+Train 18,386 cases (16,937 valid at lead 1), validation 4,288 (4,091). Test windows are never saved.
+
+## artifacts/ (Phases 3–5)
+* `tide_<station>.json` — harmonic tide fit (D7, G9): constituents, periods, amplitudes, phases, standard errors,
+  floor, fit years.
+* `scalers.json` — min-max scalers fitted on training cases: `seq`, `tab`, `tab_cons`, and `y` (= the Pandacan
+  sequence channel's scaler, D9), with column names.
+* `feature_names.json` — column names of `X_seq`, `X_tab`, `X_tab_cons`; training medians for missing daily values;
+  eligible stations.
+* `frozen/` (laptop, git-ignored, SHA-256 in `configs/frozen_manifest.json`) — `hybrid_seed{k}.keras`,
+  `lstm_seed{k}.keras`, `baselines.joblib` (ridge models per lead, logistic classifiers, tide-only coefficients).
+
+## Prediction tables (reports/tables/, Notebooks 05–07)
+Long format, one row per issue hour × lead × model × seed (seed −1 for deterministic baselines).
+
+| file | columns | contents |
+|---|---|---|
+| `preds_val_neural.parquet`, `preds_val_baselines.parquet` | t, lead, model, seed, y_true, y_pred, valid | 2023 predictions (NB05) |
+| `probs_val_classifiers.parquet` | t, lead, model (`logistic_a_current_hour`, …), level, prob, truth | 2023 classifier probabilities |
+| `preds_test.parquet` | + rainy | 2024 predictions of every model, all seeds (NB06) |
+| `probs_test.parquet` | t, lead, model, level, prob, alert, truth, rainy | 2024 classifier outputs with frozen thresholds |
+| `preds_ablation_{val,test}.parquet` | as `preds_test` | the six ablation variants (`abl_<name>`) |
+| `preds_walkforward.parquet` | + fold | walk-forward predictions on each fold's evaluation year |
+
+`y_true` is the observed, unfilled level at t+lead; only rows with `valid = True` are scored. `rainy` = at least
+5 mm of Science Garden rain in the previous 24 h from reports available at t.
+
+## Gate files (gates/G##_<name>.json)
+gate, name, passed, decision, rule, evidence, timestamp (PHT), git_sha, profile (`full` or `rehearsal`).
+`gates/TEST_UNSEALED.json` (written by G18) lists every opening of the test season: time, git SHA, reason, profile.
+
+## Run folders (runs/<yyyymmdd_hhmm>_<tag>_seed<k>/, git-ignored)
+`config_snapshot.yaml`, `git_sha.txt`, `env.txt` (Python, TensorFlow, CUDA/cuDNN, GPU, CPU, cores, RAM,
+determinism), `model.keras`, `history.json`, `timing.json`, `preds_val.parquet`. Resumable run logs:
+`runs/grid_stage{1,2}.csv`, `runs/finals.csv`, `runs/walkforward.csv`, `runs/ablations.csv`.
+Dry runs write the same structure under `runs/rehearsal/`.

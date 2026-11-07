@@ -1,4 +1,7 @@
-# Laptop runbook (chosen laptop: Ryzen 7 7735HS, 16 GB, RTX 4060 Laptop GPU; G0)
+# Laptop runbook (chosen laptop: Ryzen 7 7735HS, 16 GB, RTX 4060 Laptop GPU 8 GB; G0)
+
+Order: 0 setup → 1 smoke test → 2 Phases 1–4 → 3 Notebook 05 (stop at G16) → 4 Notebook 06 (once) →
+5 Notebook 07 → 6 commit and report. Each step names what to commit.
 
 Everything that produces final results runs here (D16). Phases 1–4 were built and run in a cloud container;
 they are deterministic, so re-running them here must reproduce the committed gates and tables.
@@ -19,7 +22,16 @@ git checkout feat/pasig-forecast-pipeline
 python3 -m venv .venv && source .venv/bin/activate
 pip install -e . -r requirements-dev.txt "tensorflow[and-cuda]" joblib
 python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"   # must not be []
+make test                                       # fast tests, < 1 min
 ```
+
+If `nvidia-smi` fails inside Ubuntu, update the NVIDIA Windows driver (do **not** install a Linux driver inside
+WSL) and run `wsl --update` in PowerShell. If TensorFlow lists no GPU although `nvidia-smi` works, reinstall
+`"tensorflow[and-cuda]"` in the venv. If the GPU still cannot be used, the pipeline runs on CPU: G13 records
+`device: cpu` and G15 switches to 3 seeds if the projection exceeds 10 h.
+
+If anything about the machine changes (another laptop, new driver), re-record G0:
+`python scripts/record_g0.py --laptop "<name>|<GPU names>|<nvidia-smi name, memory>|<cores>" --choose <name> --ram-gb 16 --driver "<driver, CUDA>"`.
 
 ## 1. Smoke test and benchmark (Section 12) — do this as early as possible
 
@@ -38,6 +50,7 @@ python scripts/run_phase.py --phase 1 --tag
 python scripts/run_phase.py --phase 2
 python scripts/run_phase.py --phase 3
 python scripts/run_phase.py --phase 4
+make test-data                                                  # tests on the real processed files
 git diff --stat gates configs reports/tables                    # decisions must match the committed ones
 pip freeze > requirements.txt                                   # commit; never upgrade mid-thesis
 ```
@@ -95,3 +108,17 @@ python scripts/run_phase.py --phase 7 --stage aviles        # Aviles June-15 Jul
 
 (`python scripts/run_phase.py --phase 7` runs all four and then the tests.) Finished runs are skipped on a
 re-run (`runs/walkforward.csv`, `runs/ablations.csv`). Commit `reports/tables/` and `reports/figures/case_event_*`.
+
+## 6. Commit and report
+
+```bash
+python -m pytest -q                                          # everything must pass
+git add gates configs reports requirements.txt && git commit -m "Laptop run: ..." && git push
+```
+
+* Write every outcome into `reports/transparency_log.md` (new F-numbers) and the "Outcome" column of
+  `docs/decisions.md`, whichever way it falls — including "beats persistence: no" or a hybrid that loses.
+* Never commit `data/raw`, `data/interim`, `data/processed`, `runs/` or `artifacts/frozen/` (git-ignored).
+* Chapter III needs the hardware and measured run times from `reports/compute/<laptop>/` and the run folders'
+  `timing.json`; Chapter IV tables come from `reports/tables/test_*`, `walkforward_*`, `ablation_*`,
+  `case_study_*`, `aviles_check*`.
