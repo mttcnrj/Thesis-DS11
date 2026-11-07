@@ -1,73 +1,175 @@
 # pasig-forecast — Pasig River (EFCOS Pandacan) 1–6 h water-level forecasting
 
 Thesis code for *Pasig River (EFCOS Pandacan) 1–6 h Water-Level Forecasting as a Flood-Risk Indicator for
-Sampaloc* (Baltazar, Cañarejo, Serrano; adviser Gernale). `IMPLEMENTATION_PLAN.md` is the specification;
-decision IDs (D1–D20) and gate IDs (G0–G20) are used throughout the code, configs and `gates/`.
+Sampaloc* (Baltazar, Cañarejo, Serrano; adviser Gernale).
+
+A hybrid LSTM–GRU network forecasts the hourly river level at the MMDA EFCOS Pandacan gauge 1–6 h ahead
+(wet season, June–November) from the gauge's own history, the predicted tide, the clock and PAGASA Science
+Garden weather. One forecast drives two alerts: **high water ≥ 11.69 m** and **flood risk ≥ 12.00 m**, both
+derived from training data only. It is compared with simple baselines, a standalone LSTM and alert
+classifiers on the 2024 season, which is opened once.
+
+* **Specification:** `IMPLEMENTATION_PLAN.md`. Decision IDs (D1–D20), gate IDs (G0–G20) and contradiction IDs
+  (C1–C6) from it are used throughout the code, configs and `gates/`.
+* **Handover summary of the build session:** `docs/session_context.md` — start here in a new chat.
 
 ## Status
 
-| Phase | Notebook | State |
+| Phase | Notebook / command | State |
 |---|---|---|
-| 1 Load + QC | `notebooks/01_load_qc.ipynb` / `make phase1` | **done** — G1, G2, G3, G5, G6 passed (`gates/`) |
-| 2 Link analysis, alert levels | `notebooks/02_link_analysis.ipynb` / `make phase2` | **done**: G4, G20, G7 (H1 partly supported), G8 (11.69 m / 12.00 m) |
-| 3 Tide, features, windows | `notebooks/03_features_split.ipynb` / `make phase3` | **done**: G9 (P1, K2, Q1 added), train/val windows, scalers (D9) |
-| 4 Granger selection | `notebooks/04_granger.ipynb` / `make phase4` | **done**: G10 — rain + pressure selected, H2 supported |
-| 5 Training | `notebooks/05_train.ipynb` / `make phase5` (laptop) | **built and dry-run** (`make rehearsal5`, CPU, all 8 stages pass); real run pending on the laptop |
-| 6 Test evaluation | `notebooks/06_evaluate.ipynb` / `make phase6` (laptop, after G17) | **built and dry-run** on the 2023 stand-in (`make rehearsal6`); 2024 not opened |
-| 7 Robustness | `notebooks/07_ablations_walkforward.ipynb` / `make phase7` (laptop, after G18) | **built and dry-run** (`make rehearsal7`): walk-forward, 6 ablations incl. D20, case study, Aviles 2024 |
+| 1 Load + QC | `notebooks/01_load_qc.ipynb` / `make phase1` | **done** — G1, G2, G3, G5, G6 passed |
+| 2 Link analysis, alert levels | `notebooks/02_link_analysis.ipynb` / `make phase2` | **done** — G4, G20, G7, G8 |
+| 3 Tide, features, windows | `notebooks/03_features_split.ipynb` / `make phase3` | **done** — G9, train/val windows, scalers |
+| 4 Granger selection | `notebooks/04_granger.ipynb` / `make phase4` | **done** — G10 |
+| 5 Training | `notebooks/05_train.ipynb` / `make phase5` | **built, dry-run passes**; real run on the laptop (G11–G17, G19) |
+| 6 Test evaluation (2024) | `notebooks/06_evaluate.ipynb` / `make phase6` | **built, dry-run passes** on a 2023 stand-in; **2024 not opened** (G18) |
+| 7 Robustness | `notebooks/07_ablations_walkforward.ipynb` / `make phase7` | **built, dry-run passes**: walk-forward, 6 ablations incl. D20, case study, Aviles 2024 |
 
-G0 recorded: Ryzen 7 7735HS / 16 GB / RTX 4060 Laptop GPU (8 GB, driver 595.97) → WSL2 Ubuntu. Run `make smoke` and the benchmark there (Section 12, `scripts/smoke/README.md`).
-Phase 1 findings that differ from the plan's reference numbers are in `reports/transparency_log.md` (F1–F9);
-Phase 2 findings: F10–F17; decisions P2-a (amended G4 checks) and P2-b (Quiapo 2023/2024, option a) in `docs/decisions.md`.
+Phases 1–4 were run on the real data in a cloud container; they are deterministic, so re-running them on the
+laptop must reproduce the committed gates and tables. All final results (Notebooks 05–07) must come from the
+chosen laptop (D16). Tests: `pytest` → 99 passed, 4 skipped (the skips need laptop outputs).
 
-## Setup (chosen laptop, Section 2.2)
+### Results so far (real data)
+
+| Item | Result | Where |
+|---|---|---|
+| Rain timing (G3, D5) | 6-hourly stamps mark the period end (99.7% of rain days); rain usable 1 h after | `gates/G03_*` |
+| Upstream stations (G5, D2) | none eligible (Sto. Niño 78.1% in 2024; Fort Santiago 0% in 2018) | `reports/tables/eligibility.csv` |
+| Status legend (G4, D3) | gate and pump codes used (amended checks, P2-a); sky codes dropped | `gates/G04_*` |
+| **H1** (G7) | **partly supported**: OR 1.207 per 0.1 m after rain (CI 1.143–1.275); 2023 AUC gain 0.004 (CI −0.022 to 0.028) | `gates/G07_*` |
+| Alert levels (G8) | **11.69 m** (P95 of training) and **12.00 m** (≥ 50% stress hours) | `configs/alert_levels.yaml` |
+| Tide (G9, D7) | P1, K2, Q1 added; residual peaks remain (logged) | `artifacts/tide_*.json` |
+| **H2** (G10) | **supported**: rain (p = 6.1e-48) and pressure (p = 2.2e-6) selected | `configs/selected_features.yaml` |
+| Table III-6 | recomputed (train 16,937 cases at lead 1; val 4,091) | `reports/tables/table_III-6_recomputed.csv` |
+| H3, H4 | not yet — decided in Notebook 06 on the laptop by the rules in `configs/eval.yaml` | — |
+
+Every data-vs-plan finding is in `reports/transparency_log.md` (F1–F30); every decision and implementation
+choice in `docs/decisions.md` (D1–D20, P1–P7).
+
+## Ground rules (Plan Section 0.3)
+
+* Splits: train 2018–2022, validation 2023, test 2024; chronological, wet season only.
+* Data: MMDA files and PAGASA **Science Garden** only (no Port Area, no Kaggle, no other data).
+* Everything learned from data comes from training seasons (2023 for tuning only). **The 2024 test season is
+  read once, in Notebook 06, after the `settings-frozen` tag** — enforced by gate G18 and by tests.
+* No SMOTE or synthetic training data. Results are reported whichever way they fall.
+
+## Setup (chosen laptop: Ryzen 7 7735HS, 16 GB, RTX 4060 Laptop GPU 8 GB → WSL2 Ubuntu)
+
+Full step-by-step instructions: **`docs/laptop_runbook.md`**.
 
 ```bash
-python3 -m venv .venv && . .venv/bin/activate
-pip install -e . -r requirements-dev.txt
+# inside WSL2 Ubuntu; keep the repo in ~/, not /mnt/c
+git clone https://github.com/mttcnrj/Thesis-DS11.git ~/pasig-forecast && cd ~/pasig-forecast
+git checkout feat/pasig-forecast-pipeline
+python3 -m venv .venv && source .venv/bin/activate
+pip install -e . -r requirements-dev.txt "tensorflow[and-cuda]" joblib
+python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"   # must not be []
 python scripts/sync_drive.py --src "/mnt/g/My Drive/Thesis II"   # copies raw data once into data/raw/
-pip freeze > requirements.txt                                    # then commit; never upgrade mid-thesis
+pip freeze > requirements.txt                                    # commit; never upgrade mid-thesis
 ```
 
 ## Run order
 
+Long jobs run as scripts (inside `tmux`), not notebook cells. Every phase can also be run from its notebook,
+which calls the same functions and ends with that phase's tests.
+
 ```bash
-make test                         # pytest -m fast (synthetic, < 1 min)
-python scripts/run_phase.py --phase 1 --tag   # Notebook 01 as a script; tags phase1-frozen when G6 passes
-python scripts/run_phase.py --phase 2         # Notebook 02: G4, G20, G7, G8 -> configs/alert_levels.yaml
-python scripts/run_phase.py --phase 3         # Notebook 03: tide (G9), features, train/val windows, scalers
-python scripts/run_phase.py --phase 4         # Notebook 04: Granger selection (G10) -> configs/selected_features.yaml
-PASIG_PROFILE=rehearsal python scripts/run_phase.py --phase 5   # dry run of Notebook 05 (tiny, runs/rehearsal/)
-python scripts/run_phase.py --phase 5 --tag   # Notebook 05 on the laptop (resumable: --stage compute|variants|grid|finals|baselines|thresholds|checks|freeze)
-PASIG_PROFILE=rehearsal python scripts/run_phase.py --phase 6   # dry run of Notebook 06 on the 2023 stand-in
-python scripts/run_phase.py --phase 6         # Notebook 06: G18 opens 2024 ONCE (--stage unseal|predict|evaluate)
-python scripts/run_phase.py --phase 7         # Notebook 07 (--stage walkforward|ablations|casestudy|aviles)
-make test-data                    # tests on the real processed files
+make test                                          # pytest -m fast (synthetic, < 1 min)
+make smoke                                         # Section 12 smoke test (7 PASS); also --device gpu
+python scripts/run_phase.py --phase 1 --tag        # G1 G2 G3 G5 G6; tags phase1-frozen
+python scripts/run_phase.py --phase 2              # G4 G20 G7 G8 -> configs/alert_levels.yaml
+python scripts/run_phase.py --phase 3              # G9, features, train/val windows, scalers
+python scripts/run_phase.py --phase 4              # G10 -> configs/selected_features.yaml
+make test-data                                     # tests on the real processed files
+python scripts/run_phase.py --phase 5 --stage compute      # G14 -> G13 -> G15 (benchmark)
+python scripts/run_phase.py --phase 5 --stage variants     # G11, G12
+python scripts/run_phase.py --phase 5 --stage grid         # 60 hybrid + 18 LSTM configs (long)
+python scripts/run_phase.py --phase 5 --stage finals       # 5 seeds each, determinism on
+python scripts/run_phase.py --phase 5 --stage baselines
+python scripts/run_phase.py --phase 5 --stage thresholds
+python scripts/run_phase.py --phase 5 --stage checks       # G16 — REVIEW before freezing
+python scripts/run_phase.py --phase 5 --stage freeze --tag # G17, tag settings-frozen
+python scripts/run_phase.py --phase 6              # G18: opens 2024 ONCE (--stage unseal|predict|evaluate)
+python scripts/run_phase.py --phase 7              # --stage walkforward|ablations|casestudy|aviles
 ```
+
+* Stages are resumable: finished configs/seeds are skipped on a re-run.
+* Re-running `predict`/`evaluate` of Phase 6 after a crash does not re-open the test; re-running `unseal`
+  needs `--rerun-reason "..."`, which is logged and must be reported in the transparency log.
+
+### Dry runs (rehearsal profile)
+
+```bash
+make rehearsal5    # PASIG_PROFILE=rehearsal: 2 epochs, 1,500 cases, 2 configs per grid, 2 seeds
+make rehearsal6    # 2023 validation windows stand in for 2024 (2024 is never read)
+make rehearsal7
+```
+
+Rehearsal outputs (gates, generated configs, checkpoints, tables, figures) go to `runs/rehearsal/`
+(git-ignored) and never touch the real gates. **Rehearsal numbers are not results.**
+
+## Gates
+
+Each gate writes `gates/G##_<name>.json` (rule, evidence, decision, timestamp, git SHA, profile);
+`require_gates()` refuses to start a phase whose prerequisites are missing or failed.
+
+| Gate | Phase | Gate | Phase |
+|---|---|---|---|
+| G0 machine | before anything | G11 tidal input variant, G12 output form | NB05 |
+| G1 raw files, G2 parsing, G3 rain timing | NB01 | G13 device, G14 determinism, G15 seed budget | NB05 |
+| G5 eligibility, G6 phase-1 frozen | NB01 | G16 persistence sanity + bug checklist | NB05 |
+| G4 status legend, G20 Quiapo 2021 | NB02 | G17 settings frozen (`frozen_manifest.json`) | NB05 |
+| G7 H1, G8 alert levels | NB02 | G18 test unsealed once | NB06 |
+| G9 tide fit | NB03 | G19 hyperparameter edge | NB05 |
+| G10 Granger outcome | NB04 | | |
 
 ## Layout
 
 ```
-configs/   paths, splits, stations, qc, features (hand-written); pagasa, eligible_inputs (GENERATED by gates)
-gates/     G##_<name>.json written by pasig.gates.record_gate
-pasig/     config.py gates.py phase1.py ... phase7.py   (one orchestrator per notebook)
-  io/      manifest.py (G1) mmda_waterlevel.py (EFCOS, G2) mmda_pumping.py (Aviles/Quiapo, D3) pagasa.py (D4, D5, G3)
-  qc/      rules.py (range, spike, flat runs) gaps.py (<= 3 h fill) coverage.py (G5)
-  link/    stats.py (Wilson, events, bootstraps, clustered logit) legend.py (G4) quiapo.py (G20)
-  features/ tide.py (D7, G9) windows.py (Section 9.1, D8) scaling.py (D9)
-  selection/ stationarity.py granger.py correlation.py (Section 9.2)
-  models/  hybrid.py (Figure III-4, D9, D20 loss) baselines.py (Table III-4) offsets.py (D11)
-  train/   data.py loop.py (run folders, D15) grid.py (D12) compute.py (G13-G15)
-  eval/    metrics.py alerts.py (D19 equal recall) events.py dm_test.py bootstrap.py (Section 10.1)
-scripts/   run_phase.py sync_drive.py record_g0.py smoke/ (from smoke_tests.zip) drive/ (cloud-container fallback)
-tests/     test_parsers test_time_alignment test_qc test_splits test_gapfill test_gates test_link test_windows test_leakage test_granger test_reproducibility test_offsets test_same_hours test_metrics test_events test_dm test_unseal test_walkforward
-reports/   tables/ (coverage, Table III-6, QC summary, hand check) logs/ figures/ transparency_log.md
-docs/      decisions.md data_dictionary.md laptop_runbook.md session_context.md (handover summary)
+configs/    hand-written: paths, splits (incl. walk-forward folds), stations, qc, tide, features, granger,
+            link, model_hybrid, baselines, eval (H3/H4 rules, NB06/NB07 settings)
+            GENERATED by gates: pagasa, eligible_inputs, alert_levels, selected_features,
+            (laptop) model_inputs, compute, thresholds, frozen_manifest.json
+gates/      G##_<name>.json (committed)
+artifacts/  tide_<station>.json, scalers.json, feature_names.json; frozen/ (checkpoints, git-ignored, hashed)
+pasig/      config.py gates.py phase1.py … phase7.py      (one orchestrator per notebook)
+  io/       manifest (G1), mmda_waterlevel (EFCOS, G2), mmda_pumping (Aviles/Quiapo, D3), pagasa (D4, D5, G3)
+  qc/       rules (range, spike, flat runs), gaps (<= 3 h fill), coverage (G5)
+  link/     stats (Wilson, events, bootstraps, clustered logit), legend (G4), quiapo (G20)
+  features/ tide (D7, G9), windows (Section 9.1, D8), scaling (D9)
+  selection/ stationarity, granger, correlation (Section 9.2)
+  models/   hybrid (Figure III-4, D9, D20 loss), baselines (Table III-4), offsets (D11)
+  train/    data, loop (run folders, determinism D15), grid (D12), compute (G13-G15)
+  eval/     metrics, alerts (D19 equal recall), events, dm_test, bootstrap (Section 10.1)
+notebooks/  01–07 (thin: call pasig, show results, run the phase's tests)
+scripts/    run_phase.py, sync_drive.py, record_g0.py, smoke/ (from smoke_tests.zip), drive/ (cloud fallback)
+tests/      18 files: parsers, time_alignment, qc, splits, gapfill, gates, link, windows, leakage, granger,
+            reproducibility, offsets, same_hours, metrics, events, dm, unseal, walkforward
+data/       manifest/ (committed); raw/ interim/ processed/ (git-ignored)
+runs/       training run folders <stamp>_<tag>_seed<k>/ (git-ignored); runs/rehearsal/ for dry runs
+reports/    tables/ figures/ logs/ compute/ transparency_log.md
+docs/       decisions.md, data_dictionary.md, laptop_runbook.md, session_context.md
 ```
 
-## Phase 1 outputs
+## Outputs by phase
 
-* `data/interim/{waterlevel_long,pumping_long,pagasa_6h,pagasa_daily}.parquet`
-* `data/processed/hourly_master.parquet`, `data/processed/eval_hours.parquet`
-* `reports/tables/table_III-6_recomputed.csv`, `coverage_wet_season.csv`, `eligibility.csv`,
-  `reports/figures/fig_III-3_coverage_wet_season.png` (redrawn Figure III-3)
+| Phase | Main outputs |
+|---|---|
+| 1 | `data/interim/{waterlevel_long,pumping_long,pagasa_6h,pagasa_daily}.parquet`, `data/processed/{hourly_master,eval_hours}.parquet`, `reports/tables/table_III-6_recomputed.csv`, coverage tables, `reports/figures/fig_III-3_coverage_wet_season.png` |
+| 2 | `configs/alert_levels.yaml`, link-analysis tables, `alert_sensitivity.csv`, `phase2_summary.json` |
+| 3 | `artifacts/tide_*.json`, `artifacts/scalers.json`, `artifacts/feature_names.json`, `data/processed/windows_{train,val}.npz` |
+| 4 | `configs/selected_features.yaml`, `reports/tables/granger_results.csv` |
+| 5 | `configs/{compute,model_inputs,thresholds}.yaml`, `configs/frozen_manifest.json`, `reports/compute/<laptop>/`, validation tables, frozen checkpoints |
+| 6 | `gates/TEST_UNSEALED.json`, `reports/tables/test_*` (level metrics, skill, alerts, equal recall, events, DM + Holm, `test_results.json` with H3/H4), `reports/figures/test_*` |
+| 7 | `reports/tables/{walkforward,ablation,case_study,aviles}_*`, `reports/figures/case_event_*.png` |
+
+## Still to do
+
+* **On the laptop:** smoke test and benchmark, re-run Phases 1–4, Notebook 05 (review G16 before freezing),
+  Notebook 06 once, Notebook 07; commit gates, generated configs and `reports/`.
+* **Code (small, not yet done):** a Chapter IV report assembler (`pasig/eval/report.py`),
+  `scripts/setup_wsl.sh`, a thresholds case in `tests/test_leakage.py`, and a statsmodels HAC cross-check in
+  `tests/test_dm.py`.
+* **Writing:** Plan Section 13 thesis-text edits plus the additions listed in `reports/transparency_log.md`.
+* Delete the old remote branch `feat/affectionate-mccarthy-w2uqzk` on GitHub.
