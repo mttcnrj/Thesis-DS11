@@ -1,6 +1,7 @@
 # All paths relative to the repository root unless absolute (C1: no Colab-only paths).
-# drive_root: the `Thesis II` folder as mounted by Google Drive for desktop on the chosen laptop
-#   (WSL example: /mnt/g/My Drive/Thesis II). Only scripts/sync_drive.py reads it.
+# The raw data are committed in data/raw (decision R1): nothing here needs Google Drive.
+# drive_root: only for scripts/sync_drive.py, i.e. if the source files on Drive ever change and must be
+#   copied again (WSL example: /mnt/g/My Drive/Thesis II).
 drive_root: null
 raw: data/raw
 interim: data/interim

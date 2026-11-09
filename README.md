@@ -12,6 +12,10 @@ classifiers on the 2024 season, which is opened once.
 * **Specification:** `IMPLEMENTATION_PLAN.md`. Decision IDs (D1–D20), gate IDs (G0–G20) and contradiction IDs
   (C1–C6) from it are used throughout the code, configs and `gates/`.
 * **Handover summary of the build session:** `docs/session_context.md` — start here in a new chat.
+* **Data are in the repository:** the raw MMDA and PAGASA Science Garden files (31 MB, 465 files) are committed
+  in `data/raw/`, so a clone runs end to end without Google Drive (decision R1). Every notebook and
+  `run_phase.py` first checks them against the SHA-256 manifest and, in a fresh clone, rebuilds the generated
+  inputs (Phases 1 and 3, about 1–2 minutes, once).
 
 ## Status
 
@@ -27,7 +31,7 @@ classifiers on the 2024 season, which is opened once.
 
 Phases 1–4 were run on the real data in a cloud container; they are deterministic, so re-running them on the
 laptop must reproduce the committed gates and tables. All final results (Notebooks 05–07) must come from the
-chosen laptop (D16). Tests: `pytest` → 99 passed, 4 skipped (the skips need laptop outputs).
+chosen laptop (D16). Tests: `pytest` → 102 passed, 4 skipped (the skips need laptop outputs).
 
 ### Results so far (real data)
 
@@ -65,14 +69,16 @@ git checkout feat/pasig-forecast-pipeline
 python3 -m venv .venv && source .venv/bin/activate
 pip install -e . -r requirements-dev.txt "tensorflow[and-cuda]" joblib
 python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"   # must not be []
-python scripts/sync_drive.py --src "/mnt/g/My Drive/Thesis II"   # copies raw data once into data/raw/
-pip freeze > requirements.txt                                    # commit; never upgrade mid-thesis
+make data-check                   # raw data match the manifest; builds data/interim + data/processed once
+pip freeze > requirements.txt     # commit; never upgrade mid-thesis
 ```
 
 ## Run order
 
-Long jobs run as scripts (inside `tmux`), not notebook cells. Every phase can also be run from its notebook,
-which calls the same functions and ends with that phase's tests.
+Long jobs run as scripts (inside `tmux`), not notebook cells. Every phase can also be run from its notebook
+(VS Code or Jupyter, opened from the repository), which calls the same functions and ends with that phase's
+tests. Notebooks can be opened in any order once their gates exist: missing generated inputs are rebuilt
+automatically from `data/raw/`.
 
 ```bash
 make test                                          # pytest -m fast (synthetic, < 1 min)
@@ -142,11 +148,13 @@ pasig/      config.py gates.py phase1.py … phase7.py      (one orchestrator pe
   models/   hybrid (Figure III-4, D9, D20 loss), baselines (Table III-4), offsets (D11)
   train/    data, loop (run folders, determinism D15), grid (D12), compute (G13-G15)
   eval/     metrics, alerts (D19 equal recall), events, dm_test, bootstrap (Section 10.1)
+  local.py  prepare(): raw-data check against the manifest + rebuild of missing local inputs
 notebooks/  01–07 (thin: call pasig, show results, run the phase's tests)
-scripts/    run_phase.py, sync_drive.py, record_g0.py, smoke/ (from smoke_tests.zip), drive/ (cloud fallback)
-tests/      18 files: parsers, time_alignment, qc, splits, gapfill, gates, link, windows, leakage, granger,
+scripts/    run_phase.py, record_g0.py, smoke/ (from smoke_tests.zip); sync_drive.py and drive/ only if the
+            Drive source files ever change (not needed: the raw data are committed)
+tests/      19 files: raw_data, parsers, time_alignment, qc, splits, gapfill, gates, link, windows, leakage, granger,
             reproducibility, offsets, same_hours, metrics, events, dm, unseal, walkforward
-data/       manifest/ (committed); raw/ interim/ processed/ (git-ignored)
+data/       raw/ (committed raw files, byte-for-byte), manifest/ (committed); interim/ processed/ (generated, git-ignored)
 runs/       training run folders <stamp>_<tag>_seed<k>/ (git-ignored); runs/rehearsal/ for dry runs
 reports/    tables/ figures/ logs/ compute/ transparency_log.md
 docs/       decisions.md, data_dictionary.md, laptop_runbook.md, session_context.md

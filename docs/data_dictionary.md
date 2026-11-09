@@ -3,6 +3,13 @@
 Phase 1 outputs first, then the arrays, artifacts and prediction tables of later phases.
 All times are Philippine time (PHT, UTC+8), hourly, naive timestamps.
 
+# Raw data (committed, decision R1)
+
+`data/raw/` holds the source files exactly as in the `Thesis II` Drive folder: `MMDA Dataset/` (EFCOS FORM 2-1
+workbooks per station and month; Aviles and Quiapo pumping workbooks; WOCR PDFs) and `PAGASA Dataset/` (Science
+Garden 6-hourly and daily CSVs; the Port Area columns are dropped, D6), plus the excluded Kaggle file. Their
+SHA-256, size, station, year and G1 status are in `data/manifest/raw_manifest.csv`. Parsing rules: Plan Section 3.2.
+
 # Phase 1
 
 ## data/interim/waterlevel_long.parquet (all months, all EFCOS stations)

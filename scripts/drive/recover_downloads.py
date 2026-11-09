@@ -1,4 +1,7 @@
-"""Rebuild data/raw/ from Google Drive connector downloads (cloud-container fallback for D16/C1).
+"""OBSOLETE since 9 Nov 2026: the raw data are committed in data/raw/ (decision R1). Kept as the record of how
+the files were first retrieved in the cloud container.
+
+Rebuild data/raw/ from Google Drive connector downloads (cloud-container fallback for D16/C1).
 
 Why this exists: in a Claude Code cloud container the Drive desktop client is unavailable and
 drive.google.com is not reachable, so raw files are fetched with the Google Drive connector
@@ -7,7 +10,7 @@ drive.google.com is not reachable, so raw files are fetched with the Google Driv
 download whose file id is in `drive_inventory.json`, checks the byte count against Drive's
 metadata, and writes the file to `data/raw/<drive path>`.
 
-On the chosen laptop use `scripts/sync_drive.py` (copies from the mounted Drive) instead.
+On the chosen laptop nothing is needed: clone the repository (the raw data are in it).
 
 Usage: python scripts/drive/recover_downloads.py [--logs ~/.claude/projects] [--out data/raw]
 """

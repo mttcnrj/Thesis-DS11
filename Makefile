@@ -1,6 +1,6 @@
 PY ?= python
 
-.PHONY: test test-data lint nb01 nb02 nb03 nb04 nb05 phase1 phase2 phase3 phase4 phase5 rehearsal5 phase6 rehearsal6 nb06 phase7 rehearsal7 nb07 recover smoke
+.PHONY: test test-data lint nb01 nb02 nb03 nb04 nb05 phase1 phase2 phase3 phase4 phase5 rehearsal5 phase6 rehearsal6 nb06 phase7 rehearsal7 nb07 data-check recover smoke
 
 test:            ## synthetic tests only (< 1 min)
 	$(PY) -m pytest -m fast -q
@@ -65,5 +65,8 @@ nb02:
 nb01:
 	$(PY) -m jupyter nbconvert --to notebook --execute --inplace notebooks/01_load_qc.ipynb
 
-recover:         ## cloud-container fallback: rebuild data/raw from Drive connector downloads
+data-check:      ## raw data in data/raw match the manifest (SHA-256); rebuild missing Phase 1/3 inputs
+	$(PY) -c "from pasig.local import prepare; prepare(7)"
+
+recover:         ## OBSOLETE since the raw data are committed; kept for the record (cloud-container Drive fallback)
 	$(PY) scripts/drive/recover_downloads.py

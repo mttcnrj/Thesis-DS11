@@ -121,6 +121,12 @@ Fixed in `configs/eval.yaml` (`nb07`) before the test season is opened.
 | P7-h | case study | flood-risk events of the test season (NB06 definition), per model × lead: detected, warning time, first alert issue hour, forecast and error at the observed peak; one figure per event with the hybrid's leads 1, 3, 6; the Carina event = the one covering 24 Jul 2024 | Section 10.2 |
 | P7-i | Aviles 2024 | parsed only here, after G18, from the `post_eval_only` blocks; 1 Jun – 15 Jul 2024; per level: hours at/above, stress share at/above and below, gate-open share, dry share; beside the training-season values. Descriptive; levels unchanged | Section 10.2 deferred check |
 
+## Repository decision (9 Nov 2026)
+
+| ID | Choice | Why | Plan text affected |
+|---|---|---|---|
+| R1 | **The raw data are committed in `data/raw/`** (31 MB, 465 files, byte-for-byte; `.gitattributes` marks them binary so no line-ending conversion can change a SHA-256). Generated data (`data/interim`, `data/processed`) stay git-ignored and are rebuilt locally by `pasig.local.prepare`, which every notebook and `run_phase.py` call first: it checks every raw file against `raw_manifest.csv`, rebuilds missing Phase 1/3 inputs once per clone, and restores committed files that come out identical apart from run stamps | requested by the group: the data are small, and a clone should run without waiting for Google Drive; committing the exact bytes also makes G1 verifiable by anyone | Plan Section 6 says `data/` is git-ignored except the README and manifest, and Section 2.2 copies the data from Drive with `sync_drive.py`; both superseded for the raw files only. `sync_drive.py` remains for the case where the Drive files change |
+
 ## Implementation choices made in Phase 1 (recorded for the thesis text)
 
 | Ref | Choice | Why |

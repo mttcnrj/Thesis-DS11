@@ -1,5 +1,7 @@
-"""Copy the raw data once from the mounted Google Drive folder into data/raw/ and write the manifest
-(Section 2.2, 7.1). Run on the chosen laptop after Google Drive for desktop has synced `Thesis II`.
+"""NOT NEEDED for normal use: the raw data are committed in data/raw/ (decision R1, 9 Nov 2026).
+
+Only if the source files in the `Thesis II` Drive folder change: copy them again into data/raw/ and re-run
+Phase 1 (which rewrites the manifest and G1); commit the new files and manifest together.
 
     python scripts/sync_drive.py --src "/mnt/g/My Drive/Thesis II"      # WSL
     python scripts/sync_drive.py                                        # uses configs/paths.yaml: drive_root

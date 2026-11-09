@@ -181,6 +181,11 @@ Phase 4 reproduced `selected_features.yaml`, G10 and `granger_results.csv` exact
 profile stamps changed, and those files were restored). A data test also shows that the 2018–22 → 2023 fold
 rebuilds the frozen alert levels, Granger selection, 2023 windows and scalers bit for bit.
 
+**F32. The raw data are now committed in the repository (decision R1, 9 Nov 2026)** and checked against the
+manifest before every phase. A fresh clone, with no Drive access and no generated data, ran Notebooks 01, 02
+and 04 end to end: the automatic rebuild of the Phase 1 and Phase 3 inputs reproduced every committed gate,
+generated config, artifact and table exactly (only run stamps differed), and the test suite passed there.
+
 ## Thesis text to add beyond Plan Section 13
 * Ch III §7.8 / Figure III-3: coverage counted after QC and **before** gap fill (Pandacan 77–95%).
 * Table III-6: replace with `reports/tables/table_III-6_recomputed.csv`.
@@ -200,6 +205,7 @@ rebuilds the frozen alert levels, Granger selection, 2023 windows and scalers bi
 Phases 1–4 outputs in this branch were produced in a Claude Code cloud container (Python 3.13, pandas 3.0,
 TensorFlow 2.21 CPU for the dry runs) from the Drive files listed in `data/manifest/raw_manifest.csv`
 (SHA-256 per file; fetched through the Google Drive connector because direct Drive downloads were blocked).
+Since 9 Nov 2026 those exact files are committed in `data/raw/` (R1), so the laptop run uses the same bytes.
 The plan requires all final results to come from the chosen laptop (D16); Phases 1–4 are deterministic, so
 re-running them there must reproduce the same manifest hashes, gates and tables (`docs/laptop_runbook.md`
 step 2). Dry-run (rehearsal) outputs live only under the git-ignored `runs/rehearsal/` and are not results.

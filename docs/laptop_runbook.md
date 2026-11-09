@@ -44,8 +44,10 @@ Notebook 05's `compute` stage runs the benchmark itself (twice per device) and r
 
 ## 2. Raw data and Phases 1–4
 
+The raw data come with the clone (`data/raw/`, decision R1); no Google Drive step.
+
 ```bash
-python scripts/sync_drive.py --src "/mnt/g/My Drive/Thesis II"  # mount G: first if needed: sudo mount -t drvfs G: /mnt/g
+make data-check                                                 # 465 raw files match the manifest (SHA-256)
 python scripts/run_phase.py --phase 1 --tag
 python scripts/run_phase.py --phase 2
 python scripts/run_phase.py --phase 3
