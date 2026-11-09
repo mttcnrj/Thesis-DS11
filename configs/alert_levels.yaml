@@ -12,8 +12,8 @@ training_seasons:
 - 2020
 - 2021
 - 2022
-git_sha: aa84e97
-date: '2026-11-06'
+git_sha: 062fd10
+date: '2026-11-10'
 check_2023:
   high_water:
     level_m: 11.69
