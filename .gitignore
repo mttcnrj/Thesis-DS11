@@ -1,5 +1,5 @@
-# data never committed (Section 6): only data/README.md and data/manifest/ are tracked
-data/raw/
+# data/raw/ IS committed (31 MB, 465 files; decision R1, 9 Nov 2026) so the pipeline runs from a clone without
+# Google Drive. Generated data are rebuilt locally by Phases 1 and 3 and never committed.
 data/interim/
 data/processed/
 data/synthetic/

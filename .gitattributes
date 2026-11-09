@@ -1,2 +1,5 @@
 *.ipynb filter=nbstripout
 *.ipynb diff=ipynb
+# raw data: stored byte-for-byte (no line-ending conversion, no text diffs) so every file keeps the SHA-256
+# recorded in data/manifest/raw_manifest.csv on Windows, WSL and Linux checkouts alike
+data/raw/** binary
