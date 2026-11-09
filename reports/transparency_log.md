@@ -196,6 +196,15 @@ most 1.1e-11, G9 ratios by at most 1.9e-11 and the predicted Pandacan tide by at
 (P1, K2, Q1) are the same. This is floating-point noise between library versions, and PNG figures differ in their
 bytes. Phases 2 and 4 had not yet been re-run on the laptop when this was written.
 
+**F34. Notebook 05 compute stage: the GPU was hidden from the probe (10 Nov 2026).** The first laptop run of
+`--phase 5 --stage compute` recorded G13 = cpu with `"gpu": null`, although TensorFlow lists the RTX 4060. The
+stage asks a subprocess whether an NVIDIA GPU exists, and that subprocess was started with the CPU-only environment
+(`CUDA_VISIBLE_DEVICES=-1`), so it could never see a GPU; the cloud test machines had no GPU, so this went unnoticed.
+Fixed in `pasig/phase5.py` (probe runs without that variable) with `tests/test_compute.py`. That run's outputs
+(CPU benchmark: 15.61 h recommended plan, 17.98 h with 5 seeds; G14 identical on CPU) were discarded uncommitted and
+the stage re-run. A one-off check after the fix gave identical GPU predictions on a repeated 1-epoch run
+(max |diff| = 0.0), so G14 can pass on the GPU.
+
 ## Thesis text to add beyond Plan Section 13
 * Ch III §7.8 / Figure III-3: coverage counted after QC and **before** gap fill (Pandacan 77–95%).
 * Table III-6: replace with `reports/tables/table_III-6_recomputed.csv`.

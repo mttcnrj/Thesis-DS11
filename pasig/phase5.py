@@ -73,7 +73,7 @@ def stage_compute() -> dict:
     from pasig.train.compute import call_module, plan_hours, run_bench
     mach = machine()
     name = (mach.get("name") or "unknown-machine") if not rehearsal() else "rehearsal"
-    probe = call_module(["--probe"])
+    probe = call_module(["--probe"], device="gpu")   # not the CPU env (CUDA_VISIBLE_DEVICES=-1), or no GPU is ever seen
     gpu = probe["nvidia_gpu"]
     devices = (["gpu"] if gpu else []) + ["cpu"]
     det = {d: call_module(["--determinism", "--device", d], device=d) for d in devices}
