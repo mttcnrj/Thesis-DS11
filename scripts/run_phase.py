@@ -1,5 +1,8 @@
 """Run a pipeline phase as a script (Section 2.3: long jobs run as scripts, not notebook cells).
 
+Works from a plain clone: the raw data are in data/raw/ (committed), and before each phase
+`pasig.local.prepare` checks them against the manifest and rebuilds missing generated inputs.
+
     python scripts/run_phase.py --phase 1            # Notebook 01: parse, QC, coverage, eval hours (G1 G2 G3 G5 G6)
     python scripts/run_phase.py --phase 1 --tag      # also tag `phase1-frozen` when G6 passes
     python scripts/run_phase.py --phase 2            # Notebook 02: legend G4, G20, link analysis, H1 (G7), alert levels (G8)
@@ -33,8 +36,13 @@ def main() -> int:
     ap.add_argument("--tag", action="store_true", help="create the phase git tag when its freeze gate passes")
     ap.add_argument("--stage", help="phase 5: compute, variants, grid, finals, baselines, thresholds, checks, freeze; "
                                     "phase 6: unseal, predict, evaluate; phase 7: walkforward, ablations, casestudy, aviles")
+    ap.add_argument("--no-prepare", action="store_true",
+                    help="skip the local-data check/rebuild (used internally by pasig.local when rebuilding)")
     ap.add_argument("--rerun-reason", help="phase 6 only: required to open the test season a second time (logged)")
     a = ap.parse_args()
+    if not a.no_prepare:
+        from pasig.local import prepare
+        prepare(a.phase)          # raw data match the manifest; rebuild missing Phase 1/3 inputs (fresh clone)
     if not (a.phase in (5, 7) and a.stage):
         require_gates(*REQUIRED_BEFORE.get(a.phase, []))
     if a.phase == 1:
