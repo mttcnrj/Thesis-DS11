@@ -60,14 +60,12 @@ choice in `docs/decisions.md` (D1–D20, P1–P7).
 
 ## Setup (chosen laptop: Ryzen 7 7735HS, 16 GB, RTX 4060 Laptop GPU 8 GB → WSL2 Ubuntu)
 
-Full step-by-step instructions: **`docs/laptop_runbook.md`**.
+Do the one-time setup in **section 0 of `docs/laptop_runbook.md`**: clone into `~/pasig-forecast` inside WSL2
+Ubuntu, a Python 3.13 venv at `~/.venv` (TensorFlow 2.21 does not support 3.14), `tensorflow[and-cuda]`, and one
+CUDA library link. Native Windows Python cannot use the GPU. Then:
 
 ```bash
-# inside WSL2 Ubuntu; keep the repo in ~/, not /mnt/c
-git clone https://github.com/mttcnrj/Thesis-DS11.git ~/pasig-forecast && cd ~/pasig-forecast
-git checkout feat/pasig-forecast-pipeline
-python3 -m venv .venv && source .venv/bin/activate
-pip install -e . -r requirements-dev.txt "tensorflow[and-cuda]" joblib
+cd ~/pasig-forecast && source ~/.venv/bin/activate
 python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"   # must not be []
 make data-check                   # raw data match the manifest; builds data/interim + data/processed once
 pip freeze > requirements.txt     # commit; never upgrade mid-thesis

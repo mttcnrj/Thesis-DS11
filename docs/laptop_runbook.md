@@ -16,19 +16,45 @@ wsl --install -d Ubuntu      # restart when asked
 ```bash
 # inside Ubuntu (VS Code: "WSL: Connect to WSL"); keep the repo in ~/, not /mnt/c
 nvidia-smi                                      # must list the RTX 4060 (8188 MiB, driver 595.97 in Windows; G0)
-sudo apt-get update && sudo apt-get install -y python3-venv tmux git
-git clone https://github.com/mttcnrj/Thesis-DS11.git ~/pasig-forecast && cd ~/pasig-forecast
-git checkout feat/pasig-forecast-pipeline
-python3 -m venv .venv && source .venv/bin/activate
+sudo apt-get update && sudo apt-get install -y python3-venv tmux git make
+git clone --branch feat/pasig-forecast-pipeline https://github.com/mttcnrj/Thesis-DS11.git ~/pasig-forecast
+cd ~/pasig-forecast
+
+# Python 3.13 in ~/.venv: TensorFlow 2.21 has wheels for 3.10-3.13 only, and Ubuntu 26.04 ships 3.14.
+# uv fetches 3.13 under ~/.local/share/uv (no sudo, no change to the system Python).
+python3 -m venv ~/.venv
+~/.venv/bin/python -m pip install --target ~/.local/share/uv-bootstrap uv
+UV=~/.local/share/uv-bootstrap/bin/uv
+$UV python install 3.13
+$UV venv --clear --seed --python 3.13 ~/.venv
+source ~/.venv/bin/activate
+
+# WSL's /tmp is a RAM disk smaller than the unpacked CUDA packages: keep pip's temp files on disk
+export TMPDIR=~/.cache/pip-tmp && mkdir -p "$TMPDIR"
 pip install -e . -r requirements-dev.txt "tensorflow[and-cuda]" joblib
-python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"   # must not be []
+rm -rf "$TMPDIR" && unset TMPDIR
+
+# TensorFlow 2.21's library search path omits nvidia/cusolver/lib; link the file into a folder it does search
+SP=$(python -c "import site; print(site.getsitepackages()[0])")
+ln -sfn ../../cusolver/lib/libcusolver.so.11 "$SP/nvidia/cusparse/lib/libcusolver.so.11"
+
+python -c "import tensorflow as tf; print('TensorFlow:', tf.__version__); print('GPUs:', tf.config.list_physical_devices('GPU'))"   # GPUs must not be []
 make test                                       # fast tests, < 1 min
 ```
 
-If `nvidia-smi` fails inside Ubuntu, update the NVIDIA Windows driver (do **not** install a Linux driver inside
-WSL) and run `wsl --update` in PowerShell. If TensorFlow lists no GPU although `nvidia-smi` works, reinstall
-`"tensorflow[and-cuda]"` in the venv. If the GPU still cannot be used, the pipeline runs on CPU: G13 records
-`device: cpu` and G15 switches to 3 seeds if the projection exceeds 10 h.
+Activate with `source ~/.venv/bin/activate` in every new shell. In VS Code, open the `~/pasig-forecast` folder
+through "WSL: Connect to WSL" and select `~/.venv/bin/python` as the interpreter and notebook kernel.
+
+| Symptom | Cause | Fix |
+|---|---|---|
+| `nvidia-smi` fails inside Ubuntu | Windows driver or WSL out of date | Update the NVIDIA Windows driver (do **not** install a Linux driver inside WSL) and run `wsl --update` in PowerShell |
+| `GPUs: []` with `tensorflow-intel` in `pip list` | the Python is native Windows; TensorFlow after 2.10 has no GPU support there | Use `~/.venv` inside WSL, not a venv in the Windows folder |
+| `No matching distribution found for tensorflow` | the venv's Python is 3.14 or newer | Rebuild `~/.venv` on 3.13 (steps above) |
+| `No space left on device` during `pip install` | pip is unpacking into the small `/tmp` RAM disk | Set `TMPDIR` as above |
+| `GPUs: []` and `Cannot dlopen some GPU libraries`, although `nvidia-smi` works | a CUDA library is not on TensorFlow's search path; reinstalling does not help | Create the `libcusolver` link above, again after any venv rebuild. To see which library failed: `TF_CPP_VMODULE=dso_loader=2 python -c "import tensorflow as tf; tf.config.list_physical_devices('GPU')" 2>&1 \| grep "Could not load"` |
+
+If the GPU still cannot be used, the pipeline runs on CPU: G13 records `device: cpu` and G15 switches to 3 seeds
+if the projection exceeds 10 h.
 
 If anything about the machine changes (another laptop, new driver), re-record G0:
 `python scripts/record_g0.py --laptop "<name>|<GPU names>|<nvidia-smi name, memory>|<cores>" --choose <name> --ram-gb 16 --driver "<driver, CUDA>"`.
@@ -57,13 +83,21 @@ git diff --stat gates configs reports/tables                    # decisions must
 pip freeze > requirements.txt                                   # commit; never upgrade mid-thesis
 ```
 
+**Expected differences on this laptop.** The laptop's library versions differ from the cloud container's, so the
+rebuild prints `WARNING: the rebuild changed committed results` for the tide files: `artifacts/tide_*.json`,
+`gates/G09_tide_fit.json`, `reports/tables/tide_constituents.csv` and `tide_check_2023.json` differ around the 11th
+decimal (predicted tide by about 1e-14 m), and the PNG figures differ in their bytes. This is floating-point noise
+(F33). What must match is every decision: `configs/`, `gates/G08*`, `gates/G10*`, `artifacts/scalers.json`,
+`reports/tables/table_III-6_recomputed.csv`, `granger_results.csv` and `windows_summary.csv`. Commit the laptop's
+versions, because G17 hashes the files on this machine.
+
 ## 3. Notebook 05 (long: run inside tmux; resumable)
 
 Plugged in, power mode "Best performance", sleep "Never", Windows Update paused (Section 2.3).
 
 ```bash
 tmux new -s nb05
-source .venv/bin/activate
+source ~/.venv/bin/activate
 python scripts/run_phase.py --phase 5 --stage compute     # G14 -> G13 -> G15 (~30-60 min of benchmarks)
 python scripts/run_phase.py --phase 5 --stage variants    # G11, G12
 python scripts/run_phase.py --phase 5 --stage grid        # 60 hybrid + 18 LSTM configs (the long one)
@@ -101,7 +135,7 @@ this does not re-open the test. Re-running `unseal` needs `--rerun-reason "..."`
 
 ```bash
 tmux new -s nb07
-source .venv/bin/activate
+source ~/.venv/bin/activate
 python scripts/run_phase.py --phase 7 --stage walkforward   # 3 folds x seeds (G15) + baselines
 python scripts/run_phase.py --phase 7 --stage ablations     # D20 weight search (3 runs) + 6 variants x seeds
 python scripts/run_phase.py --phase 7 --stage casestudy     # every 2024 flood-risk event, figures
@@ -115,12 +149,13 @@ re-run (`runs/walkforward.csv`, `runs/ablations.csv`). Commit `reports/tables/` 
 
 ```bash
 python -m pytest -q                                          # everything must pass
-git add gates configs reports requirements.txt && git commit -m "Laptop run: ..." && git push
+git add gates configs reports artifacts requirements.txt && git commit -m "Laptop run: ..." && git push
 ```
 
 * Write every outcome into `reports/transparency_log.md` (new F-numbers) and the "Outcome" column of
   `docs/decisions.md`, whichever way it falls — including "beats persistence: no" or a hybrid that loses.
-* Never commit `data/raw`, `data/interim`, `data/processed`, `runs/` or `artifacts/frozen/` (git-ignored).
+* `data/interim`, `data/processed`, `runs/` and `artifacts/frozen/` are git-ignored and stay on the laptop. `data/raw` is
+  already committed (R1) and is never edited.
 * Chapter III needs the hardware and measured run times from `reports/compute/<laptop>/` and the run folders'
   `timing.json`; Chapter IV tables come from `reports/tables/test_*`, `walkforward_*`, `ablation_*`,
   `case_study_*`, `aviles_check*`.

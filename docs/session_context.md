@@ -252,7 +252,8 @@ Column-level definitions of every data file, artifact, prediction table, gate fi
 ## 10. How to run on the laptop (summary of `docs/laptop_runbook.md`)
 
 1. WSL2 Ubuntu, `nvidia-smi` inside WSL, clone into `~/pasig-forecast`, checkout `feat/pasig-forecast-pipeline`,
-   venv, `pip install -e . -r requirements-dev.txt "tensorflow[and-cuda]" joblib`, GPU visible to TF.
+   Python 3.13 venv at `~/.venv` (not 3.14), `tensorflow[and-cuda]` + the `libcusolver` link (runbook section 0),
+   GPU visible to TF.
 2. `make smoke` and `python scripts/smoke/smoke_pipeline.py --device gpu` (7 PASS each).
 3. `make data-check` (the raw data come with the clone, R1), then Phases 1–4; `git diff` must show the same
    decisions; `pip freeze > requirements.txt`.

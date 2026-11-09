@@ -186,6 +186,16 @@ manifest before every phase. A fresh clone, with no Drive access and no generate
 and 04 end to end: the automatic rebuild of the Phase 1 and Phase 3 inputs reproduced every committed gate,
 generated config, artifact and table exactly (only run stamps differed), and the test suite passed there.
 
+**F33. First setup on the chosen laptop (9 Nov 2026).** WSL2 Ubuntu 26.04, Python 3.13.18, TensorFlow 2.21.0, NumPy
+2.5.4, pandas 3.1.1, SciPy 1.18.1. Getting the GPU visible took three fixes, now in `docs/laptop_runbook.md` section 0:
+Python 3.13 instead of Ubuntu's 3.14 (TensorFlow has no 3.14 wheels), pip temp files on disk instead of the 3.7 GB
+`/tmp` RAM disk, and a link to `libcusolver.so.11`, which TensorFlow 2.21's library search path omits. The smoke test
+passes 7/7 on CPU and on the RTX 4060. A fresh clone rebuilt the Phase 1 and Phase 3 outputs: scalers, window counts
+and Table III-6 are unchanged, but the tide fits are **not byte-identical** to the cloud run. Coefficients differ by at
+most 1.1e-11, G9 ratios by at most 1.9e-11 and the predicted Pandacan tide by at most 1.1e-14 m; G9's additions
+(P1, K2, Q1) are the same. This is floating-point noise between library versions, and PNG figures differ in their
+bytes. Phases 2 and 4 had not yet been re-run on the laptop when this was written.
+
 ## Thesis text to add beyond Plan Section 13
 * Ch III §7.8 / Figure III-3: coverage counted after QC and **before** gap fill (Pandacan 77–95%).
 * Table III-6: replace with `reports/tables/table_III-6_recomputed.csv`.
