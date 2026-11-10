@@ -1,0 +1,25 @@
+{
+  "gate": "G14",
+  "name": "determinism",
+  "passed": true,
+  "decision": "gpu reproducible",
+  "rule": "With enable_op_determinism(), a 1-epoch run repeated twice on the device gives identical predictions (atol 1e-6); pass -> final runs on that device with determinism on; fail -> final runs on CPU with determinism on, the grid may stay on GPU without determinism",
+  "evidence": {
+    "results": {
+      "gpu": {
+        "device": "gpu",
+        "max_abs_diff": 0.0,
+        "identical": true
+      },
+      "cpu": {
+        "device": "cpu",
+        "max_abs_diff": 0.0,
+        "identical": true
+      }
+    },
+    "nvidia_gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+  },
+  "timestamp": "2026-11-10T06:25:38+08:00",
+  "git_sha": "459bf05",
+  "profile": "full"
+}

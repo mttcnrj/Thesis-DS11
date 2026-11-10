@@ -1,0 +1,31 @@
+{
+  "device": "gpu",
+  "quick": false,
+  "hardware": {
+    "machine_name": "LAPTOP-UECATD3K",
+    "os": "Linux 6.18.54.1-microsoft-standard-WSL2",
+    "python": "3.13.18",
+    "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "cpu": "AMD Ryzen 7 7735HS with Radeon Graphics",
+    "cpu_count": 16,
+    "physical_cores": 8,
+    "ram_gb": 7.4,
+    "tensorflow": "2.21.0",
+    "gpus": [
+      "/physical_device:GPU:0"
+    ],
+    "gpu_name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "cuda": "12.5.1",
+    "cudnn": "9"
+  },
+  "bench_wall_seconds": 981.1,
+  "benchmark_cases": 19070,
+  "target_cases": 16937,
+  "expected_epochs": 60,
+  "seeds": 5,
+  "deterministic": true,
+  "fastest_epoch_s": 1.897,
+  "median_epoch_s": 4.377,
+  "recommended_total_hours": 9.52,
+  "full_factorial_total_hours": 77.09
+}

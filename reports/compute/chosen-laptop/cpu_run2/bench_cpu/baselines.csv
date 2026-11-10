@@ -1,0 +1,5 @@
+baseline,seconds_measured,seconds_target
+ridge fit+predict (1 alpha),0.022,0.02
+knn regressor fit+predict (1 k),0.21,0.187
+"logistic fit (1 C, 1 lead, 1 level)",0.756,0.671
+"knn classifier fit+predict (1 k, 1 lead, 1 level)",0.232,0.206

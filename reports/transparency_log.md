@@ -203,7 +203,11 @@ stage asks a subprocess whether an NVIDIA GPU exists, and that subprocess was st
 Fixed in `pasig/phase5.py` (probe runs without that variable) with `tests/test_compute.py`. That run's outputs
 (CPU benchmark: 15.61 h recommended plan, 17.98 h with 5 seeds; G14 identical on CPU) were discarded uncommitted and
 the stage re-run. A one-off check after the fix gave identical GPU predictions on a repeated 1-epoch run
-(max |diff| = 0.0), so G14 can pass on the GPU.
+(max |diff| = 0.0), so G14 can pass on the GPU. The re-run (commit `459bf05`) gave **G14 = gpu reproducible,
+G13 = gpu** (plan 11.11 h on GPU vs 17.54 h on CPU; median epoch 4.50 s vs 6.95 s) and **G15 = 3 seeds** for
+walk-forward and ablations: the recommended training plan alone projects 9.61 h, but the G15 projection also counts
+the ablations, the D20 weight choice and the G11/G12 runs (+1.50 h), which puts it above the 10 h limit. Final
+configurations keep 5 seeds; Chapter rows 4 and 26 are flagged as D13 requires.
 
 ## Thesis text to add beyond Plan Section 13
 * Ch III §7.8 / Figure III-3: coverage counted after QC and **before** gap fill (Pandacan 77–95%).

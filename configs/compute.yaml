@@ -7,3 +7,23 @@ machine:
   vram_gb: 8.0
   driver: NVIDIA 595.97 (Windows, WDDM), CUDA 13.2
   python_in: WSL2 Ubuntu
+device: gpu
+device_final: gpu
+device_grid: gpu
+grid_deterministic: true
+final_deterministic: true
+seeds_final: 5
+seeds_wf_ablation: 3
+plan_hours:
+  gpu:
+    bench_recommended_hours: 9.61
+    extra_hours: 1.5
+    plan_hours_5_seeds: 11.11
+    plan_hours_3_seeds_wf_ablation: 9.67
+  cpu:
+    bench_recommended_hours: 15.22
+    extra_hours: 2.32
+    plan_hours_5_seeds: 17.54
+    plan_hours_3_seeds_wf_ablation: 15.3
+target_cases: 16937
+profile: full
