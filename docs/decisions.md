@@ -4,7 +4,7 @@ Source: IMPLEMENTATION_PLAN.md Section 4 (decided 6 Nov 2026). Each entry: date,
 Chapter rows it changes (Plan Section 13). "Outcome" records what the gate decided when it has run;
 "decided on the laptop" = code done and dry-run, the real gate runs on the chosen laptop (D16).
 
-Status (7 Nov 2026): Phases 1–4 run on real data; Notebooks 05–07 built and dry-run; 2024 not opened.
+Status (11 Nov 2026): every phase run on the chosen laptop; 2024 opened once (G18); H3 and H4 partly supported (F35).
 
 | ID | Date | Choice | Reason (short) | Gate file | Chapter rows | Outcome |
 |---|---|---|---|---|---|---|
@@ -15,19 +15,19 @@ Status (7 Nov 2026): Phases 1–4 run on real data; Notebooks 05–07 built and 
 | D5 | 2026-11-06 | 6-hourly total usable 1 h after its period ends | no look-ahead | `gates/G03_rain_timing.json` | 6, 12, 23 | G3: stamps mark the **period end** (99.7% of 1,172 rain days match vs 53.7%) |
 | D6 | 2026-11-06 | Port Area excluded | no 2024 data, gaps | `gates/G01_raw_files.json` | — | Port Area file excluded; Port Area columns dropped from the 6-hourly file |
 | D7 | 2026-11-06 | Tide fit on all 12 months of 2018–2022, hours > floor + 0.05 m | more tidal cycles | `gates/G09_tide_fit.json` | 14, 21 | fitted for Pandacan (floor 10.65 m), Sto. Niño (11.32 m), Fort Santiago (10.59 m); `artifacts/tide_<station>.json` |
-| D8 | 2026-11-06 | Predicted tide t+1…t+6 and change (12 cols); constituent pairs tried once | | G11 (NB05) | 1, 2, 13, 16 | 12 tide columns in `X_tab`; constituent pairs prepared as `X_tab_cons` (**120** columns = 10 frozen constituents × sin/cos × 6 leads, not 84, because G9 added 3 constituents); G11 implemented (NB05 `variants`; switch rule P5-c); decided on the laptop |
-| D9 | 2026-11-06 | Head predicts change; add-back of L_t | | G12 (NB05) | 15, 18 | implemented (registered `LevelAtT` layer, P5-m; target scaler = Pandacan channel); G12 decided on the laptop |
-| D10 | 2026-11-06 | Selection by mean validation RMSE over six leads | | grid code | 20 | implemented (`pasig/train/grid.py`) |
+| D8 | 2026-11-06 | Predicted tide t+1…t+6 and change (12 cols); constituent pairs tried once | | G11 (NB05) | 1, 2, 13, 16 | 12 tide columns in `X_tab`; constituent pairs prepared as `X_tab_cons` (**120** columns = 10 frozen constituents × sin/cos × 6 leads, not 84, because G9 added 3 constituents); G11 implemented (NB05 `variants`; switch rule P5-c). **G11: keep predicted tide only** (pairs 0.0664 m vs 0.0688 m ± 0.0031, not better by 1 SD) |
+| D9 | 2026-11-06 | Head predicts change; add-back of L_t | | G12 (NB05) | 15, 18 | implemented (registered `LevelAtT` layer, P5-m; target scaler = Pandacan channel). **G12: keep add-back** (direct level 0.0732 m vs 0.0688 m) |
+| D10 | 2026-11-06 | Selection by mean validation RMSE over six leads | | grid code | 20 | implemented (`pasig/train/grid.py`). Hybrid: LSTM 2×64, GRU 64, dense 1×16, dropout 0.2, lr 0.001, batch 64; standalone LSTM: 1×128, dropout 0.2, lr 0.0001 (Table IV-3) |
 | D11 | 2026-11-06 | One trigger offset per model per alert level, shared by leads | | offset code | 22 | implemented (`pasig/models/offsets.py`, P5-j; also per ablation and per walk-forward fold) |
-| D12 | 2026-11-06 | Two-stage grid, 60 configs | | grid code | 20 | implemented (24 + 36, resumable; + 18 standalone LSTM) |
-| D13 | 2026-11-06 | 5 seeds if projection ≤ 10 h else 3 for walk-forward/ablations | | G15 | 4, 26 | implemented (projection includes the D20 runs and G11/G12, P5-d); decided on the laptop |
-| D14 | 2026-11-06 | Chapter III ranges exactly | | G19 | — | implemented (`model_hybrid.yaml` ranges; G19 records edge winners); decided on the laptop |
-| D15 | 2026-11-06 | Determinism on for final runs; CPU fallback | | G14 | — | implemented (finals, ablations, walk-forward always deterministic; NB06 inference on CPU); G14 decided on the laptop |
-| D16 | 2026-11-06 | Local VS Code on the Windows laptop with the stronger NVIDIA GPU (else more cores) | | `gates/G00_machine.json` | 24 | **G0 recorded**: the group's chosen laptop (AMD Ryzen 7 7735HS, 8 cores/16 threads, 16 GB RAM, NVIDIA GeForce RTX 4060 Laptop GPU) → Python in WSL2 Ubuntu. Only this laptop's output was provided. `nvidia-smi` (6 Nov): **8188 MiB**, driver 595.97, CUDA 13.2 (F30). Phases 1–3 here ran in a cloud container (deterministic); re-run them on the laptop |
-| D17 | 2026-11-06 | GPU only if visible, G14 passes, projection faster | | G13 | 24 | implemented (NB05 `compute`, second of two benchmark runs); decided on the laptop |
+| D12 | 2026-11-06 | Two-stage grid, 60 configs | | grid code | 20 | implemented (24 + 36, resumable; + 18 standalone LSTM); all 78 configs ran on the laptop (6.9 h) |
+| D13 | 2026-11-06 | 5 seeds if projection ≤ 10 h else 3 for walk-forward/ablations | | G15 | 4, 26 | implemented (projection includes the D20 runs and G11/G12, P5-d). **G15: 3 seeds** (GPU projection 11.11 h > 10 h); finals 5; rows 4 and 26 flagged |
+| D14 | 2026-11-06 | Chapter III ranges exactly | | G19 | — | implemented (`model_hybrid.yaml` ranges; G19 records edge winners). **G19: winner on an edge for 7 of 8 settings** (all but batch); ranges not widened |
+| D15 | 2026-11-06 | Determinism on for final runs; CPU fallback | | G14 | — | implemented (finals, ablations, walk-forward always deterministic; NB06 inference on CPU). **G14: GPU reproducible** (max diff 0.0) → finals, ablations, walk-forward on the GPU with determinism on |
+| D16 | 2026-11-06 | Local VS Code on the Windows laptop with the stronger NVIDIA GPU (else more cores) | | `gates/G00_machine.json` | 24 | **G0 recorded**: the group's chosen laptop (AMD Ryzen 7 7735HS, 8 cores/16 threads, 16 GB RAM, NVIDIA GeForce RTX 4060 Laptop GPU) → Python in WSL2 Ubuntu. Only this laptop's output was provided. `nvidia-smi` (6 Nov): **8188 MiB**, driver 595.97, CUDA 13.2 (F30). Phases 1–3 here ran in a cloud container (deterministic); re-run on the laptop 10 Nov 2026 with the same decisions (F33); Notebooks 05–07 ran there (F35) |
+| D17 | 2026-11-06 | GPU only if visible, G14 passes, projection faster | | G13 | 24 | implemented (NB05 `compute`, second of two benchmark runs). **G13: gpu** (11.11 h vs 17.54 h on CPU), after the probe fix F34 |
 | D18 | 2026-11-06 | Quiapo 2021 used conditionally (G20) in the secondary check; with/without reported | only route to 2021 | `gates/G20_quiapo_2021_identity.json` | 11 | G20 **passed** (a–d all hold; copies identical → one series): 2021 included; Quiapo check reported with and without it |
-| D19 | 2026-11-06 | Recall 0.90 for the H4 verdict; 0.80/0.95 sensitivity | | eval code | 28 | implemented (`pasig/eval/alerts.py`, P6-g; rule in `configs/eval.yaml`, frozen by G17) |
-| D20 | 2026-11-06 | Weighted-loss ablation (w ∈ {2,5,10}) | | ablation code | 29, 30, 31 | implemented (`weighted_masked_mse`; weight search and report in NB07, P7-f); run on the laptop |
+| D19 | 2026-11-06 | Recall 0.90 for the H4 verdict; 0.80/0.95 sensitivity | | eval code | 28 | implemented (`pasig/eval/alerts.py`, P6-g; rule in `configs/eval.yaml`, frozen by G17). **H4: partly supported** (5 of 12: wins vs KNN at leads 1–5, none vs logistic regression) |
+| D20 | 2026-11-06 | Weighted-loss ablation (w ∈ {2,5,10}) | | ablation code | 29, 30, 31 | implemented (`weighted_masked_mse`; weight search and report in NB07, P7-f). **w = 2** chosen on 2023; on 2024 slightly worse RMSE (+0.1 to +0.3 cm), peak error and recall almost unchanged (Table IV-25) |
 
 ## Gate outcomes recorded in Phase 2
 
@@ -56,7 +56,7 @@ Status (7 Nov 2026): Phases 1–4 run on real data; Notebooks 05–07 built and 
 | P3-c | test windows | NB03 builds **train and validation windows only**; the 2024 windows are built by the same frozen function in NB06 after G18 (Section 0.3: 2024 read once, in NB06) |
 | P3-d | missing inputs | a missing 6 h rain report counts as 0 mm in rain inputs (38 blank reports 2018–2024; the report needed at t must still exist, Phase 1 rule); the first hour of a season has Δlevel = 0; missing previous-day weather → training median (0 cases needed it) |
 | P3-e | case set | a case is any hour scored at ≥ 1 lead in `eval_hours.parquet`; `valid` = its lead flags, so all models share the same scored hours (train 18,386 cases; 16,937 at lead 1, 16,699 at lead 6; val 4,288; 4,091 / 4,081) |
-| P3-f | branch | work branch renamed to `feat/pasig-forecast-pipeline` (the old `feat/affectionate-mccarthy-w2uqzk` could not be deleted from this session; delete it on GitHub) |
+| P3-f | branch | work branch renamed to `feat/pasig-forecast-pipeline` (the old `feat/affectionate-mccarthy-w2uqzk` has since been deleted on GitHub; confirmed 11 Nov 2026) |
 
 ## Gate outcomes and choices in Phase 4 (6 Nov 2026)
 
@@ -70,7 +70,7 @@ Status (7 Nov 2026): Phases 1–4 run on real data; Notebooks 05–07 built and 
 | P4-e | correlation screen | max \|lagged cross-correlation\| (1–24 h) of each candidate as available at t, transformed like its Granger series, with de-tided Pandacan (differenced): rain 0.036, RH 0.019, pressure 0.018, tmean 0.004 → the correlation-selection ablation uses **rain + RH** (same count as Granger: 2) |
 | P4-f | descriptive stations (D2) | Sto. Niño (all 5 seasons; lag 23 h, p = 1.6e-166) and Fort Santiago (2020–2022 only; 2018–2019 skipped for < 50% coverage; lag 23 h, p = 4.1e-43) would pass any threshold, but adding either 24 h window **worsens** the ridge validation RMSE (−0.27 mm and −2.0 mm on the cases where their windows are complete); never inputs, not in m |
 
-## Notebook 05: implementation choices (built and dry-run, 6 Nov 2026; real run pending on the laptop)
+## Notebook 05: implementation choices (built and dry-run 6 Nov 2026; run on the laptop 10–11 Nov 2026)
 
 | Ref | Item | Choice | Why |
 |---|---|---|---|
@@ -88,7 +88,7 @@ Status (7 Nov 2026): Phases 1–4 run on real data; Notebooks 05–07 built and 
 | P5-l | frozen files | Keras checkpoints and fitted baselines in `artifacts/frozen/` (git-ignored, produced on the laptop) with SHA-256 in `configs/frozen_manifest.json` (committed); KNN models are refitted in NB06 from the frozen hyperparameters (deterministic; avoids storing the training set 30 times) | G17, G18 |
 | P5-m | Keras 3 | the D9 add-back uses a registered `LevelAtT` layer instead of a Python `Lambda`, and the losses are registered, so checkpoints reload safely in NB06 | serialisation only; same computation |
 
-## Notebook 06: implementation choices (built and dry-run, 6 Nov 2026; the real test is opened once on the laptop)
+## Notebook 06: implementation choices (built and dry-run 6 Nov 2026; test opened once on the laptop 11 Nov 2026)
 
 Fixed in `configs/eval.yaml` before the test season is opened.
 
@@ -105,7 +105,7 @@ Fixed in `configs/eval.yaml` before the test season is opened.
 | P6-i | strongest simple baseline | lowest mean 2023 RMSE among persistence, tide-only, tide + persisted residual | fixed before the test |
 | P6-j | events | observed levels = targets of the valid (hour, lead) pairs; runs ≥ level with gaps < 6 h merged; detected if an alert targets first exceedance ± 2 h; warning time from the earliest such alert's issue hour; event-bootstrap 95% CI | `eval.yaml` |
 
-## Notebook 07: implementation choices (built and dry-run, 6 Nov 2026)
+## Notebook 07: implementation choices (built and dry-run 6 Nov 2026; run on the laptop 11 Nov 2026)
 
 Fixed in `configs/eval.yaml` (`nb07`) before the test season is opened.
 

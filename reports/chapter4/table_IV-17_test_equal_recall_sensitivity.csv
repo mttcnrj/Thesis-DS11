@@ -1,0 +1,13 @@
+classifier,lead,fp_hybrid_r80,fp_clf_r80,fp_hybrid_r95,fp_clf_r95
+logistic_b_window,1,5,9,66,36
+logistic_b_window,2,10,13,80,74
+logistic_b_window,3,10,25,97,115
+logistic_b_window,4,26,36,117,149
+logistic_b_window,5,25,40,150,190
+logistic_b_window,6,31,47,195,254
+knn_b_window,1,5,76,66,3337
+knn_b_window,2,10,86,80,3329
+knn_b_window,3,10,81,97,350
+knn_b_window,4,26,91,117,415
+knn_b_window,5,25,85,150,467
+knn_b_window,6,31,87,195,505

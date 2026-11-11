@@ -8,6 +8,10 @@ they are deterministic, so re-running them here must reproduce the committed gat
 
 ## 0. One-time setup (WSL2 + GPU TensorFlow, Section 2.2)
 
+After `wsl --install` and the clone, `bash scripts/setup_wsl.sh` does every step of this section (venv on Python
+3.13, the pinned `requirements.txt`, the `libcusolver` link, a GPU check, the fast tests); `--check` only verifies
+an existing setup, `--rebuild` recreates `~/.venv`. The manual steps below are what it runs.
+
 ```powershell
 # administrator PowerShell, after updating the NVIDIA Windows driver
 wsl --install -d Ubuntu      # restart when asked
@@ -148,7 +152,8 @@ re-run (`runs/walkforward.csv`, `runs/ablations.csv`). Commit `reports/tables/` 
 ## 6. Commit and report
 
 ```bash
-python -m pytest -q                                          # everything must pass
+python -m pytest -q                                          # everything must pass (112 passed, 0 skipped)
+make report                                                  # Chapter IV tables + figures -> reports/chapter4/
 git add gates configs reports artifacts requirements.txt && git commit -m "Laptop run: ..." && git push
 ```
 
@@ -156,6 +161,11 @@ git add gates configs reports artifacts requirements.txt && git commit -m "Lapto
   `docs/decisions.md`, whichever way it falls — including "beats persistence: no" or a hybrid that loses.
 * `data/interim`, `data/processed`, `runs/` and `artifacts/frozen/` are git-ignored and stay on the laptop. `data/raw` is
   already committed (R1) and is never edited.
-* Chapter III needs the hardware and measured run times from `reports/compute/<laptop>/` and the run folders'
-  `timing.json`; Chapter IV tables come from `reports/tables/test_*`, `walkforward_*`, `ablation_*`,
-  `case_study_*`, `aviles_check*`.
+* `make report` writes `reports/chapter4/chapter4.md`: every Chapter IV table (with a full-precision CSV beside
+  each), the H3/H4 verdicts, the figure list, and for Chapter III the hardware and the measured training time
+  summed from the run folders' `timing.json` (so run it on the laptop, where `runs/` exists). It only reads
+  finished outputs; re-run it after any change to `reports/tables/`.
+* Back up `artifacts/frozen/` outside WSL (e.g. `cp -r artifacts/frozen /mnt/c/Users/<you>/pasig_frozen_backup`):
+  it is not in git, and G18 checks its hashes.
+
+Done on 10–11 Nov 2026: steps 0–6 (F33–F36).

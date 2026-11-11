@@ -1,8 +1,8 @@
-# Session context — building the Pasig forecasting pipeline (6–7 Nov 2026)
+# Session context — building and running the Pasig forecasting pipeline (6–11 Nov 2026)
 
 A handover document for Claude chat (claude.ai Project) and for the group. It records what was built in
-the Claude Code session that implemented `IMPLEMENTATION_PLAN.md`, every decision taken, the results so far,
-and what is left. The authoritative details stay in the repository; this file points to them.
+the Claude Code sessions that implemented `IMPLEMENTATION_PLAN.md` and ran it on the chosen laptop, every
+decision taken, the final results, and what is left. The authoritative details stay in the repository; this file points to them.
 
 * **Thesis:** *Pasig River (EFCOS Pandacan) 1–6 h Water-Level Forecasting as a Flood-Risk Indicator for
   Sampaloc* (Baltazar, Cañarejo, Serrano; adviser Gernale).
@@ -10,18 +10,20 @@ and what is left. The authoritative details stay in the repository; this file po
 * **Specification:** `IMPLEMENTATION_PLAN.md` (repo root). Decision IDs D1–D20, gate IDs G0–G20, contradiction
   IDs C1–C6 come from it.
 * **Detailed records (read these for exact numbers):** `docs/decisions.md` (D1–D20 outcomes + implementation
-  choices P1-…P7-), `reports/transparency_log.md` (findings F1–F30), `gates/*.json` (every gate's rule,
-  evidence, decision, git SHA), `docs/laptop_runbook.md` (how to run everything on the laptop), `README.md`.
+  choices P1-…P7-), `reports/transparency_log.md` (findings F1–F36), `gates/*.json` (every gate's rule,
+  evidence, decision, git SHA), `reports/chapter4/chapter4.md` (every Chapter IV table, `make report`),
+  `docs/laptop_runbook.md` (how to run everything on the laptop), `README.md`.
 
 ---
 
 ## 1. Status in one paragraph
 
-**All seven notebooks are implemented.** Phases 1–4 (Notebooks 01–04) were **run on the real data** in a
-cloud container and their gates, configs and tables are committed. Notebooks 05–07 (training, the 2024 test,
-robustness) are **built and pass full CPU dry runs** ("rehearsal profile"), but their real runs must happen on
-the chosen laptop (D16). **The 2024 test season has not been opened.** Tests: 99 passed, 4 skipped (skips =
-outputs that only exist after the laptop run). Four small code gaps against the plan remain (Section 9).
+**The pipeline is finished and has been run on the chosen laptop (D16).** Phases 1–4 were re-run there and
+reproduced the cloud results (F33). Notebook 05 trained on the RTX 4060, and the settings were frozen
+(`settings-frozen` = `25748a2`). **Notebook 06 opened 2024 once (11 Nov 2026)**, and Notebook 07 ran. All
+outputs are committed. **H3 and H4 are both partly supported** (Section 6b). The four code gaps from the plan
+audit are closed (F36). `make report` writes every Chapter IV table to `reports/chapter4/`. Tests: 112 passed,
+0 skipped. What is left is writing (Section 9).
 
 ## 2. Ground rules followed throughout (Plan Section 0.3 + user instructions)
 
@@ -56,7 +58,13 @@ outputs that only exist after the laptop run). Four small code gaps against the 
 | 12 | Create a session summary for Claude chat | `docs/session_context.md` | `09a2943` |
 | 13 | Update the README | README rewritten (status, results, run order, gates, layout, to-do) | `2d78881` |
 | 14 | Update all markdown files | decisions (D8–D20 outcomes), transparency log (F31), data dictionary (later phases), data/README, runbook (troubleshooting, final step), smoke README note; `IMPLEMENTATION_PLAN.md` left unedited (it is the pre-registered specification) | `4b8a280` |
-| 15 | Put the datasets in the repository; make every notebook work locally without Google Drive | raw data committed (R1); `pasig.local.prepare` in every notebook and `run_phase.py`; fresh-clone test passed (F32) | see git log |
+| 15 | Put the datasets in the repository; make every notebook work locally without Google Drive | raw data committed (R1); `pasig.local.prepare` in every notebook and `run_phase.py`; fresh-clone test passed (F32) | `c5df85f`, `4d7c7b7`, `e1c941f` |
+| 16 | Run the notebooks on the laptop | laptop setup notes (F33); Phases 1–4 re-run with the same decisions; `requirements.txt` frozen | `062fd10`, `ef64630` |
+| 17 | NB05 `compute` result looked wrong (`device: cpu`) | bug: the GPU probe ran CPU-only. Fixed with a test; re-run gave G13 gpu, G14 reproducible, G15 3 seeds (F34) | `459bf05`, `1dc9561` |
+| 18 | NB05 remaining stages; "can I stop and continue?" | Stopped once during `finals`, resumed (deterministic, no effect). G16 reviewed; freeze; commit; tag `settings-frozen`; push | `25748a2` |
+| 19 | NB06 (once) | G18 passed; H3 partly, H4 partly supported | `4ad1b5a` |
+| 20 | NB07 | walk-forward, 6 ablations, case study, Aviles check | `bdb6eef` |
+| 21 | "Proceed with 2" | `report.py` + `make report`, `setup_wsl.sh`, thresholds leakage test, DM-vs-HAC test (F36); docs updated with the final results (F35) | see git log |
 
 ## 4. Environment and how the data were obtained
 
@@ -70,7 +78,11 @@ outputs that only exist after the laptop run). Four small code gaps against the 
   Laptop GPU **8188 MiB**, driver **595.97**, CUDA 13.2 (driver side), Python in **WSL2 Ubuntu**. Only this
   laptop's specs were provided (chosen with `--choose`). `nvidia-smi` was run in PowerShell; it must also
   work inside WSL2 before the benchmark.
-* Phases 1–4 are deterministic: re-running them on the laptop must reproduce the committed gates and tables.
+* Phases 1–4 are deterministic: the laptop re-run reproduced the committed gates and tables. Tide fits
+  differed by about 1e-11 (float noise, F33).
+* **Laptop software:** WSL2 Ubuntu 26.04, Python 3.13.18 in `~/.venv` via uv, TensorFlow 2.21.0 with GPU, and
+  the `libcusolver` link. Exact versions are in `requirements.txt`; `scripts/setup_wsl.sh` rebuilds this
+  environment. WSL sees 7.4 GB of the 16 GB RAM, which was enough.
 
 ## 5. Gates recorded so far
 
@@ -88,7 +100,15 @@ outputs that only exist after the laptop run). Four small code gaps against the 
 | G9 tide fit | P1, K2, Q1 added at every station; residual peaks remain (logged) |
 | G10 Granger | **rain and pressure selected; H2 supported** |
 | G20 Quiapo 2021 | passed → Quiapo check reported with and without 2021 |
-| G11–G19 | implemented; run on the laptop (rehearsal versions exist only under `runs/rehearsal/`) |
+| G11 tidal input | **keep predicted tide only** (constituent pairs 0.0664 vs 0.0688 m, not better by 1 SD) |
+| G12 output form | **keep add-back** |
+| G13 device | **gpu** (plan 11.11 h vs 17.54 h on CPU), after the F34 probe fix |
+| G14 determinism | **gpu reproducible** (max diff 0.0) |
+| G15 seed budget | **3 seeds** for walk-forward and ablations (11.11 h > 10 h); finals 5 |
+| G16 persistence sanity | **all models beat persistence**; bug checklist passes |
+| G17 settings frozen | 22 files hashed; tag `settings-frozen` → `25748a2` |
+| G18 test unsealed | opened once, 11 Nov 2026 15:24 PHT; all hashes matched |
+| G19 hyperparameter edge | winner on a range edge for 7 of 8 settings (recorded; ranges not widened) |
 
 ## 6. Results by phase (real data, Phases 1–4)
 
@@ -140,7 +160,41 @@ outputs that only exist after the laptop run). Four small code gaps against the 
 * Upstream stations (descriptive only, D2): both "Granger-cause" Pandacan at 23 h, but adding them worsens the
   ridge RMSE (F24). Correlation screen picks rain + RH (used by the correlation-selection ablation, F25).
 
-## 7. Notebooks 05–07 — design (built, dry-run, real run pending)
+## 6b. Final results (chosen laptop, Notebooks 05–07)
+
+All of these are in `reports/chapter4/chapter4.md` (Tables IV-1 to IV-28) with full-precision CSVs.
+
+| | 1 h | 3 h | 6 h |
+|---|---|---|---|
+| Hybrid (5 seeds) | 0.052 | 0.073 | 0.095 |
+| Standalone LSTM | 0.053 | 0.075 | 0.096 |
+| Ridge | 0.057 | 0.088 | 0.110 |
+| Tide + persisted residual (strongest simple baseline) | 0.062 | 0.103 | 0.144 |
+| Persistence | 0.102 | 0.243 | 0.401 |
+
+*Test RMSE in metres, 2024, all hours.*
+
+* **H3: partly supported.**
+  * The hybrid is significantly better (DM, Holm) than persistence, tide-only and tide + residual at all 6 leads,
+    and better than the KNN regressor at leads 1–2: 20 of 36 pairs.
+  * It is **not significantly different from ridge or the standalone LSTM**, and never significantly worse.
+  * On rainy hours it still beats tide + residual and persistence at every lead.
+* **H4: partly supported** (5 of 12).
+  * It beats the KNN classifier at leads 1–5: far fewer false alarms at Recall 0.90, and a higher PR-AUC.
+  * Against logistic regression there is no significant difference.
+* **Walk-forward** (2021, 2022 independent; 2023 not):
+  * The hybrid beats the simple baselines at every lead in every fold.
+  * Ridge is equal to the hybrid and significantly better at one lead per independent fold.
+* **Ablations:**
+  * The tabular path matters most: removing it costs 0.4–2.1 cm.
+  * Rainfall, Granger vs correlation selection: within seed noise.
+  * A second LSTM and the D20 weighted loss (w = 2) are slightly worse.
+* **Flood-risk events in 2024** (11, including Carina, 12.98 m):
+  * The hybrid detects about 8 of 11 at 1 h and about 3 of 11 at 6 h.
+  * Every model under-predicts the peaks: the hybrid by 0.18 m at 1 h and 0.35 m at 6 h.
+* **Measured training time:** 10.6 h over 126 runs on the RTX 4060 (`reports/chapter4/compute_runtime.csv`).
+
+## 7. Notebooks 05–07 — design (as built and run)
 
 All run as resumable scripts: `python scripts/run_phase.py --phase N [--stage S]`. The **rehearsal profile**
 (`PASIG_PROFILE=rehearsal`: 2 epochs, 1,500 training cases, 2 configs per grid, 2 seeds) writes everything to
@@ -211,9 +265,9 @@ pasig/config.py gates.py local.py phase1.py … phase7.py   orchestrators; local
   selection/ stationarity, granger, correlation
   models/    hybrid (Figure III-4, D9, D20 loss), baselines (Table III-4), offsets (D11)
   train/     data, loop (run folders, determinism), grid (D12), compute (G13–G15)
-  eval/      metrics, alerts (D19), events, dm_test, bootstrap
-scripts/     run_phase.py, record_g0.py, smoke/ (from smoke_tests.zip); sync_drive.py, drive/ (obsolete)
-tests/       19 files (all Section 11 tests + gates, offsets, unseal, walk-forward, same hours, raw data)
+  eval/      metrics, alerts (D19), events, dm_test, bootstrap, report (Chapter IV assembler, `make report`)
+scripts/     run_phase.py, setup_wsl.sh, record_g0.py, smoke/ (from smoke_tests.zip); sync_drive.py, drive/ (obsolete)
+tests/       21 files (all Section 11 tests + gates, offsets, unseal, walk-forward, same hours, raw data, compute, report)
 notebooks/   01–07, thin: call pasig, show results, run that phase's tests
 configs/     hand-written + GENERATED by gates (pagasa, eligible_inputs, alert_levels, selected_features,
              later model_inputs, compute, thresholds, frozen_manifest.json)
@@ -227,33 +281,28 @@ Column-level definitions of every data file, artifact, prediction table, gate fi
 
 ## 9. What is NOT done
 
-### Code gaps found by the plan audit (can be done in the cloud; not yet done — user was asked)
-1. `pasig/eval/report.py`: one assembler that builds the Chapter IV tables/figures from the NB06–07 outputs
-   (the outputs exist, as ~20 separate files).
-2. `scripts/setup_wsl.sh` (the steps exist only in `docs/laptop_runbook.md`).
-3. `tests/test_leakage.py`: add "+5 m on 2024 leaves the thresholds identical" (scalers, tide, alert levels,
-   Granger are already covered).
-4. `tests/test_dm.py`: cross-check the Newey–West variance against statsmodels' HAC (statsmodels has no DM test).
-
-### Only possible on the laptop (by design)
-* `pip freeze > requirements.txt`, `make smoke` (7 PASS on CPU and GPU), benchmark → G13–G15.
-* Notebook 05 real run (G11–G17, G19; long, in tmux), review G16, freeze and tag `settings-frozen`.
-* Notebook 06 (opens 2024 once; G18; H3/H4 verdicts), Notebook 07.
-* Plan Section 15 items: real Chapter IV numbers, hardware and measured run time for Chapter III from
-  `reports/compute/`, results reported whichever way they fall.
-
-### For the group (writing)
-* Plan Section 13: 31 thesis-text edits; extra ones under "Thesis text to add" in
-  `reports/transparency_log.md` (e.g. before-fill coverage, amended G4 checks, G9 additions, 120 constituent
-  columns, Table III-6 replacement, walk-forward design, H3/H4 rules).
+### Writing (for the group)
+* Chapter IV from `reports/chapter4/chapter4.md`, with the results reported as they fell. This includes the
+  hybrid not beating ridge or the LSTM significantly, and the under-predicted peaks.
+* Chapter III hardware and run time from the same file's last section.
+* Plan Section 13: 31 thesis-text edits. More are listed under "Thesis text to add" in
+  `reports/transparency_log.md`, for example:
+  * before-fill coverage, amended G4 checks, G9 additions;
+  * 120 constituent columns, the Table III-6 replacement;
+  * the walk-forward design, the H3/H4 rules;
+  * G15 rows 4 and 26, and the limitations list.
 * Item 5 of Plan Section 14 (tense, working title) stays open.
-* Delete the old remote branch `feat/affectionate-mccarthy-w2uqzk` on GitHub (the session could not).
+
+### Repository
+* Merge `feat/pasig-forecast-pipeline` into `main` (pull request) when the group is ready.
+* Keep `artifacts/frozen/` (11 MB, git-ignored) and its Windows backup unchanged:
+  `configs/frozen_manifest.json` holds their SHA-256.
 
 ## 10. How to run on the laptop (summary of `docs/laptop_runbook.md`)
 
 1. WSL2 Ubuntu, `nvidia-smi` inside WSL, clone into `~/pasig-forecast`, checkout `feat/pasig-forecast-pipeline`,
-   Python 3.13 venv at `~/.venv` (not 3.14), `tensorflow[and-cuda]` + the `libcusolver` link (runbook section 0),
-   GPU visible to TF.
+   then `bash scripts/setup_wsl.sh`. It creates the Python 3.13 venv at `~/.venv`, installs the pinned
+   `requirements.txt`, adds the `libcusolver` link, checks the GPU and runs the fast tests.
 2. `make smoke` and `python scripts/smoke/smoke_pipeline.py --device gpu` (7 PASS each).
 3. `make data-check` (the raw data come with the clone, R1), then Phases 1–4; `git diff` must show the same
    decisions; `pip freeze > requirements.txt`.
@@ -261,15 +310,22 @@ Column-level definitions of every data file, artifact, prediction table, gate fi
 5. Notebook 06 deliberately, once (`python scripts/run_phase.py --phase 6`).
 6. Notebook 07 (`--phase 7`, resumable).
 7. Commit gates, generated configs, `reports/` (not `artifacts/frozen/`, which is hashed in the manifest).
+8. `make report` → `reports/chapter4/`.
+
+All eight steps were done on 10–11 Nov 2026. Do not run Notebook 06 again: a re-opening needs `--rerun-reason`
+and must be reported.
 
 ## 11. Points worth knowing in a new chat
 
-* "Partly supported" H1 and "supported" H2 are real results; H3/H4 do not exist yet (2024 unopened).
+* Final verdicts: H1 partly supported, H2 supported, **H3 partly supported, H4 partly supported**. 2024 has
+  been opened exactly once (`gates/TEST_UNSEALED.json`).
 * The rehearsal verdicts printed during development (e.g. "H3 partly / H4 not supported") are **not
   results** — 2-epoch models, thresholds tuned on the same 2023 hours.
 * Two choices were made with the user's explicit approval: the G4 amendment (P2-a) and Quiapo option (a)
-  (P2-b). The walk-forward inner-validation design (P7-a) is an interpretation of the plan text; change it
-  before the laptop run if the group reads the plan differently.
+  (P2-b). The walk-forward inner-validation design (P7-a) is an interpretation of the plan text and was used in
+  the final run.
+* Two laptop-run events are logged: the GPU probe fix before any result (F34), and one manual stop and resume
+  of NB05 `finals`, which had no effect (F35).
 * Interpretations to watch: the plan says the hybrid's output "Lambda" layer — implemented as a registered
   layer (same computation); KNN models are refitted from frozen hyperparameters in NB06 rather than stored.
 * Every gate JSON carries the git SHA of the run; every training run folder carries config, git SHA and

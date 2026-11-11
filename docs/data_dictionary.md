@@ -101,6 +101,16 @@ Long format, one row per issue hour × lead × model × seed (seed −1 for dete
 `y_true` is the observed, unfilled level at t+lead; only rows with `valid = True` are scored. `rainy` = at least
 5 mm of Science Garden rain in the previous 24 h from reports available at t.
 
+## Chapter IV report (reports/chapter4/, `make report`)
+Built by `pasig/eval/report.py` from the files above; never edit by hand.
+
+| file | contents |
+|---|---|
+| `chapter4.md` | every Chapter IV table formatted for the manuscript (Tables IV-1 … IV-28), H3/H4 verdicts, figure list, hardware and measured training time (Chapter III) |
+| `table_IV-NN_<name>.csv` | the numbers behind Table IV-NN at full precision (wide: model × lead, or the source table's columns) |
+| `compute_runtime.csv` | run group, runs, hours, mean epochs — summed from `runs/*/timing.json` |
+| `fig_walkforward_rmse.png`, `fig_ablation_rmse_diff.png` | walk-forward RMSE by fold; ablation RMSE difference vs the main hybrid with the seed-SD band |
+
 ## Gate files (gates/G##_<name>.json)
 gate, name, passed, decision, rule, evidence, timestamp (PHT), git_sha, profile (`full` or `rehearsal`).
 `gates/TEST_UNSEALED.json` (written by G18) lists every opening of the test season: time, git SHA, reason, profile.

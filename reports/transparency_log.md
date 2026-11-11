@@ -209,6 +209,49 @@ walk-forward and ablations: the recommended training plan alone projects 9.61 h,
 the ablations, the D20 weight choice and the G11/G12 runs (+1.50 h), which puts it above the 10 h limit. Final
 configurations keep 5 seeds; Chapter rows 4 and 26 are flagged as D13 requires.
 
+## Final run on the chosen laptop (10–11 Nov 2026)
+
+**F35. Notebooks 05–07 ran once on the chosen laptop and produced the final results; nothing was re-run to
+change an outcome.** Settings and verdicts are in the gates and in `reports/chapter4/chapter4.md`. The points to
+report:
+* **Notebook 05.** G11 kept the predicted tide only. The constituent-pair variant had a lower mean validation RMSE
+  (0.0664 m vs 0.0688 m), but not by the required one seed SD (0.0031 m). G12 kept add-back. G16: every model beats
+  persistence and the bug checklist passes. G19: the winner sits on a range edge for 7 of 8 settings. Several ranges
+  have only two values, so an edge is unavoidable there; ranges were not widened (D14). Validation (2023) has only
+  **13 flood-risk hours**, so flood-risk offsets and classifier thresholds rest on very few positives. The `finals`
+  stage was stopped once by hand, after the 5 hybrid seeds and before the LSTM seeds, and resumed. Finished seeds are
+  read back from `runs/finals.csv`, and an unfinished seed is retrained from scratch with determinism on (G14), so
+  the stop changed no result.
+* **Freeze and tag order.** `--stage freeze` ran without `--tag`. The outputs were committed (`25748a2`), and
+  `settings-frozen` was then tagged on that commit, so the tag holds the frozen settings and the manifest. G17 and
+  `frozen_manifest.json` record the code commit `1dc9561`. G18 verified all 22 hashes before opening 2024.
+* **Notebook 06 (2024 opened once, `TEST_UNSEALED.json`: one opening).**
+  * **H3: partly supported.** The hybrid is significantly better than persistence, tide-only and tide + persisted
+    residual at all 6 leads, and better than the KNN regressor at leads 1–2: 20 of 36 pairs. It is **not
+    significantly different from ridge** (Holm p ≥ 0.13), although ridge's RMSE is higher at every lead. It is
+    **indistinguishable from the standalone LSTM**, and never significantly worse.
+  * **H4: partly supported** (5 of 12). The hybrid beats the KNN classifier at leads 1–5. Against logistic
+    regression it has no significant difference in false alarms at Recall 0.90 or in PR-AUC.
+* **Notebook 07.**
+  * **Walk-forward.** In the two independent folds (2021, 2022), ridge equals the hybrid and is significantly better
+    at one lead each (2021 lead 1, 2022 lead 6).
+  * **Ablations.** Removing the tabular path is clearly worse (+0.4 to +2.1 cm RMSE). Removing rainfall, or
+    replacing Granger with correlation selection, stays within seed noise, with no significant DM difference. The
+    second LSTM and the D20 weighted loss (w = 2) are slightly worse.
+  * **Case study.** Every model under-predicts the 11 flood-risk peaks: the hybrid by 0.18 m at 1 h and 0.35 m at
+    6 h. The hybrid detects 9 events at 1 h and 3 at 6 h; ridge detects 10 and 5.
+  * **Aviles check, 1 Jun–15 Jul 2024.** 21 hours at or above high water and none at flood risk. Carina falls after
+    this window.
+
+**F36. The four code gaps from the plan audit were closed after the run (11 Nov 2026).** None of them changes a
+frozen setting or a result:
+* `pasig/eval/report.py` (`make report`) assembles the Chapter IV tables from the existing outputs.
+* `scripts/setup_wsl.sh` scripts runbook section 0, installing the pinned `requirements.txt`.
+* `tests/test_leakage.py` now shows that +5 m on 2024 leaves the trigger offsets and classifier thresholds
+  unchanged, and that the test does fail when the validation season is shifted instead.
+* `tests/test_dm.py` shows the DM statistic equals statsmodels' HAC t-statistic (Bartlett weights, same lags) to
+  1e-10.
+
 ## Thesis text to add beyond Plan Section 13
 * Ch III §7.8 / Figure III-3: coverage counted after QC and **before** gap fill (Pandacan 77–95%).
 * Table III-6: replace with `reports/tables/table_III-6_recomputed.csv`.
@@ -223,6 +266,15 @@ configurations keep 5 seeds; Chapter rows 4 and 26 are flagged as D13 requires.
   the seed used for tests, exactly as in `configs/eval.yaml` and P6-a…j.
 * Ch III Ph3 (Granger): time steps (mean over the 6 h report period; daily max over 09:00–08:00), the
   common-sample BIC, and that pressure (not RH/temperature) was selected.
+* Ch III §D: hardware and measured training time (10.6 h over 126 runs on the RTX 4060) from the last section of
+  `reports/chapter4/chapter4.md`. GPU training with determinism on (G13, G14). **3 seeds** for walk-forward and
+  ablations (G15, projection 11.11 h > 10 h): flag rows 4 and 26.
+* Ch IV: every table and figure from `reports/chapter4/` (`make report`). State the limitations found:
+  * the hybrid's advantage over ridge and the standalone LSTM is not significant on 2024 or in the walk-forward;
+  * all models under-predict flood-risk peaks;
+  * 2023 had only 13 flood-risk hours for tuning;
+  * the G19 range-edge result;
+  * rainfall adds little once the tabular inputs are present (ablations).
 
 ## Notes on the environment of these runs
 Phases 1–4 outputs in this branch were produced in a Claude Code cloud container (Python 3.13, pandas 3.0,
@@ -232,3 +284,6 @@ Since 9 Nov 2026 those exact files are committed in `data/raw/` (R1), so the lap
 The plan requires all final results to come from the chosen laptop (D16); Phases 1–4 are deterministic, so
 re-running them there must reproduce the same manifest hashes, gates and tables (`docs/laptop_runbook.md`
 step 2). Dry-run (rehearsal) outputs live only under the git-ignored `runs/rehearsal/` and are not results.
+That re-run was done on 10 Nov 2026 (commit `ef64630`; F33): the decisions matched. All committed gates, tables
+and figures from G0 on now come from the chosen laptop (WSL2 Ubuntu 26.04, Python 3.13.18, TensorFlow 2.21.0 on
+the RTX 4060; exact package versions in `requirements.txt`).

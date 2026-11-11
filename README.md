@@ -25,15 +25,15 @@ classifiers on the 2024 season, which is opened once.
 | 2 Link analysis, alert levels | `notebooks/02_link_analysis.ipynb` / `make phase2` | **done** — G4, G20, G7, G8 |
 | 3 Tide, features, windows | `notebooks/03_features_split.ipynb` / `make phase3` | **done** — G9, train/val windows, scalers |
 | 4 Granger selection | `notebooks/04_granger.ipynb` / `make phase4` | **done** — G10 |
-| 5 Training | `notebooks/05_train.ipynb` / `make phase5` | **built, dry-run passes**; real run on the laptop (G11–G17, G19) |
-| 6 Test evaluation (2024) | `notebooks/06_evaluate.ipynb` / `make phase6` | **built, dry-run passes** on a 2023 stand-in; **2024 not opened** (G18) |
-| 7 Robustness | `notebooks/07_ablations_walkforward.ipynb` / `make phase7` | **built, dry-run passes**: walk-forward, 6 ablations incl. D20, case study, Aviles 2024 |
+| 5 Training | `notebooks/05_train.ipynb` / `make phase5` | **done on the laptop** — G11–G17, G19; tag `settings-frozen` |
+| 6 Test evaluation (2024) | `notebooks/06_evaluate.ipynb` / `make phase6` | **done** — 2024 opened once (G18, 11 Nov 2026); H3, H4 |
+| 7 Robustness | `notebooks/07_ablations_walkforward.ipynb` / `make phase7` | **done** — walk-forward, 6 ablations incl. D20, case study, Aviles 2024 |
+| Chapter IV tables | `make report` | **done** — `reports/chapter4/chapter4.md` (28 tables, figures, run time) |
 
-Phases 1–4 were run on the real data in a cloud container; they are deterministic, so re-running them on the
-laptop must reproduce the committed gates and tables. All final results (Notebooks 05–07) must come from the
-chosen laptop (D16). Tests: `pytest` → 102 passed, 4 skipped (the skips need laptop outputs).
+Every phase was run on the chosen laptop (D16; RTX 4060, WSL2): Phases 1–4 reproduced the cloud results (F33),
+Notebooks 05–07 produced the final results (F34, F35). Tests: `pytest` → 112 passed, 0 skipped.
 
-### Results so far (real data)
+### Results (real data; final)
 
 | Item | Result | Where |
 |---|---|---|
@@ -45,9 +45,15 @@ chosen laptop (D16). Tests: `pytest` → 102 passed, 4 skipped (the skips need l
 | Tide (G9, D7) | P1, K2, Q1 added; residual peaks remain (logged) | `artifacts/tide_*.json` |
 | **H2** (G10) | **supported**: rain (p = 6.1e-48) and pressure (p = 2.2e-6) selected | `configs/selected_features.yaml` |
 | Table III-6 | recomputed (train 16,937 cases at lead 1; val 4,091) | `reports/tables/table_III-6_recomputed.csv` |
-| H3, H4 | not yet — decided in Notebook 06 on the laptop by the rules in `configs/eval.yaml` | — |
+| Training (G11–G16, G19) | predicted tide only, add-back output; GPU, deterministic; **3 seeds** for walk-forward/ablations (projection 11.11 h > 10 h); all models beat persistence; winner on a range edge for 7 settings | `gates/G1[1-9]_*` |
+| Test RMSE, 2024 (m, 1 h / 6 h) | hybrid **0.052 / 0.095**; LSTM 0.053 / 0.096; ridge 0.057 / 0.110; tide + persisted residual 0.062 / 0.144; persistence 0.102 / 0.401 | `reports/chapter4/` Table IV-4 |
+| **H3** (level accuracy) | **partly supported**: significantly better than persistence, tide-only and tide + residual at all 6 leads and KNN at leads 1–2 (20 of 36 pairs); **not significantly different from ridge or the standalone LSTM**; never significantly worse | Tables IV-12, IV-13 |
+| **H4** (alerts vs classifiers) | **partly supported** (5 of 12): beats the KNN classifier at leads 1–5; no significant difference from logistic regression | Table IV-16 |
+| Flood-risk events, 2024 | 11 events (Carina 24 Jul, 12.98 m): hybrid detects ~8 of 11 at 1 h, ~3 at 6 h; every model under-predicts peaks (hybrid −0.18 m at 1 h, −0.35 m at 6 h) | Tables IV-19, IV-27 |
+| Walk-forward 2021, 2022 | hybrid beats persistence, tide-only, tide + residual at every lead; **ridge equal or slightly better** (significantly better at one lead per year) | Tables IV-20, IV-21 |
+| Ablations | removing the tabular path costs 0.4–2.1 cm RMSE; rainfall, Granger vs correlation selection: within seed noise; second LSTM and weighted loss (D20, w = 2) slightly worse | Tables IV-22–IV-25 |
 
-Every data-vs-plan finding is in `reports/transparency_log.md` (F1–F30); every decision and implementation
+Every data-vs-plan finding is in `reports/transparency_log.md` (F1–F35); every decision and implementation
 choice in `docs/decisions.md` (D1–D20, P1–P7).
 
 ## Ground rules (Plan Section 0.3)
@@ -60,15 +66,15 @@ choice in `docs/decisions.md` (D1–D20, P1–P7).
 
 ## Setup (chosen laptop: Ryzen 7 7735HS, 16 GB, RTX 4060 Laptop GPU 8 GB → WSL2 Ubuntu)
 
-Do the one-time setup in **section 0 of `docs/laptop_runbook.md`**: clone into `~/pasig-forecast` inside WSL2
-Ubuntu, a Python 3.13 venv at `~/.venv` (TensorFlow 2.21 does not support 3.14), `tensorflow[and-cuda]`, and one
-CUDA library link. Native Windows Python cannot use the GPU. Then:
+Clone into `~/pasig-forecast` inside WSL2 Ubuntu (native Windows Python cannot use the GPU), then run
+`bash scripts/setup_wsl.sh` (or `make setup`). It does **section 0 of `docs/laptop_runbook.md`**: a Python 3.13
+venv at `~/.venv` (TensorFlow 2.21 does not support 3.14), the exact package versions of the thesis run from
+`requirements.txt`, the one CUDA library link, a GPU check and the fast tests. `bash scripts/setup_wsl.sh --check`
+only verifies an existing setup. Then:
 
 ```bash
 cd ~/pasig-forecast && source ~/.venv/bin/activate
-python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"   # must not be []
 make data-check                   # raw data match the manifest; builds data/interim + data/processed once
-pip freeze > requirements.txt     # commit; never upgrade mid-thesis
 ```
 
 ## Run order
@@ -96,6 +102,7 @@ python scripts/run_phase.py --phase 5 --stage checks       # G16 — REVIEW befo
 python scripts/run_phase.py --phase 5 --stage freeze --tag # G17, tag settings-frozen
 python scripts/run_phase.py --phase 6              # G18: opens 2024 ONCE (--stage unseal|predict|evaluate)
 python scripts/run_phase.py --phase 7              # --stage walkforward|ablations|casestudy|aviles
+make report                                        # Chapter IV tables + figures -> reports/chapter4/
 ```
 
 * Stages are resumable: finished configs/seeds are skipped on a re-run.
@@ -145,16 +152,16 @@ pasig/      config.py gates.py phase1.py … phase7.py      (one orchestrator pe
   selection/ stationarity, granger, correlation (Section 9.2)
   models/   hybrid (Figure III-4, D9, D20 loss), baselines (Table III-4), offsets (D11)
   train/    data, loop (run folders, determinism D15), grid (D12), compute (G13-G15)
-  eval/     metrics, alerts (D19 equal recall), events, dm_test, bootstrap (Section 10.1)
+  eval/     metrics, alerts (D19 equal recall), events, dm_test, bootstrap (Section 10.1), report (Chapter IV)
   local.py  prepare(): raw-data check against the manifest + rebuild of missing local inputs
 notebooks/  01–07 (thin: call pasig, show results, run the phase's tests)
-scripts/    run_phase.py, record_g0.py, smoke/ (from smoke_tests.zip); sync_drive.py and drive/ only if the
+scripts/    run_phase.py, setup_wsl.sh, record_g0.py, smoke/ (from smoke_tests.zip); sync_drive.py and drive/ only if the
             Drive source files ever change (not needed: the raw data are committed)
-tests/      19 files: raw_data, parsers, time_alignment, qc, splits, gapfill, gates, link, windows, leakage, granger,
-            reproducibility, offsets, same_hours, metrics, events, dm, unseal, walkforward
+tests/      21 files: raw_data, parsers, time_alignment, qc, splits, gapfill, gates, link, windows, leakage, granger,
+            reproducibility, offsets, same_hours, metrics, events, dm, unseal, walkforward, compute, report
 data/       raw/ (committed raw files, byte-for-byte), manifest/ (committed); interim/ processed/ (generated, git-ignored)
 runs/       training run folders <stamp>_<tag>_seed<k>/ (git-ignored); runs/rehearsal/ for dry runs
-reports/    tables/ figures/ logs/ compute/ transparency_log.md
+reports/    tables/ figures/ logs/ compute/ chapter4/ (make report) transparency_log.md
 docs/       decisions.md, data_dictionary.md, laptop_runbook.md, session_context.md
 ```
 
@@ -169,13 +176,13 @@ docs/       decisions.md, data_dictionary.md, laptop_runbook.md, session_context
 | 5 | `configs/{compute,model_inputs,thresholds}.yaml`, `configs/frozen_manifest.json`, `reports/compute/<laptop>/`, validation tables, frozen checkpoints |
 | 6 | `gates/TEST_UNSEALED.json`, `reports/tables/test_*` (level metrics, skill, alerts, equal recall, events, DM + Holm, `test_results.json` with H3/H4), `reports/figures/test_*` |
 | 7 | `reports/tables/{walkforward,ablation,case_study,aviles}_*`, `reports/figures/case_event_*.png` |
+| report | `reports/chapter4/`: `chapter4.md` (every Chapter IV table, the verdicts, the figure list, hardware and measured run time for Chapter III), `table_IV-NN_*.csv`, two summary figures |
 
 ## Still to do
 
-* **On the laptop:** smoke test and benchmark, re-run Phases 1–4, Notebook 05 (review G16 before freezing),
-  Notebook 06 once, Notebook 07; commit gates, generated configs and `reports/`.
-* **Code (small, not yet done):** a Chapter IV report assembler (`pasig/eval/report.py`),
-  `scripts/setup_wsl.sh`, a thresholds case in `tests/test_leakage.py`, and a statsmodels HAC cross-check in
-  `tests/test_dm.py`.
-* **Writing:** Plan Section 13 thesis-text edits plus the additions listed in `reports/transparency_log.md`.
-* Delete the old remote branch `feat/affectionate-mccarthy-w2uqzk` on GitHub.
+* **Writing:** Chapter IV from `reports/chapter4/chapter4.md`; the Plan Section 13 thesis-text edits plus the
+  additions listed under "Thesis text to add" in `reports/transparency_log.md`; Plan Section 14 item 5 (tense,
+  working title).
+* **Repository:** merge `feat/pasig-forecast-pipeline` into `main` when the group is ready.
+* `artifacts/frozen/` (the trained models, 11 MB) is not in git; keep the laptop copy and its backup unchanged —
+  `configs/frozen_manifest.json` holds their SHA-256.

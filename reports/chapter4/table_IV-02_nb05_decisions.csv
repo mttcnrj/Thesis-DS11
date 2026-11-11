@@ -1,0 +1,10 @@
+Gate,Question,Decision,Passed
+G11,Tidal input,keep predicted tide only,True
+G12,Output form,keep add-back,True
+G13,Training device,gpu,True
+G14,GPU determinism,gpu reproducible,True
+G15,Seeds for walk-forward and ablations,seeds_wf_ablation: 3 (flag Chapter rows 4 and 26),True
+G16,Persistence sanity,all models beat persistence,True
+G19,Hyperparameter at a range edge,"winner on edge: lstm_layers, lstm_units, gru_units, dense_layers, dense_units, dropout, lr",True
+G17,Settings frozen,tag settings-frozen,True
+G18,Test season opened,test season opened,True

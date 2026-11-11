@@ -1,0 +1,11 @@
+group,runs,hours,mean_epochs
+"Notebook 05 variants (G11, G12)",9,0.38,63.11
+"Hybrid grid, stage 1",24,1.79,46.88
+"Hybrid grid, stage 2",36,4.16,68.97
+Standalone LSTM grid,18,0.93,62.89
+Final hybrid seeds,5,0.46,54.8
+Final LSTM seeds,5,0.4,100.2
+Ablation: weighted loss incl. D20 weight choice,5,0.44,49.0
+Ablations (other five),15,1.64,60.93
+Walk-forward folds,9,0.42,41.11
+Total,126,10.62,60.41
