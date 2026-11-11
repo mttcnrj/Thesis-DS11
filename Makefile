@@ -1,6 +1,12 @@
 PY ?= python
 
-.PHONY: test test-data lint nb01 nb02 nb03 nb04 nb05 phase1 phase2 phase3 phase4 phase5 rehearsal5 phase6 rehearsal6 nb06 phase7 rehearsal7 nb07 data-check recover smoke
+.PHONY: setup report test test-data lint nb01 nb02 nb03 nb04 nb05 phase1 phase2 phase3 phase4 phase5 rehearsal5 phase6 rehearsal6 nb06 phase7 rehearsal7 nb07 data-check recover smoke
+
+setup:           ## one-time laptop setup (WSL2 + GPU TensorFlow, docs/laptop_runbook.md section 0); --check only verifies
+	bash scripts/setup_wsl.sh
+
+report:          ## Chapter IV tables and figures from the Notebook 05-07 outputs -> reports/chapter4/
+	$(PY) -m pasig.eval.report
 
 test:            ## synthetic tests only (< 1 min)
 	$(PY) -m pytest -m fast -q

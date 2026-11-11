@@ -34,3 +34,19 @@ def test_holm_is_monotone_and_not_below_raw():
     p = np.array([0.001, 0.01, 0.02, 0.04, 0.3])
     adj = multipletests(p, method="holm")[1]
     assert np.all(adj >= p) and np.all(np.diff(adj[np.argsort(p)]) >= 0)
+
+
+def test_newey_west_variance_matches_statsmodels_hac():
+    """statsmodels has no DM test, but the DM statistic is the HAC t-statistic of a regression of d on a constant
+    (Bartlett weights, no small-sample correction). Covers both lag rules: the n-based floor and h - 1."""
+    import statsmodels.api as sm
+    rng = np.random.default_rng(3)
+    n = 1500
+    a = np.convolve(rng.normal(size=n), [1.0, 0.6, 0.3], "same")    # autocorrelated errors, like multi-step forecasts
+    b = 0.9 * a + rng.normal(0, 0.5, n)
+    for h in (1, 6, 12):
+        r = diebold_mariano(a, b, h)
+        assert r["nw_lags"] == max(h - 1, int(np.floor(4 * (n / 100) ** (2 / 9))))
+        d = a**2 - b**2
+        hac = sm.OLS(d, np.ones_like(d)).fit(cov_type="HAC", cov_kwds={"maxlags": r["nw_lags"], "use_correction": False})
+        assert np.isclose(r["dm"], hac.tvalues[0], rtol=1e-10, atol=0)

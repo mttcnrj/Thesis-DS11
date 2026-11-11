@@ -1,5 +1,5 @@
 """Required test 2: +5 m on every 2024 value leaves fitted quantities unchanged (tide coefficients, scalers,
-alert levels). Granger results and thresholds are added to this file in Phases 4-5."""
+alert levels, Granger results, thresholds)."""
 import numpy as np
 import pandas as pd
 import pytest
@@ -65,3 +65,30 @@ def test_real_granger_results_unchanged_by_2024_shift():
     r1 = granger_test(*six_hourly_pair(detided_hourly(m, "pandacan"), six), lag)
     r2 = granger_test(*six_hourly_pair(detided_hourly(m2, "pandacan"), six), lag)
     assert r1["p_value"] == r2["p_value"] and r1["lag"] == r2["lag"]
+
+
+@pytest.mark.fast
+def test_thresholds_ignore_test_season():
+    """Trigger offsets (D11) and classifier thresholds are tuned on train/val windows only: +5 m on every 2024 value
+    changes neither. (Phase 3 also drops the test season before any window is built.)"""
+    from sklearn.linear_model import LogisticRegression
+
+    from pasig.config import load
+    from pasig.models.offsets import best_offset, best_threshold
+    from pasig.phase1 import eval_hours
+    master, _, six, tide = synthetic(((2021, "train"), (2022, "train"), (2023, "val"), (2024, "test")))
+    shifted = master.copy()
+    shifted.loc[shifted.split.eq("test"), "pandacan"] += 5.0
+    cfg = load("baselines")["trigger_offsets"]
+    out = []
+    for m in (master, shifted):
+        ev = eval_hours(m, [])
+        tr, va = (W.build_windows(m, ev, six, tide, sp) for sp in ("train", "val"))
+        level = float(np.nanquantile(tr["y"], 0.9))
+        persistence = np.repeat(va["X_seq"][:, -1, :1], 6, axis=1)
+        offset = best_offset([persistence], va["y"], va["valid"], level, cfg)
+        ok_tr, ok_va = tr["valid"][:, 0], va["valid"][:, 0]
+        clf = LogisticRegression(max_iter=1000).fit(tr["X_tab"][ok_tr], tr["y"][ok_tr, 0] >= level)
+        threshold = best_threshold(clf.predict_proba(va["X_tab"][ok_va])[:, 1], va["y"][ok_va, 0] >= level)
+        out.append((level, offset, threshold))
+    assert out[0] == out[1]
