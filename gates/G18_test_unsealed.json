@@ -1,0 +1,23 @@
+{
+  "gate": "G18",
+  "name": "test_unsealed",
+  "passed": true,
+  "decision": "test season opened",
+  "rule": "settings-frozen tag is an ancestor of HEAD; every frozen file matches its SHA-256 in frozen_manifest.json; the test season has not been opened before (TEST_UNSEALED marker), or a re-run reason is logged",
+  "evidence": {
+    "tag_ancestor": true,
+    "tag_commit": "25748a2",
+    "manifest": {
+      "ok": true,
+      "manifest": "configs/frozen_manifest.json",
+      "n_files": 22,
+      "missing": [],
+      "changed": []
+    },
+    "previous_openings": [],
+    "rerun_reason": null
+  },
+  "timestamp": "2026-11-11T15:24:41+08:00",
+  "git_sha": "25748a2",
+  "profile": "full"
+}

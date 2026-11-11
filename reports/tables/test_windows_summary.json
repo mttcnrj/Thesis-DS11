@@ -1,0 +1,15 @@
+{
+ "cases": 3983,
+ "valid_lead1": 3729,
+ "valid_lead2": 3720,
+ "valid_lead3": 3711,
+ "valid_lead4": 3701,
+ "valid_lead5": 3695,
+ "valid_lead6": 3692,
+ "rainy_cases": 1440,
+ "stand_in": "2024 test",
+ "seeds": {
+  "hybrid": 1,
+  "lstm": 0
+ }
+}

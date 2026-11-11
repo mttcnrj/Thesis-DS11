@@ -1,0 +1,44 @@
+{
+ "profile": "full",
+ "stand_in": "2024 test",
+ "git_sha": "25748a2",
+ "test_seeds": {
+  "hybrid": 1,
+  "lstm": 0
+ },
+ "strongest_simple_baseline": "tide_resid",
+ "classifier_input_sets": {
+  "logistic": "logistic_b_window",
+  "knn": "knn_b_window"
+ },
+ "H3": {
+  "verdict": "partly supported",
+  "significant_pairs_all_hours": 20,
+  "pairs": 36,
+  "pairs_hybrid_significantly_worse": 0,
+  "rainy_significant_pairs": 12
+ },
+ "H4": {
+  "verdict": "partly supported",
+  "wins": 5,
+  "pairs": 12,
+  "families": [
+   "knn",
+   "logistic"
+  ],
+  "wins_by_pair": {
+   "logistic_lead1": false,
+   "logistic_lead2": false,
+   "logistic_lead3": false,
+   "logistic_lead4": false,
+   "logistic_lead5": false,
+   "logistic_lead6": false,
+   "knn_lead1": true,
+   "knn_lead2": true,
+   "knn_lead3": true,
+   "knn_lead4": true,
+   "knn_lead5": true,
+   "knn_lead6": false
+  }
+ }
+}
