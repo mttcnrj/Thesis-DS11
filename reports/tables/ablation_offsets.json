@@ -1,0 +1,121 @@
+{
+ "offsets": {
+  "abl_no_granger": {
+   "high_water": {
+    "offset_m": 0.03,
+    "f1_val": 0.7898553593001013,
+    "f1_at_zero": 0.7634489533897098,
+    "edge": false,
+    "level_m": 11.69
+   },
+   "flood_risk": {
+    "offset_m": 0.02,
+    "f1_val": 0.7315746774786661,
+    "f1_at_zero": 0.7094720798384592,
+    "edge": false,
+    "level_m": 12.0
+   }
+  },
+  "abl_correlation_selection": {
+   "high_water": {
+    "offset_m": 0.03,
+    "f1_val": 0.7866326305775792,
+    "f1_at_zero": 0.7693892224361377,
+    "edge": false,
+    "level_m": 11.69
+   },
+   "flood_risk": {
+    "offset_m": 0.02,
+    "f1_val": 0.7604883033667522,
+    "f1_at_zero": 0.7193917417527409,
+    "edge": false,
+    "level_m": 12.0
+   }
+  },
+  "abl_no_rainfall": {
+   "high_water": {
+    "offset_m": 0.02,
+    "f1_val": 0.7962712371924415,
+    "f1_at_zero": 0.7788644693180453,
+    "edge": false,
+    "level_m": 11.69
+   },
+   "flood_risk": {
+    "offset_m": 0.01,
+    "f1_val": 0.7728578107259735,
+    "f1_at_zero": 0.7491598096985781,
+    "edge": false,
+    "level_m": 12.0
+   }
+  },
+  "abl_no_tabular": {
+   "high_water": {
+    "offset_m": 0.02,
+    "f1_val": 0.736848458863124,
+    "f1_at_zero": 0.7324849157884362,
+    "edge": false,
+    "level_m": 11.69
+   },
+   "flood_risk": {
+    "offset_m": 0.07,
+    "f1_val": 0.6774655881935576,
+    "f1_at_zero": 0.5894725976301002,
+    "edge": false,
+    "level_m": 12.0
+   }
+  },
+  "abl_second_lstm": {
+   "high_water": {
+    "offset_m": 0.02,
+    "f1_val": 0.78978265398227,
+    "f1_at_zero": 0.7738905071830886,
+    "edge": false,
+    "level_m": 11.69
+   },
+   "flood_risk": {
+    "offset_m": 0.02,
+    "f1_val": 0.7293457781744261,
+    "f1_at_zero": 0.7085885885885886,
+    "edge": false,
+    "level_m": 12.0
+   }
+  },
+  "abl_weighted_loss": {
+   "high_water": {
+    "offset_m": 0.01,
+    "f1_val": 0.7854762385348311,
+    "f1_at_zero": 0.7765274168816273,
+    "edge": false,
+    "level_m": 11.69
+   },
+   "flood_risk": {
+    "offset_m": 0.02,
+    "f1_val": 0.7435973491529048,
+    "f1_at_zero": 0.7275710507691735,
+    "edge": false,
+    "level_m": 12.0
+   }
+  }
+ },
+ "d20": {
+  "weight": 2,
+  "threshold_scaled": 0.5278809530646805,
+  "search": {
+   "2": {
+    "f1_high_water_val": 0.7954220314735336,
+    "offset_m": 0.02,
+    "val_rmse_mean": 0.06937410866838972
+   },
+   "5": {
+    "f1_high_water_val": 0.7896534895070766,
+    "offset_m": 0.0,
+    "val_rmse_mean": 0.07191622179007844
+   },
+   "10": {
+    "f1_high_water_val": 0.7789473684210526,
+    "offset_m": 0.01,
+    "val_rmse_mean": 0.07717416104321362
+   }
+  }
+ }
+}

@@ -1,0 +1,32 @@
+{
+ "year": 2024,
+ "window": [
+  "2024-06-01",
+  "2024-07-15"
+ ],
+ "hours_with_level": 998,
+ "hours_with_status": 998,
+ "levels": {
+  "high_water": {
+   "level": "high_water",
+   "level_m": 11.69,
+   "data": "check",
+   "hours_at_or_above": 21,
+   "stress_share_at_or_above": 0.047619047619047616,
+   "stress_share_below": 0.0040941658137154556,
+   "gate_open_share_at_or_above": 0.0,
+   "dry_share_at_or_above": 0.6666666666666666
+  },
+  "flood_risk": {
+   "level": "flood_risk",
+   "level_m": 12.0,
+   "data": "check",
+   "hours_at_or_above": 0,
+   "stress_share_at_or_above": null,
+   "stress_share_below": 0.00501002004008016,
+   "gate_open_share_at_or_above": null,
+   "dry_share_at_or_above": null
+  }
+ },
+ "note": "descriptive only (Section 10.2); levels are not changed"
+}

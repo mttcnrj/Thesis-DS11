@@ -1,0 +1,576 @@
+{
+ "folds": {
+  "2021": {
+   "train_years": [
+    2018,
+    2019,
+    2020
+   ],
+   "network_years": [
+    2018,
+    2019
+   ],
+   "inner_validation_year": 2020,
+   "eval_year": 2021,
+   "tide_added": [
+    "P1",
+    "K2",
+    "Q1"
+   ],
+   "tide_g9_passed": false,
+   "tide_floor_m": 10.65,
+   "high_water_m": 11.65,
+   "flood_risk_m": 12.0,
+   "granger_selected": [
+    "sg_rain",
+    "sg_pressure"
+   ],
+   "granger_p": {
+    "sg_rain": 5.957992708516841e-35,
+    "sg_rh": 0.9869480222919548,
+    "sg_pressure": 0.007876407376449112,
+    "sg_tmean": 0.3677482946878784
+   },
+   "cases": {
+    "train": 8055,
+    "val": 3528,
+    "test": 3084
+   },
+   "inputs": {
+    "seq": [
+     "pandacan",
+     "d_pandacan",
+     "sg_rain_6h_latest"
+    ],
+    "tab": [
+     "hour_sin_t0",
+     "hour_cos_t0",
+     "doy_sin_t0",
+     "doy_cos_t0",
+     "hour_sin_t1",
+     "hour_cos_t1",
+     "doy_sin_t1",
+     "doy_cos_t1",
+     "hour_sin_t2",
+     "hour_cos_t2",
+     "doy_sin_t2",
+     "doy_cos_t2",
+     "hour_sin_t3",
+     "hour_cos_t3",
+     "doy_sin_t3",
+     "doy_cos_t3",
+     "hour_sin_t4",
+     "hour_cos_t4",
+     "doy_sin_t4",
+     "doy_cos_t4",
+     "hour_sin_t5",
+     "hour_cos_t5",
+     "doy_sin_t5",
+     "doy_cos_t5",
+     "hour_sin_t6",
+     "hour_cos_t6",
+     "doy_sin_t6",
+     "doy_cos_t6",
+     "tide_t1",
+     "tide_t2",
+     "tide_t3",
+     "tide_t4",
+     "tide_t5",
+     "tide_t6",
+     "tide_change_t1",
+     "tide_change_t2",
+     "tide_change_t3",
+     "tide_change_t4",
+     "tide_change_t5",
+     "tide_change_t6",
+     "sg_rain_24h_in",
+     "sg_rain_72h_in",
+     "sg_hours_since_report",
+     "sg_daily_atm_pressure"
+    ]
+   },
+   "ridge_alpha": 0.01,
+   "hybrid_seed_for_dm": 2,
+   "hybrid_inner_val_rmse": [
+    {
+     "seed": 0,
+     "val_rmse_mean": 0.07373308762907982
+    },
+    {
+     "seed": 1,
+     "val_rmse_mean": 0.07872888694206874
+    },
+    {
+     "seed": 2,
+     "val_rmse_mean": 0.07511743903160095
+    }
+   ]
+  },
+  "2022": {
+   "train_years": [
+    2018,
+    2019,
+    2020,
+    2021
+   ],
+   "network_years": [
+    2018,
+    2019,
+    2020
+   ],
+   "inner_validation_year": 2021,
+   "eval_year": 2022,
+   "tide_added": [
+    "P1",
+    "K2",
+    "Q1"
+   ],
+   "tide_g9_passed": false,
+   "tide_floor_m": 10.65,
+   "high_water_m": 11.67,
+   "flood_risk_m": 12.0,
+   "granger_selected": [
+    "sg_rain",
+    "sg_pressure"
+   ],
+   "granger_p": {
+    "sg_rain": 1.2376407204567705e-32,
+    "sg_rh": 0.915102888184716,
+    "sg_pressure": 0.0013867384118183643,
+    "sg_tmean": 0.3460341731350232
+   },
+   "cases": {
+    "train": 11583,
+    "val": 3084,
+    "test": 3719
+   },
+   "inputs": {
+    "seq": [
+     "pandacan",
+     "d_pandacan",
+     "sg_rain_6h_latest"
+    ],
+    "tab": [
+     "hour_sin_t0",
+     "hour_cos_t0",
+     "doy_sin_t0",
+     "doy_cos_t0",
+     "hour_sin_t1",
+     "hour_cos_t1",
+     "doy_sin_t1",
+     "doy_cos_t1",
+     "hour_sin_t2",
+     "hour_cos_t2",
+     "doy_sin_t2",
+     "doy_cos_t2",
+     "hour_sin_t3",
+     "hour_cos_t3",
+     "doy_sin_t3",
+     "doy_cos_t3",
+     "hour_sin_t4",
+     "hour_cos_t4",
+     "doy_sin_t4",
+     "doy_cos_t4",
+     "hour_sin_t5",
+     "hour_cos_t5",
+     "doy_sin_t5",
+     "doy_cos_t5",
+     "hour_sin_t6",
+     "hour_cos_t6",
+     "doy_sin_t6",
+     "doy_cos_t6",
+     "tide_t1",
+     "tide_t2",
+     "tide_t3",
+     "tide_t4",
+     "tide_t5",
+     "tide_t6",
+     "tide_change_t1",
+     "tide_change_t2",
+     "tide_change_t3",
+     "tide_change_t4",
+     "tide_change_t5",
+     "tide_change_t6",
+     "sg_rain_24h_in",
+     "sg_rain_72h_in",
+     "sg_hours_since_report",
+     "sg_daily_atm_pressure"
+    ]
+   },
+   "ridge_alpha": 10.0,
+   "hybrid_seed_for_dm": 0,
+   "hybrid_inner_val_rmse": [
+    {
+     "seed": 0,
+     "val_rmse_mean": 0.07591618287066619
+    },
+    {
+     "seed": 1,
+     "val_rmse_mean": 0.07610125218828519
+    },
+    {
+     "seed": 2,
+     "val_rmse_mean": 0.07045629185934861
+    }
+   ]
+  },
+  "2023": {
+   "train_years": [
+    2018,
+    2019,
+    2020,
+    2021,
+    2022
+   ],
+   "network_years": [
+    2018,
+    2019,
+    2020,
+    2021
+   ],
+   "inner_validation_year": 2022,
+   "eval_year": 2023,
+   "tide_added": [
+    "P1",
+    "K2",
+    "Q1"
+   ],
+   "tide_g9_passed": false,
+   "tide_floor_m": 10.65,
+   "high_water_m": 11.69,
+   "flood_risk_m": 12.0,
+   "granger_selected": [
+    "sg_rain",
+    "sg_pressure"
+   ],
+   "granger_p": {
+    "sg_rain": 6.127160788846836e-48,
+    "sg_rh": 0.7417403669844418,
+    "sg_pressure": 2.191337159103799e-06,
+    "sg_tmean": 0.2904683584381088
+   },
+   "cases": {
+    "train": 14667,
+    "val": 3719,
+    "test": 4288
+   },
+   "inputs": {
+    "seq": [
+     "pandacan",
+     "d_pandacan",
+     "sg_rain_6h_latest"
+    ],
+    "tab": [
+     "hour_sin_t0",
+     "hour_cos_t0",
+     "doy_sin_t0",
+     "doy_cos_t0",
+     "hour_sin_t1",
+     "hour_cos_t1",
+     "doy_sin_t1",
+     "doy_cos_t1",
+     "hour_sin_t2",
+     "hour_cos_t2",
+     "doy_sin_t2",
+     "doy_cos_t2",
+     "hour_sin_t3",
+     "hour_cos_t3",
+     "doy_sin_t3",
+     "doy_cos_t3",
+     "hour_sin_t4",
+     "hour_cos_t4",
+     "doy_sin_t4",
+     "doy_cos_t4",
+     "hour_sin_t5",
+     "hour_cos_t5",
+     "doy_sin_t5",
+     "doy_cos_t5",
+     "hour_sin_t6",
+     "hour_cos_t6",
+     "doy_sin_t6",
+     "doy_cos_t6",
+     "tide_t1",
+     "tide_t2",
+     "tide_t3",
+     "tide_t4",
+     "tide_t5",
+     "tide_t6",
+     "tide_change_t1",
+     "tide_change_t2",
+     "tide_change_t3",
+     "tide_change_t4",
+     "tide_change_t5",
+     "tide_change_t6",
+     "sg_rain_24h_in",
+     "sg_rain_72h_in",
+     "sg_hours_since_report",
+     "sg_daily_atm_pressure"
+    ]
+   },
+   "ridge_alpha": 0.01,
+   "hybrid_seed_for_dm": 1,
+   "hybrid_inner_val_rmse": [
+    {
+     "seed": 0,
+     "val_rmse_mean": 0.0676178727298975
+    },
+    {
+     "seed": 1,
+     "val_rmse_mean": 0.06894116786619027
+    },
+    {
+     "seed": 2,
+     "val_rmse_mean": 0.07398366493483384
+    }
+   ]
+  }
+ },
+ "offsets": {
+  "2021": {
+   "hybrid": {
+    "high_water": {
+     "offset_m": 0.02,
+     "f1_val": 0.8267655049442956,
+     "f1_at_zero": 0.8110952392894154,
+     "edge": false,
+     "level_m": 11.65
+    },
+    "flood_risk": {
+     "offset_m": 0.07,
+     "f1_val": 0.7333578221479371,
+     "f1_at_zero": 0.6534238888120166,
+     "edge": false,
+     "level_m": 12.0
+    }
+   },
+   "persistence": {
+    "high_water": {
+     "offset_m": 0.01,
+     "f1_val": 0.4447278911564626,
+     "f1_at_zero": 0.43486323597589244,
+     "edge": false,
+     "level_m": 11.65
+    },
+    "flood_risk": {
+     "offset_m": -0.16,
+     "f1_val": 0.6368159203980099,
+     "f1_at_zero": 0.5572519083969466,
+     "edge": false,
+     "level_m": 12.0
+    }
+   },
+   "tide_only": {
+    "high_water": {
+     "offset_m": 0.29,
+     "f1_val": 0.3083609271523179,
+     "f1_at_zero": 0.16161616161616163,
+     "edge": false,
+     "level_m": 11.65
+    },
+    "flood_risk": {
+     "offset_m": 0.0,
+     "f1_val": 0.0,
+     "f1_at_zero": 0.0,
+     "edge": false,
+     "level_m": 12.0
+    }
+   },
+   "tide_resid": {
+    "high_water": {
+     "offset_m": -0.01,
+     "f1_val": 0.820157189089228,
+     "f1_at_zero": 0.8166368515205724,
+     "edge": false,
+     "level_m": 11.65
+    },
+    "flood_risk": {
+     "offset_m": 0.0,
+     "f1_val": 0.7862595419847328,
+     "f1_at_zero": 0.7862595419847328,
+     "edge": false,
+     "level_m": 12.0
+    }
+   },
+   "ridge": {
+    "high_water": {
+     "offset_m": 0.01,
+     "f1_val": 0.8355233348436792,
+     "f1_at_zero": 0.833489242282507,
+     "edge": false,
+     "level_m": 11.65
+    },
+    "flood_risk": {
+     "offset_m": 0.0,
+     "f1_val": 0.6293103448275862,
+     "f1_at_zero": 0.6293103448275862,
+     "edge": false,
+     "level_m": 12.0
+    }
+   }
+  },
+  "2022": {
+   "hybrid": {
+    "high_water": {
+     "offset_m": 0.03,
+     "f1_val": 0.8200026601978467,
+     "f1_at_zero": 0.7888445264160708,
+     "edge": false,
+     "level_m": 11.67
+    },
+    "flood_risk": {
+     "offset_m": 0.01,
+     "f1_val": 0.8479403813988048,
+     "f1_at_zero": 0.8395891690009337,
+     "edge": false,
+     "level_m": 12.0
+    }
+   },
+   "persistence": {
+    "high_water": {
+     "offset_m": 0.06,
+     "f1_val": 0.36752136752136755,
+     "f1_at_zero": 0.34095427435387676,
+     "edge": false,
+     "level_m": 11.67
+    },
+    "flood_risk": {
+     "offset_m": 0.08,
+     "f1_val": 0.43137254901960786,
+     "f1_at_zero": 0.3917525773195876,
+     "edge": false,
+     "level_m": 12.0
+    }
+   },
+   "tide_only": {
+    "high_water": {
+     "offset_m": 0.09,
+     "f1_val": 0.6684100418410042,
+     "f1_at_zero": 0.44714828897338404,
+     "edge": false,
+     "level_m": 11.67
+    },
+    "flood_risk": {
+     "offset_m": 0.23,
+     "f1_val": 0.48,
+     "f1_at_zero": 0.0,
+     "edge": false,
+     "level_m": 12.0
+    }
+   },
+   "tide_resid": {
+    "high_water": {
+     "offset_m": 0.04,
+     "f1_val": 0.8009756097560976,
+     "f1_at_zero": 0.7772194304857621,
+     "edge": false,
+     "level_m": 11.67
+    },
+    "flood_risk": {
+     "offset_m": -0.02,
+     "f1_val": 0.8288288288288288,
+     "f1_at_zero": 0.8,
+     "edge": false,
+     "level_m": 12.0
+    }
+   },
+   "ridge": {
+    "high_water": {
+     "offset_m": 0.04,
+     "f1_val": 0.823045267489712,
+     "f1_at_zero": 0.7733961153619776,
+     "edge": false,
+     "level_m": 11.67
+    },
+    "flood_risk": {
+     "offset_m": 0.02,
+     "f1_val": 0.8846153846153846,
+     "f1_at_zero": 0.8823529411764706,
+     "edge": false,
+     "level_m": 12.0
+    }
+   }
+  },
+  "2023": {
+   "hybrid": {
+    "high_water": {
+     "offset_m": 0.01,
+     "f1_val": 0.8476168246894846,
+     "f1_at_zero": 0.8439088555866192,
+     "edge": false,
+     "level_m": 11.69
+    },
+    "flood_risk": {
+     "offset_m": 0.01,
+     "f1_val": 0.7509295009295011,
+     "f1_at_zero": 0.7418591681948401,
+     "edge": false,
+     "level_m": 12.0
+    }
+   },
+   "persistence": {
+    "high_water": {
+     "offset_m": 0.02,
+     "f1_val": 0.3114534494306765,
+     "f1_at_zero": 0.2949343339587242,
+     "edge": false,
+     "level_m": 11.69
+    },
+    "flood_risk": {
+     "offset_m": -0.04,
+     "f1_val": 0.5576923076923077,
+     "f1_at_zero": 0.5043478260869565,
+     "edge": false,
+     "level_m": 12.0
+    }
+   },
+   "tide_only": {
+    "high_water": {
+     "offset_m": 0.12,
+     "f1_val": 0.7567195037904894,
+     "f1_at_zero": 0.5054704595185996,
+     "edge": false,
+     "level_m": 11.69
+    },
+    "flood_risk": {
+     "offset_m": 0.19,
+     "f1_val": 0.11320754716981132,
+     "f1_at_zero": 0.0,
+     "edge": false,
+     "level_m": 12.0
+    }
+   },
+   "tide_resid": {
+    "high_water": {
+     "offset_m": 0.01,
+     "f1_val": 0.8226047904191617,
+     "f1_at_zero": 0.8093023255813954,
+     "edge": false,
+     "level_m": 11.69
+    },
+    "flood_risk": {
+     "offset_m": -0.02,
+     "f1_val": 0.8376068376068376,
+     "f1_at_zero": 0.8062015503875969,
+     "edge": false,
+     "level_m": 12.0
+    }
+   },
+   "ridge": {
+    "high_water": {
+     "offset_m": 0.02,
+     "f1_val": 0.8695652173913043,
+     "f1_at_zero": 0.8373983739837398,
+     "edge": false,
+     "level_m": 11.69
+    },
+    "flood_risk": {
+     "offset_m": 0.0,
+     "f1_val": 0.7226890756302521,
+     "f1_at_zero": 0.7226890756302521,
+     "edge": false,
+     "level_m": 12.0
+    }
+   }
+  }
+ }
+}

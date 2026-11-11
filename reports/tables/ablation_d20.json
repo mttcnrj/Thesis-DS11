@@ -1,0 +1,121 @@
+{
+ "weight": 2,
+ "search": {
+  "2": {
+   "f1_high_water_val": 0.7954220314735336,
+   "offset_m": 0.02,
+   "val_rmse_mean": 0.06937410866838972
+  },
+  "5": {
+   "f1_high_water_val": 0.7896534895070766,
+   "offset_m": 0.0,
+   "val_rmse_mean": 0.07191622179007844
+  },
+  "10": {
+   "f1_high_water_val": 0.7789473684210526,
+   "offset_m": 0.01,
+   "val_rmse_mean": 0.07717416104321362
+  }
+ },
+ "abl_weighted_loss": {
+  "1": {
+   "rmse": 0.0531971901274113,
+   "rmse_high_water_hours": 0.08016402422266317,
+   "mean_error_at_flood_risk_peaks": -0.15723642960101228,
+   "n_peaks": 11,
+   "recall_high_water": 0.9209183673469387,
+   "recall_flood_risk": 0.753968253968254
+  },
+  "2": {
+   "rmse": 0.06652435452641335,
+   "rmse_high_water_hours": 0.12159747475861597,
+   "mean_error_at_flood_risk_peaks": -0.2609126994520843,
+   "n_peaks": 11,
+   "recall_high_water": 0.9036658141517476,
+   "recall_flood_risk": 0.6587301587301587
+  },
+  "3": {
+   "rmse": 0.0739247119254155,
+   "rmse_high_water_hours": 0.14217063076196726,
+   "mean_error_at_flood_risk_peaks": -0.28396313916072236,
+   "n_peaks": 11,
+   "recall_high_water": 0.8704177323103154,
+   "recall_flood_risk": 0.5476190476190476
+  },
+  "4": {
+   "rmse": 0.08029618731979003,
+   "rmse_high_water_hours": 0.15557288708980205,
+   "mean_error_at_flood_risk_peaks": -0.30026163279961277,
+   "n_peaks": 11,
+   "recall_high_water": 0.8780903665814151,
+   "recall_flood_risk": 0.5
+  },
+  "5": {
+   "rmse": 0.0883139014759837,
+   "rmse_high_water_hours": 0.17072316401976317,
+   "mean_error_at_flood_risk_peaks": -0.350304199688067,
+   "n_peaks": 11,
+   "recall_high_water": 0.8729752770673486,
+   "recall_flood_risk": 0.43650793650793646
+  },
+  "6": {
+   "rmse": 0.09604314283396376,
+   "rmse_high_water_hours": 0.18605090586658715,
+   "mean_error_at_flood_risk_peaks": -0.34656543988302246,
+   "n_peaks": 11,
+   "recall_high_water": 0.8465473145780051,
+   "recall_flood_risk": 0.3968253968253968
+  }
+ },
+ "hybrid_same_seeds": {
+  "1": {
+   "rmse": 0.05103272889441308,
+   "rmse_high_water_hours": 0.08117198470779935,
+   "mean_error_at_flood_risk_peaks": -0.1581578249866828,
+   "n_peaks": 11,
+   "recall_high_water": 0.9370748299319729,
+   "recall_flood_risk": 0.746031746031746
+  },
+  "2": {
+   "rmse": 0.06410747628389361,
+   "rmse_high_water_hours": 0.12245028551927206,
+   "mean_error_at_flood_risk_peaks": -0.26392427020539083,
+   "n_peaks": 11,
+   "recall_high_water": 0.9113384484228474,
+   "recall_flood_risk": 0.6428571428571428
+  },
+  "3": {
+   "rmse": 0.0718287547614698,
+   "rmse_high_water_hours": 0.14284367224168765,
+   "mean_error_at_flood_risk_peaks": -0.2880880231949318,
+   "n_peaks": 11,
+   "recall_high_water": 0.8849104859335037,
+   "recall_flood_risk": 0.5238095238095238
+  },
+  "4": {
+   "rmse": 0.07947808825054117,
+   "rmse_high_water_hours": 0.16011110635844994,
+   "mean_error_at_flood_risk_peaks": -0.3143319256640883,
+   "n_peaks": 11,
+   "recall_high_water": 0.8951406649616368,
+   "recall_flood_risk": 0.49206349206349204
+  },
+  "5": {
+   "rmse": 0.0859104600450176,
+   "rmse_high_water_hours": 0.17586050235907497,
+   "mean_error_at_flood_risk_peaks": -0.3666757484528489,
+   "n_peaks": 11,
+   "recall_high_water": 0.876385336743393,
+   "recall_flood_risk": 0.42857142857142855
+  },
+  "6": {
+   "rmse": 0.09342604711864654,
+   "rmse_high_water_hours": 0.19104665110166666,
+   "mean_error_at_flood_risk_peaks": -0.3523898030369837,
+   "n_peaks": 11,
+   "recall_high_water": 0.8397271952259165,
+   "recall_flood_risk": 0.35714285714285715
+  }
+ },
+ "flood_risk_events": 11
+}
