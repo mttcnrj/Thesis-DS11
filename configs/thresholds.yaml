@@ -1,0 +1,496 @@
+# GENERATED in NB05 (D11 trigger offsets, classifier thresholds). Frozen by G17.
+trigger_offsets:
+  hybrid:
+    high_water:
+      offset_m: 0.02
+      f1_val: 0.7857391007816259
+      f1_at_zero: 0.772356394147179
+      edge: false
+      level_m: 11.69
+    flood_risk:
+      offset_m: 0.02
+      f1_val: 0.7489106220378344
+      f1_at_zero: 0.7199815119011914
+      edge: false
+      level_m: 12.0
+  knn:
+    high_water:
+      offset_m: 0.1
+      f1_val: 0.6845211075805719
+      f1_at_zero: 0.49359886201991465
+      edge: false
+      level_m: 11.69
+    flood_risk:
+      offset_m: 0.22
+      f1_val: 0.6463414634146342
+      f1_at_zero: 0.0
+      edge: false
+      level_m: 12.0
+  lstm:
+    high_water:
+      offset_m: 0.02
+      f1_val: 0.7967621648850569
+      f1_at_zero: 0.777838016881516
+      edge: false
+      level_m: 11.69
+    flood_risk:
+      offset_m: 0.03
+      f1_val: 0.7496040637348557
+      f1_at_zero: 0.7225863221917457
+      edge: false
+      level_m: 12.0
+  persistence:
+    high_water:
+      offset_m: 0.01
+      f1_val: 0.3065134099616858
+      f1_at_zero: 0.3044806517311609
+      edge: false
+      level_m: 11.69
+    flood_risk:
+      offset_m: 0.06
+      f1_val: 0.2857142857142857
+      f1_at_zero: 0.20512820512820512
+      edge: false
+      level_m: 12.0
+  ridge:
+    high_water:
+      offset_m: 0.02
+      f1_val: 0.8055693684733963
+      f1_at_zero: 0.7770632368703109
+      edge: false
+      level_m: 11.69
+    flood_risk:
+      offset_m: 0.05
+      f1_val: 0.7195121951219512
+      f1_at_zero: 0.6417910447761194
+      edge: false
+      level_m: 12.0
+  tide_only:
+    high_water:
+      offset_m: 0.04
+      f1_val: 0.5846994535519126
+      f1_at_zero: 0.5298013245033113
+      edge: false
+      level_m: 11.69
+    flood_risk:
+      offset_m: 0.18
+      f1_val: 0.5217391304347826
+      f1_at_zero: 0.0
+      edge: false
+      level_m: 12.0
+  tide_resid:
+    high_water:
+      offset_m: 0.01
+      f1_val: 0.7434052757793765
+      f1_at_zero: 0.7421131697546319
+      edge: false
+      level_m: 11.69
+    flood_risk:
+      offset_m: 0.0
+      f1_val: 0.6779661016949152
+      f1_at_zero: 0.6779661016949152
+      edge: false
+      level_m: 12.0
+classifiers:
+  logistic_a_current_hour:
+    high_water:
+      '1':
+        threshold: 0.43820708990097046
+        f1_val: 0.867605633802817
+        params:
+          C: 100.0
+          class_weight: null
+          k: null
+          weights: null
+      '2':
+        threshold: 0.4985964596271515
+        f1_val: 0.8037383177570094
+        params:
+          C: 10.0
+          class_weight: null
+          k: null
+          weights: null
+      '3':
+        threshold: 0.4701747000217438
+        f1_val: 0.7659574468085106
+        params:
+          C: 10.0
+          class_weight: null
+          k: null
+          weights: null
+      '4':
+        threshold: 0.3882424235343933
+        f1_val: 0.7492957746478873
+        params:
+          C: 10.0
+          class_weight: null
+          k: null
+          weights: null
+      '5':
+        threshold: 0.37488657236099243
+        f1_val: 0.7383720930232558
+        params:
+          C: 10.0
+          class_weight: null
+          k: null
+          weights: null
+      '6':
+        threshold: 0.3137749135494232
+        f1_val: 0.7292817679558011
+        params:
+          C: 10.0
+          class_weight: null
+          k: null
+          weights: null
+    flood_risk:
+      '1':
+        threshold: 0.9741976857185364
+        f1_val: 0.8333333333333333
+        params:
+          C: 10.0
+          class_weight: balanced
+          k: null
+          weights: null
+      '2':
+        threshold: 0.20170679688453674
+        f1_val: 0.6451612903225806
+        params:
+          C: 100.0
+          class_weight: null
+          k: null
+          weights: null
+      '3':
+        threshold: 0.266269326210022
+        f1_val: 0.5833333333333334
+        params:
+          C: 100.0
+          class_weight: null
+          k: null
+          weights: null
+      '4':
+        threshold: 0.15202179551124573
+        f1_val: 0.5806451612903226
+        params:
+          C: 100.0
+          class_weight: null
+          k: null
+          weights: null
+      '5':
+        threshold: 0.2906044125556946
+        f1_val: 0.4761904761904762
+        params:
+          C: 100.0
+          class_weight: null
+          k: null
+          weights: null
+      '6':
+        threshold: 0.17409829795360565
+        f1_val: 0.4545454545454546
+        params:
+          C: 10.0
+          class_weight: null
+          k: null
+          weights: null
+  logistic_b_window:
+    high_water:
+      '1':
+        threshold: 0.3952367603778839
+        f1_val: 0.8843930635838151
+        params:
+          C: 10.0
+          class_weight: null
+          k: null
+          weights: null
+      '2':
+        threshold: 0.5047558546066284
+        f1_val: 0.84375
+        params:
+          C: 10.0
+          class_weight: null
+          k: null
+          weights: null
+      '3':
+        threshold: 0.4511840045452118
+        f1_val: 0.793939393939394
+        params:
+          C: 100.0
+          class_weight: null
+          k: null
+          weights: null
+      '4':
+        threshold: 0.43108415603637695
+        f1_val: 0.7999999999999999
+        params:
+          C: 100.0
+          class_weight: null
+          k: null
+          weights: null
+      '5':
+        threshold: 0.37384355068206787
+        f1_val: 0.7833827893175075
+        params:
+          C: 100.0
+          class_weight: null
+          k: null
+          weights: null
+      '6':
+        threshold: 0.39383023977279663
+        f1_val: 0.7630769230769231
+        params:
+          C: 10.0
+          class_weight: null
+          k: null
+          weights: null
+    flood_risk:
+      '1':
+        threshold: 0.15933655202388763
+        f1_val: 0.8275862068965517
+        params:
+          C: 100.0
+          class_weight: null
+          k: null
+          weights: null
+      '2':
+        threshold: 0.09284244477748871
+        f1_val: 0.7647058823529412
+        params:
+          C: 10.0
+          class_weight: null
+          k: null
+          weights: null
+      '3':
+        threshold: 0.08319374173879623
+        f1_val: 0.7222222222222222
+        params:
+          C: 10.0
+          class_weight: null
+          k: null
+          weights: null
+      '4':
+        threshold: 0.06742545962333679
+        f1_val: 0.5499999999999999
+        params:
+          C: 10.0
+          class_weight: null
+          k: null
+          weights: null
+      '5':
+        threshold: 0.188626229763031
+        f1_val: 0.5714285714285714
+        params:
+          C: 10.0
+          class_weight: null
+          k: null
+          weights: null
+      '6':
+        threshold: 0.2201029360294342
+        f1_val: 0.6
+        params:
+          C: 10.0
+          class_weight: null
+          k: null
+          weights: null
+  knn_a_current_hour:
+    high_water:
+      '1':
+        threshold: 0.292113284566485
+        f1_val: 0.5185185185185184
+        params:
+          C: null
+          class_weight: null
+          k: 11.0
+          weights: distance
+      '2':
+        threshold: 0.36524397903506695
+        f1_val: 0.5286624203821656
+        params:
+          C: null
+          class_weight: null
+          k: 5.0
+          weights: distance
+      '3':
+        threshold: 0.2765357338273823
+        f1_val: 0.5300546448087431
+        params:
+          C: null
+          class_weight: null
+          k: 21.0
+          weights: distance
+      '4':
+        threshold: 0.2924686026492
+        f1_val: 0.5348189415041784
+        params:
+          C: null
+          class_weight: null
+          k: 21.0
+          weights: distance
+      '5':
+        threshold: 0.33681433655889226
+        f1_val: 0.5316455696202531
+        params:
+          C: null
+          class_weight: null
+          k: 21.0
+          weights: distance
+      '6':
+        threshold: 0.3882335937907704
+        f1_val: 0.5270758122743682
+        params:
+          C: null
+          class_weight: null
+          k: 5.0
+          weights: distance
+    flood_risk:
+      '1':
+        threshold: 0.03387877661684892
+        f1_val: 0.41860465116279066
+        params:
+          C: null
+          class_weight: null
+          k: 161.0
+          weights: distance
+      '2':
+        threshold: 0.062111801242236024
+        f1_val: 0.4444444444444444
+        params:
+          C: null
+          class_weight: null
+          k: 161.0
+          weights: uniform
+      '3':
+        threshold: 0.044361807122840526
+        f1_val: 0.3870967741935484
+        params:
+          C: null
+          class_weight: null
+          k: 161.0
+          weights: distance
+      '4':
+        threshold: 0.049689440993788817
+        f1_val: 0.46153846153846156
+        params:
+          C: null
+          class_weight: null
+          k: 161.0
+          weights: uniform
+      '5':
+        threshold: 0.049689440993788817
+        f1_val: 0.42857142857142855
+        params:
+          C: null
+          class_weight: null
+          k: 161.0
+          weights: uniform
+      '6':
+        threshold: 0.049689440993788817
+        f1_val: 0.38461538461538464
+        params:
+          C: null
+          class_weight: null
+          k: 161.0
+          weights: uniform
+  knn_b_window:
+    high_water:
+      '1':
+        threshold: 0.2660152013393695
+        f1_val: 0.6388059701492538
+        params:
+          C: null
+          class_weight: null
+          k: 11.0
+          weights: distance
+      '2':
+        threshold: 0.34402418434876747
+        f1_val: 0.6394557823129252
+        params:
+          C: null
+          class_weight: null
+          k: 11.0
+          weights: distance
+      '3':
+        threshold: 0.19777552474844312
+        f1_val: 0.6483516483516484
+        params:
+          C: null
+          class_weight: null
+          k: 21.0
+          weights: distance
+      '4':
+        threshold: 0.22258206140800446
+        f1_val: 0.653631284916201
+        params:
+          C: null
+          class_weight: null
+          k: 21.0
+          weights: distance
+      '5':
+        threshold: 0.2421851143754936
+        f1_val: 0.672514619883041
+        params:
+          C: null
+          class_weight: null
+          k: 21.0
+          weights: distance
+      '6':
+        threshold: 0.24283816315834894
+        f1_val: 0.6547619047619049
+        params:
+          C: null
+          class_weight: null
+          k: 21.0
+          weights: distance
+    flood_risk:
+      '1':
+        threshold: 0.19594420206792298
+        f1_val: 0.6875
+        params:
+          C: null
+          class_weight: null
+          k: 5.0
+          weights: distance
+      '2':
+        threshold: 0.09296997792754898
+        f1_val: 0.6875
+        params:
+          C: null
+          class_weight: null
+          k: 11.0
+          weights: distance
+      '3':
+        threshold: 0.18181818181818182
+        f1_val: 0.7000000000000001
+        params:
+          C: null
+          class_weight: null
+          k: 11.0
+          weights: uniform
+      '4':
+        threshold: 0.18622301609888336
+        f1_val: 0.6
+        params:
+          C: null
+          class_weight: null
+          k: 11.0
+          weights: distance
+      '5':
+        threshold: 0.1696866837508356
+        f1_val: 0.5454545454545455
+        params:
+          C: null
+          class_weight: null
+          k: 11.0
+          weights: distance
+      '6':
+        threshold: 0.09950105869820987
+        f1_val: 0.4000000000000001
+        params:
+          C: null
+          class_weight: null
+          k: 11.0
+          weights: distance
+levels:
+  high_water: 11.69
+  flood_risk: 12.0
+rule: F1 over all (hour, lead) pairs with a valid target on 2023; ties -> offset closest
+  to 0
+git_sha: 1dc9561

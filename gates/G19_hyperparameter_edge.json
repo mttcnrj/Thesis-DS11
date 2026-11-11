@@ -1,0 +1,44 @@
+{
+  "gate": "G19",
+  "name": "hyperparameter_edge",
+  "passed": true,
+  "decision": "winner on edge: lstm_layers, lstm_units, gru_units, dense_layers, dense_units, dropout, lr",
+  "rule": "Record whether the winner sits on a range boundary (D14 ranges; never widened after seeing results)",
+  "evidence": {
+    "winner": {
+      "lstm_layers": 2,
+      "lstm_units": 64,
+      "gru_units": 64,
+      "dense_layers": 1,
+      "dense_units": 16,
+      "head_units": 32,
+      "dropout": 0.2,
+      "lr": 0.001,
+      "batch": 64
+    },
+    "on_edge": {
+      "lstm_layers": true,
+      "lstm_units": true,
+      "gru_units": true,
+      "dense_layers": true,
+      "dense_units": true,
+      "dropout": true,
+      "lr": true,
+      "batch": false
+    },
+    "stage1_winner": {
+      "lstm_layers": 2,
+      "lstm_units": 64,
+      "gru_units": 64,
+      "dense_layers": 1,
+      "dense_units": 16,
+      "head_units": 32,
+      "dropout": 0.2,
+      "lr": 0.001,
+      "batch": 64
+    }
+  },
+  "timestamp": "2026-11-11T03:28:35+08:00",
+  "git_sha": "1dc9561",
+  "profile": "full"
+}

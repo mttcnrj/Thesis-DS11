@@ -1,0 +1,27 @@
+{
+  "gate": "G17",
+  "name": "settings_frozen",
+  "passed": true,
+  "decision": "tag settings-frozen",
+  "rule": "alert_levels, selected_features, model_inputs, thresholds, compute, scalers, tide coefficients and final checkpoints exist; their SHA-256 written to configs/frozen_manifest.json; tag settings-frozen",
+  "evidence": {
+    "n_files": 22,
+    "missing": [],
+    "checkpoints": [
+      "hybrid_seed0.keras",
+      "hybrid_seed1.keras",
+      "hybrid_seed2.keras",
+      "hybrid_seed3.keras",
+      "hybrid_seed4.keras",
+      "lstm_seed0.keras",
+      "lstm_seed1.keras",
+      "lstm_seed2.keras",
+      "lstm_seed3.keras",
+      "lstm_seed4.keras"
+    ],
+    "manifest": "configs/frozen_manifest.json"
+  },
+  "timestamp": "2026-11-11T15:21:24+08:00",
+  "git_sha": "1dc9561",
+  "profile": "full"
+}

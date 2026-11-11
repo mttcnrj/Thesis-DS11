@@ -1,0 +1,25 @@
+{
+  "gate": "G12",
+  "name": "output_form",
+  "passed": true,
+  "decision": "keep add-back",
+  "rule": "switch only if mean RMSE of the alternative < mean RMSE of the default - 1 SD (ddof=1) of the default's seeds (add-back default vs direct level)",
+  "evidence": {
+    "default_mean": 0.06880330861042948,
+    "default_sd": 0.003070907707270866,
+    "alt_mean": 0.07322025467391897,
+    "default_runs": [
+      0.072347,
+      0.067135,
+      0.066928
+    ],
+    "alt_runs": [
+      0.082589,
+      0.067263,
+      0.069809
+    ]
+  },
+  "timestamp": "2026-11-10T21:31:02+08:00",
+  "git_sha": "1dc9561",
+  "profile": "full"
+}
